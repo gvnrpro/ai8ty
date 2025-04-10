@@ -3,98 +3,242 @@ import React, { useState, useEffect, useRef } from 'react';
 import { cn } from '@/lib/utils';
 import { useInView } from 'react-intersection-observer';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronLeft, ChevronRight, Linkedin } from 'lucide-react';
+import { Linkedin, Instagram } from 'lucide-react';
 import { TeamMember, teamMembers } from '@/data/cmsData';
-import { useIsMobile } from '@/hooks/use-mobile';
+import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 
-const TeamMemberCard: React.FC<{
-  member: TeamMember;
-  isActive: boolean;
-}> = ({
-  member,
-  isActive
-}) => {
+const TeamMemberProfile: React.FC = () => {
   const [hovered, setHovered] = useState(false);
+  const member = teamMembers[0]; // We only have one member now
+  
+  // Shimmer effect ref
+  const shimmerRef = useRef<HTMLDivElement>(null);
+  
+  // Handle mouse move for interactive effects
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!shimmerRef.current) return;
+    
+    const rect = shimmerRef.current.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    
+    shimmerRef.current.style.setProperty('--mouse-x', `${x}px`);
+    shimmerRef.current.style.setProperty('--mouse-y', `${y}px`);
+  };
   
   return (
     <motion.div 
-      className={cn(
-        "flex flex-col items-center p-4 transition-all duration-500",
-        isActive ? "opacity-100 scale-100" : "opacity-60 scale-95"
-      )}
-      whileHover={{
-        scale: isActive ? 1.05 : 0.97,
-        y: -5,
-        transition: { duration: 0.3 }
-      }}
-      onHoverStart={() => setHovered(true)}
-      onHoverEnd={() => setHovered(false)}
+      className="relative w-full max-w-4xl mx-auto"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.7 }}
+      onMouseMove={handleMouseMove}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
     >
-      <div className="relative w-40 h-40 md:w-48 md:h-48 mb-4 rounded-xl overflow-hidden group">
-        <motion.div
-          initial={{ scale: 1 }}
-          animate={{ scale: hovered ? 1.08 : 1 }}
-          transition={{ duration: 0.7, ease: "easeOut" }}
-          className="w-full h-full"
-        >
-          <img src={member.avatar} alt={member.name} className="w-full h-full object-cover" />
-        </motion.div>
+      <div 
+        ref={shimmerRef}
+        className="relative glow-card bg-ai8ty-black/40 backdrop-blur-md overflow-hidden rounded-xl p-8 border border-ai8ty-violet/30"
+      >
+        {/* Interactive Background */}
+        <div className="absolute inset-0 neural-grid-bg opacity-20"></div>
         
-        {/* Avatar Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-ai8ty-black to-transparent opacity-60" />
-        
-        {/* AI Shimmer Effect */}
+        {/* Radial gradient that follows cursor */}
         <motion.div 
-          className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-0"
-          initial={{ opacity: 0, x: -100 }}
-          animate={hovered ? { opacity: 0.15, x: 200 } : { opacity: 0, x: -100 }}
-          transition={{ duration: 1.2, ease: "easeInOut", repeat: Infinity, repeatDelay: 0.5 }}
+          className="absolute inset-0 bg-gradient-radial from-ai8ty-violet/20 to-transparent opacity-0 pointer-events-none"
+          style={{ 
+            background: 'radial-gradient(circle 300px at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(140, 82, 255, 0.15), transparent)',
+            opacity: hovered ? 1 : 0
+          }}
+          animate={{ opacity: hovered ? 1 : 0 }}
+          transition={{ duration: 0.3 }}
         />
         
-        {member.linkedIn && (
-          <motion.a 
-            href={member.linkedIn} 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="absolute bottom-2 right-2 w-8 h-8 rounded-full bg-ai8ty-black/50 flex items-center justify-center text-white hover:bg-ai8ty-violet transition-colors"
-            whileHover={{ scale: 1.2, backgroundColor: "#8C52FF" }}
-            transition={{ type: "spring", stiffness: 400, damping: 10 }}
-          >
-            <Linkedin size={16} />
-          </motion.a>
-        )}
+        {/* Main content wrapper */}
+        <div className="flex flex-col md:flex-row items-center gap-8 md:gap-16 relative z-10">
+          {/* Profile Image with Effects */}
+          <div className="relative">
+            <motion.div
+              className="relative w-64 h-64 sm:w-80 sm:h-80 overflow-hidden rounded-xl"
+              initial={{ borderRadius: 16 }}
+              whileHover={{ scale: 1.02, borderRadius: 14 }}
+              transition={{ duration: 0.4, ease: "easeOut" }}
+            >
+              {/* Image */}
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-b from-ai8ty-black/0 to-ai8ty-black/80"
+                animate={{ opacity: hovered ? 0.7 : 0.4 }}
+                transition={{ duration: 0.5 }}
+              />
+              
+              <img 
+                src={member.avatar} 
+                alt={member.name} 
+                className="w-full h-full object-cover" 
+              />
+              
+              {/* AI Shimmer Effect */}
+              <motion.div 
+                className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-0"
+                initial={{ opacity: 0, x: -100 }}
+                animate={hovered ? { 
+                  opacity: 0.15, 
+                  x: 300, 
+                  transition: { 
+                    duration: 1.2, 
+                    ease: "easeInOut", 
+                    repeat: 2, 
+                    repeatDelay: 0.5 
+                  } 
+                } : { opacity: 0, x: -100 }}
+              />
+              
+              {/* Tech outline effects */}
+              <motion.div 
+                className="absolute inset-0 border-2 border-ai8ty-teal/0"
+                animate={{ 
+                  borderColor: hovered ? 'rgba(0, 245, 212, 0.3)' : 'rgba(0, 245, 212, 0)', 
+                  boxShadow: hovered ? '0 0 20px 0 rgba(0, 245, 212, 0.2)' : '0 0 0 0 rgba(0, 245, 212, 0)'
+                }}
+                transition={{ duration: 0.6 }}
+              />
+              
+              {/* Glow corners */}
+              {[
+                'top-0 left-0 w-10 h-[1px]',
+                'top-0 left-0 h-10 w-[1px]',
+                'top-0 right-0 w-10 h-[1px]',
+                'top-0 right-0 h-10 w-[1px]',
+                'bottom-0 left-0 w-10 h-[1px]',
+                'bottom-0 left-0 h-10 w-[1px]',
+                'bottom-0 right-0 w-10 h-[1px]',
+                'bottom-0 right-0 h-10 w-[1px]',
+              ].map((position, i) => (
+                <motion.div
+                  key={i}
+                  className={`absolute ${position} bg-ai8ty-teal/0 z-20`}
+                  animate={{ 
+                    backgroundColor: hovered ? 'rgba(0, 245, 212, 0.8)' : 'rgba(0, 245, 212, 0)'
+                  }}
+                  transition={{ duration: 0.4, delay: i * 0.05 }}
+                />
+              ))}
+            </motion.div>
+            
+            {/* Social media links */}
+            <div className="absolute -bottom-4 right-4 flex space-x-3">
+              {member.instagram && (
+                <motion.a 
+                  href={member.instagram} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="w-10 h-10 rounded-full bg-ai8ty-violet flex items-center justify-center text-white hover:bg-ai8ty-violet/80 transition-colors"
+                  whileHover={{ scale: 1.1, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3 }}
+                >
+                  <Instagram size={18} />
+                </motion.a>
+              )}
+              
+              {member.linkedIn && (
+                <motion.a 
+                  href={member.linkedIn} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="w-10 h-10 rounded-full bg-ai8ty-violet flex items-center justify-center text-white hover:bg-ai8ty-violet/80 transition-colors"
+                  whileHover={{ scale: 1.1, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.4 }}
+                >
+                  <Linkedin size={18} />
+                </motion.a>
+              )}
+            </div>
+          </div>
+          
+          {/* Text information */}
+          <div className="text-center md:text-left max-w-lg">
+            <motion.div 
+              className="space-y-4"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              <motion.h3 
+                className="text-3xl sm:text-4xl md:text-5xl font-avant tracking-tighter text-white"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+              >
+                {member.name}
+              </motion.h3>
+              
+              <motion.div
+                initial={{ width: 0 }}
+                animate={{ width: '100%' }}
+                transition={{ duration: 0.8, delay: 0.5 }}
+                className="h-[1px] bg-gradient-to-r from-ai8ty-teal via-ai8ty-violet to-transparent"
+              />
+              
+              <motion.h4 
+                className="text-ai8ty-teal text-lg md:text-xl tracking-wide uppercase font-satoshi font-light"
+                initial={{ opacity: 0, y: 5 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: 0.4 }}
+              >
+                {member.role}
+              </motion.h4>
+              
+              <motion.p 
+                className="text-ai8ty-grey text-base md:text-lg mt-4 leading-relaxed"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5, delay: 0.5 }}
+              >
+                {member.bio}
+              </motion.p>
+              
+              {/* Futuristic data metrics visualization */}
+              <motion.div 
+                className="flex justify-center md:justify-start gap-8 mt-6 pt-6 border-t border-ai8ty-violet/20"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.6 }}
+              >
+                {[
+                  { label: "VISION", value: "AI Design" },
+                  { label: "EXPERTISE", value: "8+ Years" },
+                  { label: "PROJECTS", value: "120+" }
+                ].map((stat, index) => (
+                  <div key={index} className="text-center">
+                    <motion.div 
+                      className="text-ai8ty-white text-xl md:text-2xl font-avant"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ delay: 0.7 + (index * 0.1) }}
+                    >
+                      {stat.value}
+                    </motion.div>
+                    <motion.div 
+                      className="text-ai8ty-grey text-xs uppercase tracking-wider mt-1"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ delay: 0.8 + (index * 0.1) }}
+                    >
+                      {stat.label}
+                    </motion.div>
+                  </div>
+                ))}
+              </motion.div>
+            </motion.div>
+          </div>
+        </div>
       </div>
-      
-      <motion.div className="text-center">
-        <motion.h3 
-          className="font-avant text-xl text-white"
-          initial={{ opacity: 0, y: 5 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.3, delay: 0.1 }}
-        >
-          {member.name}
-        </motion.h3>
-        
-        <motion.p 
-          className="text-ai8ty-teal text-sm mb-2"
-          initial={{ opacity: 0, y: 5 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.3, delay: 0.2 }}
-        >
-          {member.role}
-        </motion.p>
-        
-        {member.bio && (
-          <motion.p 
-            className="text-ai8ty-grey text-sm max-w-xs"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-          >
-            {member.bio}
-          </motion.p>
-        )}
-      </motion.div>
     </motion.div>
   );
 };
@@ -104,63 +248,6 @@ const TeamCarousel: React.FC = () => {
     threshold: 0.1,
     triggerOnce: true
   });
-  
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [touchStart, setTouchStart] = useState<number | null>(null);
-  const carouselRef = useRef<HTMLDivElement>(null);
-  const isMobile = useIsMobile();
-  const visibleCount = isMobile ? 1 : 3;
-  
-  const handlePrev = () => {
-    setActiveIndex(prev => prev === 0 ? teamMembers.length - 1 : prev - 1);
-  };
-  
-  const handleNext = () => {
-    setActiveIndex(prev => prev === teamMembers.length - 1 ? 0 : prev + 1);
-  };
-  
-  const handleTouchStart = (e: React.TouchEvent) => {
-    setTouchStart(e.touches[0].clientX);
-  };
-  
-  const handleTouchEnd = (e: React.TouchEvent) => {
-    if (touchStart === null) return;
-    const touchEnd = e.changedTouches[0].clientX;
-    const diff = touchStart - touchEnd;
-
-    // Swipe threshold
-    if (Math.abs(diff) > 50) {
-      if (diff > 0) {
-        handleNext();
-      } else {
-        handlePrev();
-      }
-    }
-    setTouchStart(null);
-  };
-
-  // Auto-advance carousel
-  useEffect(() => {
-    if (!inView) return;
-    const interval = setInterval(() => {
-      handleNext();
-    }, 4000);
-    return () => clearInterval(interval);
-  }, [inView, activeIndex]);
-
-  // Get visible team members
-  const getVisibleMembers = () => {
-    const result = [];
-    const total = teamMembers.length;
-    for (let i = 0; i < visibleCount; i++) {
-      const index = (activeIndex + i) % total;
-      result.push({
-        member: teamMembers[index],
-        isActive: i === Math.floor(visibleCount / 2)
-      });
-    }
-    return result;
-  };
   
   return (
     <section 
@@ -251,90 +338,13 @@ const TeamCarousel: React.FC = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="mb-12 text-center"
         >
-          <h2 className="heading text-3xl md:text-5xl mb-6">Meet the Team</h2>
+          <h2 className="heading text-3xl md:text-5xl mb-6">Meet Our Visionary</h2>
           <p className="subheading max-w-2xl mx-auto">
-            Creative technologists working at the intersection of AI and design
+            The creative technologist defining the future at the intersection of AI and design
           </p>
         </motion.div>
         
-        <div className="flex items-center justify-center mb-8">
-          <motion.button 
-            onClick={handlePrev}
-            className="p-3 rounded-full bg-ai8ty-black/50 text-ai8ty-grey mr-4 hover:text-ai8ty-white hover:bg-ai8ty-violet/20 transition-colors border border-ai8ty-grey/20"
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <ChevronLeft size={24} />
-          </motion.button>
-          
-          <motion.button 
-            onClick={handleNext}
-            className="p-3 rounded-full bg-ai8ty-black/50 text-ai8ty-grey hover:text-ai8ty-white hover:bg-ai8ty-violet/20 transition-colors border border-ai8ty-grey/20"
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <ChevronRight size={24} />
-          </motion.button>
-        </div>
-        
-        <div 
-          ref={carouselRef}
-          className="relative overflow-hidden mx-auto"
-          onTouchStart={handleTouchStart}
-          onTouchEnd={handleTouchEnd}
-        >
-          <motion.div 
-            className="flex justify-center py-4"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-          >
-            <AnimatePresence mode="popLayout">
-              {getVisibleMembers().map(({ member, isActive }, index) => (
-                <motion.div
-                  key={`${member.id}-${index}`}
-                  initial={{ 
-                    opacity: 0, 
-                    x: index === 0 ? -50 : index === visibleCount - 1 ? 50 : 0,
-                    y: 30
-                  }}
-                  animate={{ 
-                    opacity: 1, 
-                    x: 0,
-                    y: 0
-                  }}
-                  exit={{ 
-                    opacity: 0, 
-                    x: index === 0 ? -50 : index === visibleCount - 1 ? 50 : 0,
-                    y: 30
-                  }}
-                  transition={{ duration: 0.6, ease: "easeInOut" }}
-                >
-                  <TeamMemberCard 
-                    member={member} 
-                    isActive={isActive} 
-                  />
-                </motion.div>
-              ))}
-            </AnimatePresence>
-          </motion.div>
-        </div>
-        
-        {/* Carousel Indicators */}
-        <div className="flex justify-center mt-6 space-x-2">
-          {teamMembers.map((_, index) => (
-            <motion.button
-              key={index}
-              className={cn(
-                "w-2 h-2 rounded-full transition-all duration-300",
-                index === activeIndex ? "bg-ai8ty-violet w-6" : "bg-ai8ty-grey/30"
-              )}
-              onClick={() => setActiveIndex(index)}
-              whileHover={{ scale: 1.2 }}
-              whileTap={{ scale: 0.9 }}
-            />
-          ))}
-        </div>
+        <TeamMemberProfile />
       </div>
     </section>
   );

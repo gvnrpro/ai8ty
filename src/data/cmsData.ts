@@ -1,4 +1,3 @@
-
 // This file serves as a lightweight CMS data store
 // In a production environment, this would be fetched from a real CMS or API
 
@@ -18,6 +17,7 @@ export interface TeamMember {
   role: string;
   avatar: string;
   linkedIn?: string;
+  instagram?: string;
   voiceDemo?: string;
   bio?: string;
 }
@@ -70,39 +70,16 @@ export const featuredProjects: ProjectItem[] = [
   }
 ];
 
-// Team Members data
+// Team Members data - updated to only include Awwab Abdul
 export const teamMembers: TeamMember[] = [
   {
     id: 'tm1',
     name: 'Awwab Abdul',
-    role: 'Creative Director',
-    avatar: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=400&q=80',
+    role: 'CEO & Creative Director',
+    avatar: '/lovable-uploads/9b753823-5b92-4749-a9a7-ace4e4cb1056.png',
     linkedIn: 'https://linkedin.com',
-    bio: 'Visionary designer with expertise in AI-human collaboration'
-  },
-  {
-    id: 'tm2',
-    name: 'Sarah Chen',
-    role: 'AI Engineer',
-    avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80',
-    linkedIn: 'https://linkedin.com',
-    bio: 'Machine learning specialist with focus on generative systems'
-  },
-  {
-    id: 'tm3',
-    name: 'Marcus Tate',
-    role: 'Strategy Lead',
-    avatar: 'https://images.unsplash.com/photo-1566492031773-4f4e44671857?auto=format&fit=crop&w=400&q=80',
-    linkedIn: 'https://linkedin.com',
-    bio: 'Business strategist with background in digital transformation'
-  },
-  {
-    id: 'tm4',
-    name: 'Anya Lopez',
-    role: 'Motion Designer',
-    avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80',
-    linkedIn: 'https://linkedin.com',
-    bio: 'Cinematic storyteller specializing in 3D animation and VFX'
+    instagram: 'https://www.instagram.com/theawwababdul/?hl=en',
+    bio: 'Visionary leader at the intersection of AI and design, revolutionizing creative technology solutions for the future.'
   }
 ];
 
