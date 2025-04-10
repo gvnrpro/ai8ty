@@ -4,7 +4,7 @@ import { cn } from '@/lib/utils';
 import { useInView } from 'react-intersection-observer';
 import { 
   Palette, BrainCircuit, LineChart, Globe,
-  PenTool, Cube, Layout, PlayCircle,
+  PenTool, Box, Layout, PlayCircle,
   Bot, Users, Database, BarChart3,
   Code, Smartphone, Gauge, AppWindow
 } from 'lucide-react';
@@ -127,7 +127,7 @@ const ServicesSection: React.FC = () => {
             visual="https://images.unsplash.com/photo-1558655146-364adaf1fcc9?auto=format&fit=crop&w=800&q=80"
             services={[
               { name: "Branding", icon: <PenTool size={16} /> },
-              { name: "3D Visualization", icon: <Cube size={16} /> },
+              { name: "3D Visualization", icon: <Box size={16} /> },
               { name: "UI/UX + Web", icon: <Layout size={16} /> },
               { name: "Cinematic Media", icon: <PlayCircle size={16} /> }
             ]}
