@@ -4,6 +4,7 @@ import { cn } from '@/lib/utils';
 import { useInView } from 'react-intersection-observer';
 import { Button } from '@/components/ui/button';
 import { PhoneCall } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const AI8TYCardHighlight: React.FC = () => {
   const [ref, inView] = useInView({
@@ -14,6 +15,7 @@ const AI8TYCardHighlight: React.FC = () => {
   const cardRef = useRef<HTMLDivElement>(null);
   const [rotation, setRotation] = useState({ x: 0, y: 0 });
   const [isHovered, setIsHovered] = useState(false);
+  const [showName, setShowName] = useState(false);
   
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!cardRef.current) return;
@@ -43,6 +45,11 @@ const AI8TYCardHighlight: React.FC = () => {
   useEffect(() => {
     if (!inView) return;
     
+    // Reveal name after card appears
+    const nameTimer = setTimeout(() => {
+      setShowName(true);
+    }, 800);
+    
     // Subtle animation when first in view
     const timer = setTimeout(() => {
       if (!isHovered && !prefersReducedMotion) {
@@ -56,26 +63,32 @@ const AI8TYCardHighlight: React.FC = () => {
       }
     }, 500);
     
-    return () => clearTimeout(timer);
+    return () => {
+      clearTimeout(timer);
+      clearTimeout(nameTimer);
+    }
   }, [inView, isHovered, prefersReducedMotion]);
   
   return (
     <section 
       id="ai8ty-card" 
       ref={ref}
-      className="py-24 px-6 bg-ai8ty-black overflow-hidden"
+      className="py-12 md:py-24 px-4 md:px-6 bg-ai8ty-black overflow-hidden"
     >
       <div className="container mx-auto max-w-6xl">
-        <div className="flex flex-col lg:flex-row items-center gap-12">
+        <div className="flex flex-col lg:flex-row items-center gap-8 md:gap-12">
           {/* Card Visual */}
-          <div className="lg:w-1/2 relative">
-            <div 
+          <div className="w-full lg:w-1/2 relative">
+            <motion.div 
               ref={cardRef}
               className={cn(
                 "w-full max-w-md mx-auto aspect-[16/10] rounded-xl relative",
-                "transition-all duration-500 transform perspective-1000",
-                inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
+                "transition-all duration-500 transform perspective-1000 will-change-transform",
+                inView ? "opacity-100" : "opacity-0"
               )}
+              initial={{ opacity: 0, y: 20 }}
+              animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
               style={
                 prefersReducedMotion ? {} : {
                   transform: `rotateX(${rotation.x}deg) rotateY(${rotation.y}deg)`,
@@ -95,12 +108,19 @@ const AI8TYCardHighlight: React.FC = () => {
                   <img 
                     src="/lovable-uploads/4b4a830d-afce-4dc3-8cc3-4fae3e2728ed.png" 
                     alt="AI8TY Logo" 
-                    className="h-10 w-auto"
+                    className="h-8 md:h-10 w-auto"
                   />
                 </div>
                 <div className="absolute bottom-6 left-6 right-6">
                   <div className="text-xs text-ai8ty-grey mb-1">Creative Director</div>
-                  <div className="text-xl font-avant text-ai8ty-white mb-2">John Vision</div>
+                  <motion.div 
+                    className="text-xl font-avant text-ai8ty-white mb-2"
+                    initial={{ opacity: 0 }}
+                    animate={showName ? { opacity: 1 } : { opacity: 0 }}
+                    transition={{ duration: 0.8, ease: "easeInOut" }}
+                  >
+                    Awwab Abdul
+                  </motion.div>
                   <div className="text-xs text-ai8ty-teal">futureis@ai8ty.com</div>
                 </div>
                 <div className="absolute top-0 left-0 right-0 bottom-0 bg-gradient-to-t from-ai8ty-black/50 to-transparent" />
@@ -120,14 +140,16 @@ const AI8TYCardHighlight: React.FC = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
           
           {/* Content */}
-          <div className={cn(
-            "lg:w-1/2 transition-all duration-700 delay-300",
-            inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
-          )}>
+          <motion.div 
+            className="w-full lg:w-1/2 text-center lg:text-left"
+            initial={{ opacity: 0, y: 20 }}
+            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
+          >
             <h2 className="heading text-3xl md:text-4xl mb-6">
               Not Just a Card. <br />
               <span className="text-ai8ty-teal">A Portal to Your Digital Identity.</span>
@@ -141,12 +163,12 @@ const AI8TYCardHighlight: React.FC = () => {
             
             <Button 
               variant="default"
-              className="bg-ai8ty-teal hover:bg-ai8ty-teal/80 text-ai8ty-black font-medium px-6 py-6"
+              className="w-full sm:w-auto bg-ai8ty-teal hover:bg-ai8ty-teal/80 text-ai8ty-black font-medium px-6 py-6"
             >
               <PhoneCall className="mr-2 h-4 w-4" />
               Preorder Yours
             </Button>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

@@ -9,10 +9,16 @@ import WorkShowcase from '@/components/WorkShowcase';
 import ClientWall from '@/components/ClientWall';
 import ContactSection from '@/components/ContactSection';
 import SiteFooter from '@/components/SiteFooter';
+import Navigation from '@/components/Navigation';
+import TransitionLoader from '@/components/TransitionLoader';
+import FeaturedProjects from '@/components/FeaturedProjects';
+import TeamCarousel from '@/components/TeamCarousel';
+import BlogHighlights from '@/components/BlogHighlights';
 import { useToast } from '@/hooks/use-toast';
 
 const Index = () => {
   const [showSplash, setShowSplash] = useState(true);
+  const [initialLoadComplete, setInitialLoadComplete] = useState(false);
   const { toast } = useToast();
   
   useEffect(() => {
@@ -22,6 +28,7 @@ const Index = () => {
     // Skip splash screen if reduced motion is preferred
     if (prefersReducedMotion) {
       setShowSplash(false);
+      setInitialLoadComplete(true);
     }
     
     // Set body overflow based on splash screen state
@@ -35,6 +42,7 @@ const Index = () => {
   // Handle splash screen completion
   const handleSplashComplete = () => {
     setShowSplash(false);
+    setInitialLoadComplete(true);
     
     // Show welcome toast after splash screen
     setTimeout(() => {
@@ -43,21 +51,30 @@ const Index = () => {
         description: "Intelligence by Design. Explore our services.",
         duration: 5000,
       });
-    }, 1000);
+    }, 1500);
   };
 
   return (
     <div className="min-h-screen bg-ai8ty-black text-ai8ty-white">
+      {/* Transition Loader */}
+      <TransitionLoader initialLoad={!showSplash && !initialLoadComplete} />
+      
       {/* Splash Screen */}
       {showSplash && <IntroSplashScreen onComplete={handleSplashComplete} />}
+      
+      {/* Navigation */}
+      <Navigation />
       
       {/* Main Content */}
       <main>
         <HeroSection />
         <AboutSection />
         <ServicesSection />
+        <FeaturedProjects />
         <AI8TYCardHighlight />
+        <TeamCarousel />
         <WorkShowcase />
+        <BlogHighlights />
         <ClientWall />
         <ContactSection />
       </main>
