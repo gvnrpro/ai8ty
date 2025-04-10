@@ -1,0 +1,46 @@
+
+{
+  "nav": {
+    "home": "Accueil",
+    "about": "À propos",
+    "services": "Services",
+    "ai8tyCard": "Carte AI8TY",
+    "work": "Projets",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "L'intelligence par le design",
+    "subtitle": "Le cabinet de stratégie créative pour les marques visionnaires",
+    "cta": "Découvrez nos services"
+  },
+  "about": {
+    "title": "À propos d'AI8TY",
+    "description": "Fusion du design humain et de l'IA pour résoudre les problèmes d'aujourd'hui et construire les systèmes de demain."
+  },
+  "services": {
+    "title": "Nos Services",
+    "subtitle": "Des solutions complètes pour les marques tournées vers l'avenir"
+  },
+  "work": {
+    "title": "Des réalisations éloquentes",
+    "subtitle": "Des refontes de marque aux systèmes d'IA, nos clients ne se contentent pas de suivre - ils mènent."
+  },
+  "blog": {
+    "title": "Perspectives AI8TY",
+    "subtitle": "Réflexions sur l'IA, le design et l'avenir de la stratégie créative"
+  },
+  "team": {
+    "title": "Rencontrez l'équipe",
+    "subtitle": "Les visionnaires derrière les innovations d'AI8TY"
+  },
+  "contact": {
+    "title": "Connectons-nous",
+    "subtitle": "Prêt à transformer votre vision en réalité ?",
+    "cta": "Contactez-nous"
+  },
+  "footer": {
+    "rights": "© 2025 AI8TY. Conçu par Vision.",
+    "privacy": "Politique de confidentialité",
+    "terms": "Conditions"
+  }
+}

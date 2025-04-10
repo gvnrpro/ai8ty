@@ -1,0 +1,46 @@
+
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "ai8tyCard": "AI8TY Card",
+    "work": "Work",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Intelligence by Design",
+    "subtitle": "The creative-strategy consultancy for visionary brands",
+    "cta": "Discover our services"
+  },
+  "about": {
+    "title": "About AI8TY",
+    "description": "Fusing human design with AI to solve today's problems and build tomorrow's systems."
+  },
+  "services": {
+    "title": "Our Services",
+    "subtitle": "Comprehensive solutions for forward-thinking brands"
+  },
+  "work": {
+    "title": "Work That Speaks",
+    "subtitle": "From rebrands to AI systems, our clients don't just keep up—they lead."
+  },
+  "blog": {
+    "title": "AI8TY Insights",
+    "subtitle": "Thoughts on AI, design, and the future of creative strategy"
+  },
+  "team": {
+    "title": "Meet the Team",
+    "subtitle": "The visionaries behind AI8TY's innovations"
+  },
+  "contact": {
+    "title": "Let's Connect",
+    "subtitle": "Ready to transform your vision into reality?",
+    "cta": "Get in touch"
+  },
+  "footer": {
+    "rights": "© 2025 AI8TY. Designed by Vision.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms"
+  }
+}

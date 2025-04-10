@@ -15,11 +15,13 @@ import FeaturedProjects from '@/components/FeaturedProjects';
 import TeamCarousel from '@/components/TeamCarousel';
 import BlogHighlights from '@/components/BlogHighlights';
 import { useToast } from '@/hooks/use-toast';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const Index = () => {
   const [showSplash, setShowSplash] = useState(true);
   const [initialLoadComplete, setInitialLoadComplete] = useState(false);
   const { toast } = useToast();
+  const { language } = useLanguage();
   
   useEffect(() => {
     // Check for reduced motion preference
@@ -44,11 +46,15 @@ const Index = () => {
     setShowSplash(false);
     setInitialLoadComplete(true);
     
-    // Show welcome toast after splash screen
+    // Show welcome toast after splash screen with localized message
     setTimeout(() => {
       toast({
-        title: "Welcome to AI8TY",
-        description: "Intelligence by Design. Explore our services.",
+        title: language === 'en' ? "Welcome to AI8TY" : 
+               language === 'ar' ? "مرحبًا بك في AI8TY" : 
+               "Bienvenue chez AI8TY",
+        description: language === 'en' ? "Intelligence by Design. Explore our services." :
+                     language === 'ar' ? "الذكاء بالتصميم. استكشف خدماتنا." :
+                     "L'intelligence par le design. Découvrez nos services.",
         duration: 5000,
       });
     }, 1500);
