@@ -1,73 +1,56 @@
-# Welcome to your Lovable project
 
-## Project info
+# AI8TY - Intelligence by Design
 
-**URL**: https://lovable.dev/projects/01cd27d0-b814-4be5-b92e-60ed0ed50751
+AI8TY is a high-end creative-strategy consultancy blending human design with artificial intelligence. This website showcases their elegant, bold, and tech-forward brand identity through a fusion of futurism meets renaissance, cinematic yet minimal design.
 
-## How can I edit this code?
+## Features
 
-There are several ways of editing your application.
+- **Futuristic UI/UX**: Smooth animations, interactive elements, and sleek design elements
+- **Responsive Design**: Fully responsive across all device sizes
+- **Performance Optimized**: Fast loading times and smooth interactions
+- **Accessibility Support**: Including reduced motion preferences
+- **Modern Tech Stack**: Built with React, TypeScript, and Tailwind CSS
 
-**Use Lovable**
+## Core Sections
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/01cd27d0-b814-4be5-b92e-60ed0ed50751) and start prompting.
+1. **Intro Splash Screen**: Animated brand introduction with particle effects
+2. **Hero Section**: Bold headline showcasing AI8TY's mission
+3. **About Section**: Overview of AI8TY's approach and expertise
+4. **Services Section**: Detailed breakdown of service offerings
+5. **Featured Product**: Showcase of the AI8TY Card with interactive 3D effect
+6. **Work Showcase**: Portfolio of client projects
+7. **Client Wall**: Display of client partnerships
+8. **Contact Section**: Call-to-action for potential clients
 
-Changes made via Lovable will be committed automatically to this repo.
+## Technology
 
-**Use your preferred IDE**
+- React with TypeScript
+- Tailwind CSS for styling
+- Framer Motion for animations
+- Responsive design principles
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## Getting Started
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+```bash
+# Install dependencies
+npm install
 
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start development server
 npm run dev
+
+# Build for production
+npm run build
 ```
 
-**Edit a file directly in GitHub**
+## Customization
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+To customize this website:
 
-**Use GitHub Codespaces**
+- Edit content in component files
+- Modify styles in Tailwind configuration
+- Update animations in component files
+- Replace placeholder images and videos with actual content
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## Credits
 
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/01cd27d0-b814-4be5-b92e-60ed0ed50751) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes it is!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+Designed and developed by AI8TY

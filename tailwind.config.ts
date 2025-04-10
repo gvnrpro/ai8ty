@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,13 +62,26 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+                // AI8TY brand colors
+                ai8ty: {
+                    black: '#0C0C0C',
+                    violet: '#8C52FF',
+                    teal: '#00F5D4',
+                    grey: '#C0C0C0',
+                    white: '#FFFFFF',
+                }
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
 				sm: 'calc(var(--radius) - 4px)'
 			},
+			fontFamily: {
+                sans: ['Inter', 'system-ui', 'sans-serif'],
+                avant: ['Avant Garde', 'Inter', 'system-ui', 'sans-serif'],
+                satoshi: ['Satoshi', 'Inter', 'system-ui', 'sans-serif'],
+            },
 			keyframes: {
 				'accordion-down': {
 					from: {
@@ -84,11 +98,76 @@ export default {
 					to: {
 						height: '0'
 					}
-				}
+				},
+                'glitch': {
+                    '0%': {
+                        transform: 'translate(0)',
+                    },
+                    '20%': {
+                        transform: 'translate(-2px, 2px)',
+                    },
+                    '40%': {
+                        transform: 'translate(-2px, -2px)',
+                    },
+                    '60%': {
+                        transform: 'translate(2px, 2px)',
+                    },
+                    '80%': {
+                        transform: 'translate(2px, -2px)',
+                    },
+                    '100%': {
+                        transform: 'translate(0)',
+                    },
+                },
+                'pulse': {
+                    '0%, 100%': {
+                        opacity: '1',
+                    },
+                    '50%': {
+                        opacity: '0.5',
+                    },
+                },
+                'float': {
+                    '0%, 100%': {
+                        transform: 'translateY(0)',
+                    },
+                    '50%': {
+                        transform: 'translateY(-10px)',
+                    },
+                },
+                'wave': {
+                    '0%': { transform: 'translateY(0)' },
+                    '50%': { transform: 'translateY(-5px)' },
+                    '100%': { transform: 'translateY(0)' }
+                },
+                'fade-in': {
+                    '0%': { opacity: '0', transform: 'translateY(10px)' },
+                    '100%': { opacity: '1', transform: 'translateY(0)' }
+                },
+                'fade-out': {
+                    '0%': { opacity: '1', transform: 'translateY(0)' },
+                    '100%': { opacity: '0', transform: 'translateY(10px)' }
+                },
+                'slide-in': {
+                    '0%': { transform: 'translateY(100%)' },
+                    '100%': { transform: 'translateY(0)' }
+                },
+                'scale-in': {
+                    '0%': { transform: 'scale(0.95)', opacity: '0' },
+                    '100%': { transform: 'scale(1)', opacity: '1' }
+                }
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+                'glitch': 'glitch 0.5s infinite',
+                'pulse': 'pulse 2s infinite',
+                'float': 'float 6s ease-in-out infinite',
+                'wave': 'wave 2s ease-in-out infinite',
+                'fade-in': 'fade-in 0.5s ease-out',
+                'fade-out': 'fade-out 0.5s ease-out',
+                'slide-in': 'slide-in 0.5s ease-out',
+                'scale-in': 'scale-in 0.3s ease-out'
 			}
 		}
 	},
