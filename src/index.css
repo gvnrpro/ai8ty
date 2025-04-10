@@ -58,9 +58,14 @@
     @apply border-border;
   }
 
+  html {
+    @apply antialiased scroll-smooth;
+  }
+
   body {
-    @apply bg-ai8ty-black text-ai8ty-white antialiased;
+    @apply bg-ai8ty-black text-ai8ty-white;
     font-feature-settings: "ss01", "ss02", "cv01", "cv02", "cv03";
+    overscroll-behavior: none;
   }
   
   /* RTL specific styles */
@@ -126,6 +131,55 @@
   .btn-outline {
     @apply border-2 border-ai8ty-white text-ai8ty-white hover:bg-ai8ty-white hover:text-ai8ty-black;
   }
+  
+  /* New advanced UI components */
+  .neural-grid-bg {
+    @apply bg-neural-grid bg-[length:50px_50px];
+  }
+  
+  .tech-dots-bg {
+    @apply bg-tech-dots bg-[size:20px_20px];
+  }
+  
+  .data-flow-bg {
+    @apply bg-data-flow;
+  }
+  
+  .glow-card {
+    @apply relative overflow-hidden rounded-xl border border-white/10 bg-white/5;
+    box-shadow: 0 0 30px rgba(140, 82, 255, 0.2);
+  }
+  
+  .glow-text {
+    @apply relative;
+    text-shadow: 0 0 10px rgba(140, 82, 255, 0.7);
+  }
+  
+  .shimmer-element {
+    @apply relative overflow-hidden;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    background-size: 200% 100%;
+    animation: shimmer 3s ease-in-out infinite;
+  }
+  
+  .hover-glass {
+    @apply transition-all duration-300;
+    backdrop-filter: blur(5px);
+  }
+  
+  .hover-glass:hover {
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .animated-border {
+    @apply relative border border-transparent bg-clip-padding backdrop-filter backdrop-blur-sm;
+    background-image: linear-gradient(var(--background), var(--background)), 
+                      linear-gradient(to right, rgba(140, 82, 255, 0.5), rgba(0, 245, 212, 0.5));
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    animation: pulse-glow 3s ease-in-out infinite;
+  }
 }
 
 /* Special styles for reduced motion preference */
@@ -135,5 +189,9 @@
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+  
+  .shimmer-element, .animated-border, [class*="animate-"] {
+    animation: none !important;
   }
 }
