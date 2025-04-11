@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import IntroSplashScreen from '@/components/IntroSplashScreen';
 import HeroSection from '@/components/HeroSection';
@@ -14,6 +13,7 @@ import TransitionLoader from '@/components/TransitionLoader';
 import FeaturedProjects from '@/components/FeaturedProjects';
 import TeamCarousel from '@/components/TeamCarousel';
 import BlogHighlights from '@/components/BlogHighlights';
+import MeetTheTeamSection from '@/components/MeetTheTeamSection';
 import { useToast } from '@/hooks/use-toast';
 import { useLanguage } from '@/contexts/LanguageContext';
 
@@ -24,16 +24,13 @@ const Index = () => {
   const { language } = useLanguage();
   
   useEffect(() => {
-    // Check for reduced motion preference
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     
-    // Skip splash screen if reduced motion is preferred
     if (prefersReducedMotion) {
       setShowSplash(false);
       setInitialLoadComplete(true);
     }
     
-    // Set body overflow based on splash screen state
     document.body.style.overflow = showSplash ? 'hidden' : 'auto';
     
     return () => {
@@ -41,12 +38,10 @@ const Index = () => {
     };
   }, [showSplash]);
 
-  // Handle splash screen completion
   const handleSplashComplete = () => {
     setShowSplash(false);
     setInitialLoadComplete(true);
     
-    // Show welcome toast after splash screen with localized message
     setTimeout(() => {
       toast({
         title: language === 'en' ? "Welcome to AI8TY" : 
@@ -62,23 +57,19 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-ai8ty-black text-ai8ty-white">
-      {/* Transition Loader */}
       <TransitionLoader initialLoad={!showSplash && !initialLoadComplete} />
       
-      {/* Splash Screen */}
       {showSplash && <IntroSplashScreen onComplete={handleSplashComplete} />}
       
-      {/* Navigation */}
       <Navigation />
       
-      {/* Main Content */}
       <main>
         <HeroSection />
         <AboutSection />
         <ServicesSection />
         <FeaturedProjects />
         <AI8TYCardHighlight />
-        <TeamCarousel />
+        <MeetTheTeamSection />
         <WorkShowcase />
         <BlogHighlights />
         <ClientWall />
