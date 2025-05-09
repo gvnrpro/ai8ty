@@ -5,6 +5,8 @@ export interface BlogPost {
   imageUrl: string;
   date: string;
   category: string;
+  author?: string; // Adding optional author property
+  readMoreLink?: string; // Adding optional readMoreLink property
 }
 
 export interface ProjectItem {
@@ -28,6 +30,7 @@ export interface TeamMember {
     twitter?: string;
     website?: string;
   };
+  bio?: string; // Adding optional bio property
 }
 
 export interface ClientLogo {
@@ -46,7 +49,8 @@ export const teamMembers: TeamMember[] = [
     avatar: "/lovable-uploads/4b4a830d-afce-4dc3-8cc3-4fae3e2728ed.png",
     socialLinks: {
       instagram: "https://www.instagram.com/theawwababdul/?hl=en"
-    }
+    },
+    bio: "Visionary leader driving AI innovation in business transformation" // Adding a short bio
   }
 ];
 
@@ -58,7 +62,9 @@ export const blogPosts: BlogPost[] = [
     excerpt: "Exploring how artificial intelligence is reshaping business operations and strategy in 2025 and beyond.",
     imageUrl: "https://images.unsplash.com/photo-1677442136019-21780ecad995",
     date: "2025-04-15",
-    category: "AI & Strategy"
+    category: "AI & Strategy",
+    author: "Awwab Abdul",
+    readMoreLink: "#"
   },
   {
     id: "post-2",
@@ -66,7 +72,9 @@ export const blogPosts: BlogPost[] = [
     excerpt: "How to create user experiences that leverage AI while maintaining human-centered design principles.",
     imageUrl: "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e",
     date: "2025-04-10",
-    category: "Design"
+    category: "Design",
+    author: "Design Team",
+    readMoreLink: "#"
   },
   {
     id: "post-3",
@@ -74,11 +82,13 @@ export const blogPosts: BlogPost[] = [
     excerpt: "Reimagining automation as a strategic growth driver rather than just an operational efficiency tool.",
     imageUrl: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e",
     date: "2025-03-28",
-    category: "Strategy"
+    category: "Strategy",
+    author: "Strategy Team",
+    readMoreLink: "#"
   }
 ];
 
-// Featured Projects Data (Unchanged)
+// Featured Projects Data
 export const featuredProjects: ProjectItem[] = [
   {
     id: "project-1",
@@ -108,6 +118,7 @@ export const featuredProjects: ProjectItem[] = [
     id: "project-4",
     title: "LogisticsHive",
     description: "End-to-end logistics management platform with predictive routing and real-time tracking.",
+    imageUrl: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e", // Fixed this to include imageUrl
     videoUrl: "https://static.videezy.com/system/resources/previews/000/021/807/original/abstract-flowing-neon-lines-loopable-background-4k.mp4",
     tags: ["Logistics", "Automation", "Enterprise"],
     externalLink: "#"

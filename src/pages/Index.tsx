@@ -17,6 +17,16 @@ import MeetTheTeamSection from '@/components/MeetTheTeamSection';
 import { useToast } from '@/hooks/use-toast';
 import { useLanguage } from '@/contexts/LanguageContext';
 
+// New components
+import BusinessTransformationModule from '@/components/BusinessTransformationModule';
+import ServiceExplorer from '@/components/ServiceExplorer';
+import PrototypeGenerator from '@/components/PrototypeGenerator';
+import BilingualTestimonials from '@/components/BilingualTestimonials';
+import WhatsAppCTA from '@/components/WhatsAppCTA';
+import BrandAnimation from '@/components/BrandAnimation';
+import StrategicFooter from '@/components/StrategicFooter';
+import BrandPhilosophyBar from '@/components/BrandPhilosophyBar';
+
 const Index = () => {
   const [showSplash, setShowSplash] = useState(true);
   const [initialLoadComplete, setInitialLoadComplete] = useState(false);
@@ -77,23 +87,45 @@ const Index = () => {
       <main ref={mainRef} className="relative z-10">
         <HeroSection />
         
+        {/* Brand Philosophy Bar - After Hero */}
+        <BrandPhilosophyBar />
+        
         <div className="relative">
           {/* Spatial depth marker - creates a visual connection between sections */}
           <div className="absolute left-0 ml-4 md:ml-8 lg:ml-12 h-full w-px bg-gradient-to-b from-transparent via-sand/30 to-transparent opacity-30"></div>
           
           <AboutSection />
-          <ServicesSection />
+          
+          {/* Business Transformation Module - Show the before/after experience */}
+          <BusinessTransformationModule />
+          
+          {/* Enhanced Services Explorer */}
+          <ServiceExplorer />
+          
           <FeaturedProjects />
           <AI8TYCardHighlight />
+          
+          {/* Bilingual Testimonials - Before the team section for trust-building */}
+          <BilingualTestimonials />
+          
           <MeetTheTeamSection />
           <WorkShowcase />
+          
+          {/* Prototype Generator */}
+          <PrototypeGenerator />
+          
           <BlogHighlights />
+          
+          {/* WhatsApp CTA - Right before final contact section */}
+          <WhatsAppCTA />
+          
           <ClientWall />
           <ContactSection />
         </div>
       </main>
       
-      <SiteFooter />
+      {/* Replace standard footer with Strategic Footer */}
+      <StrategicFooter />
     </div>
   );
 };

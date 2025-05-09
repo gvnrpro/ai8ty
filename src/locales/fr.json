@@ -19,7 +19,11 @@
   },
   "services": {
     "title": "Nos Services",
-    "subtitle": "Des solutions complètes pour les marques tournées vers l'avenir"
+    "subtitle": "Des solutions complètes pour les marques tournées vers l'avenir",
+    "explorer": {
+      "title": "Plateforme de Services",
+      "subtitle": "Découvrez comment nos services intégrés transforment les entreprises en systèmes de croissance unifiés."
+    }
   },
   "work": {
     "title": "Des réalisations éloquentes",
@@ -41,6 +45,19 @@
   "footer": {
     "rights": "© 2025 AI8TY. Conçu par Vision.",
     "privacy": "Politique de confidentialité",
-    "terms": "Conditions"
+    "terms": "Conditions",
+    "tagline": "Nous concevons le levier. Pas des livrables. AI8TY est le cabinet de conseil en stratégie créative pour les marques visionnaires aux Émirats arabes unis et au-delà.",
+    "ps": "Vous êtes toujours libre de faire défiler, de sauvegarder ou de partir - mais nous préférons vous montrer ce qui est possible.",
+    "cta": "Découvrez ce qu'AI8TY pourrait réellement construire pour votre entreprise",
+    "services": "Services",
+    "connect": "Connecter"
+  },
+  "transformation": {
+    "title": "Du chaos à la clarté",
+    "subtitle": "Voyez comment AI8TY transforme des systèmes d'entreprise fragmentés en moteurs de croissance unifiés."
+  },
+  "prototype": {
+    "title": "Votre prototype AI8TY",
+    "subtitle": "Cartographions le potentiel de votre entreprise et montrons-vous ce qui est possible."
   }
 }

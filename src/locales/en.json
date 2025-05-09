@@ -19,7 +19,11 @@
   },
   "services": {
     "title": "Our Services",
-    "subtitle": "Comprehensive solutions for forward-thinking brands"
+    "subtitle": "Comprehensive solutions for forward-thinking brands",
+    "explorer": {
+      "title": "Platform of Services",
+      "subtitle": "Discover how our integrated services transform businesses into unified growth systems."
+    }
   },
   "work": {
     "title": "Work That Speaks",
@@ -41,6 +45,19 @@
   "footer": {
     "rights": "© 2025 AI8TY. Designed by Vision.",
     "privacy": "Privacy Policy",
-    "terms": "Terms"
+    "terms": "Terms",
+    "tagline": "We engineer leverage. Not deliverables. AI8TY is the creative-strategy consultancy for visionary brands in the UAE and beyond.",
+    "ps": "You're always free to scroll, save, or bounce — but we'd rather show you what's possible.",
+    "cta": "See what AI8TY would actually build for your business",
+    "services": "Services",
+    "connect": "Connect"
+  },
+  "transformation": {
+    "title": "From Chaos to Clarity",
+    "subtitle": "See how AI8TY transforms fragmented business systems into unified growth engines."
+  },
+  "prototype": {
+    "title": "Your AI8TY Prototype",
+    "subtitle": "Let's map your business potential and show you what's possible."
   }
 }
