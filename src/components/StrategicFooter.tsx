@@ -9,21 +9,21 @@ import { t } from '@/utils/i18n';
 import BrandAnimation from './BrandAnimation';
 
 const services = [
-  { name: "Business Process Automation", link: "#" },
-  { name: "CRM & Sales Integration", link: "#" },
-  { name: "Analytics & Reporting", link: "#" },
-  { name: "Digital Transformation", link: "#" },
-  { name: "AI Implementation", link: "#" },
-  { name: "Customer Experience Design", link: "#" }
+  { name: "Digital Marketing Services in Dubai", link: "#digital-marketing" },
+  { name: "Website & Landing Page Design", link: "#web-design" },
+  { name: "CRM Automation & AI Chatbots", link: "#crm-automation" },
+  { name: "Digital Transformation", link: "#digital-transformation" },
+  { name: "AI Implementation", link: "#ai-strategy" },
+  { name: "Arabic-English Content & Branding", link: "#bilingual-content" }
 ];
 
 const servicesAr = [
-  { name: "أتمتة العمليات التجارية", link: "#" },
-  { name: "تكامل إدارة علاقات العملاء والمبيعات", link: "#" },
-  { name: "التحليلات وإعداد التقارير", link: "#" },
-  { name: "التحول الرقمي", link: "#" },
-  { name: "تنفيذ الذكاء الاصطناعي", link: "#" },
-  { name: "تصميم تجربة العملاء", link: "#" }
+  { name: "خدمات التسويق الرقمي في دبي", link: "#digital-marketing" },
+  { name: "تصميم مواقع الويب وصفحات الهبوط", link: "#web-design" },
+  { name: "أتمتة إدارة علاقات العملاء وروبوتات الدردشة", link: "#crm-automation" },
+  { name: "التحول الرقمي", link: "#digital-transformation" },
+  { name: "تنفيذ الذكاء الاصطناعي", link: "#ai-strategy" },
+  { name: "المحتوى والعلامات التجارية باللغتين العربية والإنجليزية", link: "#bilingual-content" }
 ];
 
 const StrategicFooter: React.FC = () => {
@@ -54,7 +54,9 @@ const StrategicFooter: React.FC = () => {
             </div>
             
             <p className="text-ai8ty-grey mb-6">
-              {t('footer.tagline', language)}
+              {isRTL 
+                ? "نحن نهندس الاستفادة القصوى. ليس مجرد تسليمات. AI8TY هي شركة تحول الأعمال للعلامات التجارية ذات الرؤية في الإمارات، التي تدمج الأنظمة والتصميم والذكاء الاصطناعي لبناء نظام مستقبل الأعمال."
+                : "We engineer leverage. Not deliverables. AI8TY is the business transformation firm for visionary brands in the UAE, combining systems, design, and AI to build your business future OS."}
             </p>
             
             <div className="p-4 bg-depth-2 rounded-lg border border-white/5">
@@ -62,13 +64,17 @@ const StrategicFooter: React.FC = () => {
                 {isRTL ? ".P.S" : "P.S."}
               </p>
               <p className="text-ai8ty-white mb-4">
-                {t('footer.ps', language)}
+                {isRTL 
+                  ? "أنت حر دائمًا في التصفح أو الحفظ أو العودة لاحقًا — لكن النظام جاهز عندما تكون أنت كذلك."
+                  : "You're free to scroll, save, or come back later — but the system's ready when you are."}
               </p>
               <a 
                 href="#prototype-generator" 
                 className="inline-flex items-center text-sand gap-1 group"
               >
-                {t('footer.cta', language)}
+                {isRTL 
+                  ? "شاهد ما يمكن أن تبنيه AI8TY فعلاً لعملك"
+                  : "See what AI8TY would actually build for your business"}
                 <ChevronRight 
                   size={16} 
                   className={cn(
@@ -88,7 +94,7 @@ const StrategicFooter: React.FC = () => {
           >
             <div>
               <h3 className="font-syne text-ai8ty-white mb-4">
-                {t('footer.services', language)}
+                {isRTL ? "خدماتنا" : "Our Services"}
               </h3>
               <ul className="space-y-3">
                 {(isRTL ? servicesAr : services).slice(0, 3).map((service, index) => (
@@ -105,8 +111,8 @@ const StrategicFooter: React.FC = () => {
             </div>
             
             <div>
-              <h3 className="font-syne text-ai8ty-white mb-4">
-                {isRTL ? "" : ""}
+              <h3 className="font-syne text-ai8ty-white mb-4 opacity-0 lg:opacity-100">
+                {isRTL ? "روابط" : "Links"}
               </h3>
               <ul className="space-y-3">
                 {(isRTL ? servicesAr : services).slice(3).map((service, index) => (
@@ -124,7 +130,7 @@ const StrategicFooter: React.FC = () => {
             
             <div>
               <h3 className="font-syne text-ai8ty-white mb-4">
-                {t('footer.connect', language)}
+                {isRTL ? "تواصل معنا" : "Connect"}
               </h3>
               
               <div className="space-y-3">
@@ -136,11 +142,17 @@ const StrategicFooter: React.FC = () => {
                 </a>
                 
                 <a 
-                  href="tel:+97100000000"
+                  href="https://wa.me/971500000000"
                   className="text-ai8ty-grey hover:text-sand transition-colors block"
+                  target="_blank" 
+                  rel="noopener noreferrer"
                 >
-                  +971 00 000 0000
+                  +971 50 000 0000
                 </a>
+
+                <p className="text-ai8ty-grey text-sm mt-2">
+                  {isRTL ? "دبي، الإمارات العربية المتحدة" : "Dubai, UAE"}
+                </p>
                 
                 <button 
                   onClick={handleLanguageToggle}
@@ -161,7 +173,9 @@ const StrategicFooter: React.FC = () => {
             transition={{ duration: 0.6, delay: 0.4 }}
           >
             <p className="text-ai8ty-grey text-sm">
-              © 2025 AI8TY. {t('footer.rights', language)}
+              © 2025 AI8TY. {isRTL 
+                ? "شركة تحول الأعمال للمؤسسات الإماراتية."
+                : "Business Transformation OS for UAE Enterprises."}
             </p>
           </motion.div>
           
@@ -175,13 +189,13 @@ const StrategicFooter: React.FC = () => {
               href="#"
               className="text-ai8ty-grey text-sm hover:text-sand transition-colors"
             >
-              {t('footer.privacy', language)}
+              {isRTL ? "سياسة الخصوصية" : "Privacy Policy"}
             </a>
             <a 
               href="#"
               className="text-ai8ty-grey text-sm hover:text-sand transition-colors"
             >
-              {t('footer.terms', language)}
+              {isRTL ? "الشروط والأحكام" : "Terms"}
             </a>
           </motion.div>
         </div>

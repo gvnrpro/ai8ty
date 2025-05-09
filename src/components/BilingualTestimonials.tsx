@@ -16,6 +16,7 @@ interface Testimonial {
   quoteEn: string;
   quoteAr: string;
   avatarUrl: string;
+  location: string;
 }
 
 const testimonials: Testimonial[] = [
@@ -25,11 +26,12 @@ const testimonials: Testimonial[] = [
     nameAr: "أحمد المنصوري",
     titleEn: "Chief Technology Officer",
     titleAr: "المدير التنفيذي للتكنولوجيا",
-    companyEn: "Global Innovations Ltd",
-    companyAr: "الابتكارات العالمية المحدودة",
-    quoteEn: "AI8TY transformed our fragmented systems into a unified platform that's increased our operational efficiency by 40%. Their strategic approach to digital transformation has been invaluable.",
-    quoteAr: "حولت AI8TY أنظمتنا المتفرقة إلى منصة موحدة زادت من كفاءة عملياتنا بنسبة 40%. لقد كان نهجهم الاستراتيجي للتحول الرقمي لا يقدر بثمن.",
-    avatarUrl: "https://images.unsplash.com/photo-1566753323558-f4e0952af115?auto=format&fit=crop&w=200&q=80"
+    companyEn: "Emirates Digital Innovation Group",
+    companyAr: "مجموعة الإمارات للابتكار الرقمي",
+    quoteEn: "AI8TY transformed our fragmented systems into a unified platform that's increased our operational efficiency by 40%. They understand the UAE market and delivered exactly what we needed without unnecessary complexity.",
+    quoteAr: "حولت AI8TY أنظمتنا المتفرقة إلى منصة موحدة زادت من كفاءة عملياتنا بنسبة 40%. إنهم يفهمون سوق الإمارات وقدموا بالضبط ما احتجنا إليه دون تعقيدات غير ضرورية.",
+    avatarUrl: "https://images.unsplash.com/photo-1566753323558-f4e0952af115?auto=format&fit=crop&w=200&q=80",
+    location: "Dubai"
   },
   {
     id: "test-2",
@@ -39,9 +41,10 @@ const testimonials: Testimonial[] = [
     titleAr: "الرئيس التنفيذي",
     companyEn: "Future Retail Group",
     companyAr: "مجموعة تجارة المستقبل",
-    quoteEn: "Working with AI8TY has been transformative. Their team designed a custom dashboard that gives us real-time visibility into all our operations, helping us make faster, data-driven decisions.",
-    quoteAr: "العمل مع AI8TY كان تحولياً. صمم فريقهم لوحة تحكم مخصصة تمنحنا رؤية في الوقت الحقيقي لجميع عملياتنا، مما يساعدنا على اتخاذ قرارات أسرع مبنية على البيانات.",
-    avatarUrl: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=200&q=80"
+    quoteEn: "Working with AI8TY has been transformative for our retail operations. Their team designed a custom dashboard that gives us real-time visibility across all locations, helping us make faster, data-driven decisions. Their bilingual expertise was crucial for our market needs.",
+    quoteAr: "العمل مع AI8TY كان تحويلياً لعمليات البيع بالتجزئة لدينا. صمم فريقهم لوحة تحكم مخصصة تمنحنا رؤية في الوقت الحقيقي عبر جميع المواقع، مما يساعدنا على اتخاذ قرارات أسرع مبنية على البيانات. كانت خبرتهم ثنائية اللغة حاسمة لاحتياجات السوق لدينا.",
+    avatarUrl: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=200&q=80",
+    location: "Abu Dhabi"
   },
   {
     id: "test-3",
@@ -51,9 +54,10 @@ const testimonials: Testimonial[] = [
     titleAr: "المدير الإداري",
     companyEn: "Emirates Property Development",
     companyAr: "تطوير العقارات الإماراتية",
-    quoteEn: "The automation system AI8TY built for us has eliminated countless manual processes. Our team now focuses on strategic initiatives instead of repetitive tasks. The ROI has been remarkable.",
-    quoteAr: "لقد قضى نظام الأتمتة الذي بنته AI8TY لنا على العديد من العمليات اليدوية. يركز فريقنا الآن على المبادرات الاستراتيجية بدلاً من المهام المتكررة. لقد كان العائد على الاستثمار رائعًا.",
-    avatarUrl: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=200&q=80"
+    quoteEn: "The automation system AI8TY built for our property development firm has eliminated countless manual processes. Our team now focuses on strategic initiatives instead of repetitive tasks. Their understanding of both regional requirements and global best practices sets them apart.",
+    quoteAr: "لقد قضى نظام الأتمتة الذي بنته AI8TY لشركة تطوير العقارات لدينا على العديد من العمليات اليدوية. يركز فريقنا الآن على المبادرات الاستراتيجية بدلاً من المهام المتكررة. فهمهم لكل من المتطلبات الإقليمية وأفضل الممارسات العالمية يميزهم عن غيرهم.",
+    avatarUrl: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=200&q=80",
+    location: "Sharjah"
   }
 ];
 
@@ -81,6 +85,9 @@ const BilingualTestimonials: React.FC = () => {
     const quoteText = isArabic ? currentTestimonial.quoteAr : currentTestimonial.quoteEn;
     let i = 0;
     
+    // Speed up typing for mobile
+    const typingSpeed = window.innerWidth < 768 ? 10 : 20;
+    
     const typingInterval = setInterval(() => {
       if (i < quoteText.length) {
         setDisplayText(prev => prev + quoteText.charAt(i));
@@ -89,12 +96,12 @@ const BilingualTestimonials: React.FC = () => {
         clearInterval(typingInterval);
         setIsTyping(false);
       }
-    }, 20);
+    }, typingSpeed);
     
     return () => clearInterval(typingInterval);
   }, [activeIndex, isArabic, inView]);
   
-  // Auto-rotate testimonials
+  // Auto-rotate testimonials - faster on mobile
   useEffect(() => {
     if (!inView) return;
     
@@ -102,7 +109,7 @@ const BilingualTestimonials: React.FC = () => {
       if (!isTyping) {
         setActiveIndex(prev => (prev + 1) % testimonials.length);
       }
-    }, 10000); // Change every 10 seconds if typing is complete
+    }, window.innerWidth < 768 ? 8000 : 10000); // Change every 8 seconds on mobile, 10 on desktop
     
     return () => clearInterval(rotateInterval);
   }, [inView, isTyping]);
@@ -121,7 +128,7 @@ const BilingualTestimonials: React.FC = () => {
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
           >
-            {isArabic ? "ما يقوله عملاؤنا" : "What Our Clients Say"}
+            {isArabic ? "الثقة من الشركات الإماراتية الرائدة" : "Trusted by Leading UAE Companies"}
           </motion.h2>
           <motion.p 
             className="subheading max-w-2xl mx-auto"
@@ -129,7 +136,7 @@ const BilingualTestimonials: React.FC = () => {
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            {isArabic ? "قصص نجاح حقيقية من شركات إماراتية رائدة" : "Real success stories from leading UAE companies"}
+            {isArabic ? "قصص نجاح حقيقية من شركات إماراتية تستخدم نظام AI8TY لتسريع النمو" : "Real success stories from UAE companies using the AI8TY system to accelerate growth"}
           </motion.p>
         </div>
         
@@ -159,6 +166,9 @@ const BilingualTestimonials: React.FC = () => {
                       />
                     </div>
                     <div className="absolute -inset-1 rounded-full border border-sand/30 animate-pulse"></div>
+                    <div className="absolute bottom-0 right-0 bg-sand text-ai8ty-black text-xs px-2 py-1 rounded-full">
+                      {testimonials[activeIndex].location}
+                    </div>
                   </div>
                 </motion.div>
                 

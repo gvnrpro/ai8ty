@@ -19,56 +19,56 @@ interface Service {
 
 const services: Service[] = [
   {
-    id: 'business-automation',
-    title: 'Business Automation',
-    seoTitle: 'Business Process Automation in Dubai',
-    description: 'End-to-end workflow automation that eliminates manual touchpoints and reduces operational friction.',
-    outcome: 'Reduce operational costs by up to 40% while scaling capacity without adding headcount.',
-    imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80',
-    mockupUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80'
+    id: 'digital-marketing',
+    title: 'Digital Marketing',
+    seoTitle: 'Digital Marketing Services in Dubai & UAE',
+    description: 'Results-focused digital marketing strategies tailored for the UAE market. Full-funnel approach from awareness to retention.',
+    outcome: 'Generate predictable leads and measurable revenue growth while optimizing your CAC for regional markets.',
+    imageUrl: 'https://images.unsplash.com/photo-1533750349088-cd871a92f312?auto=format&fit=crop&w=800&q=80',
+    mockupUrl: 'https://images.unsplash.com/photo-1533750349088-cd871a92f312?auto=format&fit=crop&w=800&q=80'
   },
   {
-    id: 'crm-integration',
-    title: 'CRM Integration',
-    seoTitle: 'Custom CRM Integration in UAE',
-    description: 'Unified customer relationship management that connects sales, marketing and service teams.',
-    outcome: 'Centralize customer data and increase conversion rates through connected intelligence.',
-    imageUrl: 'https://images.unsplash.com/photo-1556155092-490a1ba16284?auto=format&fit=crop&w=800&q=80',
-    mockupUrl: 'https://images.unsplash.com/photo-1556155092-490a1ba16284?auto=format&fit=crop&w=800&q=80'
-  },
-  {
-    id: 'analytics-dashboard',
-    title: 'Analytics Dashboard',
-    seoTitle: 'Real-time Business Analytics in Dubai',
-    description: 'Custom data visualization and KPI tracking for executive teams and operational managers.',
-    outcome: 'Make confident decisions with real-time visibility into business performance across all metrics.',
-    imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80',
-    mockupUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80'
-  },
-  {
-    id: 'digital-transformation',
-    title: 'Digital Transformation',
-    seoTitle: 'Enterprise Digital Transformation in UAE',
-    description: 'Comprehensive technology modernization with AI-powered business systems.',
-    outcome: 'Transform legacy operations into a streamlined digital ecosystem that scales with your growth.',
+    id: 'web-design',
+    title: 'Web Design & Development',
+    seoTitle: 'Website & Landing Page Design (Webflow / Notion)',
+    description: 'Premium website and landing page design using Webflow and Notion integration for seamless content management.',
+    outcome: 'Convert more visitors with high-performance sites that load faster, look better, and drive more action than your competitors.',
     imageUrl: 'https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&fit=crop&w=800&q=80',
     mockupUrl: 'https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&fit=crop&w=800&q=80'
   },
   {
+    id: 'crm-automation',
+    title: 'CRM & System Automation',
+    seoTitle: 'CRM Automation, AI Chatbots & Internal Systems',
+    description: 'End-to-end workflow automation that eliminates manual touchpoints and reduces operational friction for UAE businesses.',
+    outcome: 'Reduce operational costs by up to 40% while scaling capacity without adding headcount. Make data-driven decisions with real-time insights.',
+    imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80',
+    mockupUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80'
+  },
+  {
+    id: 'bilingual-content',
+    title: 'Arabic-English Content',
+    seoTitle: 'Arabic-English Content & Branding',
+    description: 'Native Arabic-English content creation and branding services for UAE businesses targeting regional and international audiences.',
+    outcome: 'Connect authentically with both local and global audiences through culturally-relevant branding that resonates across languages.',
+    imageUrl: 'https://images.unsplash.com/photo-1456735190827-d1262f71b8a3?auto=format&fit=crop&w=800&q=80',
+    mockupUrl: 'https://images.unsplash.com/photo-1456735190827-d1262f71b8a3?auto=format&fit=crop&w=800&q=80'
+  },
+  {
     id: 'ai-strategy',
-    title: 'AI Strategy',
-    seoTitle: 'AI Implementation Strategy in UAE',
-    description: 'Strategic implementation of AI tools and workflows to enhance business capabilities.',
-    outcome: 'Leverage artificial intelligence to automate repetitive tasks and unlock new growth opportunities.',
+    title: 'AI Implementation',
+    seoTitle: 'AI Strategy & Implementation for UAE Businesses',
+    description: 'Strategic implementation of AI tools and workflows to enhance your business capabilities and competitive advantage.',
+    outcome: 'Leverage artificial intelligence to automate repetitive tasks, gain predictive insights, and unlock new growth opportunities.',
     imageUrl: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80',
     mockupUrl: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80'
   },
   {
     id: 'customer-experience',
-    title: 'Customer Experience',
-    seoTitle: 'Customer Experience Design in Dubai',
-    description: 'End-to-end customer journey optimization from acquisition to advocacy.',
-    outcome: 'Create frictionless customer experiences that increase satisfaction, loyalty and lifetime value.',
+    title: 'Customer Experience Design',
+    seoTitle: 'Customer Experience Design for UAE Enterprises',
+    description: 'End-to-end customer journey optimization from acquisition to advocacy, designed for UAE market preferences.',
+    outcome: 'Create frictionless customer experiences that increase satisfaction, loyalty and lifetime value while reducing support costs.',
     imageUrl: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=800&q=80',
     mockupUrl: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=800&q=80'
   }
@@ -112,7 +112,7 @@ const ServiceExplorer: React.FC = () => {
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
           >
-            {t('services.explorer.title', language)}
+            {language === 'ar' ? "نظام خدمات متكامل" : "The AI8TY Operating System"}
           </motion.h2>
           <motion.p 
             className="subheading max-w-2xl mx-auto"
@@ -120,7 +120,9 @@ const ServiceExplorer: React.FC = () => {
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            {t('services.explorer.subtitle', language)}
+            {language === 'ar' 
+              ? "اكتشف كيف تعمل خدماتنا المتكاملة على تحويل الأعمال الإماراتية إلى أنظمة نمو موحدة" 
+              : "Discover our integrated platform of services that transform UAE businesses into unified growth systems"}
           </motion.p>
         </div>
         
@@ -153,6 +155,7 @@ const ServiceExplorer: React.FC = () => {
                           setActiveService(null);
                         }}
                         className="p-2 rounded-full bg-depth-3 hover:bg-depth-2 transition-colors"
+                        aria-label="Close service details"
                       >
                         <X size={16} />
                       </button>
@@ -162,7 +165,7 @@ const ServiceExplorer: React.FC = () => {
                     <p className="text-ai8ty-grey">{service.description}</p>
                     
                     <div className="pt-4 border-t border-white/10">
-                      <h4 className="text-sm uppercase tracking-wider text-ai8ty-grey mb-2">Why it matters</h4>
+                      <h4 className="text-sm uppercase tracking-wider text-ai8ty-grey mb-2">Business Outcome</h4>
                       <p className="text-ai8ty-white">{service.outcome}</p>
                     </div>
                     
