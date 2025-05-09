@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+
+import React, { useState, useEffect, useRef } from 'react';
 import IntroSplashScreen from '@/components/IntroSplashScreen';
 import HeroSection from '@/components/HeroSection';
 import AboutSection from '@/components/AboutSection';
@@ -11,7 +12,6 @@ import SiteFooter from '@/components/SiteFooter';
 import Navigation from '@/components/Navigation';
 import TransitionLoader from '@/components/TransitionLoader';
 import FeaturedProjects from '@/components/FeaturedProjects';
-import TeamCarousel from '@/components/TeamCarousel';
 import BlogHighlights from '@/components/BlogHighlights';
 import MeetTheTeamSection from '@/components/MeetTheTeamSection';
 import { useToast } from '@/hooks/use-toast';
@@ -22,6 +22,10 @@ const Index = () => {
   const [initialLoadComplete, setInitialLoadComplete] = useState(false);
   const { toast } = useToast();
   const { language } = useLanguage();
+  const mainRef = useRef<HTMLDivElement>(null);
+  
+  // Track scroll position for parallax effects
+  const [scrollY, setScrollY] = useState(0);
   
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -33,8 +37,15 @@ const Index = () => {
     
     document.body.style.overflow = showSplash ? 'hidden' : 'auto';
     
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+    
+    window.addEventListener('scroll', handleScroll);
+    
     return () => {
       document.body.style.overflow = 'auto';
+      window.removeEventListener('scroll', handleScroll);
     };
   }, [showSplash]);
 
@@ -56,24 +67,30 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-ai8ty-black text-ai8ty-white">
+    <div className="min-h-screen bg-ai8ty-black text-ai8ty-white overflow-x-hidden">
       <TransitionLoader initialLoad={!showSplash && !initialLoadComplete} />
       
       {showSplash && <IntroSplashScreen onComplete={handleSplashComplete} />}
       
       <Navigation />
       
-      <main>
+      <main ref={mainRef} className="relative z-10">
         <HeroSection />
-        <AboutSection />
-        <ServicesSection />
-        <FeaturedProjects />
-        <AI8TYCardHighlight />
-        <MeetTheTeamSection />
-        <WorkShowcase />
-        <BlogHighlights />
-        <ClientWall />
-        <ContactSection />
+        
+        <div className="relative">
+          {/* Spatial depth marker - creates a visual connection between sections */}
+          <div className="absolute left-0 ml-4 md:ml-8 lg:ml-12 h-full w-px bg-gradient-to-b from-transparent via-sand/30 to-transparent opacity-30"></div>
+          
+          <AboutSection />
+          <ServicesSection />
+          <FeaturedProjects />
+          <AI8TYCardHighlight />
+          <MeetTheTeamSection />
+          <WorkShowcase />
+          <BlogHighlights />
+          <ClientWall />
+          <ContactSection />
+        </div>
       </main>
       
       <SiteFooter />
