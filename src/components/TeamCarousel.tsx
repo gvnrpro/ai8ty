@@ -127,9 +127,9 @@ const TeamMemberProfile: React.FC = () => {
             
             {/* Social media links */}
             <div className="absolute -bottom-4 right-4 flex space-x-3">
-              {member.instagram && (
+              {member.socialLinks?.instagram && (
                 <motion.a 
-                  href={member.instagram} 
+                  href={member.socialLinks.instagram} 
                   target="_blank" 
                   rel="noopener noreferrer" 
                   className="w-10 h-10 rounded-full bg-ai8ty-violet flex items-center justify-center text-white hover:bg-ai8ty-violet/80 transition-colors"
@@ -143,9 +143,9 @@ const TeamMemberProfile: React.FC = () => {
                 </motion.a>
               )}
               
-              {member.linkedIn && (
+              {member.socialLinks?.linkedin && (
                 <motion.a 
-                  href={member.linkedIn} 
+                  href={member.socialLinks.linkedin} 
                   target="_blank" 
                   rel="noopener noreferrer" 
                   className="w-10 h-10 rounded-full bg-ai8ty-violet flex items-center justify-center text-white hover:bg-ai8ty-violet/80 transition-colors"
