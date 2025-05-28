@@ -72,7 +72,7 @@ const HeroSection: React.FC = () => {
           density={particleDensity} 
           color="#F1BE6C" 
           className="opacity-25" 
-          mode="neural"
+          mode="network"
         />
         
         {/* Neural network overlay */}
@@ -247,7 +247,7 @@ const HeroSection: React.FC = () => {
             <span className="relative z-10">Show me the system</span>
             <ArrowUpRight className="ml-2 relative z-10 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" size={18} />
           </Button>
-        </motion.div>
+        </div>
       </motion.div>
 
       {/* Enhanced fade overlay */}
