@@ -1,7 +1,6 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
-import IntroSplashScreen from '@/components/IntroSplashScreen';
 import HeroSection from '@/components/HeroSection';
 import AboutSection from '@/components/AboutSection';
 import ServicesSection from '@/components/ServicesSection';
@@ -9,7 +8,6 @@ import AI8TYCardHighlight from '@/components/AI8TYCardHighlight';
 import WorkShowcase from '@/components/WorkShowcase';
 import ClientWall from '@/components/ClientWall';
 import ContactSection from '@/components/ContactSection';
-import SiteFooter from '@/components/SiteFooter';
 import Navigation from '@/components/Navigation';
 import TransitionLoader from '@/components/TransitionLoader';
 import FeaturedProjects from '@/components/FeaturedProjects';
@@ -24,12 +22,15 @@ import ServiceExplorer from '@/components/ServiceExplorer';
 import PrototypeGenerator from '@/components/PrototypeGenerator';
 import BilingualTestimonials from '@/components/BilingualTestimonials';
 import WhatsAppCTA from '@/components/WhatsAppCTA';
-import BrandAnimation from '@/components/BrandAnimation';
-import StrategicFooter from '@/components/StrategicFooter';
 import BrandPhilosophyBar from '@/components/BrandPhilosophyBar';
+import StrategicFooter from '@/components/StrategicFooter';
+
+// New sections for intelligence-first design
+import IntelligenceShiftSection from '@/components/IntelligenceShiftSection';
+import ModularServicesSection from '@/components/ModularServicesSection';
+import BuilderTrustSection from '@/components/BuilderTrustSection';
 
 const Index = () => {
-  const [showSplash, setShowSplash] = useState(true);
   const [initialLoadComplete, setInitialLoadComplete] = useState(false);
   const { toast } = useToast();
   const { language } = useLanguage();
@@ -39,14 +40,8 @@ const Index = () => {
   const [scrollY, setScrollY] = useState(0);
   
   useEffect(() => {
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    
-    if (prefersReducedMotion) {
-      setShowSplash(false);
-      setInitialLoadComplete(true);
-    }
-    
-    document.body.style.overflow = showSplash ? 'hidden' : 'auto';
+    // Skip splash screen - go directly to main content
+    setInitialLoadComplete(true);
     
     const handleScroll = () => {
       setScrollY(window.scrollY);
@@ -54,13 +49,13 @@ const Index = () => {
     
     window.addEventListener('scroll', handleScroll);
     
-    // Optimize scroll animations for mobile
+    // Optimize scroll animations for mobile with faster timing
     const optimizeAnimations = () => {
       const isMobile = window.innerWidth < 768;
       if (isMobile) {
-        document.documentElement.style.setProperty('--motion-fast', '0.2s');
-        document.documentElement.style.setProperty('--motion-medium', '0.4s');
-        document.documentElement.style.setProperty('--motion-slow', '0.6s');
+        document.documentElement.style.setProperty('--motion-fast', '0.15s');
+        document.documentElement.style.setProperty('--motion-medium', '0.25s');
+        document.documentElement.style.setProperty('--motion-slow', '0.4s');
       } else {
         document.documentElement.style.setProperty('--motion-fast', '0.3s');
         document.documentElement.style.setProperty('--motion-medium', '0.6s');
@@ -71,36 +66,31 @@ const Index = () => {
     optimizeAnimations();
     window.addEventListener('resize', optimizeAnimations);
     
-    return () => {
-      document.body.style.overflow = 'auto';
-      window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('resize', optimizeAnimations);
-    };
-  }, [showSplash]);
-
-  const handleSplashComplete = () => {
-    setShowSplash(false);
-    setInitialLoadComplete(true);
-    
+    // Welcome toast for direct landing
     setTimeout(() => {
       toast({
         title: language === 'en' ? "Welcome to AI8TY" : 
                language === 'ar' ? "مرحبًا بك في AI8TY" : 
                "Bienvenue chez AI8TY",
-        description: language === 'en' ? "The Business Transformation OS for UAE enterprises. Explore our services." :
-                     language === 'ar' ? "نظام تحول الأعمال لشركات الإمارات. استكشف خدماتنا." :
-                     "Le système d'exploitation de transformation d'entreprise pour les entreprises des EAU. Explorez nos services.",
+        description: language === 'en' ? "Design for the Intelligence Age. Your business OS for AI-powered growth." :
+                     language === 'ar' ? "التصميم لعصر الذكاء. نظام تشغيل أعمالك للنمو المدعوم بالذكاء الاصطناعي." :
+                     "Design pour l'ère de l'intelligence. Votre OS d'entreprise pour une croissance alimentée par l'IA.",
         duration: 5000,
       });
-    }, 1500);
-  };
+    }, 1000);
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', optimizeAnimations);
+    };
+  }, [language, toast]);
 
-  // SEO description variations based on language
+  // Enhanced SEO description for intelligence-first positioning
   const getSeoDescription = () => {
     if (language === 'ar') {
-      return "شركة تحول الأعمال الرائدة في الإمارات - نجمع بين الأتمتة والاستراتيجية والتصميم وإدارة علاقات العملاء والذكاء الاصطناعي وتسويق الأداء تحت سقف واحد";
+      return "AI8TY - التصميم لعصر الذكاء الاصطناعي. نساعد العلامات التجارية في الإمارات على التطور لعالم مدعوم بالذكاء الاصطناعي من خلال أنظمة التصميم القابلة للتطوير، والرؤية التوليدية للبحث، والوضوح التشغيلي.";
     }
-    return "UAE's premier business transformation firm - combining automation, strategy, design, CRM, AI, and performance marketing under one roof. Scalable growth systems for Dubai & UAE businesses.";
+    return "AI8TY - Design for the Intelligence Age. We help UAE brands evolve for an AI-shaped world through scalable design systems, generative search visibility, and operational clarity. Digital Marketing Services Dubai, Website Design UAE, CRM Automation, AI Chatbots, Arabic-English Content.";
   };
 
   return (
@@ -108,37 +98,78 @@ const Index = () => {
       <Helmet>
         <title>
           {language === 'ar' 
-            ? "AI8TY | نظام تشغيل الأعمال الاستراتيجي في دبي والإمارات" 
-            : "AI8TY | Strategic Business OS for Dubai & UAE Companies"}
+            ? "AI8TY | التصميم لعصر الذكاء - دبي والإمارات" 
+            : "AI8TY | Design for the Intelligence Age - Dubai & UAE"}
         </title>
         <meta name="description" content={getSeoDescription()} />
-        <meta name="keywords" content="digital marketing services dubai, website design uae, landing page design dubai, CRM automation uae, business transformation dubai, ai chatbots uae, arabic english content dubai, webflow design dubai, notion integration uae" />
+        <meta name="keywords" content="digital marketing services dubai uae, website design webflow notion, CRM automation ai chatbots internal systems, arabic english content branding, generative AI optimization, business transformation dubai, AI-powered growth systems, scalable design systems dubai" />
         
-        {/* Open Graph Tags */}
-        <meta property="og:title" content={language === 'ar' ? "AI8TY | نظام تشغيل الأعمال الاستراتيجي" : "AI8TY | Strategic Business OS"} />
+        {/* Enhanced Open Graph Tags */}
+        <meta property="og:title" content={language === 'ar' ? "AI8TY | التصميم لعصر الذكاء" : "AI8TY | Design for the Intelligence Age"} />
         <meta property="og:description" content={getSeoDescription()} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://ai8ty.com" />
-        <meta property="og:image" content="https://ai8ty.com/og-image.png" />
+        <meta property="og:image" content="https://ai8ty.com/og-image-intelligence.png" />
+        <meta property="og:site_name" content="AI8TY" />
 
-        {/* Twitter Card Tags */}
+        {/* Enhanced Twitter Card Tags */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={language === 'ar' ? "AI8TY | نظام تشغيل الأعمال الاستراتيجي" : "AI8TY | Strategic Business OS"} />
+        <meta name="twitter:title" content={language === 'ar' ? "AI8TY | التصميم لعصر الذكاء" : "AI8TY | Design for the Intelligence Age"} />
         <meta name="twitter:description" content={getSeoDescription()} />
-        <meta name="twitter:image" content="https://ai8ty.com/twitter-card.png" />
+        <meta name="twitter:image" content="https://ai8ty.com/twitter-card-intelligence.png" />
+        <meta name="twitter:site" content="@ai8ty" />
         
-        {/* Region-specific metadata */}
-        <meta name="geo.region" content="AE" />
-        <meta name="geo.placename" content="Dubai" />
+        {/* Enhanced region-specific and AI indexing metadata */}
+        <meta name="geo.region" content="AE-DU" />
+        <meta name="geo.placename" content="Dubai, United Arab Emirates" />
+        <meta name="geo.position" content="25.2048;55.2708" />
+        <meta name="ICBM" content="25.2048, 55.2708" />
+        
+        {/* AI/LLM indexing optimization */}
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+        <meta name="ai-content-classification" content="business-services, design-systems, AI-optimization, UAE-market" />
         
         {/* Canonical URL */}
         <link rel="canonical" href="https://ai8ty.com" />
+        
+        {/* Enhanced structured data for better AI discovery */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "AI8TY",
+            "description": "Design for the Intelligence Age - Business transformation through AI-powered systems",
+            "url": "https://ai8ty.com",
+            "logo": "https://ai8ty.com/logo.png",
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "telephone": "+971-50-922-9009",
+              "contactType": "sales",
+              "email": "futureis@ai8ty.com",
+              "areaServed": "AE",
+              "availableLanguage": ["en", "ar"]
+            },
+            "address": {
+              "@type": "PostalAddress",
+              "addressCountry": "AE",
+              "addressRegion": "Dubai"
+            },
+            "sameAs": [
+              "https://linkedin.com/company/ai8ty",
+              "https://twitter.com/ai8ty"
+            ],
+            "service": [
+              "Digital Marketing Services Dubai UAE",
+              "Website Landing Page Design Webflow Notion",
+              "CRM Automation AI Chatbots Internal Systems",
+              "Arabic English Content Branding"
+            ]
+          })}
+        </script>
       </Helmet>
     
       <div className="min-h-screen bg-ai8ty-black text-ai8ty-white overflow-x-hidden">
-        <TransitionLoader initialLoad={!showSplash && !initialLoadComplete} />
-        
-        {showSplash && <IntroSplashScreen onComplete={handleSplashComplete} />}
+        <TransitionLoader initialLoad={!initialLoadComplete} />
         
         <Navigation />
         
@@ -148,14 +179,20 @@ const Index = () => {
           {/* Brand Philosophy Bar - After Hero */}
           <BrandPhilosophyBar />
           
+          {/* New Intelligence Shift Section */}
+          <IntelligenceShiftSection />
+          
           <div className="relative">
-            {/* Spatial depth marker - creates a visual connection between sections */}
+            {/* Spatial depth marker - creates connection between sections */}
             <div className="absolute left-0 ml-4 md:ml-8 lg:ml-12 h-full w-px bg-gradient-to-b from-transparent via-sand/30 to-transparent opacity-30"></div>
             
             <AboutSection />
             
-            {/* Business Transformation Module - Show the before/after experience */}
+            {/* Business Transformation Module */}
             <BusinessTransformationModule />
+            
+            {/* New Modular Services Section with SEO-optimized headings */}
+            <ModularServicesSection />
             
             {/* Enhanced Services Explorer */}
             <ServiceExplorer />
@@ -163,8 +200,11 @@ const Index = () => {
             <FeaturedProjects />
             <AI8TYCardHighlight />
             
-            {/* Bilingual Testimonials - Before the team section for trust-building */}
+            {/* Enhanced Bilingual Testimonials */}
             <BilingualTestimonials />
+            
+            {/* New Builder Trust Section */}
+            <BuilderTrustSection />
             
             <MeetTheTeamSection />
             <WorkShowcase />
@@ -174,7 +214,7 @@ const Index = () => {
             
             <BlogHighlights />
             
-            {/* WhatsApp CTA - Right before final contact section */}
+            {/* Enhanced WhatsApp CTA with new contact info */}
             <WhatsAppCTA />
             
             <ClientWall />
@@ -182,7 +222,7 @@ const Index = () => {
           </div>
         </main>
         
-        {/* Replace standard footer with Strategic Footer */}
+        {/* Strategic Footer with P.S. line */}
         <StrategicFooter />
       </div>
     </>
