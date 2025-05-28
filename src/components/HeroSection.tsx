@@ -4,7 +4,7 @@ import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, ArrowUpRight } from 'lucide-react';
 import ParticleBackground from './ParticleBackground';
-import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 
 const HeroSection: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -247,7 +247,7 @@ const HeroSection: React.FC = () => {
             <span className="relative z-10">Show me the system</span>
             <ArrowUpRight className="ml-2 relative z-10 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" size={18} />
           </Button>
-        </div>
+        </motion.div>
       </motion.div>
 
       {/* Enhanced fade overlay */}
