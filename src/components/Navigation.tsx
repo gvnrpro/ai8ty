@@ -5,7 +5,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Globe, ArrowRight } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { useLanguage, Language } from '@/contexts/LanguageContext';
-import { t } from '@/utils/i18n';
 
 const Navigation: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,7 +12,7 @@ const Navigation: React.FC = () => {
   const isMobile = useIsMobile();
   const { language, setLanguage, isRTL } = useLanguage();
   
-  // Handle scroll position for transparent/solid background
+  // Handle scroll position for sticky navigation with blur
   useEffect(() => {
     const handleScroll = () => {
       setScrollPosition(window.scrollY);
@@ -53,13 +52,16 @@ const Navigation: React.FC = () => {
   ];
 
   return (
-    <header 
+    <motion.header 
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-500 py-4 px-4 md:px-6",
-        scrollPosition > 50 || isOpen 
-          ? "bg-ai8ty-black/95 backdrop-blur-xl border-b border-neural/20 shadow-neural" 
+        scrollPosition > 20 || isOpen 
+          ? "bg-black/80 backdrop-blur-xl border-b border-white/10 shadow-lg shadow-neural/20" 
           : "bg-transparent"
       )}
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
     >
       <div className="container mx-auto max-w-6xl">
         <nav className="flex items-center justify-between">
@@ -80,10 +82,15 @@ const Navigation: React.FC = () => {
           <div className="hidden md:flex items-center">
             <ul className="flex space-x-8 mr-8">
               {navLinks.map((link, index) => (
-                <li key={index}>
+                <motion.li 
+                  key={index}
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                >
                   <motion.a 
                     href={link.path} 
-                    className="font-space text-sm text-ai8ty-grey hover:text-neural transition-all duration-300 relative group"
+                    className="font-space text-sm text-white/70 hover:text-neural transition-all duration-300 relative group"
                     whileHover={{ y: -2 }}
                     transition={{ duration: 0.2 }}
                   >
@@ -95,14 +102,19 @@ const Navigation: React.FC = () => {
                       transition={{ duration: 0.3 }}
                     />
                   </motion.a>
-                </li>
+                </motion.li>
               ))}
             </ul>
             
             {/* Enhanced Language Selector */}
-            <div className="relative group">
+            <motion.div 
+              className="relative group"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.6 }}
+            >
               <motion.button 
-                className="flex items-center text-ai8ty-grey hover:text-neural transition-all duration-300 bg-depth-2/50 rounded-xl px-4 py-2 backdrop-blur-sm border border-neural/10 hover:border-neural/30"
+                className="flex items-center text-white/70 hover:text-neural transition-all duration-300 bg-white/10 rounded-xl px-4 py-2 backdrop-blur-sm border border-white/20 hover:border-neural/30"
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.2 }}
               >
@@ -112,7 +124,7 @@ const Navigation: React.FC = () => {
               </motion.button>
               
               <motion.div 
-                className="absolute top-full right-0 mt-3 bg-depth-1/95 backdrop-blur-xl border border-neural/20 rounded-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 min-w-[140px] shadow-neural"
+                className="absolute top-full right-0 mt-3 bg-black/90 backdrop-blur-xl border border-white/20 rounded-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 min-w-[140px] shadow-neural"
                 initial={{ y: -10, opacity: 0 }}
                 whileHover={{ y: 0, opacity: 1 }}
               >
@@ -125,7 +137,7 @@ const Navigation: React.FC = () => {
                           "w-full text-left px-4 py-3 text-sm transition-all duration-200 hover:bg-neural/10",
                           language === lang.code 
                             ? "text-neural bg-neural/5 border-l-2 border-neural" 
-                            : "text-ai8ty-grey hover:text-neural"
+                            : "text-white/70 hover:text-neural"
                         )}
                         whileHover={{ x: 4 }}
                         transition={{ duration: 0.2 }}
@@ -136,13 +148,13 @@ const Navigation: React.FC = () => {
                   ))}
                 </ul>
               </motion.div>
-            </div>
+            </motion.div>
           </div>
 
           {/* Mobile Controls */}
           <div className="flex items-center md:hidden">
             <motion.button 
-              className="relative z-20 text-ai8ty-grey hover:text-neural mr-4 bg-depth-2/50 rounded-lg p-2 backdrop-blur-sm border border-neural/10"
+              className="relative z-20 text-white/70 hover:text-neural mr-4 bg-white/10 rounded-lg p-2 backdrop-blur-sm border border-white/20"
               onClick={() => {
                 const currentIndex = languages.findIndex(l => l.code === language);
                 const nextIndex = (currentIndex + 1) % languages.length;
@@ -151,16 +163,22 @@ const Navigation: React.FC = () => {
               aria-label="Change language"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
             >
               <Globe size={20} />
             </motion.button>
             
             <motion.button 
               onClick={() => setIsOpen(!isOpen)}
-              className="relative z-20 text-ai8ty-grey hover:text-neural bg-depth-2/50 rounded-lg p-2 backdrop-blur-sm border border-neural/10"
+              className="relative z-20 text-white/70 hover:text-neural bg-white/10 rounded-lg p-2 backdrop-blur-sm border border-white/20"
               aria-label={isOpen ? "Close menu" : "Open menu"}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
             >
               <motion.div
                 animate={{ rotate: isOpen ? 180 : 0 }}
@@ -175,7 +193,7 @@ const Navigation: React.FC = () => {
           <AnimatePresence>
             {isOpen && (
               <motion.div
-                className="fixed inset-0 z-10 bg-ai8ty-black/98 backdrop-blur-xl"
+                className="fixed inset-0 z-10 bg-black/95 backdrop-blur-xl"
                 initial={{ opacity: 0, y: isRTL ? "-100%" : "100%" }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: isRTL ? "-100%" : "100%" }}
@@ -209,7 +227,7 @@ const Navigation: React.FC = () => {
                       >
                         <motion.a 
                           href={link.path} 
-                          className="font-syne text-3xl text-ai8ty-white hover:text-neural transition-all duration-300 relative group"
+                          className="font-syne text-3xl text-white hover:text-neural transition-all duration-300 relative group"
                           onClick={handleLinkClick}
                           whileHover={{ scale: 1.1, y: -5 }}
                           transition={{ duration: 0.2 }}
@@ -250,7 +268,7 @@ const Navigation: React.FC = () => {
           </AnimatePresence>
         </nav>
       </div>
-    </header>
+    </motion.header>
   );
 };
 

@@ -1,9 +1,11 @@
+
 import React, { useState, useEffect, useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
 import HeroSection from '@/components/HeroSection';
 import ContactSection from '@/components/ContactSection';
 import Navigation from '@/components/Navigation';
 import TransitionLoader from '@/components/TransitionLoader';
+import AIReadinessQuiz from '@/components/AIReadinessQuiz';
 import { useToast } from '@/hooks/use-toast';
 import { useLanguage } from '@/contexts/LanguageContext';
 
@@ -49,9 +51,9 @@ const Index = () => {
         title: language === 'en' ? "Welcome to AI8TY" : 
                language === 'ar' ? "مرحبًا بك في AI8TY" : 
                "Bienvenue chez AI8TY",
-        description: language === 'en' ? "Design for the Intelligence Age. Your business OS for AI-powered growth." :
-                     language === 'ar' ? "التصميم لعصر الذكاء. نظام تشغيل أعمالك للنمو المدعوم بالذكاء الاصطناعي." :
-                     "Design pour l'ère de l'intelligence. Votre OS d'entreprise pour une croissance alimentée par l'IA.",
+        description: language === 'en' ? "Engineer your business for the Intelligence Age. Your AI-powered transformation begins here." :
+                     language === 'ar' ? "هندس أعمالك لعصر الذكاء. يبدأ تحولك المدعوم بالذكاء الاصطناعي هنا." :
+                     "Concevez votre entreprise pour l'ère de l'intelligence. Votre transformation alimentée par l'IA commence ici.",
         duration: 5000,
       });
     }, 1000);
@@ -64,9 +66,9 @@ const Index = () => {
   // Enhanced SEO description for intelligence-first positioning
   const getSeoDescription = () => {
     if (language === 'ar') {
-      return "AI8TY - التصميم لعصر الذكاء الاصطناعي. نساعد العلامات التجارية في الإمارات على التطور لعالم مدعوم بالذكاء الاصطناعي من خلال أنظمة التصميم القابلة للتطوير، والرؤية التوليدية للبحث، والوضوح التشغيلي.";
+      return "AI8TY - هندس أعمالك لعصر الذكاء الاصطناعي. نساعد العلامات التجارية في الإمارات على التطور لعالم مدعوم بالذكاء الاصطناعي من خلال أنظمة التصميم القابلة للتطوير، والرؤية التوليدية للبحث، والوضوح التشغيلي.";
     }
-    return "AI8TY - Design for the Intelligence Age. We help UAE brands evolve for an AI-shaped world through scalable design systems, generative search visibility, and operational clarity. Digital Marketing Services Dubai, Website Design UAE, CRM Automation, AI Chatbots, Arabic-English Content.";
+    return "AI8TY - Engineer your business for the Intelligence Age. We help UAE brands evolve for an AI-shaped world through scalable design systems, generative search visibility, and operational clarity. Digital Marketing Services Dubai, Website Design UAE, CRM Automation, AI Chatbots, Arabic-English Content.";
   };
 
   return (
@@ -74,14 +76,14 @@ const Index = () => {
       <Helmet>
         <title>
           {language === 'ar' 
-            ? "AI8TY | التصميم لعصر الذكاء - دبي والإمارات" 
-            : "AI8TY | Design for the Intelligence Age - Dubai & UAE"}
+            ? "AI8TY | هندس أعمالك لعصر الذكاء - دبي والإمارات" 
+            : "AI8TY | Engineer Your Business for the Intelligence Age - Dubai & UAE"}
         </title>
         <meta name="description" content={getSeoDescription()} />
-        <meta name="keywords" content="digital marketing services dubai uae, website design webflow notion, CRM automation ai chatbots internal systems, arabic english content branding, generative AI optimization, business transformation dubai, AI-powered growth systems, scalable design systems dubai" />
+        <meta name="keywords" content="AI transformation dubai uae, business intelligence systems, digital marketing services dubai, website design webflow notion, CRM automation ai chatbots, arabic english content branding, generative AI optimization, business transformation dubai, AI-powered growth systems, scalable design systems dubai" />
         
         {/* Enhanced Open Graph Tags */}
-        <meta property="og:title" content={language === 'ar' ? "AI8TY | التصميم لعصر الذكاء" : "AI8TY | Design for the Intelligence Age"} />
+        <meta property="og:title" content={language === 'ar' ? "AI8TY | هندس أعمالك لعصر الذكاء" : "AI8TY | Engineer Your Business for the Intelligence Age"} />
         <meta property="og:description" content={getSeoDescription()} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://ai8ty.com" />
@@ -90,7 +92,7 @@ const Index = () => {
 
         {/* Enhanced Twitter Card Tags */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={language === 'ar' ? "AI8TY | التصميم لعصر الذكاء" : "AI8TY | Design for the Intelligence Age"} />
+        <meta name="twitter:title" content={language === 'ar' ? "AI8TY | هندس أعمالك لعصر الذكاء" : "AI8TY | Engineer Your Business for the Intelligence Age"} />
         <meta name="twitter:description" content={getSeoDescription()} />
         <meta name="twitter:image" content="https://ai8ty.com/twitter-card-intelligence.png" />
         <meta name="twitter:site" content="@ai8ty" />
@@ -114,7 +116,7 @@ const Index = () => {
             "@context": "https://schema.org",
             "@type": "Organization",
             "name": "AI8TY",
-            "description": "Design for the Intelligence Age - Business transformation through AI-powered systems",
+            "description": "Engineer your business for the Intelligence Age - Business transformation through AI-powered systems",
             "url": "https://ai8ty.com",
             "logo": "https://ai8ty.com/logo.png",
             "contactPoint": {
@@ -135,7 +137,8 @@ const Index = () => {
               "https://twitter.com/ai8ty"
             ],
             "service": [
-              "Digital Marketing Services Dubai UAE",
+              "AI Transformation Dubai UAE",
+              "Business Intelligence Systems",
               "Website Landing Page Design Webflow Notion",
               "CRM Automation AI Chatbots Internal Systems",
               "Arabic English Content Branding"
@@ -177,6 +180,9 @@ const Index = () => {
         
         {/* Strategic Footer */}
         <StrategicFooter />
+        
+        {/* AI Readiness Quiz Widget */}
+        <AIReadinessQuiz />
       </div>
     </>
   );

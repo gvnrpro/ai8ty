@@ -2,7 +2,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, ArrowUpRight, Zap } from 'lucide-react';
+import { ArrowRight, Play, Phone, Zap } from 'lucide-react';
 import ParticleBackground from './ParticleBackground';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
@@ -68,8 +68,11 @@ const HeroSection: React.FC = () => {
     <motion.section 
       id="hero-section" 
       ref={sectionRef}
-      className="min-h-[100vh] relative flex flex-col justify-center items-center py-20 px-4 overflow-hidden"
+      className="min-h-[100vh] relative flex flex-col justify-center items-center py-20 px-4 overflow-hidden section-divider"
       style={{ opacity }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 1 }}
     >
       {/* Enhanced Neural Background */}
       <div className="absolute inset-0 z-0">
@@ -152,17 +155,12 @@ const HeroSection: React.FC = () => {
         )}
         style={{ y: y1 }}
       >
-        <div className="overflow-hidden mb-6 md:mb-8">
-          <motion.div
-            className="inline-flex items-center gap-3 bg-depth-2/80 border border-neural/20 rounded-full px-6 py-3 text-sm font-space text-white/90 backdrop-blur-sm"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ 
-              duration: 0.6, 
-              delay: 0.2,
-              ease: [0.16, 1, 0.3, 1]
-            }}
-          >
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
+          <div className="inline-flex items-center gap-3 bg-white/10 border border-white/20 rounded-full px-6 py-3 text-sm font-space text-white/90 backdrop-blur-sm mb-8">
             <motion.div
               className="flex h-2 w-2 rounded-full bg-neural"
               animate={{ scale: [1, 1.5, 1], opacity: [0.7, 1, 0.7] }}
@@ -170,111 +168,113 @@ const HeroSection: React.FC = () => {
             />
             <span className="font-medium">Intelligence-First Business OS</span>
             <Zap size={16} className="text-neural" />
-          </motion.div>
-        </div>
+          </div>
+        </motion.div>
 
-        <div className="overflow-hidden mb-4">
-          <motion.h1 
-            ref={headingRef}
-            className="strategic-title text-4xl md:text-6xl lg:text-7xl xl:text-8xl mb-8 text-center leading-none"
-            initial={{ y: 120, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ 
-              duration: 0.8, 
-              delay: 0.4,
-              ease: [0.16, 1, 0.3, 1]
-            }}
+        <motion.h1 
+          ref={headingRef}
+          className="strategic-title text-4xl md:text-6xl lg:text-7xl xl:text-8xl mb-8 text-center leading-none"
+          initial={{ y: 120, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+        >
+          <motion.span 
+            className="block mb-2"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.8, duration: 0.8 }}
           >
-            <motion.span 
-              className="block mb-2"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.8, duration: 0.8 }}
-            >
-              Transform Your Business
-            </motion.span>
-            <motion.span 
-              className="block bg-gradient-to-r from-neural via-quantum to-intelligence bg-clip-text text-transparent"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 1.2, duration: 0.8 }}
-            >
-              For the AI Era.
-            </motion.span>
-          </motion.h1>
-        </div>
+            Engineer Your Business
+          </motion.span>
+          <motion.span 
+            className="block bg-gradient-to-r from-neural via-quantum to-intelligence bg-clip-text text-transparent"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.2, duration: 0.8 }}
+          >
+            For the Intelligence Age.
+          </motion.span>
+        </motion.h1>
         
         <motion.div 
           className="max-w-4xl mx-auto text-center mb-12 space-y-4"
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ 
-            duration: 0.8, 
-            delay: 1.0,
-            ease: [0.16, 1, 0.3, 1]
-          }}
+          transition={{ duration: 0.8, delay: 1.0 }}
         >
           <p className="text-xl md:text-2xl font-space text-white/90 leading-relaxed mb-4">
-            We engineer scalable systems that make your brand discoverable, 
+            We architect scalable systems that make your business discoverable, 
             <br className="hidden md:block" />
-            memorable, and competitive in an AI-shaped world.
+            memorable, and dominant in an AI-driven marketplace.
           </p>
-          <p className="text-lg md:text-xl font-space text-neural/80">
-            Like OpenAI built ChatGPT's interface, we build yours.
+          <p className="subheading text-neural/80">
+            Just as OpenAI revolutionized intelligence interfaces, we revolutionize yours.
           </p>
         </motion.div>
         
+        {/* Enhanced Dual CTA Buttons */}
         <motion.div 
-          className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+          className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ 
-            duration: 0.7, 
-            delay: 1.4,
-            ease: [0.16, 1, 0.3, 1] 
-          }}
+          transition={{ duration: 0.7, delay: 1.4 }}
         >
           <motion.button
             onClick={scrollToTransformation}
-            className="btn-primary group relative overflow-hidden text-base px-8 py-4"
+            className="btn-primary group relative overflow-hidden"
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.98 }}
             transition={{ type: "spring", stiffness: 400, damping: 17 }}
           >
-            <span className="relative z-10 font-medium">See Your Transformation</span>
+            <Play className="mr-3 relative z-10" size={18} />
+            <span className="relative z-10 font-medium">Request Demo</span>
             <ArrowRight className="ml-3 relative z-10 transition-transform group-hover:translate-x-1" size={18} />
-            <motion.div
-              className="absolute inset-0 bg-gradient-to-r from-neural-light to-quantum opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-              style={{ borderRadius: 'inherit' }}
-            />
           </motion.button>
           
           <motion.button
-            onClick={scrollToServices}
-            className="btn-outline group relative overflow-hidden text-base px-8 py-4"
+            onClick={() => window.location.href = 'tel:+971509229009'}
+            className="btn-secondary group relative overflow-hidden"
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.98 }}
           >
-            <span className="relative z-10 font-medium">Explore Our Systems</span>
-            <ArrowUpRight className="ml-3 relative z-10 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" size={18} />
+            <Phone className="mr-3 relative z-10" size={18} />
+            <span className="relative z-10 font-medium">Contact Sales</span>
+            <ArrowRight className="ml-3 relative z-10 transition-transform group-hover:translate-x-1" size={18} />
           </motion.button>
         </motion.div>
         
-        {/* Trust indicators */}
+        {/* Trust indicators with animation */}
         <motion.div
-          className="mt-16 text-center"
+          className="text-center"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 2, duration: 1 }}
         >
-          <p className="text-sm font-space text-white/60 mb-4">
-            Trusted by forward-thinking companies across the UAE
+          <p className="text-sm font-space text-white/60 mb-6">
+            Trusted by visionary companies across the UAE & MENA
           </p>
-          <div className="flex justify-center items-center gap-8 opacity-40">
-            <div className="w-16 h-8 bg-white/10 rounded"></div>
-            <div className="w-16 h-8 bg-white/10 rounded"></div>
-            <div className="w-16 h-8 bg-white/10 rounded"></div>
-          </div>
+          <motion.div 
+            className="flex justify-center items-center gap-8 opacity-40"
+            initial={{ y: 20 }}
+            animate={{ y: 0 }}
+            transition={{ delay: 2.2, duration: 0.8 }}
+          >
+            {Array.from({ length: 3 }).map((_, i) => (
+              <motion.div 
+                key={i}
+                className="w-16 h-8 bg-white/10 rounded backdrop-blur-sm"
+                animate={{ 
+                  opacity: [0.3, 0.6, 0.3],
+                  scale: [1, 1.05, 1]
+                }}
+                transition={{ 
+                  duration: 3 + i,
+                  repeat: Infinity,
+                  delay: i * 0.5
+                }}
+              />
+            ))}
+          </motion.div>
         </motion.div>
       </motion.div>
 
@@ -299,7 +299,7 @@ const HeroSection: React.FC = () => {
           repeatDelay: 1
         }}
       >
-        <div className="w-6 h-12 border-2 border-neural/40 rounded-full flex justify-center">
+        <div className="w-6 h-12 border-2 border-neural/40 rounded-full flex justify-center backdrop-blur-sm">
           <motion.div 
             className="w-1 h-3 bg-neural rounded-full mt-2"
             animate={{ y: [0, 16, 0] }}

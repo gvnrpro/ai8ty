@@ -41,7 +41,7 @@
     --secondary-foreground: 0 0% 100%;
 
     --muted: 0 0% 20%;
-    --muted-foreground: 0 0% 75%;
+    --muted-foreground: 0 0% 85%;
 
     --accent: 0 0% 20%;
     --accent-foreground: 0 0% 100%;
@@ -101,10 +101,11 @@
     background: linear-gradient(135deg, #0A0A0B 0%, #111111 100%);
   }
   
-  /* Enhanced typography system */
+  /* Enhanced typography system with better contrast */
   h1, h2, h3, h4, h5, h6 {
     @apply font-syne tracking-tighter font-bold;
     letter-spacing: -0.02em;
+    color: rgba(255, 255, 255, 0.95);
   }
   
   h1 {
@@ -122,8 +123,19 @@
     line-height: 1.15;
   }
   
+  /* Enhanced body text with better readability */
   p {
-    @apply font-space text-ai8ty-grey text-lg leading-relaxed;
+    @apply font-space text-lg md:text-xl leading-relaxed;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: clamp(16px, 2.5vw, 18px);
+  }
+  
+  /* Sub-headlines with improved sizing */
+  .subheading {
+    @apply font-space;
+    font-size: clamp(22px, 3vw, 26px);
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.4;
   }
   
   /* Mobile-optimized RTL styles */
@@ -158,16 +170,49 @@
 }
 
 @layer components {
-  /* Enhanced intelligence-focused component system */
+  /* Section dividers with subtle gradients */
+  .section-divider {
+    @apply relative;
+  }
+  
+  .section-divider::after {
+    content: '';
+    @apply absolute bottom-0 left-0 right-0 h-px;
+    background: linear-gradient(90deg, transparent 0%, rgba(59, 130, 246, 0.3) 50%, transparent 100%);
+  }
+  
+  /* Enhanced intelligence-focused component system with glassmorphism */
   .intelligence-card {
-    @apply bg-depth-2 backdrop-blur-md border border-neural/20 rounded-xl p-6 md:p-8;
-    @apply transition-all duration-500 hover:border-neural/40 hover:shadow-neural;
+    @apply relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl p-6 md:p-8;
+    @apply transition-all duration-500 overflow-hidden;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  }
+  
+  .intelligence-card::before {
+    content: '';
+    @apply absolute inset-0 opacity-0 transition-opacity duration-500;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+  }
+  
+  .intelligence-card:hover::before {
+    @apply opacity-100;
+  }
+  
+  .intelligence-card:hover {
+    @apply border-neural/40 scale-105;
+    box-shadow: 0 20px 40px rgba(59, 130, 246, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.3);
   }
   
   .quantum-panel {
-    @apply relative overflow-hidden bg-depth-1 border border-quantum/10 rounded-xl;
-    @apply transition-all duration-500 hover:border-quantum/30;
+    @apply relative overflow-hidden bg-white/5 border border-white/10 rounded-xl backdrop-blur-xl;
+    @apply transition-all duration-500;
     background: linear-gradient(135deg, rgba(139, 92, 246, 0.05) 0%, transparent 50%, rgba(59, 130, 246, 0.05) 100%);
+  }
+  
+  .quantum-panel:hover {
+    @apply border-quantum/40 scale-105;
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, transparent 50%, rgba(59, 130, 246, 0.1) 100%);
   }
   
   .neural-section {
@@ -193,20 +238,52 @@
     @apply w-full;
   }
   
-  /* Enhanced button system */
+  /* Enhanced button system with better touch targets */
   .btn {
-    @apply relative px-6 py-3 font-space font-medium rounded-xl transition-all duration-300;
+    @apply relative px-8 py-4 font-space font-medium rounded-xl transition-all duration-300;
     @apply focus:outline-none focus:ring-2 focus:ring-neural/50;
+    min-height: 44px; /* Better touch targets */
+    min-width: 120px;
   }
 
   .btn-primary {
-    @apply bg-neural text-white hover:bg-neural-dark;
+    @apply bg-neural text-white relative overflow-hidden;
     box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);
+  }
+  
+  .btn-primary::before {
+    content: '';
+    @apply absolute inset-0 opacity-0 transition-opacity duration-300;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.2) 0%, rgba(139, 92, 246, 0.2) 100%);
+  }
+  
+  .btn-primary:hover::before {
+    @apply opacity-100;
+  }
+  
+  .btn-primary:hover {
+    @apply scale-105;
+    box-shadow: 0 8px 30px rgba(59, 130, 246, 0.4);
   }
 
   .btn-secondary {
-    @apply bg-gradient-to-r from-sand to-sand-light text-ai8ty-black hover:from-sand-dark hover:to-sand;
-    box-shadow: 0 4px 20px rgba(245, 158, 11, 0.3);
+    @apply bg-white/10 border border-white/20 text-white backdrop-blur-xl relative overflow-hidden;
+    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
+  }
+  
+  .btn-secondary::before {
+    content: '';
+    @apply absolute inset-0 opacity-0 transition-opacity duration-300;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+  }
+  
+  .btn-secondary:hover::before {
+    @apply opacity-100;
+  }
+  
+  .btn-secondary:hover {
+    @apply scale-105 border-white/40;
+    box-shadow: 0 8px 30px rgba(255, 255, 255, 0.2);
   }
 
   .btn-quantum {
@@ -217,6 +294,42 @@
   .btn-outline {
     @apply border-2 border-neural/30 text-neural hover:border-neural hover:bg-neural/10;
     backdrop-filter: blur(10px);
+  }
+  
+  /* Video section enhancements */
+  .video-container {
+    @apply relative rounded-xl overflow-hidden;
+    filter: drop-shadow(0 0 20px rgba(59, 130, 246, 0.3));
+  }
+  
+  .video-container::before {
+    content: '';
+    @apply absolute inset-0 rounded-xl;
+    background: linear-gradient(45deg, transparent 30%, rgba(59, 130, 246, 0.1) 50%, transparent 70%);
+    animation: shimmer 3s infinite;
+    z-index: 1;
+  }
+  
+  @keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+  
+  /* Mobile scrollable cards */
+  .mobile-scroll-container {
+    @apply flex gap-4 overflow-x-auto pb-4;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  
+  .mobile-scroll-container::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .mobile-scroll-item {
+    @apply flex-none w-80 md:w-auto;
+    scroll-snap-align: start;
   }
   
   /* Advanced background patterns */
@@ -282,10 +395,6 @@
   .heading {
     @apply font-syne text-ai8ty-white tracking-tight;
   }
-  
-  .subheading {
-    @apply font-space text-ai8ty-grey;
-  }
 
   .section {
     @apply py-24 md:py-32 lg:py-40 px-6 md:px-12 lg:px-24;
@@ -308,7 +417,8 @@
   }
   
   .btn {
-    @apply px-4 py-2 text-sm;
+    @apply px-6 py-3 text-base;
+    min-height: 48px; /* Better mobile touch targets */
   }
 }
 
