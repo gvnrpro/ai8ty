@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Globe } from 'lucide-react';
+import { Menu, X, Globe, ArrowRight } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { useLanguage, Language } from '@/contexts/LanguageContext';
 import { t } from '@/utils/i18n';
@@ -42,129 +42,208 @@ const Navigation: React.FC = () => {
     { code: 'fr', label: 'Français' }
   ];
 
-  // Navigation links with translated labels
+  // Updated navigation links matching current sections
   const navLinks = [
-    { name: t('nav.home', language), path: '#' },
-    { name: t('nav.about', language), path: '#about-section' },
-    { name: t('nav.services', language), path: '#services-section' },
-    { name: t('nav.ai8tyCard', language), path: '#ai8ty-card' },
-    { name: t('nav.work', language), path: '#work-section' },
-    { name: t('nav.contact', language), path: '#contact' }
+    { name: isRTL ? "الرئيسية" : "Home", path: "#hero-section" },
+    { name: isRTL ? "التحول الذكي" : "Intelligence Shift", path: "#intelligence-shift" },
+    { name: isRTL ? "نظام التشغيل" : "Business OS", path: "#business-transformation" },
+    { name: isRTL ? "الخدمات" : "Services", path: "#modular-services-section" },
+    { name: isRTL ? "شراكة" : "Partnership", path: "#builder-trust" },
+    { name: isRTL ? "تواصل" : "Contact", path: "#contact" }
   ];
 
   return (
     <header 
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4 px-4 md:px-6",
-        scrollPosition > 50 || isOpen ? "bg-ai8ty-black/90 backdrop-blur-md" : "bg-transparent"
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-500 py-4 px-4 md:px-6",
+        scrollPosition > 50 || isOpen 
+          ? "bg-ai8ty-black/95 backdrop-blur-xl border-b border-neural/20 shadow-neural" 
+          : "bg-transparent"
       )}
     >
       <div className="container mx-auto max-w-6xl">
         <nav className="flex items-center justify-between">
-          <a href="#" className="relative z-20">
+          <motion.a 
+            href="#hero-section" 
+            className="relative z-20 group"
+            whileHover={{ scale: 1.05 }}
+            transition={{ duration: 0.2 }}
+          >
             <img 
               src="/lovable-uploads/4b4a830d-afce-4dc3-8cc3-4fae3e2728ed.png" 
               alt="AI8TY Logo" 
-              className="h-8 w-auto"
+              className="h-8 w-auto transition-all duration-300 group-hover:brightness-110"
             />
-          </a>
+          </motion.a>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center">
-            <ul className="flex space-x-8 mr-6">
+            <ul className="flex space-x-8 mr-8">
               {navLinks.map((link, index) => (
                 <li key={index}>
-                  <a 
+                  <motion.a 
                     href={link.path} 
-                    className="font-satoshi text-sm text-ai8ty-grey hover:text-ai8ty-white transition-colors"
+                    className="font-space text-sm text-ai8ty-grey hover:text-neural transition-all duration-300 relative group"
+                    whileHover={{ y: -2 }}
+                    transition={{ duration: 0.2 }}
                   >
-                    {link.name}
-                  </a>
+                    <span className="relative z-10">{link.name}</span>
+                    <motion.div
+                      className="absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-neural to-quantum"
+                      initial={{ width: 0 }}
+                      whileHover={{ width: "100%" }}
+                      transition={{ duration: 0.3 }}
+                    />
+                  </motion.a>
                 </li>
               ))}
             </ul>
             
-            {/* Language Selector (Desktop) */}
-            <div className="relative group ml-4">
-              <button className="flex items-center text-ai8ty-grey hover:text-ai8ty-white transition-colors">
+            {/* Enhanced Language Selector */}
+            <div className="relative group">
+              <motion.button 
+                className="flex items-center text-ai8ty-grey hover:text-neural transition-all duration-300 bg-depth-2/50 rounded-xl px-4 py-2 backdrop-blur-sm border border-neural/10 hover:border-neural/30"
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.2 }}
+              >
                 <Globe size={18} className="mr-2" />
-                <span className="text-sm">{language.toUpperCase()}</span>
-              </button>
+                <span className="text-sm font-medium">{language.toUpperCase()}</span>
+                <ArrowRight size={14} className="ml-2 rotate-90 group-hover:rotate-45 transition-transform duration-300" />
+              </motion.button>
               
-              <div className="absolute top-full right-0 mt-2 bg-ai8ty-black/90 backdrop-blur-md border border-ai8ty-grey/20 rounded-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 min-w-[120px]">
+              <motion.div 
+                className="absolute top-full right-0 mt-3 bg-depth-1/95 backdrop-blur-xl border border-neural/20 rounded-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 min-w-[140px] shadow-neural"
+                initial={{ y: -10, opacity: 0 }}
+                whileHover={{ y: 0, opacity: 1 }}
+              >
                 <ul className="py-2">
-                  {languages.map((lang) => (
+                  {languages.map((lang, index) => (
                     <li key={lang.code}>
-                      <button
+                      <motion.button
                         onClick={() => setLanguage(lang.code)}
                         className={cn(
-                          "w-full text-left px-4 py-2 text-sm transition-colors",
-                          language === lang.code ? "text-ai8ty-teal" : "text-ai8ty-grey hover:text-ai8ty-white"
+                          "w-full text-left px-4 py-3 text-sm transition-all duration-200 hover:bg-neural/10",
+                          language === lang.code 
+                            ? "text-neural bg-neural/5 border-l-2 border-neural" 
+                            : "text-ai8ty-grey hover:text-neural"
                         )}
+                        whileHover={{ x: 4 }}
+                        transition={{ duration: 0.2 }}
                       >
                         {lang.label}
-                      </button>
+                      </motion.button>
                     </li>
                   ))}
                 </ul>
-              </div>
+              </motion.div>
             </div>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Controls */}
           <div className="flex items-center md:hidden">
-            {/* Language Selector (Mobile) */}
-            <button 
-              className="relative z-20 text-ai8ty-grey hover:text-ai8ty-white mr-4"
+            <motion.button 
+              className="relative z-20 text-ai8ty-grey hover:text-neural mr-4 bg-depth-2/50 rounded-lg p-2 backdrop-blur-sm border border-neural/10"
               onClick={() => {
-                // Cycle through languages
                 const currentIndex = languages.findIndex(l => l.code === language);
                 const nextIndex = (currentIndex + 1) % languages.length;
                 setLanguage(languages[nextIndex].code);
               }}
               aria-label="Change language"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
             >
               <Globe size={20} />
-            </button>
+            </motion.button>
             
-            <button 
+            <motion.button 
               onClick={() => setIsOpen(!isOpen)}
-              className="relative z-20 text-ai8ty-grey hover:text-ai8ty-white"
+              className="relative z-20 text-ai8ty-grey hover:text-neural bg-depth-2/50 rounded-lg p-2 backdrop-blur-sm border border-neural/10"
               aria-label={isOpen ? "Close menu" : "Open menu"}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
             >
-              {isOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
+              <motion.div
+                animate={{ rotate: isOpen ? 180 : 0 }}
+                transition={{ duration: 0.3 }}
+              >
+                {isOpen ? <X size={24} /> : <Menu size={24} />}
+              </motion.div>
+            </motion.button>
           </div>
 
-          {/* Mobile Navigation */}
+          {/* Enhanced Mobile Navigation */}
           <AnimatePresence>
             {isOpen && (
               <motion.div
-                className="fixed inset-0 z-10 bg-ai8ty-black"
-                initial={{ opacity: 0, x: isRTL ? "-100%" : "100%" }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: isRTL ? "-100%" : "100%" }}
-                transition={{ type: "tween", duration: 0.3 }}
+                className="fixed inset-0 z-10 bg-ai8ty-black/98 backdrop-blur-xl"
+                initial={{ opacity: 0, y: isRTL ? "-100%" : "100%" }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: isRTL ? "-100%" : "100%" }}
+                transition={{ type: "spring", damping: 25, stiffness: 300 }}
               >
-                <div className="container h-full mx-auto flex flex-col justify-center items-center">
-                  <ul className="flex flex-col space-y-8 items-center">
+                <div className="container h-full mx-auto flex flex-col justify-center items-center relative">
+                  {/* Background pattern */}
+                  <div className="absolute inset-0 neural-grid-bg opacity-5"></div>
+                  
+                  <motion.ul 
+                    className="flex flex-col space-y-8 items-center relative z-10"
+                    initial="closed"
+                    animate="open"
+                    variants={{
+                      open: {
+                        transition: { staggerChildren: 0.1, delayChildren: 0.2 }
+                      },
+                      closed: {
+                        transition: { staggerChildren: 0.05, staggerDirection: -1 }
+                      }
+                    }}
+                  >
                     {navLinks.map((link, index) => (
                       <motion.li 
                         key={index}
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.1 * index }}
+                        variants={{
+                          open: { y: 0, opacity: 1 },
+                          closed: { y: 50, opacity: 0 }
+                        }}
+                        transition={{ duration: 0.5, ease: "easeOut" }}
                       >
-                        <a 
+                        <motion.a 
                           href={link.path} 
-                          className="font-avant text-2xl text-ai8ty-white hover:text-ai8ty-teal transition-colors"
+                          className="font-syne text-3xl text-ai8ty-white hover:text-neural transition-all duration-300 relative group"
                           onClick={handleLinkClick}
+                          whileHover={{ scale: 1.1, y: -5 }}
+                          transition={{ duration: 0.2 }}
                         >
-                          {link.name}
-                        </a>
+                          <span className="relative z-10">{link.name}</span>
+                          <motion.div
+                            className="absolute -bottom-2 left-0 h-0.5 bg-gradient-to-r from-neural to-quantum"
+                            initial={{ width: 0 }}
+                            whileHover={{ width: "100%" }}
+                            transition={{ duration: 0.3 }}
+                          />
+                        </motion.a>
                       </motion.li>
                     ))}
-                  </ul>
+                  </motion.ul>
+                  
+                  {/* Mobile CTA */}
+                  <motion.div
+                    className="absolute bottom-12 left-1/2 transform -translate-x-1/2"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.8, duration: 0.5 }}
+                  >
+                    <motion.a
+                      href="#contact"
+                      className="btn-primary inline-flex items-center gap-2 text-sm"
+                      onClick={handleLinkClick}
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <span>{isRTL ? "ابدأ التحول" : "Start Transformation"}</span>
+                      <ArrowRight size={16} />
+                    </motion.a>
+                  </motion.div>
                 </div>
               </motion.div>
             )}

@@ -25,52 +25,63 @@
 
 @layer base {
   :root {
-    --background: 0 0% 5%;
+    --background: 0 0% 4%;
     --foreground: 0 0% 100%;
 
-    --card: 0 0% 5%;
+    --card: 0 0% 4%;
     --card-foreground: 0 0% 100%;
 
-    --popover: 0 0% 5%;
+    --popover: 0 0% 4%;
     --popover-foreground: 0 0% 100%;
 
-    --primary: 265 100% 66%;
+    --primary: 217 91% 60%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 169 100% 48%;
-    --secondary-foreground: 0 0% 5%;
+    --secondary: 166 76% 37%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 0 0% 15%;
+    --muted: 0 0% 20%;
     --muted-foreground: 0 0% 75%;
 
-    --accent: 0 0% 15%;
+    --accent: 0 0% 20%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 15%;
-    --input: 0 0% 15%;
-    --ring: 265 100% 66%;
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 217 91% 60%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
     
-    /* New design system colors */
-    --sand: 42 87% 65%;
-    --sand-light: 42 87% 75%;
-    --sand-dark: 42 60% 55%;
+    /* Enhanced intelligence-focused design system */
+    --neural: 217 91% 60%;
+    --neural-light: 213 93% 68%;
+    --neural-dark: 221 83% 53%;
+    
+    --quantum: 259 94% 51%;
+    --quantum-light: 268 83% 57%;
+    --quantum-dark: 252 56% 57%;
+    
+    --intelligence: 159 61% 41%;
+    --intelligence-light: 158 64% 52%;
+    --intelligence-dark: 160 81% 26%;
+    
+    --sand: 38 92% 50%;
+    --sand-light: 43 96% 56%;
+    --sand-dark: 32 95% 44%;
     
     --depth-1: 0 0% 7%;
     --depth-2: 0 0% 10%;
-    --depth-3: 0 0% 13%;
+    --depth-3: 0 0% 15%;
+    --depth-4: 0 0% 25%;
     
-    /* Spacing system */
+    /* Advanced spacing and motion system */
     --space-grid: clamp(1rem, 5vw, 2.5rem);
-    
-    /* Motion timing */
-    --motion-fast: 0.3s;
-    --motion-medium: 0.6s;
-    --motion-slow: 0.9s;
+    --motion-fast: 0.15s;
+    --motion-medium: 0.3s;
+    --motion-slow: 0.6s;
     --motion-easing: cubic-bezier(0.16, 1, 0.3, 1);
   }
 
@@ -80,22 +91,25 @@
 
   html {
     @apply antialiased scroll-smooth;
+    scroll-behavior: smooth;
   }
 
   body {
     @apply bg-ai8ty-black text-ai8ty-white;
     font-feature-settings: "ss01", "ss02", "cv01", "cv02", "cv03";
     overscroll-behavior: none;
+    background: linear-gradient(135deg, #0A0A0B 0%, #111111 100%);
   }
   
-  /* Base typography */
+  /* Enhanced typography system */
   h1, h2, h3, h4, h5, h6 {
     @apply font-syne tracking-tighter font-bold;
+    letter-spacing: -0.02em;
   }
   
   h1 {
     @apply text-4xl md:text-5xl lg:text-6xl xl:text-7xl mb-6;
-    line-height: 1.1;
+    line-height: 1.05;
   }
   
   h2 {
@@ -105,14 +119,14 @@
   
   h3 {
     @apply text-2xl md:text-3xl lg:text-4xl mb-4;
-    line-height: 1.2;
+    line-height: 1.15;
   }
   
   p {
     @apply font-space text-ai8ty-grey text-lg leading-relaxed;
   }
   
-  /* RTL specific styles */
+  /* Mobile-optimized RTL styles */
   .rtl {
     direction: rtl;
     text-align: right;
@@ -144,40 +158,123 @@
 }
 
 @layer components {
-  /* New design system components */
-  .platform-card {
-    @apply bg-depth-2 backdrop-blur-md border border-white/5 rounded-xl p-6 md:p-8 transition-all duration-500;
+  /* Enhanced intelligence-focused component system */
+  .intelligence-card {
+    @apply bg-depth-2 backdrop-blur-md border border-neural/20 rounded-xl p-6 md:p-8;
+    @apply transition-all duration-500 hover:border-neural/40 hover:shadow-neural-pulse;
   }
   
-  .platform-card:hover {
-    @apply border-sand/30 shadow-glow-sm;
+  .quantum-panel {
+    @apply relative overflow-hidden bg-depth-1 border border-quantum/10 rounded-xl;
+    @apply transition-all duration-500 hover:border-quantum/30;
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.05) 0%, transparent 50%, rgba(59, 130, 246, 0.05) 100%);
   }
   
-  .interactive-panel {
-    @apply relative overflow-hidden bg-depth-1 border border-white/5 rounded-xl;
-    transition: all 0.5s var(--motion-easing);
+  .neural-section {
+    @apply relative py-16 md:py-24 lg:py-32;
+    background: radial-gradient(ellipse at center, rgba(59, 130, 246, 0.03) 0%, transparent 70%);
   }
   
-  .interactive-panel:hover {
-    @apply border-white/10;
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.3), 0 0 10px rgba(241, 190, 108, 0.2);
+  .strategic-title {
+    @apply relative inline-block font-syne font-bold text-3xl md:text-4xl lg:text-5xl;
+    background: linear-gradient(135deg, #FFFFFF 0%, #3B82F6 50%, #8B5CF6 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
   
-  .section-title {
-    @apply relative inline-block;
-  }
-  
-  .section-title::after {
+  .strategic-title::after {
     content: '';
-    @apply absolute -bottom-2 left-0 h-0.5 w-1/3 bg-sand;
-    transition: width 0.6s var(--motion-easing);
+    @apply absolute -bottom-2 left-0 h-0.5 w-1/4 bg-gradient-to-r from-neural to-quantum;
+    transition: width 0.8s var(--motion-easing);
   }
   
-  .section-title:hover::after {
+  .strategic-title:hover::after {
     @apply w-full;
   }
   
-  /* Previous components with updates */
+  /* Enhanced button system */
+  .btn {
+    @apply relative px-6 py-3 font-space font-medium rounded-xl transition-all duration-300;
+    @apply focus:outline-none focus:ring-2 focus:ring-neural/50;
+  }
+
+  .btn-primary {
+    @apply bg-neural text-white hover:bg-neural-dark;
+    box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);
+  }
+
+  .btn-secondary {
+    @apply bg-gradient-to-r from-sand to-sand-light text-ai8ty-black hover:from-sand-dark hover:to-sand;
+    box-shadow: 0 4px 20px rgba(245, 158, 11, 0.3);
+  }
+
+  .btn-quantum {
+    @apply bg-gradient-to-r from-quantum to-quantum-light text-white hover:from-quantum-dark hover:to-quantum;
+    box-shadow: 0 4px 20px rgba(139, 92, 246, 0.3);
+  }
+
+  .btn-outline {
+    @apply border-2 border-neural/30 text-neural hover:border-neural hover:bg-neural/10;
+    backdrop-filter: blur(10px);
+  }
+  
+  /* Advanced background patterns */
+  .neural-grid-bg {
+    @apply bg-neural-grid bg-[length:40px_40px];
+  }
+  
+  .quantum-dots-bg {
+    @apply bg-quantum-dots bg-[size:30px_30px];
+  }
+  
+  .intelligence-flow-bg {
+    @apply bg-intelligence-flow;
+  }
+  
+  /* Enhanced glow effects */
+  .neural-glow {
+    @apply relative overflow-hidden rounded-xl border border-neural/20;
+    box-shadow: 0 0 40px rgba(59, 130, 246, 0.15);
+  }
+  
+  .quantum-glow {
+    @apply relative overflow-hidden rounded-xl border border-quantum/20;
+    box-shadow: 0 0 40px rgba(139, 92, 246, 0.15);
+  }
+  
+  .intelligence-glow {
+    @apply relative overflow-hidden rounded-xl border border-intelligence/20;
+    box-shadow: 0 0 40px rgba(16, 185, 129, 0.15);
+  }
+  
+  /* Mobile-optimized animations */
+  .mobile-reveal {
+    @apply transform transition-all duration-700;
+  }
+  
+  .mobile-reveal.in-view {
+    @apply translate-y-0 opacity-100;
+  }
+  
+  .mobile-reveal:not(.in-view) {
+    @apply translate-y-8 opacity-0;
+  }
+  
+  /* Enhanced shadow system */
+  .shadow-neural {
+    box-shadow: 0 10px 40px rgba(59, 130, 246, 0.2);
+  }
+  
+  .shadow-quantum {
+    box-shadow: 0 10px 40px rgba(139, 92, 246, 0.2);
+  }
+  
+  .shadow-intelligence {
+    box-shadow: 0 10px 40px rgba(16, 185, 129, 0.2);
+  }
+  
+  /* Previous components maintained for compatibility */
   .glass-panel {
     @apply bg-black/40 backdrop-blur-md border border-white/10 rounded-xl;
   }
@@ -193,87 +290,29 @@
   .section {
     @apply py-24 md:py-32 lg:py-40 px-6 md:px-12 lg:px-24;
   }
+}
 
+/* Mobile-first responsive optimizations */
+@media (max-width: 768px) {
+  .strategic-title {
+    @apply text-2xl;
+    line-height: 1.2;
+  }
+  
+  .intelligence-card {
+    @apply p-4;
+  }
+  
+  .neural-section {
+    @apply py-12;
+  }
+  
   .btn {
-    @apply relative px-6 py-3 font-space font-medium rounded-md transition-all duration-300;
-  }
-
-  .btn-primary {
-    @apply bg-ai8ty-violet text-ai8ty-white hover:bg-opacity-80;
-  }
-
-  .btn-secondary {
-    @apply bg-sand text-ai8ty-black hover:bg-sand-light;
-  }
-
-  .btn-outline {
-    @apply border-2 border-white/20 text-ai8ty-white hover:border-sand hover:text-sand;
-  }
-  
-  /* New advanced UI components */
-  .neural-grid-bg {
-    @apply bg-neural-grid bg-[length:50px_50px];
-  }
-  
-  .tech-dots-bg {
-    @apply bg-tech-dots bg-[size:20px_20px];
-  }
-  
-  .data-flow-bg {
-    @apply bg-data-flow;
-  }
-  
-  .glow-card {
-    @apply relative overflow-hidden rounded-xl border border-white/10 bg-white/5;
-    box-shadow: 0 0 30px rgba(241, 190, 108, 0.1);
-  }
-  
-  .glow-text {
-    @apply relative;
-    text-shadow: 0 0 10px rgba(241, 190, 108, 0.7);
-  }
-  
-  .shimmer-element {
-    @apply relative overflow-hidden;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    background-size: 200% 100%;
-    animation: shimmer 3s ease-in-out infinite;
-  }
-  
-  .hover-glass {
-    @apply transition-all duration-300;
-    backdrop-filter: blur(5px);
-  }
-  
-  .hover-glass:hover {
-    backdrop-filter: blur(10px);
-    background-color: rgba(255, 255, 255, 0.1);
-  }
-  
-  .animated-border {
-    @apply relative border border-transparent bg-clip-padding backdrop-filter backdrop-blur-sm;
-    background-image: linear-gradient(var(--background), var(--background)), 
-                      linear-gradient(to right, rgba(241, 190, 108, 0.5), rgba(140, 82, 255, 0.5));
-    background-origin: border-box;
-    background-clip: padding-box, border-box;
-    animation: pulse-glow 3s ease-in-out infinite;
-  }
-  
-  /* New shadow system */
-  .shadow-glow-sm {
-    box-shadow: 0 0 20px rgba(241, 190, 108, 0.15);
-  }
-  
-  .shadow-glow-md {
-    box-shadow: 0 0 30px rgba(241, 190, 108, 0.2);
-  }
-  
-  .shadow-glow-lg {
-    box-shadow: 0 0 50px rgba(241, 190, 108, 0.25);
+    @apply px-4 py-2 text-sm;
   }
 }
 
-/* Special styles for reduced motion preference */
+/* Reduced motion preferences */
 @media (prefers-reduced-motion: reduce) {
   *, ::before, ::after {
     animation-duration: 0.01ms !important;
@@ -282,7 +321,7 @@
     scroll-behavior: auto !important;
   }
   
-  .shimmer-element, .animated-border, [class*="animate-"] {
+  .neural-pulse, .quantum-glow, .intelligence-glow {
     animation: none !important;
   }
 }

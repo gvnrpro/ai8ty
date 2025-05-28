@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -63,24 +62,80 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-                // AI8TY brand colors
+                // Enhanced AI8TY intelligence-focused color palette
                 ai8ty: {
-                    black: '#0C0C0C',
-                    violet: '#8C52FF',
-                    teal: '#00F5D4',
-                    grey: '#C0C0C0',
+                    black: '#0A0A0B',
+                    violet: '#6366F1',
+                    teal: '#06B6D4',
+                    grey: '#9CA3AF',
                     white: '#FFFFFF',
                 },
-                // New design system colors
+                // Intelligence-focused color system
+                neural: {
+                    DEFAULT: '#3B82F6',
+                    light: '#60A5FA',
+                    dark: '#1D4ED8',
+                    50: '#EFF6FF',
+                    100: '#DBEAFE',
+                    200: '#BFDBFE',
+                    300: '#93C5FD',
+                    400: '#60A5FA',
+                    500: '#3B82F6',
+                    600: '#2563EB',
+                    700: '#1D4ED8',
+                    800: '#1E40AF',
+                    900: '#1E3A8A',
+                },
+                quantum: {
+                    DEFAULT: '#8B5CF6',
+                    light: '#A78BFA',
+                    dark: '#7C3AED',
+                    50: '#F5F3FF',
+                    100: '#EDE9FE',
+                    200: '#DDD6FE',
+                    300: '#C4B5FD',
+                    400: '#A78BFA',
+                    500: '#8B5CF6',
+                    600: '#7C3AED',
+                    700: '#6D28D9',
+                    800: '#5B21B6',
+                    900: '#4C1D95',
+                },
+                intelligence: {
+                    DEFAULT: '#10B981',
+                    light: '#34D399',
+                    dark: '#047857',
+                    50: '#ECFDF5',
+                    100: '#D1FAE5',
+                    200: '#A7F3D0',
+                    300: '#6EE7B7',
+                    400: '#34D399',
+                    500: '#10B981',
+                    600: '#059669',
+                    700: '#047857',
+                    800: '#065F46',
+                    900: '#064E3B',
+                },
                 sand: {
-                    DEFAULT: 'hsl(42, 87%, 65%)',
-                    light: 'hsl(42, 87%, 75%)',
-                    dark: 'hsl(42, 60%, 55%)',
+                    DEFAULT: '#F59E0B',
+                    light: '#FCD34D',
+                    dark: '#D97706',
+                    50: '#FFFBEB',
+                    100: '#FEF3C7',
+                    200: '#FDE68A',
+                    300: '#FCD34D',
+                    400: '#FBBF24',
+                    500: '#F59E0B',
+                    600: '#D97706',
+                    700: '#B45309',
+                    800: '#92400E',
+                    900: '#78350F',
                 },
                 depth: {
-                    '1': 'hsl(0, 0%, 7%)',
-                    '2': 'hsl(0, 0%, 10%)',
-                    '3': 'hsl(0, 0%, 13%)',
+                    '1': '#111111',
+                    '2': '#1A1A1A',
+                    '3': '#262626',
+                    '4': '#404040',
                 }
 			},
 			fontFamily: {
@@ -98,9 +153,9 @@ export default {
             backgroundImage: {
                 'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
                 'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-                'neural-grid': 'linear-gradient(to right, rgba(241, 190, 108, 0.1) 1px, transparent 1px), linear-gradient(to bottom, rgba(241, 190, 108, 0.1) 1px, transparent 1px)',
-                'tech-dots': 'radial-gradient(rgba(241, 190, 108, 0.15) 2px, transparent 2px)',
-                'data-flow': 'repeating-linear-gradient(45deg, rgba(140, 82, 255, 0.03), rgba(241, 190, 108, 0.05) 10px)',
+                'neural-grid': 'linear-gradient(to right, rgba(59, 130, 246, 0.1) 1px, transparent 1px), linear-gradient(to bottom, rgba(59, 130, 246, 0.1) 1px, transparent 1px)',
+                'quantum-dots': 'radial-gradient(rgba(139, 92, 246, 0.2) 2px, transparent 2px)',
+                'intelligence-flow': 'repeating-linear-gradient(45deg, rgba(16, 185, 129, 0.03), rgba(59, 130, 246, 0.05) 10px)',
             },
 			keyframes: {
 				'accordion-down': {
@@ -186,12 +241,22 @@ export default {
                 },
                 'pulse-glow': {
                     '0%, 100%': { 
-                        boxShadow: '0 0 5px 0 rgba(241, 190, 108, 0.3)',
-                        borderColor: 'rgba(241, 190, 108, 0.3)'
+                        boxShadow: '0 0 5px 0 rgba(59, 130, 246, 0.3)',
+                        borderColor: 'rgba(59, 130, 246, 0.3)'
                     },
                     '50%': { 
-                        boxShadow: '0 0 20px 5px rgba(241, 190, 108, 0.5)',
-                        borderColor: 'rgba(241, 190, 108, 0.6)'
+                        boxShadow: '0 0 20px 5px rgba(59, 130, 246, 0.5)',
+                        borderColor: 'rgba(59, 130, 246, 0.6)'
+                    },
+                },
+                'neural-pulse': {
+                    '0%, 100%': { 
+                        boxShadow: '0 0 10px rgba(59, 130, 246, 0.3)',
+                        transform: 'scale(1)'
+                    },
+                    '50%': { 
+                        boxShadow: '0 0 30px rgba(59, 130, 246, 0.6)',
+                        transform: 'scale(1.02)'
                     },
                 },
                 'hover-shimmer': {
@@ -259,6 +324,7 @@ export default {
                 'shimmer': 'shimmer 4s ease-in-out infinite',
                 'rotate-slow': 'rotate-slow 15s linear infinite',
                 'pulse-glow': 'pulse-glow 2s ease-in-out infinite',
+                'neural-pulse': 'neural-pulse 3s ease-in-out infinite',
                 'hover-shimmer': 'hover-shimmer 3s ease-in-out infinite',
                 'scroll-reveal': 'scroll-reveal 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards',
                 'text-reveal': 'text-reveal 1s cubic-bezier(0.16, 1, 0.3, 1) forwards',
