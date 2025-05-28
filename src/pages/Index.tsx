@@ -1,34 +1,20 @@
-
 import React, { useState, useEffect, useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
 import HeroSection from '@/components/HeroSection';
-import AboutSection from '@/components/AboutSection';
-import ServicesSection from '@/components/ServicesSection';
-import AI8TYCardHighlight from '@/components/AI8TYCardHighlight';
-import WorkShowcase from '@/components/WorkShowcase';
-import ClientWall from '@/components/ClientWall';
 import ContactSection from '@/components/ContactSection';
 import Navigation from '@/components/Navigation';
 import TransitionLoader from '@/components/TransitionLoader';
-import FeaturedProjects from '@/components/FeaturedProjects';
-import BlogHighlights from '@/components/BlogHighlights';
-import MeetTheTeamSection from '@/components/MeetTheTeamSection';
 import { useToast } from '@/hooks/use-toast';
 import { useLanguage } from '@/contexts/LanguageContext';
 
-// Components
-import BusinessTransformationModule from '@/components/BusinessTransformationModule';
-import ServiceExplorer from '@/components/ServiceExplorer';
-import PrototypeGenerator from '@/components/PrototypeGenerator';
-import BilingualTestimonials from '@/components/BilingualTestimonials';
-import WhatsAppCTA from '@/components/WhatsAppCTA';
-import BrandPhilosophyBar from '@/components/BrandPhilosophyBar';
-import StrategicFooter from '@/components/StrategicFooter';
-
-// New sections for intelligence-first design
+// Keep only the new streamlined components
 import IntelligenceShiftSection from '@/components/IntelligenceShiftSection';
 import ModularServicesSection from '@/components/ModularServicesSection';
 import BuilderTrustSection from '@/components/BuilderTrustSection';
+import BusinessTransformationModule from '@/components/BusinessTransformationModule';
+import WhatsAppCTA from '@/components/WhatsAppCTA';
+import BrandPhilosophyBar from '@/components/BrandPhilosophyBar';
+import StrategicFooter from '@/components/StrategicFooter';
 
 const Index = () => {
   const [initialLoadComplete, setInitialLoadComplete] = useState(false);
@@ -36,18 +22,9 @@ const Index = () => {
   const { language } = useLanguage();
   const mainRef = useRef<HTMLDivElement>(null);
   
-  // Track scroll position for parallax effects
-  const [scrollY, setScrollY] = useState(0);
-  
   useEffect(() => {
     // Skip splash screen - go directly to main content
     setInitialLoadComplete(true);
-    
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
-    
-    window.addEventListener('scroll', handleScroll);
     
     // Optimize scroll animations for mobile with faster timing
     const optimizeAnimations = () => {
@@ -80,7 +57,6 @@ const Index = () => {
     }, 1000);
     
     return () => {
-      window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', optimizeAnimations);
     };
   }, [language, toast]);
@@ -174,55 +150,32 @@ const Index = () => {
         <Navigation />
         
         <main ref={mainRef} className="relative z-10">
+          {/* Hero Section */}
           <HeroSection />
           
-          {/* Brand Philosophy Bar - After Hero */}
+          {/* Brand Philosophy Bar */}
           <BrandPhilosophyBar />
           
-          {/* New Intelligence Shift Section */}
+          {/* Intelligence Shift Section */}
           <IntelligenceShiftSection />
           
-          <div className="relative">
-            {/* Spatial depth marker - creates connection between sections */}
-            <div className="absolute left-0 ml-4 md:ml-8 lg:ml-12 h-full w-px bg-gradient-to-b from-transparent via-sand/30 to-transparent opacity-30"></div>
-            
-            <AboutSection />
-            
-            {/* Business Transformation Module */}
-            <BusinessTransformationModule />
-            
-            {/* New Modular Services Section with SEO-optimized headings */}
-            <ModularServicesSection />
-            
-            {/* Enhanced Services Explorer */}
-            <ServiceExplorer />
-            
-            <FeaturedProjects />
-            <AI8TYCardHighlight />
-            
-            {/* Enhanced Bilingual Testimonials */}
-            <BilingualTestimonials />
-            
-            {/* New Builder Trust Section */}
-            <BuilderTrustSection />
-            
-            <MeetTheTeamSection />
-            <WorkShowcase />
-            
-            {/* Prototype Generator */}
-            <PrototypeGenerator />
-            
-            <BlogHighlights />
-            
-            {/* Enhanced WhatsApp CTA with new contact info */}
-            <WhatsAppCTA />
-            
-            <ClientWall />
-            <ContactSection />
-          </div>
+          {/* Operating System Before/After Comparison */}
+          <BusinessTransformationModule />
+          
+          {/* New Modular Services Section */}
+          <ModularServicesSection />
+          
+          {/* Builder Trust Section */}
+          <BuilderTrustSection />
+          
+          {/* WhatsApp CTA */}
+          <WhatsAppCTA />
+          
+          {/* Final Contact Section */}
+          <ContactSection />
         </main>
         
-        {/* Strategic Footer with P.S. line */}
+        {/* Strategic Footer */}
         <StrategicFooter />
       </div>
     </>
