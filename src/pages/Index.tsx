@@ -10,11 +10,11 @@ import { useLanguage } from '@/contexts/LanguageContext';
 
 // New redesigned components
 import NewHeroSection from '@/components/NewHeroSection';
-import WhoWeAreSection from '@/components/WhoWeAreSection';
-import NewServicesSection from '@/components/NewServicesSection';
-import ProcessSection from '@/components/ProcessSection';
+import ProblemSection from '@/components/ProblemSection';
+import HowWeHelpSection from '@/components/HowWeHelpSection';
+import BeforeAfterSection from '@/components/BeforeAfterSection';
+import ServicesOverviewSection from '@/components/ServicesOverviewSection';
 import SocialProofSection from '@/components/SocialProofSection';
-import WhatYouGetSection from '@/components/WhatYouGetSection';
 import FAQSection from '@/components/FAQSection';
 import FinalCTASection from '@/components/FinalCTASection';
 import WhatsAppCTA from '@/components/WhatsAppCTA';
@@ -48,7 +48,7 @@ const Index = () => {
     setTimeout(() => {
       toast({
         title: "Welcome to AI8TY",
-        description: "AI-Powered Digital Services That Cut Costs, Boost Output & Unlock Scale",
+        description: "Smart solutions that work for you, handled by experts.",
         duration: 5000,
       });
     }, 1000);
@@ -59,17 +59,17 @@ const Index = () => {
   }, [language, toast]);
 
   const getSeoDescription = () => {
-    return "AI8TY - AI-Powered Digital Services That Cut Costs, Boost Output & Unlock Scale. We build custom AI agents, conversion-optimized websites, and digital strategies that do the work of full teams for a fraction of the cost. Book your free growth strategy call today.";
+    return "Stop wasting time on tasks that should be automated. AI8TY provides smart marketing systems, AI automation, and high-performance websites that work for you. Get your time back and grow smarter with solutions that actually deliver results.";
   };
 
   return (
     <>
       <Helmet>
-        <title>AI8TY | AI-Powered Digital Services That Cut Costs & Boost Output - Dubai & UAE</title>
+        <title>AI8TY | You're Wasting Time. We'll Fix That. - Smart Business Solutions Dubai</title>
         <meta name="description" content={getSeoDescription()} />
-        <meta name="keywords" content="AI workflow automation, AI search optimization, web development dubai, digital marketing services, event strategy execution, custom AI agents, conversion optimization, dubai digital agency" />
+        <meta name="keywords" content="business automation dubai, smart marketing systems, AI workflow automation, time-saving business solutions, digital marketing UAE, website development, business growth services" />
         
-        <meta property="og:title" content="AI8TY | AI-Powered Digital Services That Cut Costs & Boost Output" />
+        <meta property="og:title" content="AI8TY | You're Wasting Time. We'll Fix That." />
         <meta property="og:description" content={getSeoDescription()} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://ai8ty.com" />
@@ -77,7 +77,7 @@ const Index = () => {
         <meta property="og:site_name" content="AI8TY" />
 
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="AI8TY | AI-Powered Digital Services That Cut Costs & Boost Output" />
+        <meta name="twitter:title" content="AI8TY | You're Wasting Time. We'll Fix That." />
         <meta name="twitter:description" content={getSeoDescription()} />
         <meta name="twitter:image" content="https://ai8ty.com/twitter-card-services.png" />
         <meta name="twitter:site" content="@ai8ty" />
@@ -88,7 +88,7 @@ const Index = () => {
         <meta name="ICBM" content="25.2048, 55.2708" />
         
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-        <meta name="ai-content-classification" content="AI-services, digital-marketing, web-development, UAE-business" />
+        <meta name="ai-content-classification" content="business-automation, smart-marketing, time-management, UAE-business" />
         
         <link rel="canonical" href="https://ai8ty.com" />
         
@@ -97,7 +97,7 @@ const Index = () => {
             "@context": "https://schema.org",
             "@type": "Organization",
             "name": "AI8TY",
-            "description": "AI-Powered Digital Services That Cut Costs, Boost Output & Unlock Scale",
+            "description": "Smart business solutions that save time and drive growth",
             "url": "https://ai8ty.com",
             "logo": "https://ai8ty.com/logo.png",
             "contactPoint": {
@@ -118,11 +118,11 @@ const Index = () => {
               "https://twitter.com/ai8ty"
             ],
             "service": [
-              "AI Workflow Automation",
-              "AI Search Optimization",
-              "Web Development",
-              "Event Strategy & Execution",
-              "Digital Marketing Services Dubai"
+              "Smart Marketing Systems",
+              "AI Workflow Automation", 
+              "High-Performance Website Development",
+              "Brand & Creative Services",
+              "Business Process Optimization"
             ]
           })}
         </script>
@@ -134,23 +134,23 @@ const Index = () => {
         <Navigation />
         
         <main ref={mainRef} className="relative z-10">
-          {/* New Hero Section */}
+          {/* Hero Section */}
           <NewHeroSection />
           
-          {/* Who We Are Section */}
-          <WhoWeAreSection />
+          {/* Problem Acknowledgement Section */}
+          <ProblemSection />
           
-          {/* Services Section */}
-          <NewServicesSection />
+          {/* How We Help Section */}
+          <HowWeHelpSection />
           
-          {/* Process Section */}
-          <ProcessSection />
+          {/* Before/After Section */}
+          <BeforeAfterSection />
+          
+          {/* Services Overview Section */}
+          <ServicesOverviewSection />
           
           {/* Social Proof Section */}
           <SocialProofSection />
-          
-          {/* What You Get Section */}
-          <WhatYouGetSection />
           
           {/* FAQ Section */}
           <FAQSection />

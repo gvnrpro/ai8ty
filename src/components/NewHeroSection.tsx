@@ -2,7 +2,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Check, Zap } from 'lucide-react';
+import { ArrowRight, Clock, Target } from 'lucide-react';
 import ParticleBackground from './ParticleBackground';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
@@ -16,7 +16,6 @@ const NewHeroSection: React.FC = () => {
   });
   
   const y1 = useTransform(scrollYProgress, [0, 1], [0, 100]);
-  const y2 = useTransform(scrollYProgress, [0, 1], [0, 200]);
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
   
   useEffect(() => {
@@ -31,13 +30,6 @@ const NewHeroSection: React.FC = () => {
     }
   };
 
-  const benefits = [
-    "Automate tasks with AI",
-    "Rank higher with SEO + AI Search Optimization", 
-    "Build faster sites, run smarter campaigns",
-    "Unlock end-to-end growth with expert support"
-  ];
-
   return (
     <motion.section 
       ref={sectionRef}
@@ -47,7 +39,7 @@ const NewHeroSection: React.FC = () => {
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
     >
-      {/* Enhanced Neural Background */}
+      {/* Background */}
       <div className="absolute inset-0 z-0">
         <ParticleBackground 
           density={20} 
@@ -55,55 +47,10 @@ const NewHeroSection: React.FC = () => {
           className="opacity-30" 
           mode="network"
         />
-        
-        <div className="absolute inset-0 z-0">
-          {Array.from({ length: 3 }).map((_, i) => (
-            <motion.div
-              key={i}
-              className="absolute inset-0 bg-gradient-radial from-neural/5 to-transparent rounded-full"
-              style={{
-                left: `${40 + (i * 20)}%`,
-                top: `${40 + (i * 15)}%`,
-                width: '200vw',
-                height: '200vh',
-                x: '-50%',
-                y: '-50%',
-              }}
-              animate={{
-                scale: [1, 1.2, 1],
-                opacity: [0.03, 0.08, 0.03],
-              }}
-              transition={{
-                duration: 8 + i * 3,
-                repeat: Infinity,
-                ease: "easeInOut",
-                delay: i * 2
-              }}
-            />
-          ))}
-        </div>
-        
-        <div className="absolute inset-0 opacity-8">
-          <div className="w-full h-full neural-grid-bg"></div>
-        </div>
+        <div className="absolute inset-0 bg-gradient-to-br from-neural/5 via-transparent to-quantum/5"></div>
       </div>
       
       <motion.div 
-        className="absolute top-[10%] right-[5%] w-24 h-24 md:w-32 md:h-32 border border-neural/20 rounded-full"
-        style={{ y: y2 }}
-        animate={{ 
-          opacity: [0.2, 0.4, 0.2],
-          rotate: [0, 360],
-          scale: [1, 1.1, 1]
-        }}
-        transition={{ 
-          duration: 20,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }}
-      />
-      
-      <motion.div
         className={cn(
           "container max-w-6xl mx-auto z-10 transition-all duration-1000",
           isVisible ? "opacity-100" : "opacity-0"
@@ -114,15 +61,11 @@ const NewHeroSection: React.FC = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
+          className="text-center mb-8"
         >
           <div className="inline-flex items-center gap-3 bg-white/10 border border-white/20 rounded-full px-6 py-3 text-sm font-space text-white/90 backdrop-blur-sm mb-8">
-            <motion.div
-              className="flex h-2 w-2 rounded-full bg-neural"
-              animate={{ scale: [1, 1.5, 1], opacity: [0.7, 1, 0.7] }}
-              transition={{ duration: 2, repeat: Infinity }}
-            />
-            <span className="font-medium">AI-Powered Digital Services</span>
-            <Zap size={16} className="text-neural" />
+            <Clock size={16} className="text-neural" />
+            <span className="font-medium">Time Is Your Most Valuable Asset</span>
           </div>
         </motion.div>
 
@@ -133,12 +76,12 @@ const NewHeroSection: React.FC = () => {
           transition={{ duration: 0.8, delay: 0.4 }}
         >
           <motion.span 
-            className="block mb-2"
+            className="block mb-2 text-white"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.8, duration: 0.8 }}
           >
-            AI-Powered Digital Services
+            You're Wasting Time.
           </motion.span>
           <motion.span 
             className="block bg-gradient-to-r from-neural via-quantum to-intelligence bg-clip-text text-transparent"
@@ -146,52 +89,29 @@ const NewHeroSection: React.FC = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 1.2, duration: 0.8 }}
           >
-            That Cut Costs, Boost Output & Unlock Scale
+            We'll Fix That.
           </motion.span>
         </motion.h1>
         
         <motion.div 
-          className="max-w-4xl mx-auto text-center mb-8 space-y-4"
+          className="max-w-4xl mx-auto text-center mb-12"
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.0 }}
         >
-          <p className="text-xl md:text-2xl font-space text-white/90 leading-relaxed">
-            We build custom AI agents, conversion-optimized websites, and digital strategies 
-            that do the work of full teams — for a fraction of the cost.
+          <p className="text-xl md:text-2xl font-space text-white/90 leading-relaxed mb-8">
+            AI8TY gives you time back and makes growth easier with smart systems that do the work for you. 
+            <br className="hidden md:block" />
+            You don't need to manage the tech — we handle everything.
           </p>
-        </motion.div>
-        
-        {/* Benefits List */}
-        <motion.div 
-          className="max-w-3xl mx-auto mb-12"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 1.2 }}
-        >
-          <div className="grid md:grid-cols-2 gap-4">
-            {benefits.map((benefit, index) => (
-              <motion.div
-                key={index}
-                className="flex items-center gap-3 bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg p-4"
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 1.4 + index * 0.1, duration: 0.5 }}
-                whileHover={{ scale: 1.02, backgroundColor: "rgba(255, 255, 255, 0.1)" }}
-              >
-                <Check className="text-neural flex-shrink-0" size={20} />
-                <span className="text-white/90 font-space">{benefit}</span>
-              </motion.div>
-            ))}
-          </div>
         </motion.div>
         
         {/* Main CTA */}
         <motion.div 
-          className="text-center mb-8"
+          className="text-center mb-16"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 1.6 }}
+          transition={{ duration: 0.7, delay: 1.4 }}
         >
           <motion.button
             onClick={scrollToContact}
@@ -200,7 +120,8 @@ const NewHeroSection: React.FC = () => {
             whileTap={{ scale: 0.98 }}
             transition={{ type: "spring", stiffness: 400, damping: 17 }}
           >
-            <span className="relative z-10">👉 Book Your Free Growth Strategy Call</span>
+            <Target className="mr-3 relative z-10" size={20} />
+            <span className="relative z-10">See How We Can Simplify Your Workload (Free Audit)</span>
             <ArrowRight className="ml-3 relative z-10 transition-transform group-hover:translate-x-1" size={18} />
           </motion.button>
           
@@ -210,20 +131,11 @@ const NewHeroSection: React.FC = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 1.8, duration: 0.5 }}
           >
-            Takes 30 seconds. No sales pitch. Just actionable insight.
+            30-minute call. No sales pitch. Just clarity on your biggest time-wasters.
           </motion.p>
         </motion.div>
       </motion.div>
 
-      {/* Enhanced fade overlay */}
-      <motion.div 
-        className={cn(
-          "absolute -bottom-10 left-0 right-0 h-32 bg-gradient-to-t from-ai8ty-black via-ai8ty-black/80 to-transparent z-0",
-          isVisible ? "opacity-100" : "opacity-0"
-        )}
-        style={{ y: y2 }}
-      />
-      
       {/* Scroll indicator */}
       <motion.div 
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10"
