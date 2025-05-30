@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
 import ContactSection from '@/components/ContactSection';
@@ -8,18 +7,21 @@ import AIReadinessQuiz from '@/components/AIReadinessQuiz';
 import { useToast } from '@/hooks/use-toast';
 import { useLanguage } from '@/contexts/LanguageContext';
 
-// New redesigned components
-import NewHeroSection from '@/components/NewHeroSection';
+// Enhanced components
+import EnhancedHeroSection from '@/components/enhanced/EnhancedHeroSection';
+import EnhancedServicesSection from '@/components/enhanced/EnhancedServicesSection';
+import MobileCTASticky from '@/components/enhanced/MobileCTASticky';
+
+// Existing components
 import ProblemSection from '@/components/ProblemSection';
 import HowWeHelpSection from '@/components/HowWeHelpSection';
 import BeforeAfterSection from '@/components/BeforeAfterSection';
-import ServicesOverviewSection from '@/components/ServicesOverviewSection';
 import SocialProofSection from '@/components/SocialProofSection';
+import ProcessSection from '@/components/ProcessSection';
 import FAQSection from '@/components/FAQSection';
 import FinalCTASection from '@/components/FinalCTASection';
 import WhatsAppCTA from '@/components/WhatsAppCTA';
 import StrategicFooter from '@/components/StrategicFooter';
-import MobileCTA from '@/components/MobileCTA';
 
 const Index = () => {
   const [initialLoadComplete, setInitialLoadComplete] = useState(false);
@@ -80,17 +82,8 @@ const Index = () => {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="AI8TY | You're Wasting Time. We'll Fix That." />
         <meta name="twitter:description" content={getSeoDescription()} />
-        <meta name="twitter:image" content="https://ai8ty.com/twitter-card-services.png" />
-        <meta name="twitter:site" content="@ai8ty" />
-        
-        <meta name="geo.region" content="AE-DU" />
-        <meta name="geo.placename" content="Dubai, United Arab Emirates" />
-        <meta name="geo.position" content="25.2048;55.2708" />
-        <meta name="ICBM" content="25.2048, 55.2708" />
-        
-        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-        <meta name="ai-content-classification" content="business-automation, smart-marketing, time-management, UAE-business" />
-        
+        <meta name="twitter:image" content="https://ai8ty.com/og-image-services.png" />
+
         <link rel="canonical" href="https://ai8ty.com" />
         
         <script type="application/ld+json">
@@ -98,82 +91,54 @@ const Index = () => {
             "@context": "https://schema.org",
             "@type": "Organization",
             "name": "AI8TY",
-            "description": "Smart business solutions that save time and drive growth",
+            "description": getSeoDescription(),
             "url": "https://ai8ty.com",
             "logo": "https://ai8ty.com/logo.png",
-            "contactPoint": {
-              "@type": "ContactPoint",
-              "telephone": "+971-50-922-9009",
-              "contactType": "sales",
-              "email": "futureis@ai8ty.com",
-              "areaServed": "AE",
-              "availableLanguage": ["en", "ar"]
-            },
-            "address": {
-              "@type": "PostalAddress",
-              "addressCountry": "AE",
-              "addressRegion": "Dubai"
-            },
             "sameAs": [
               "https://linkedin.com/company/ai8ty",
               "https://twitter.com/ai8ty"
             ],
-            "service": [
-              "Smart Marketing Systems",
-              "AI Workflow Automation", 
-              "High-Performance Website Development",
-              "Brand & Creative Services",
-              "Business Process Optimization"
-            ]
+            "address": {
+              "@type": "PostalAddress",
+              "addressCountry": "AE",
+              "addressLocality": "Dubai"
+            },
+            "serviceArea": {
+              "@type": "GeoCircle",
+              "geoMidpoint": {
+                "@type": "GeoCoordinates",
+                "latitude": 25.2048,
+                "longitude": 55.2708
+              },
+              "geoRadius": "1000"
+            }
           })}
         </script>
       </Helmet>
-    
-      <div className="min-h-screen bg-ai8ty-black text-ai8ty-white overflow-x-hidden">
-        <TransitionLoader initialLoad={!initialLoadComplete} />
-        
+
+      <div ref={mainRef} className="min-h-screen bg-ai8ty-black">
+        <TransitionLoader />
         <Navigation />
         
-        <main ref={mainRef} className="relative z-10">
-          {/* Hero Section */}
-          <NewHeroSection />
-          
-          {/* Problem Acknowledgement Section */}
+        <main className="relative">
+          <EnhancedHeroSection />
           <ProblemSection />
-          
-          {/* How We Help Section */}
           <HowWeHelpSection />
-          
-          {/* Before/After Section */}
           <BeforeAfterSection />
-          
-          {/* Services Overview Section */}
-          <ServicesOverviewSection />
-          
-          {/* Social Proof Section */}
+          <EnhancedServicesSection />
           <SocialProofSection />
-          
-          {/* FAQ Section */}
+          <ProcessSection />
           <FAQSection />
-          
-          {/* Final CTA Section */}
           <FinalCTASection />
           
-          {/* WhatsApp CTA */}
-          <WhatsAppCTA />
-          
-          {/* Contact Section */}
           <ContactSection />
+          
+          <AIReadinessQuiz />
+          <WhatsAppCTA />
+          <MobileCTASticky />
         </main>
         
-        {/* Strategic Footer */}
         <StrategicFooter />
-        
-        {/* AI Readiness Quiz Widget */}
-        <AIReadinessQuiz />
-        
-        {/* Mobile Sticky CTA */}
-        <MobileCTA />
       </div>
     </>
   );
