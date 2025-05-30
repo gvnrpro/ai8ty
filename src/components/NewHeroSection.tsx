@@ -2,7 +2,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Clock, Target } from 'lucide-react';
+import { ArrowRight, Clock, Target, CheckCircle } from 'lucide-react';
 import ParticleBackground from './ParticleBackground';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
@@ -65,7 +65,8 @@ const NewHeroSection: React.FC = () => {
         >
           <div className="inline-flex items-center gap-3 bg-white/10 border border-white/20 rounded-full px-6 py-3 text-sm font-space text-white/90 backdrop-blur-sm mb-8">
             <Clock size={16} className="text-neural" />
-            <span className="font-medium">Time Is Your Most Valuable Asset</span>
+            <span className="font-medium">Save 10+ Hours Every Week</span>
+            <CheckCircle size={16} className="text-neural" />
           </div>
         </motion.div>
 
@@ -104,9 +105,25 @@ const NewHeroSection: React.FC = () => {
             <br className="hidden md:block" />
             You don't need to manage the tech — we handle everything.
           </p>
+          
+          {/* Trust indicators */}
+          <div className="flex flex-wrap justify-center items-center gap-6 mb-8 text-sm text-white/70">
+            <div className="flex items-center gap-2">
+              <CheckCircle size={16} className="text-neural" />
+              <span>10+ Hours Saved Weekly</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <CheckCircle size={16} className="text-neural" />
+              <span>No Tech Knowledge Required</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <CheckCircle size={16} className="text-neural" />
+              <span>Results in 30 Days</span>
+            </div>
+          </div>
         </motion.div>
         
-        {/* Main CTA */}
+        {/* Enhanced CTA with better mobile sizing */}
         <motion.div 
           className="text-center mb-16"
           initial={{ opacity: 0, y: 30 }}
@@ -115,13 +132,13 @@ const NewHeroSection: React.FC = () => {
         >
           <motion.button
             onClick={scrollToContact}
-            className="btn-primary group relative overflow-hidden px-8 py-4 text-lg font-medium"
+            className="btn-primary group relative overflow-hidden px-8 py-4 text-lg font-medium min-h-[48px] min-w-[200px]"
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.98 }}
             transition={{ type: "spring", stiffness: 400, damping: 17 }}
           >
             <Target className="mr-3 relative z-10" size={20} />
-            <span className="relative z-10">See How We Can Simplify Your Workload (Free Audit)</span>
+            <span className="relative z-10">Save 10+ Hours/Week (Free Audit)</span>
             <ArrowRight className="ml-3 relative z-10 transition-transform group-hover:translate-x-1" size={18} />
           </motion.button>
           

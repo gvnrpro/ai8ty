@@ -1,8 +1,7 @@
 
 import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { cn } from '@/lib/utils';
-import { Quote, Star } from 'lucide-react';
+import { Star, Quote, CheckCircle } from 'lucide-react';
 
 const SocialProofSection: React.FC = () => {
   const ref = useRef(null);
@@ -33,32 +32,38 @@ const SocialProofSection: React.FC = () => {
 
   const testimonials = [
     {
-      quote: "We replaced 3 contractors and 6 tools with AI8ty — and we're moving faster than ever.",
-      author: "Samantha K.",
-      role: "SaaS Founder",
-      avatar: "SK"
+      quote: "AI8TY saved us 20+ hours per week. Our marketing runs itself now, and leads have tripled. Finally, a team that delivers what they promise.",
+      author: "Sarah Al-Mansouri",
+      title: "CEO, Dubai Tech Solutions",
+      result: "20+ Hours Saved Weekly"
     },
     {
-      quote: "Traffic doubled, our visibility exploded, and we cut dev costs by 70%.",
-      author: "Jordan M.",
-      role: "Agency Owner", 
-      avatar: "JM"
+      quote: "We were drowning in manual tasks. AI8TY automated everything seamlessly. Now we focus on growth instead of admin work.",
+      author: "Ahmed Hassan", 
+      title: "Founder, Gulf Retail Group",
+      result: "80% Less Manual Work"
     },
     {
-      quote: "One AI agent saved us $2,000/month in admin costs. That's real ROI.",
-      author: "Anish P.",
-      role: "eCom Director",
-      avatar: "AP"
+      quote: "Our website was invisible online. After AI8TY's work, we're ranking first for our key terms and getting quality leads daily.",
+      author: "Fatima Al-Zahra",
+      title: "Director, Emirates Consulting",
+      result: "3x More Quality Leads"
     }
+  ];
+
+  const stats = [
+    { value: "10+", label: "Hours Saved Weekly", icon: CheckCircle },
+    { value: "3x", label: "Faster Results", icon: CheckCircle },
+    { value: "30", label: "Days to ROI", icon: CheckCircle },
+    { value: "0", label: "Tech Knowledge Required", icon: CheckCircle }
   ];
 
   return (
     <section 
       ref={ref}
-      className="neural-section relative overflow-hidden"
+      className="neural-section relative overflow-hidden bg-depth-1"
     >
-      {/* Background elements */}
-      <div className="absolute inset-0 quantum-dots-bg opacity-5"></div>
+      <div className="absolute inset-0 neural-grid-bg opacity-5"></div>
       
       <motion.div
         className="container mx-auto max-w-6xl px-6"
@@ -71,14 +76,43 @@ const SocialProofSection: React.FC = () => {
           variants={itemVariants}
         >
           <h2 className="strategic-title text-3xl md:text-4xl lg:text-5xl mb-8">
-            Results That Speak
+            Real Businesses, Real Results
             <br />
             <span className="bg-gradient-to-r from-neural to-quantum bg-clip-text text-transparent">
-              Louder Than Buzzwords
+              (Just Like Yours Will Be)
             </span>
           </h2>
+          
+          <p className="text-xl md:text-2xl font-space text-white/90 leading-relaxed max-w-3xl mx-auto">
+            GCC businesses trust AI8TY to handle their growth while they focus on what matters most
+          </p>
+        </motion.div>
+
+        {/* Stats Section */}
+        <motion.div 
+          className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16"
+          variants={containerVariants}
+        >
+          {stats.map((stat, index) => (
+            <motion.div
+              key={index}
+              className="text-center"
+              variants={itemVariants}
+            >
+              <div className="flex justify-center mb-4">
+                <stat.icon size={32} className="text-neural" />
+              </div>
+              <div className="strategic-title text-3xl md:text-4xl text-neural mb-2">
+                {stat.value}
+              </div>
+              <p className="text-sm font-space text-white/80">
+                {stat.label}
+              </p>
+            </motion.div>
+          ))}
         </motion.div>
         
+        {/* Testimonials Grid */}
         <motion.div 
           className="grid md:grid-cols-3 gap-8"
           variants={containerVariants}
@@ -86,45 +120,44 @@ const SocialProofSection: React.FC = () => {
           {testimonials.map((testimonial, index) => (
             <motion.div
               key={index}
-              className="quantum-panel p-8 group hover:border-neural/30"
+              className="quantum-panel p-8 text-center h-full flex flex-col justify-between min-h-[320px]"
               variants={itemVariants}
-              whileHover={{ scale: 1.05, y: -5 }}
+              whileHover={{ scale: 1.02, y: -5 }}
               transition={{ duration: 0.3 }}
             >
-              <Quote className="text-neural/50 mb-6 group-hover:text-neural/70 transition-colors" size={32} />
-              
-              {/* Stars */}
-              <div className="flex gap-1 mb-4">
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <Star key={i} size={16} className="text-sand fill-sand" />
-                ))}
+              <div>
+                <Quote size={32} className="text-neural mx-auto mb-6" />
+                
+                <div className="flex justify-center mb-4">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} size={16} className="text-neural fill-current" />
+                  ))}
+                </div>
+                
+                <p className="font-space text-white/90 leading-relaxed mb-6 text-lg">
+                  "{testimonial.quote}"
+                </p>
               </div>
               
-              <blockquote className="text-lg leading-relaxed mb-6 text-white font-space">
-                🗣️ "{testimonial.quote}"
-              </blockquote>
-              
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-neural/20 rounded-full flex items-center justify-center">
-                  <span className="text-neural font-bold text-sm">
-                    {testimonial.avatar}
-                  </span>
+              <div>
+                <div className="bg-neural/20 border border-neural/30 rounded-lg p-3 mb-4">
+                  <p className="text-sm font-space text-neural font-medium">
+                    📈 {testimonial.result}
+                  </p>
                 </div>
-                <div>
-                  <div className="font-medium text-white font-syne">
-                    {testimonial.author}
-                  </div>
-                  <div className="text-sm text-ai8ty-grey font-space">
-                    {testimonial.role}
-                  </div>
-                </div>
+                
+                <h4 className="strategic-title text-lg mb-1">
+                  {testimonial.author}
+                </h4>
+                <p className="text-sm font-space text-white/70">
+                  {testimonial.title}
+                </p>
               </div>
             </motion.div>
           ))}
         </motion.div>
       </motion.div>
       
-      {/* Section transition */}
       <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-ai8ty-black to-transparent"></div>
     </section>
   );

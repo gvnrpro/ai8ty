@@ -38,24 +38,28 @@ const ServicesOverviewSection: React.FC = () => {
       icon: Zap,
       title: "Smart Marketing Systems",
       description: "Automated campaigns that find and convert your ideal customers.",
+      benefit: "Save 15+ hours/week on marketing tasks",
       color: "neural"
     },
     {
       icon: Bot,
       title: "AI & Automation Power-Ups",
       description: "Custom workflows that handle repetitive tasks automatically.",
+      benefit: "Eliminate 80% of manual work",
       color: "quantum"
     },
     {
       icon: Globe,
       title: "High-Performance Websites",
       description: "Fast, mobile-first sites built to convert visitors into customers.",
+      benefit: "3x faster loading, 2x more conversions",
       color: "intelligence"
     },
     {
       icon: Megaphone,
       title: "Brand & Creative Services",
       description: "Compelling stories and visuals that make customers choose you.",
+      benefit: "Stand out in crowded markets",
       color: "sand"
     }
   ];
@@ -104,20 +108,22 @@ const ServicesOverviewSection: React.FC = () => {
           </p>
         </motion.div>
         
+        {/* Enhanced grid with consistent heights */}
         <motion.div 
           className="grid md:grid-cols-2 gap-8 mb-16"
           variants={containerVariants}
+          style={{ display: 'grid', gridTemplateRows: 'repeat(2, 1fr)' }}
         >
           {serviceCategories.map((category, index) => (
             <motion.div
               key={index}
-              className="quantum-panel p-8 group hover:border-neural/30 cursor-pointer"
+              className="quantum-panel p-8 group hover:border-neural/30 cursor-pointer flex flex-col h-full min-h-[280px]"
               variants={itemVariants}
               whileHover={{ scale: 1.02, y: -5 }}
               transition={{ duration: 0.3 }}
               onClick={handleViewAllServices}
             >
-              <div className="flex items-start gap-6">
+              <div className="flex items-start gap-6 mb-6">
                 <motion.div 
                   className={`w-16 h-16 rounded-xl flex items-center justify-center flex-shrink-0 ${getIconColorClasses(category.color)}`}
                   whileHover={{ scale: 1.1, rotate: 5 }}
@@ -132,11 +138,19 @@ const ServicesOverviewSection: React.FC = () => {
                   <p className="font-space text-white/85 leading-relaxed mb-4">
                     {category.description}
                   </p>
-                  <div className="flex items-center gap-2 text-neural group-hover:text-white transition-colors">
-                    <span className="text-sm font-space font-medium">Learn More</span>
-                    <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
-                  </div>
                 </div>
+              </div>
+              
+              {/* Benefit highlight */}
+              <div className="bg-depth-2/50 border border-neural/20 rounded-lg p-4 mb-4 mt-auto">
+                <p className="text-sm font-space text-neural/90 font-medium">
+                  ✅ {category.benefit}
+                </p>
+              </div>
+              
+              <div className="flex items-center gap-2 text-neural group-hover:text-white transition-colors mt-auto">
+                <span className="text-sm font-space font-medium">Learn More</span>
+                <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
               </div>
             </motion.div>
           ))}
@@ -148,11 +162,11 @@ const ServicesOverviewSection: React.FC = () => {
         >
           <Button 
             onClick={handleViewAllServices}
-            className="btn-secondary text-lg group relative overflow-hidden px-8 py-4"
+            className="btn-secondary text-lg group relative overflow-hidden px-8 py-4 min-h-[48px]"
             size="lg"
           >
             <span className="relative z-10 font-medium">
-              View All Services & Solutions
+              Which Service Fits My Business?
             </span>
             <ArrowRight className="ml-3 relative z-10 transition-transform group-hover:translate-x-1" size={18} />
           </Button>

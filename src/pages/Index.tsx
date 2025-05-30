@@ -19,6 +19,7 @@ import FAQSection from '@/components/FAQSection';
 import FinalCTASection from '@/components/FinalCTASection';
 import WhatsAppCTA from '@/components/WhatsAppCTA';
 import StrategicFooter from '@/components/StrategicFooter';
+import MobileCTA from '@/components/MobileCTA';
 
 const Index = () => {
   const [initialLoadComplete, setInitialLoadComplete] = useState(false);
@@ -170,6 +171,9 @@ const Index = () => {
         
         {/* AI Readiness Quiz Widget */}
         <AIReadinessQuiz />
+        
+        {/* Mobile Sticky CTA */}
+        <MobileCTA />
       </div>
     </>
   );
