@@ -230,7 +230,7 @@ const RevenueHeroSection: React.FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 text-center">
               <div>
                 <div className="text-xl md:text-2xl font-bold text-white mb-1">
-                  <2 sec
+                  &lt;2 sec
                 </div>
                 <div className="text-xs md:text-sm text-white/70">
                   Page Load Speed
