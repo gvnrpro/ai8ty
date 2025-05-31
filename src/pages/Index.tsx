@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect, useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
 import ContactSection from '@/components/ContactSection';
@@ -9,6 +10,9 @@ import { useLanguage } from '@/contexts/LanguageContext';
 
 // Enhanced revenue-focused components
 import RevenueHeroSection from '@/components/enhanced/RevenueHeroSection';
+import IntelligenceShiftSection from '@/components/enhanced/IntelligenceShiftSection';
+import AboutSection from '@/components/enhanced/AboutSection';
+import WorkShowcase from '@/components/enhanced/WorkShowcase';
 import WebsiteAuditSection from '@/components/enhanced/WebsiteAuditSection';
 import WhyThisWorksSection from '@/components/enhanced/WhyThisWorksSection';
 import BoldGuaranteeSection from '@/components/enhanced/BoldGuaranteeSection';
@@ -16,7 +20,7 @@ import LimitedSpotsSection from '@/components/enhanced/LimitedSpotsSection';
 import WhoThisIsForSection from '@/components/enhanced/WhoThisIsForSection';
 import WhatsAppFunnelSection from '@/components/enhanced/WhatsAppFunnelSection';
 import EnhancedResultsSection from '@/components/enhanced/EnhancedResultsSection';
-import EnhancedMobileCTA from '@/components/enhanced/EnhancedMobileCTA';
+import OptimizedMobileCTA from '@/components/enhanced/OptimizedMobileCTA';
 import SitemapGenerator from '@/components/enhanced/SitemapGenerator';
 
 // Existing components that still work well
@@ -179,9 +183,9 @@ const Index = () => {
           })}
         </script>
 
-        {/* Performance and conversion tracking */}
         <meta name="theme-color" content="#3B82F6" />
         <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
       </Helmet>
 
       <div ref={mainRef} className="min-h-screen bg-ai8ty-black">
@@ -189,25 +193,50 @@ const Index = () => {
         <Navigation />
         
         <main className="relative">
-          {/* Revenue-focused sections in strategic order */}
-          <RevenueHeroSection />
+          {/* Hero Section */}
+          <section id="hero-section">
+            <RevenueHeroSection />
+          </section>
+          
+          {/* Core Content Sections */}
           <ProblemSection />
+          <IntelligenceShiftSection />
+          <AboutSection />
+          <WorkShowcase />
           <WhyThisWorksSection />
+          
+          {/* Lead Generation */}
           <WebsiteAuditSection />
-          <EnhancedServicesSection />
+          
+          {/* Services */}
+          <section id="enhanced-services">
+            <EnhancedServicesSection />
+          </section>
+          
+          {/* Social Proof & Results */}
           <EnhancedResultsSection />
+          
+          {/* Trust & Guarantee */}
           <BoldGuaranteeSection />
           <WhoThisIsForSection />
+          
+          {/* Urgency & Conversion */}
           <LimitedSpotsSection />
           <WhatsAppFunnelSection />
+          
+          {/* Process & FAQ */}
           <ProcessSection />
           <FAQSection />
           
-          <ContactSection />
+          {/* Contact */}
+          <section id="contact">
+            <ContactSection />
+          </section>
           
+          {/* Support Elements */}
           <AIReadinessQuiz />
           <WhatsAppCTA />
-          <EnhancedMobileCTA />
+          <OptimizedMobileCTA />
         </main>
         
         <StrategicFooter />

@@ -12,7 +12,6 @@ const Navigation: React.FC = () => {
   const isMobile = useIsMobile();
   const { language, setLanguage, isRTL } = useLanguage();
   
-  // Handle scroll position for sticky navigation with blur
   useEffect(() => {
     const handleScroll = () => {
       setScrollPosition(window.scrollY);
@@ -22,41 +21,38 @@ const Navigation: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close menu when nav link is clicked
   const handleLinkClick = () => {
     setIsOpen(false);
   };
 
-  // Close mobile menu when switching to desktop
   useEffect(() => {
     if (!isMobile) {
       setIsOpen(false);
     }
   }, [isMobile]);
 
-  // Languages to display in selector
   const languages: { code: Language; label: string }[] = [
     { code: 'en', label: 'English' },
     { code: 'ar', label: 'العربية' },
     { code: 'fr', label: 'Français' }
   ];
 
-  // Updated navigation links matching current sections
+  // Updated navigation links to match all sections
   const navLinks = [
     { name: isRTL ? "الرئيسية" : "Home", path: "#hero-section" },
     { name: isRTL ? "التحول الذكي" : "Intelligence Shift", path: "#intelligence-shift" },
-    { name: isRTL ? "نظام التشغيل" : "Business OS", path: "#business-transformation" },
-    { name: isRTL ? "الخدمات" : "Services", path: "#modular-services-section" },
-    { name: isRTL ? "شراكة" : "Partnership", path: "#builder-trust" },
+    { name: isRTL ? "نحن" : "About", path: "#about-section" },
+    { name: isRTL ? "أعمالنا" : "Work", path: "#work-showcase" },
+    { name: isRTL ? "الخدمات" : "Services", path: "#enhanced-services" },
     { name: isRTL ? "تواصل" : "Contact", path: "#contact" }
   ];
 
   return (
     <motion.header 
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-500 py-4 px-4 md:px-6",
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-500 py-3 md:py-4 px-4 md:px-6",
         scrollPosition > 20 || isOpen 
-          ? "bg-black/80 backdrop-blur-xl border-b border-white/10 shadow-lg shadow-neural/20" 
+          ? "bg-black/90 backdrop-blur-xl border-b border-white/10 shadow-lg shadow-neural/20" 
           : "bg-transparent"
       )}
       initial={{ y: -100 }}
@@ -74,13 +70,13 @@ const Navigation: React.FC = () => {
             <img 
               src="/lovable-uploads/4b4a830d-afce-4dc3-8cc3-4fae3e2728ed.png" 
               alt="AI8TY Logo" 
-              className="h-8 w-auto transition-all duration-300 group-hover:brightness-110"
+              className="h-7 md:h-8 w-auto transition-all duration-300 group-hover:brightness-110"
             />
           </motion.a>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center">
-            <ul className="flex space-x-8 mr-8">
+            <ul className="flex space-x-6 lg:space-x-8 mr-6 lg:mr-8">
               {navLinks.map((link, index) => (
                 <motion.li 
                   key={index}
@@ -106,7 +102,7 @@ const Navigation: React.FC = () => {
               ))}
             </ul>
             
-            {/* Enhanced Language Selector */}
+            {/* Language Selector */}
             <motion.div 
               className="relative group"
               initial={{ opacity: 0, scale: 0.8 }}
@@ -114,13 +110,13 @@ const Navigation: React.FC = () => {
               transition={{ duration: 0.5, delay: 0.6 }}
             >
               <motion.button 
-                className="flex items-center text-white/70 hover:text-neural transition-all duration-300 bg-white/10 rounded-xl px-4 py-2 backdrop-blur-sm border border-white/20 hover:border-neural/30"
+                className="flex items-center text-white/70 hover:text-neural transition-all duration-300 bg-white/10 rounded-xl px-3 lg:px-4 py-2 backdrop-blur-sm border border-white/20 hover:border-neural/30"
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.2 }}
               >
-                <Globe size={18} className="mr-2" />
-                <span className="text-sm font-medium">{language.toUpperCase()}</span>
-                <ArrowRight size={14} className="ml-2 rotate-90 group-hover:rotate-45 transition-transform duration-300" />
+                <Globe size={16} className="mr-2" />
+                <span className="text-sm font-medium hidden lg:inline">{language.toUpperCase()}</span>
+                <ArrowRight size={12} className="ml-1 lg:ml-2 rotate-90 group-hover:rotate-45 transition-transform duration-300" />
               </motion.button>
               
               <motion.div 
@@ -129,7 +125,7 @@ const Navigation: React.FC = () => {
                 whileHover={{ y: 0, opacity: 1 }}
               >
                 <ul className="py-2">
-                  {languages.map((lang, index) => (
+                  {languages.map((lang) => (
                     <li key={lang.code}>
                       <motion.button
                         onClick={() => setLanguage(lang.code)}
@@ -154,7 +150,7 @@ const Navigation: React.FC = () => {
           {/* Mobile Controls */}
           <div className="flex items-center md:hidden">
             <motion.button 
-              className="relative z-20 text-white/70 hover:text-neural mr-4 bg-white/10 rounded-lg p-2 backdrop-blur-sm border border-white/20"
+              className="relative z-20 text-white/70 hover:text-neural mr-3 bg-white/10 rounded-lg p-2 backdrop-blur-sm border border-white/20 min-w-[40px] min-h-[40px] flex items-center justify-center"
               onClick={() => {
                 const currentIndex = languages.findIndex(l => l.code === language);
                 const nextIndex = (currentIndex + 1) % languages.length;
@@ -167,12 +163,12 @@ const Navigation: React.FC = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
             >
-              <Globe size={20} />
+              <Globe size={18} />
             </motion.button>
             
             <motion.button 
               onClick={() => setIsOpen(!isOpen)}
-              className="relative z-20 text-white/70 hover:text-neural bg-white/10 rounded-lg p-2 backdrop-blur-sm border border-white/20"
+              className="relative z-20 text-white/70 hover:text-neural bg-white/10 rounded-lg p-2 backdrop-blur-sm border border-white/20 min-w-[40px] min-h-[40px] flex items-center justify-center"
               aria-label={isOpen ? "Close menu" : "Open menu"}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
@@ -184,12 +180,12 @@ const Navigation: React.FC = () => {
                 animate={{ rotate: isOpen ? 180 : 0 }}
                 transition={{ duration: 0.3 }}
               >
-                {isOpen ? <X size={24} /> : <Menu size={24} />}
+                {isOpen ? <X size={20} /> : <Menu size={20} />}
               </motion.div>
             </motion.button>
           </div>
 
-          {/* Enhanced Mobile Navigation */}
+          {/* Mobile Navigation */}
           <AnimatePresence>
             {isOpen && (
               <motion.div
@@ -199,12 +195,11 @@ const Navigation: React.FC = () => {
                 exit={{ opacity: 0, y: isRTL ? "-100%" : "100%" }}
                 transition={{ type: "spring", damping: 25, stiffness: 300 }}
               >
-                <div className="container h-full mx-auto flex flex-col justify-center items-center relative">
-                  {/* Background pattern */}
+                <div className="container h-full mx-auto flex flex-col justify-center items-center relative px-4">
                   <div className="absolute inset-0 neural-grid-bg opacity-5"></div>
                   
                   <motion.ul 
-                    className="flex flex-col space-y-8 items-center relative z-10"
+                    className="flex flex-col space-y-6 items-center relative z-10"
                     initial="closed"
                     animate="open"
                     variants={{
@@ -227,16 +222,16 @@ const Navigation: React.FC = () => {
                       >
                         <motion.a 
                           href={link.path} 
-                          className="font-syne text-3xl text-white hover:text-neural transition-all duration-300 relative group"
+                          className="font-syne text-2xl md:text-3xl text-white hover:text-neural transition-all duration-300 relative group py-2 px-4 rounded-lg hover:bg-white/5"
                           onClick={handleLinkClick}
-                          whileHover={{ scale: 1.1, y: -5 }}
+                          whileHover={{ scale: 1.05, y: -2 }}
                           transition={{ duration: 0.2 }}
                         >
                           <span className="relative z-10">{link.name}</span>
                           <motion.div
-                            className="absolute -bottom-2 left-0 h-0.5 bg-gradient-to-r from-neural to-quantum"
+                            className="absolute -bottom-1 left-4 h-0.5 bg-gradient-to-r from-neural to-quantum"
                             initial={{ width: 0 }}
-                            whileHover={{ width: "100%" }}
+                            whileHover={{ width: "calc(100% - 32px)" }}
                             transition={{ duration: 0.3 }}
                           />
                         </motion.a>
@@ -244,19 +239,18 @@ const Navigation: React.FC = () => {
                     ))}
                   </motion.ul>
                   
-                  {/* Mobile CTA */}
                   <motion.div
-                    className="absolute bottom-12 left-1/2 transform -translate-x-1/2"
+                    className="absolute bottom-8 left-1/2 transform -translate-x-1/2 w-full max-w-sm px-4"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.8, duration: 0.5 }}
                   >
                     <motion.a
                       href="#contact"
-                      className="btn-primary inline-flex items-center gap-2 text-sm"
+                      className="btn-primary inline-flex items-center justify-center gap-2 text-sm w-full py-3 rounded-xl"
                       onClick={handleLinkClick}
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
                     >
                       <span>{isRTL ? "ابدأ التحول" : "Start Transformation"}</span>
                       <ArrowRight size={16} />
