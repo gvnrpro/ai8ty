@@ -14,11 +14,11 @@ const RevenueHeroSection: React.FC = () => {
     offset: ["start start", "end start"]
   });
   
-  const y1 = useTransform(scrollYProgress, [0, 1], [0, 100]);
+  const y1 = useTransform(scrollYProgress, [0, 1], [0, 50]); // Reduced for mobile
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
   
   useEffect(() => {
-    const timer = setTimeout(() => setIsVisible(true), 150);
+    const timer = setTimeout(() => setIsVisible(true), 100); // Faster for mobile
     return () => clearTimeout(timer);
   }, []);
 
@@ -36,53 +36,42 @@ const RevenueHeroSection: React.FC = () => {
     }
   };
 
+  const handleWhatsApp = () => {
+    const message = encodeURIComponent("I want to turn my website into a 24/7 sales machine. Can we schedule a strategy call?");
+    window.open(`https://wa.me/971509229009?text=${message}`, '_blank');
+  };
+
   const trustIndicators = [
-    { icon: CheckCircle, text: "30-Day Money-Back Guarantee" },
-    { icon: CheckCircle, text: "50+ GCC Businesses Trust Us" },
-    { icon: CheckCircle, text: "24/7 Sales Machine Delivery" }
+    { icon: CheckCircle, text: "30-Day Guarantee" },
+    { icon: CheckCircle, text: "50+ GCC Businesses" },
+    { icon: CheckCircle, text: "24/7 Sales Machine" }
   ];
 
   return (
     <motion.section 
       ref={sectionRef}
-      className="min-h-screen relative flex flex-col justify-center items-center py-16 md:py-20 px-4 md:px-6 overflow-hidden"
+      className="min-h-screen relative flex flex-col justify-center items-center py-12 md:py-20 px-4 overflow-hidden"
       style={{ opacity }}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ duration: 1 }}
+      transition={{ duration: 0.8 }}
     >
-      {/* Enhanced Background */}
+      {/* Optimized Background for mobile */}
       <div className="absolute inset-0 z-0">
         <ParticleBackground 
-          density={15} 
+          density={window.innerWidth < 768 ? 8 : 15} 
           color="#3B82F6" 
-          className="opacity-20" 
+          className="opacity-15" 
           mode="network"
         />
         
-        {/* Revenue-focused floating elements */}
+        {/* Simplified floating elements for mobile */}
         <motion.div 
-          className="absolute top-[15%] right-[8%] w-16 h-16 md:w-24 md:h-24 border border-green-500/20 rounded-full flex items-center justify-center"
+          className="absolute top-[10%] right-[5%] w-12 h-12 md:w-20 md:h-20 border border-green-500/20 rounded-full flex items-center justify-center"
           style={{ y: y1 }}
           animate={{ 
             opacity: [0.3, 0.6, 0.3],
             rotate: [0, 360],
-            scale: [1, 1.1, 1]
-          }}
-          transition={{ 
-            duration: 20,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-        >
-          <DollarSign size={20} className="text-green-500 md:w-8 md:h-8" />
-        </motion.div>
-        
-        <motion.div 
-          className="absolute bottom-[30%] left-[8%] w-12 h-12 md:w-16 md:h-16 border border-neural/30 rounded-lg flex items-center justify-center"
-          animate={{ 
-            opacity: [0.2, 0.4, 0.2],
-            rotate: [0, -180, -360],
           }}
           transition={{ 
             duration: 15,
@@ -90,45 +79,45 @@ const RevenueHeroSection: React.FC = () => {
             ease: "linear"
           }}
         >
-          <Zap size={16} className="text-neural md:w-6 md:h-6" />
+          <DollarSign size={16} className="text-green-500 md:w-6 md:h-6" />
         </motion.div>
       </div>
       
       <motion.div 
-        className="container max-w-6xl mx-auto z-10"
+        className="container max-w-6xl mx-auto z-10 w-full"
         style={{ y: y1 }}
       >
         {/* Revenue Badge */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-center mb-6 md:mb-8"
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="text-center mb-4 md:mb-6"
         >
-          <div className="inline-flex items-center gap-3 bg-green-500/10 border border-green-500/20 rounded-full px-4 md:px-6 py-2 md:py-3 text-sm font-space text-white/90 backdrop-blur-sm">
+          <div className="inline-flex items-center gap-2 md:gap-3 bg-green-500/10 border border-green-500/20 rounded-full px-3 md:px-6 py-2 md:py-3 text-xs md:text-sm font-space text-white/90 backdrop-blur-sm">
             <motion.div
               className="flex h-2 w-2 rounded-full bg-green-500"
               animate={{ scale: [1, 1.5, 1], opacity: [0.7, 1, 0.7] }}
               transition={{ duration: 2, repeat: Infinity }}
             />
             <span className="font-medium">Turn Your Website Into a 24/7 Sales Machine</span>
-            <DollarSign size={16} className="text-green-500" />
+            <DollarSign size={14} className="text-green-500 md:w-4 md:h-4" />
           </div>
         </motion.div>
 
-        {/* Main Headline */}
+        {/* Main Headline - Mobile Optimized */}
         <motion.div
-          className="text-center mb-6 md:mb-8"
-          initial={{ y: 60, opacity: 0 }}
+          className="text-center mb-4 md:mb-6"
+          initial={{ y: 40, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
         >
-          <h1 className="text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-syne font-bold leading-tight mb-4 md:mb-6">
+          <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-syne font-bold leading-tight mb-3 md:mb-6">
             <motion.span 
-              className="block mb-2 text-white"
+              className="block mb-1 md:mb-2 text-white"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.8, duration: 0.8 }}
+              transition={{ delay: 0.6, duration: 0.6 }}
             >
               Your Website Should
             </motion.span>
@@ -136,100 +125,104 @@ const RevenueHeroSection: React.FC = () => {
               className="block bg-gradient-to-r from-green-500 via-blue-500 to-purple-500 bg-clip-text text-transparent"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 1.2, duration: 0.8 }}
+              transition={{ delay: 0.9, duration: 0.6 }}
             >
               Make You Money
             </motion.span>
           </h1>
         </motion.div>
         
-        {/* Value Proposition */}
+        {/* Value Proposition - Mobile Optimized */}
         <motion.div 
-          className="max-w-4xl mx-auto text-center mb-8 md:mb-12"
-          initial={{ opacity: 0, y: 40 }}
+          className="max-w-4xl mx-auto text-center mb-6 md:mb-8"
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1.0 }}
+          transition={{ duration: 0.6, delay: 0.8 }}
         >
-          <p className="text-lg md:text-xl lg:text-2xl font-space text-white/90 leading-relaxed mb-6 md:mb-8">
-            If your site isn't generating qualified leads every day, you're losing money. 
-            <br className="hidden md:block" />
-            <span className="text-green-400 font-semibold">We build revenue systems that work while you sleep.</span>
+          <p className="text-sm sm:text-base md:text-lg lg:text-xl font-space text-white/90 leading-relaxed mb-4 md:mb-6 px-2">
+            If your site isn't generating qualified leads every day, you're losing money.
+            <br className="hidden sm:block" />
+            <span className="text-green-400 font-semibold"> We build revenue systems that work while you sleep.</span>
           </p>
           
-          {/* Trust Indicators */}
-          <div className="flex flex-wrap justify-center items-center gap-4 md:gap-6 mb-6 md:mb-8">
+          {/* Trust Indicators - Mobile Optimized */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 md:gap-4 mb-4 md:mb-6 px-2">
             {trustIndicators.map((indicator, index) => (
               <motion.div 
                 key={index}
-                className="flex items-center gap-2 text-xs md:text-sm text-white/70"
+                className="flex items-center justify-center gap-2 text-xs md:text-sm text-white/70 py-2"
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 1.4 + (index * 0.1), duration: 0.5 }}
+                transition={{ delay: 1.0 + (index * 0.1), duration: 0.4 }}
               >
-                <indicator.icon size={14} className="text-green-500 md:w-4 md:h-4" />
-                <span>{indicator.text}</span>
+                <indicator.icon size={14} className="text-green-500 flex-shrink-0" />
+                <span className="text-center sm:text-left">{indicator.text}</span>
               </motion.div>
             ))}
           </div>
         </motion.div>
         
-        {/* Enhanced CTA */}
+        {/* Enhanced CTA - Mobile First */}
         <motion.div 
-          className="text-center mb-12 md:mb-16"
-          initial={{ opacity: 0, y: 30 }}
+          className="text-center mb-8 md:mb-12"
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 1.6 }}
+          transition={{ duration: 0.5, delay: 1.2 }}
         >
-          <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center items-center max-w-md mx-auto">
-            <PremiumButton
-              variant="primary"
-              size="lg"
-              icon={Target}
-              iconPosition="left"
+          <div className="flex flex-col gap-3 justify-center items-center max-w-sm sm:max-w-md mx-auto px-4">
+            <button
               onClick={scrollToContact}
-              className="w-full sm:w-auto bg-green-600 hover:bg-green-700 text-white"
+              className="mobile-cta-primary w-full flex items-center justify-center gap-2 group"
             >
-              Book Strategy Call
-            </PremiumButton>
+              <Target size={18} />
+              <span>Book Strategy Call</span>
+              <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-200" />
+            </button>
             
-            <PremiumButton
-              variant="secondary"
-              size="lg"
-              icon={ArrowRight}
-              iconPosition="right"
-              onClick={scrollToAudit}
-              className="w-full sm:w-auto border-white/20 text-white hover:border-neural/30"
-            >
-              Free Website Audit
-            </PremiumButton>
+            <div className="flex gap-2 w-full">
+              <button
+                onClick={scrollToAudit}
+                className="mobile-cta-secondary flex-1 flex items-center justify-center gap-2"
+              >
+                <span>Free Audit</span>
+                <ArrowRight size={14} />
+              </button>
+              
+              <button
+                onClick={handleWhatsApp}
+                className="mobile-cta-whatsapp flex-1 flex items-center justify-center gap-2"
+              >
+                <span>WhatsApp</span>
+              </button>
+            </div>
           </div>
           
           <motion.p 
-            className="text-xs md:text-sm text-white/60 font-space mt-4"
+            className="text-xs md:text-sm text-white/60 font-space mt-3 px-4"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 1.8, duration: 0.5 }}
+            transition={{ delay: 1.4, duration: 0.4 }}
           >
             30-minute call. No sales pitch. Just honest feedback about what's not working.
           </motion.p>
         </motion.div>
 
-        {/* Results Preview */}
+        {/* Results Preview - Mobile Optimized */}
         <motion.div 
-          className="max-w-4xl mx-auto"
-          initial={{ opacity: 0, y: 40 }}
+          className="max-w-4xl mx-auto px-4"
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 2.0 }}
+          transition={{ duration: 0.6, delay: 1.6 }}
         >
-          <div className="bg-white/5 border border-white/10 rounded-2xl p-4 md:p-6 backdrop-blur-sm">
-            <div className="text-center mb-4">
+          <div className="bg-white/5 border border-white/10 rounded-xl md:rounded-2xl p-3 md:p-6 backdrop-blur-sm">
+            <div className="text-center mb-3 md:mb-4">
               <span className="text-xs md:text-sm text-green-400 font-semibold uppercase tracking-wider">
                 What You Get
               </span>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 text-center">
+            <div className="grid grid-cols-3 gap-3 md:gap-6 text-center">
               <div>
-                <div className="text-xl md:text-2xl font-bold text-white mb-1">
+                <div className="text-lg md:text-2xl font-bold text-white mb-1">
                   &lt;2 sec
                 </div>
                 <div className="text-xs md:text-sm text-white/70">
@@ -237,7 +230,7 @@ const RevenueHeroSection: React.FC = () => {
                 </div>
               </div>
               <div>
-                <div className="text-xl md:text-2xl font-bold text-white mb-1">
+                <div className="text-lg md:text-2xl font-bold text-white mb-1">
                   24/7
                 </div>
                 <div className="text-xs md:text-sm text-white/70">
@@ -245,7 +238,7 @@ const RevenueHeroSection: React.FC = () => {
                 </div>
               </div>
               <div>
-                <div className="text-xl md:text-2xl font-bold text-white mb-1">
+                <div className="text-lg md:text-2xl font-bold text-white mb-1">
                   30 Days
                 </div>
                 <div className="text-xs md:text-sm text-white/70">
@@ -257,15 +250,15 @@ const RevenueHeroSection: React.FC = () => {
         </motion.div>
       </motion.div>
 
-      {/* Scroll indicator */}
+      {/* Scroll indicator - Hidden on mobile for space */}
       <motion.div 
-        className="absolute bottom-6 md:bottom-8 left-1/2 transform -translate-x-1/2 z-10"
+        className="absolute bottom-4 md:bottom-8 left-1/2 transform -translate-x-1/2 z-10 hidden md:block"
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: [0, 0.8, 0], y: [0, 10, 0] }}
         transition={{ 
           duration: 2.5, 
           repeat: Infinity,
-          delay: 2.5,
+          delay: 2,
           repeatDelay: 1
         }}
       >

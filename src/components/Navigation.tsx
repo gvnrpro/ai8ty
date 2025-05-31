@@ -1,268 +1,234 @@
 
 import React, { useState, useEffect } from 'react';
-import { cn } from '@/lib/utils';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Globe, ArrowRight } from 'lucide-react';
-import { useIsMobile } from '@/hooks/use-mobile';
-import { useLanguage, Language } from '@/contexts/LanguageContext';
+import { Menu, X, Phone, MessageCircle } from 'lucide-react';
 
 const Navigation: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [scrollPosition, setScrollPosition] = useState(0);
-  const isMobile = useIsMobile();
-  const { language, setLanguage, isRTL } = useLanguage();
-  
+  const [scrolled, setScrolled] = useState(false);
+
   useEffect(() => {
     const handleScroll = () => {
-      setScrollPosition(window.scrollY);
+      setScrolled(window.scrollY > 50);
     };
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleLinkClick = () => {
-    setIsOpen(false);
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+    // Prevent body scroll when menu is open
+    document.body.style.overflow = !isOpen ? 'hidden' : 'unset';
   };
 
-  useEffect(() => {
-    if (!isMobile) {
-      setIsOpen(false);
+  const closeMenu = () => {
+    setIsOpen(false);
+    document.body.style.overflow = 'unset';
+  };
+
+  const handleNavClick = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      const offset = 80; // Account for fixed header
+      const elementPosition = element.offsetTop - offset;
+      window.scrollTo({
+        top: elementPosition,
+        behavior: 'smooth'
+      });
     }
-  }, [isMobile]);
+    closeMenu();
+  };
 
-  const languages: { code: Language; label: string }[] = [
-    { code: 'en', label: 'English' },
-    { code: 'ar', label: 'العربية' },
-    { code: 'fr', label: 'Français' }
-  ];
+  const handleWhatsApp = () => {
+    const message = encodeURIComponent("I'm interested in AI8TY's revenue systems. Can we discuss how you can help my business?");
+    window.open(`https://wa.me/971509229009?text=${message}`, '_blank');
+    closeMenu();
+  };
 
-  // Updated navigation links to match all sections
-  const navLinks = [
-    { name: isRTL ? "الرئيسية" : "Home", path: "#hero-section" },
-    { name: isRTL ? "التحول الذكي" : "Intelligence Shift", path: "#intelligence-shift" },
-    { name: isRTL ? "نحن" : "About", path: "#about-section" },
-    { name: isRTL ? "أعمالنا" : "Work", path: "#work-showcase" },
-    { name: isRTL ? "الخدمات" : "Services", path: "#enhanced-services" },
-    { name: isRTL ? "تواصل" : "Contact", path: "#contact" }
+  const navItems = [
+    { label: "Revenue System", id: "hero-section" },
+    { label: "About", id: "about-section" },
+    { label: "Our Work", id: "work-showcase" },
+    { label: "Services", id: "enhanced-services" },
+    { label: "Free Audit", id: "website-audit" },
+    { label: "Contact", id: "contact" }
   ];
 
   return (
-    <motion.header 
-      className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-500 py-3 md:py-4 px-4 md:px-6",
-        scrollPosition > 20 || isOpen 
-          ? "bg-black/90 backdrop-blur-xl border-b border-white/10 shadow-lg shadow-neural/20" 
-          : "bg-transparent"
-      )}
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
-    >
-      <div className="container mx-auto max-w-6xl">
-        <nav className="flex items-center justify-between">
-          <motion.a 
-            href="#hero-section" 
-            className="relative z-20 group"
+    <>
+      <motion.nav 
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          scrolled 
+            ? 'bg-ai8ty-black/95 backdrop-blur-xl border-b border-white/10' 
+            : 'bg-transparent'
+        }`}
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.6 }}
+      >
+        <div className="container mx-auto px-4 h-16 md:h-20 flex items-center justify-between">
+          {/* Logo */}
+          <motion.button
+            onClick={() => handleNavClick('hero-section')}
+            className="flex items-center gap-3 group"
             whileHover={{ scale: 1.05 }}
-            transition={{ duration: 0.2 }}
+            whileTap={{ scale: 0.95 }}
           >
             <img 
               src="/lovable-uploads/4b4a830d-afce-4dc3-8cc3-4fae3e2728ed.png" 
               alt="AI8TY Logo" 
-              className="h-7 md:h-8 w-auto transition-all duration-300 group-hover:brightness-110"
+              className="h-8 w-auto"
             />
-          </motion.a>
+            <span className="hidden sm:block text-white font-syne font-bold text-lg group-hover:text-neural transition-colors">
+              AI8TY
+            </span>
+          </motion.button>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center">
-            <ul className="flex space-x-6 lg:space-x-8 mr-6 lg:mr-8">
-              {navLinks.map((link, index) => (
-                <motion.li 
-                  key={index}
-                  initial={{ opacity: 0, y: -20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                >
-                  <motion.a 
-                    href={link.path} 
-                    className="font-space text-sm text-white/70 hover:text-neural transition-all duration-300 relative group"
-                    whileHover={{ y: -2 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <span className="relative z-10">{link.name}</span>
-                    <motion.div
-                      className="absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-neural to-quantum"
-                      initial={{ width: 0 }}
-                      whileHover={{ width: "100%" }}
-                      transition={{ duration: 0.3 }}
-                    />
-                  </motion.a>
-                </motion.li>
-              ))}
-            </ul>
-            
-            {/* Language Selector */}
-            <motion.div 
-              className="relative group"
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: 0.6 }}
-            >
-              <motion.button 
-                className="flex items-center text-white/70 hover:text-neural transition-all duration-300 bg-white/10 rounded-xl px-3 lg:px-4 py-2 backdrop-blur-sm border border-white/20 hover:border-neural/30"
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.2 }}
+          <div className="hidden lg:flex items-center gap-8">
+            {navItems.map((item, index) => (
+              <motion.button
+                key={item.id}
+                onClick={() => handleNavClick(item.id)}
+                className="text-white/80 hover:text-white transition-colors font-space text-sm relative group"
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
               >
-                <Globe size={16} className="mr-2" />
-                <span className="text-sm font-medium hidden lg:inline">{language.toUpperCase()}</span>
-                <ArrowRight size={12} className="ml-1 lg:ml-2 rotate-90 group-hover:rotate-45 transition-transform duration-300" />
+                {item.label}
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-neural transition-all duration-300 group-hover:w-full"></span>
               </motion.button>
-              
+            ))}
+          </div>
+
+          {/* Desktop CTA */}
+          <div className="hidden lg:flex items-center gap-3">
+            <button
+              onClick={handleWhatsApp}
+              className="mobile-cta-whatsapp px-4 py-2 text-sm"
+            >
+              WhatsApp
+            </button>
+            <button
+              onClick={() => handleNavClick('contact')}
+              className="mobile-cta-primary px-4 py-2 text-sm"
+            >
+              Book Call
+            </button>
+          </div>
+
+          {/* Mobile Menu Trigger */}
+          <div className="lg:hidden flex items-center gap-2">
+            <button
+              onClick={handleWhatsApp}
+              className="tap-target p-2 text-white hover:text-neural transition-colors"
+              aria-label="WhatsApp"
+            >
+              <MessageCircle size={20} />
+            </button>
+            
+            <button
+              onClick={toggleMenu}
+              className="tap-target p-2 text-white hover:text-neural transition-colors"
+              aria-label="Toggle menu"
+            >
+              {isOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
+        </div>
+      </motion.nav>
+
+      {/* Mobile Menu Overlay */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            className="fixed inset-0 z-40 lg:hidden"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            {/* Backdrop */}
+            <motion.div 
+              className="absolute inset-0 bg-ai8ty-black/95 backdrop-blur-xl"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={closeMenu}
+            />
+            
+            {/* Menu Content */}
+            <motion.div
+              className="relative h-full flex flex-col justify-center items-center"
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ duration: 0.3 }}
+            >
+              {/* Navigation Items */}
+              <div className="space-y-6 text-center mb-8">
+                {navItems.map((item, index) => (
+                  <motion.button
+                    key={item.id}
+                    onClick={() => handleNavClick(item.id)}
+                    className="mobile-nav-item w-full text-white text-xl font-syne font-semibold"
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.1 }}
+                  >
+                    {item.label}
+                  </motion.button>
+                ))}
+              </div>
+
+              {/* Mobile CTAs */}
+              <div className="space-y-4 w-full max-w-sm px-6">
+                <button
+                  onClick={() => handleNavClick('contact')}
+                  className="mobile-cta-primary w-full"
+                >
+                  Book Strategy Call
+                </button>
+                
+                <button
+                  onClick={handleWhatsApp}
+                  className="mobile-cta-whatsapp w-full"
+                >
+                  WhatsApp Us Now
+                </button>
+                
+                <button
+                  onClick={() => handleNavClick('website-audit')}
+                  className="mobile-cta-secondary w-full"
+                >
+                  Get Free Audit
+                </button>
+              </div>
+
+              {/* Contact Info */}
               <motion.div 
-                className="absolute top-full right-0 mt-3 bg-black/90 backdrop-blur-xl border border-white/20 rounded-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 min-w-[140px] shadow-neural"
-                initial={{ y: -10, opacity: 0 }}
-                whileHover={{ y: 0, opacity: 1 }}
+                className="mt-8 text-center"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.8 }}
               >
-                <ul className="py-2">
-                  {languages.map((lang) => (
-                    <li key={lang.code}>
-                      <motion.button
-                        onClick={() => setLanguage(lang.code)}
-                        className={cn(
-                          "w-full text-left px-4 py-3 text-sm transition-all duration-200 hover:bg-neural/10",
-                          language === lang.code 
-                            ? "text-neural bg-neural/5 border-l-2 border-neural" 
-                            : "text-white/70 hover:text-neural"
-                        )}
-                        whileHover={{ x: 4 }}
-                        transition={{ duration: 0.2 }}
-                      >
-                        {lang.label}
-                      </motion.button>
-                    </li>
-                  ))}
-                </ul>
+                <a 
+                  href="tel:+971509229009"
+                  className="flex items-center justify-center gap-2 text-white/70 hover:text-white transition-colors tap-target"
+                >
+                  <Phone size={16} />
+                  <span className="text-sm">+971 50 922 9009</span>
+                </a>
+                <p className="text-white/50 text-xs mt-2">
+                  Dubai, UAE • Serving the GCC
+                </p>
               </motion.div>
             </motion.div>
-          </div>
-
-          {/* Mobile Controls */}
-          <div className="flex items-center md:hidden">
-            <motion.button 
-              className="relative z-20 text-white/70 hover:text-neural mr-3 bg-white/10 rounded-lg p-2 backdrop-blur-sm border border-white/20 min-w-[40px] min-h-[40px] flex items-center justify-center"
-              onClick={() => {
-                const currentIndex = languages.findIndex(l => l.code === language);
-                const nextIndex = (currentIndex + 1) % languages.length;
-                setLanguage(languages[nextIndex].code);
-              }}
-              aria-label="Change language"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-            >
-              <Globe size={18} />
-            </motion.button>
-            
-            <motion.button 
-              onClick={() => setIsOpen(!isOpen)}
-              className="relative z-20 text-white/70 hover:text-neural bg-white/10 rounded-lg p-2 backdrop-blur-sm border border-white/20 min-w-[40px] min-h-[40px] flex items-center justify-center"
-              aria-label={isOpen ? "Close menu" : "Open menu"}
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-            >
-              <motion.div
-                animate={{ rotate: isOpen ? 180 : 0 }}
-                transition={{ duration: 0.3 }}
-              >
-                {isOpen ? <X size={20} /> : <Menu size={20} />}
-              </motion.div>
-            </motion.button>
-          </div>
-
-          {/* Mobile Navigation */}
-          <AnimatePresence>
-            {isOpen && (
-              <motion.div
-                className="fixed inset-0 z-10 bg-black/95 backdrop-blur-xl"
-                initial={{ opacity: 0, y: isRTL ? "-100%" : "100%" }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: isRTL ? "-100%" : "100%" }}
-                transition={{ type: "spring", damping: 25, stiffness: 300 }}
-              >
-                <div className="container h-full mx-auto flex flex-col justify-center items-center relative px-4">
-                  <div className="absolute inset-0 neural-grid-bg opacity-5"></div>
-                  
-                  <motion.ul 
-                    className="flex flex-col space-y-6 items-center relative z-10"
-                    initial="closed"
-                    animate="open"
-                    variants={{
-                      open: {
-                        transition: { staggerChildren: 0.1, delayChildren: 0.2 }
-                      },
-                      closed: {
-                        transition: { staggerChildren: 0.05, staggerDirection: -1 }
-                      }
-                    }}
-                  >
-                    {navLinks.map((link, index) => (
-                      <motion.li 
-                        key={index}
-                        variants={{
-                          open: { y: 0, opacity: 1 },
-                          closed: { y: 50, opacity: 0 }
-                        }}
-                        transition={{ duration: 0.5, ease: "easeOut" }}
-                      >
-                        <motion.a 
-                          href={link.path} 
-                          className="font-syne text-2xl md:text-3xl text-white hover:text-neural transition-all duration-300 relative group py-2 px-4 rounded-lg hover:bg-white/5"
-                          onClick={handleLinkClick}
-                          whileHover={{ scale: 1.05, y: -2 }}
-                          transition={{ duration: 0.2 }}
-                        >
-                          <span className="relative z-10">{link.name}</span>
-                          <motion.div
-                            className="absolute -bottom-1 left-4 h-0.5 bg-gradient-to-r from-neural to-quantum"
-                            initial={{ width: 0 }}
-                            whileHover={{ width: "calc(100% - 32px)" }}
-                            transition={{ duration: 0.3 }}
-                          />
-                        </motion.a>
-                      </motion.li>
-                    ))}
-                  </motion.ul>
-                  
-                  <motion.div
-                    className="absolute bottom-8 left-1/2 transform -translate-x-1/2 w-full max-w-sm px-4"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.8, duration: 0.5 }}
-                  >
-                    <motion.a
-                      href="#contact"
-                      className="btn-primary inline-flex items-center justify-center gap-2 text-sm w-full py-3 rounded-xl"
-                      onClick={handleLinkClick}
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                    >
-                      <span>{isRTL ? "ابدأ التحول" : "Start Transformation"}</span>
-                      <ArrowRight size={16} />
-                    </motion.a>
-                  </motion.div>
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </nav>
-      </div>
-    </motion.header>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 };
 

@@ -51,46 +51,64 @@ const Index = () => {
   useEffect(() => {
     setInitialLoadComplete(true);
     
-    const optimizeAnimations = () => {
+    // Mobile-specific optimizations
+    const optimizeForMobile = () => {
       const isMobile = window.innerWidth < 768;
+      
       if (isMobile) {
-        document.documentElement.style.setProperty('--motion-fast', '0.15s');
-        document.documentElement.style.setProperty('--motion-medium', '0.25s');
-        document.documentElement.style.setProperty('--motion-slow', '0.4s');
+        // Faster animations for mobile
+        document.documentElement.style.setProperty('--motion-fast', '0.1s');
+        document.documentElement.style.setProperty('--motion-medium', '0.2s');
+        document.documentElement.style.setProperty('--motion-slow', '0.3s');
+        
+        // Reduce particle density on mobile for performance
+        document.documentElement.style.setProperty('--particle-density', '8');
+        
+        // Optimize scroll behavior
+        document.documentElement.style.setProperty('scroll-behavior', 'smooth');
       } else {
-        document.documentElement.style.setProperty('--motion-fast', '0.3s');
-        document.documentElement.style.setProperty('--motion-medium', '0.6s');
-        document.documentElement.style.setProperty('--motion-slow', '0.9s');
+        document.documentElement.style.setProperty('--motion-fast', '0.15s');
+        document.documentElement.style.setProperty('--motion-medium', '0.3s');
+        document.documentElement.style.setProperty('--motion-slow', '0.6s');
+        document.documentElement.style.setProperty('--particle-density', '15');
       }
     };
     
-    optimizeAnimations();
-    window.addEventListener('resize', optimizeAnimations);
+    optimizeForMobile();
+    window.addEventListener('resize', optimizeForMobile);
     
-    // Revenue-focused welcome message
-    setTimeout(() => {
+    // Mobile-optimized welcome message
+    const showWelcomeMessage = () => {
+      const isMobile = window.innerWidth < 768;
       toast({
-        title: "Revenue System Ready",
-        description: "Discover how AI8TY can turn your website into a 24/7 sales machine.",
-        duration: 5000,
+        title: isMobile ? "Revenue System Ready 📱" : "Revenue System Ready",
+        description: isMobile 
+          ? "Turn your website into a 24/7 sales machine. Tap to explore!" 
+          : "Discover how AI8TY can turn your website into a 24/7 sales machine.",
+        duration: isMobile ? 4000 : 5000,
       });
-    }, 1000);
+    };
 
-    // Add Google Analytics and conversion tracking with safe checks
+    setTimeout(showWelcomeMessage, 1000);
+
+    // Performance tracking with safe checks
     if (typeof window !== 'undefined' && window.gtag) {
       window.gtag('event', 'page_view', {
-        page_title: 'AI8TY Revenue System',
-        page_location: window.location.href
+        page_title: 'AI8TY Revenue System - Mobile Optimized',
+        page_location: window.location.href,
+        custom_map: {
+          'mobile_optimized': window.innerWidth < 768
+        }
       });
     }
     
     return () => {
-      window.removeEventListener('resize', optimizeAnimations);
+      window.removeEventListener('resize', optimizeForMobile);
     };
   }, [language, toast]);
 
   const getSeoDescription = () => {
-    return "Turn your website into a 24/7 sales machine with AI8TY's revenue-focused web systems. Done-for-you websites, automation, and SEO engineered for leads, speed, and growth. If it doesn't make you money in 30 days, it's free. Trusted by GCC businesses.";
+    return "Turn your website into a 24/7 sales machine with AI8TY's mobile-optimized revenue systems. Lightning-fast load times, mobile-first design, and GCC-focused solutions. If it doesn't generate leads in 30 days, it's free.";
   };
 
   const getStructuredData = () => {
@@ -118,8 +136,8 @@ const Index = () => {
       ],
       "offers": {
         "@type": "Offer",
-        "name": "Website Revenue System",
-        "description": "24/7 sales machine websites with 30-day money-back guarantee",
+        "name": "Mobile-Optimized Website Revenue System",
+        "description": "24/7 sales machine websites with <2s load times and 30-day money-back guarantee",
         "priceCurrency": "AED",
         "availability": "https://schema.org/InStock"
       },
@@ -138,54 +156,45 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>AI8TY | Turn Your Website Into a 24/7 Sales Machine - Dubai Revenue Systems</title>
+        <title>AI8TY | Mobile-Optimized 24/7 Sales Machine - Dubai Revenue Systems</title>
         <meta name="description" content={getSeoDescription()} />
-        <meta name="keywords" content="website revenue system dubai, 24/7 sales machine, business automation UAE, lead generation websites, conversion optimization GCC, AI8TY dubai, website that makes money, sales funnel websites" />
+        <meta name="keywords" content="mobile website revenue system dubai, 24/7 sales machine mobile, business automation UAE mobile, lead generation websites mobile, conversion optimization GCC mobile, AI8TY dubai mobile" />
         
-        <meta property="og:title" content="AI8TY | Turn Your Website Into a 24/7 Sales Machine" />
+        {/* Mobile-specific meta tags */}
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta name="format-detection" content="telephone=yes" />
+        
+        <meta property="og:title" content="AI8TY | Mobile-Optimized 24/7 Sales Machine" />
         <meta property="og:description" content={getSeoDescription()} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://ai8ty.com" />
-        <meta property="og:image" content="https://ai8ty.com/og-image-revenue-system.png" />
+        <meta property="og:image" content="https://ai8ty.com/og-image-mobile-revenue-system.png" />
         <meta property="og:site_name" content="AI8TY" />
         <meta property="og:locale" content="en_US" />
 
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="AI8TY | Turn Your Website Into a 24/7 Sales Machine" />
+        <meta name="twitter:title" content="AI8TY | Mobile-Optimized 24/7 Sales Machine" />
         <meta name="twitter:description" content={getSeoDescription()} />
-        <meta name="twitter:image" content="https://ai8ty.com/og-image-revenue-system.png" />
+        <meta name="twitter:image" content="https://ai8ty.com/og-image-mobile-revenue-system.png" />
         <meta name="twitter:creator" content="@ai8ty" />
 
         <link rel="canonical" href="https://ai8ty.com" />
         
-        {/* Enhanced structured data for revenue system */}
+        {/* Performance optimization */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="//wa.me" />
+        
+        {/* Enhanced structured data for mobile revenue system */}
         <script type="application/ld+json">
           {JSON.stringify(getStructuredData())}
         </script>
 
-        {/* Additional schema for service offerings */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Service",
-            "name": "Website Revenue System",
-            "description": "Convert your website into a 24/7 sales machine with automated lead generation and conversion optimization",
-            "provider": {
-              "@type": "Organization",
-              "name": "AI8TY"
-            },
-            "areaServed": ["UAE", "Dubai", "Abu Dhabi", "Saudi Arabia", "Qatar", "Kuwait"],
-            "offers": {
-              "@type": "Offer",
-              "name": "30-Day Money-Back Guarantee",
-              "description": "If you don't get qualified leads within 30 days, you don't pay"
-            }
-          })}
-        </script>
-
         <meta name="theme-color" content="#3B82F6" />
         <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
       </Helmet>
 
       <div ref={mainRef} className="min-h-screen bg-ai8ty-black">
@@ -200,9 +209,19 @@ const Index = () => {
           
           {/* Core Content Sections */}
           <ProblemSection />
-          <IntelligenceShiftSection />
-          <AboutSection />
-          <WorkShowcase />
+          
+          <section id="intelligence-shift">
+            <IntelligenceShiftSection />
+          </section>
+          
+          <section id="about-section">
+            <AboutSection />
+          </section>
+          
+          <section id="work-showcase">
+            <WorkShowcase />
+          </section>
+          
           <WhyThisWorksSection />
           
           {/* Lead Generation */}

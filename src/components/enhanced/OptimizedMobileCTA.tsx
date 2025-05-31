@@ -1,8 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, X, MessageCircle, Calendar } from 'lucide-react';
-import PremiumButton from './PremiumButton';
+import { ArrowRight, X, MessageCircle, Calendar, Phone } from 'lucide-react';
 
 const OptimizedMobileCTA: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -18,8 +17,8 @@ const OptimizedMobileCTA: React.FC = () => {
       const progress = scrollPosition / (documentHeight - windowHeight);
       setScrollProgress(progress);
       
-      // Show CTA after scrolling 25% and before 88%
-      if (progress > 0.25 && progress < 0.88 && !isDismissed) {
+      // Show CTA after scrolling 20% and before 90%
+      if (progress > 0.2 && progress < 0.9 && !isDismissed) {
         setIsVisible(true);
       } else {
         setIsVisible(false);
@@ -37,9 +36,20 @@ const OptimizedMobileCTA: React.FC = () => {
     }
   };
 
+  const scrollToAudit = () => {
+    const auditSection = document.getElementById('website-audit');
+    if (auditSection) {
+      auditSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   const handleWhatsApp = () => {
     const message = encodeURIComponent("I want to turn my website into a 24/7 sales machine. Can we schedule a strategy call?");
     window.open(`https://wa.me/971509229009?text=${message}`, '_blank');
+  };
+
+  const handleCall = () => {
+    window.open('tel:+971509229009', '_self');
   };
 
   const handleDismiss = () => {
@@ -56,62 +66,82 @@ const OptimizedMobileCTA: React.FC = () => {
     <AnimatePresence>
       {isVisible && (
         <motion.div
-          className="fixed bottom-4 left-4 right-4 z-50 md:hidden"
-          initial={{ y: 100, opacity: 0, scale: 0.9 }}
-          animate={{ y: 0, opacity: 1, scale: 1 }}
-          exit={{ y: 100, opacity: 0, scale: 0.9 }}
-          transition={{ duration: 0.4, ease: "easeOut" }}
+          className="fixed bottom-0 left-0 right-0 z-50 md:hidden"
+          initial={{ y: 100, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          exit={{ y: 100, opacity: 0 }}
+          transition={{ duration: 0.3, ease: "easeOut" }}
         >
-          <div className="bg-gradient-to-r from-neural/95 to-quantum/95 backdrop-blur-xl border border-white/20 rounded-2xl shadow-2xl overflow-hidden">
-            {/* Progress Bar */}
-            <div className="h-1 bg-white/20 relative">
-              <motion.div 
-                className="h-full bg-gradient-to-r from-green-400 to-blue-400 rounded-full"
-                style={{ width: `${scrollProgress * 100}%` }}
-                transition={{ duration: 0.1 }}
-              />
-            </div>
-            
-            <div className="p-4">
-              <div className="flex items-center justify-between gap-3">
-                <div className="flex-1">
-                  <div className="flex items-center gap-2 mb-2">
-                    <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                    <p className="text-sm font-space text-white font-semibold">
-                      Turn Your Site Into a Sales Machine
-                    </p>
+          {/* Progress indicator */}
+          <div className="h-1 bg-black/20 relative">
+            <motion.div 
+              className="h-full bg-gradient-to-r from-green-400 to-blue-400"
+              style={{ width: `${scrollProgress * 100}%` }}
+              transition={{ duration: 0.1 }}
+            />
+          </div>
+          
+          <div className="bg-gradient-to-r from-neural/95 to-quantum/95 backdrop-blur-xl border-t border-white/20 shadow-2xl">
+            <div className="px-4 py-3">
+              {/* Main CTA Section */}
+              <div className="flex items-center justify-between gap-3 mb-3">
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center gap-2 mb-1">
+                    <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse flex-shrink-0"></div>
+                    <h3 className="text-white font-semibold text-sm leading-tight">
+                      Turn Your Site Into a Revenue Machine
+                    </h3>
                   </div>
-                  <p className="text-xs text-white/70 font-space">
-                    Free strategy call • 30-day guarantee
+                  <p className="text-white/80 text-xs leading-tight">
+                    Free strategy call • 30-day guarantee • GCC focused
                   </p>
                 </div>
                 
-                <div className="flex items-center gap-2">
-                  <PremiumButton
-                    variant="primary"
-                    size="sm"
-                    icon={Calendar}
-                    onClick={scrollToContact}
-                    className="bg-green-600 hover:bg-green-700 text-white text-xs px-3 py-2 min-w-[80px]"
-                  >
-                    Book Call
-                  </PremiumButton>
-                  
-                  <button
-                    onClick={handleWhatsApp}
-                    className="bg-[#25D366] hover:bg-[#22c55e] text-white p-2 rounded-lg transition-colors min-w-[40px] min-h-[40px] flex items-center justify-center"
-                    title="WhatsApp"
-                  >
-                    <MessageCircle size={16} />
-                  </button>
-                  
-                  <button
-                    onClick={handleDismiss}
-                    className="p-2 text-white/60 hover:text-white transition-colors rounded-lg hover:bg-white/10 min-w-[40px] min-h-[40px] flex items-center justify-center"
-                  >
-                    <X size={16} />
-                  </button>
-                </div>
+                <button
+                  onClick={handleDismiss}
+                  className="tap-target p-2 text-white/60 hover:text-white transition-colors rounded-lg hover:bg-white/10 flex-shrink-0"
+                  aria-label="Close"
+                >
+                  <X size={16} />
+                </button>
+              </div>
+
+              {/* Action Buttons */}
+              <div className="grid grid-cols-3 gap-2">
+                <button
+                  onClick={scrollToContact}
+                  className="mobile-cta-primary flex flex-col items-center justify-center py-3 px-2 text-xs"
+                >
+                  <Calendar size={16} className="mb-1" />
+                  <span className="font-semibold">Book Call</span>
+                </button>
+                
+                <button
+                  onClick={handleWhatsApp}
+                  className="mobile-cta-whatsapp flex flex-col items-center justify-center py-3 px-2 text-xs"
+                >
+                  <MessageCircle size={16} className="mb-1" />
+                  <span className="font-semibold">WhatsApp</span>
+                </button>
+                
+                <button
+                  onClick={scrollToAudit}
+                  className="mobile-cta-secondary flex flex-col items-center justify-center py-3 px-2 text-xs"
+                >
+                  <ArrowRight size={16} className="mb-1" />
+                  <span className="font-semibold">Free Audit</span>
+                </button>
+              </div>
+
+              {/* Quick Call Option */}
+              <div className="mt-3 pt-3 border-t border-white/10">
+                <button
+                  onClick={handleCall}
+                  className="w-full flex items-center justify-center gap-2 py-2 text-white/80 hover:text-white transition-colors text-xs"
+                >
+                  <Phone size={14} />
+                  <span>Call Now: +971 50 922 9009</span>
+                </button>
               </div>
             </div>
           </div>
