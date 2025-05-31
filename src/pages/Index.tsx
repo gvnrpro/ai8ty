@@ -27,6 +27,17 @@ import FAQSection from '@/components/FAQSection';
 import WhatsAppCTA from '@/components/WhatsAppCTA';
 import StrategicFooter from '@/components/StrategicFooter';
 
+// Extend Window interface for gtag
+declare global {
+  interface Window {
+    gtag?: (
+      command: 'config' | 'event' | 'set',
+      targetId: string,
+      config?: Record<string, any>
+    ) => void;
+  }
+}
+
 const Index = () => {
   const [initialLoadComplete, setInitialLoadComplete] = useState(false);
   const { toast } = useToast();
@@ -61,7 +72,7 @@ const Index = () => {
       });
     }, 1000);
 
-    // Add Google Analytics and conversion tracking
+    // Add Google Analytics and conversion tracking with safe checks
     if (typeof window !== 'undefined' && window.gtag) {
       window.gtag('event', 'page_view', {
         page_title: 'AI8TY Revenue System',

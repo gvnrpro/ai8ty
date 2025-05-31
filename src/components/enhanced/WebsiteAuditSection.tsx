@@ -53,6 +53,11 @@ const WebsiteAuditSection: React.FC = () => {
     window.open(`https://wa.me/971509229009?text=${message}`, '_blank');
   };
 
+  const handleButtonClick = () => {
+    const message = encodeURIComponent(`I want my free website audit. Website: ${website}, Email: ${email}`);
+    window.open(`https://wa.me/971509229009?text=${message}`, '_blank');
+  };
+
   return (
     <section 
       ref={ref}
@@ -176,7 +181,7 @@ const WebsiteAuditSection: React.FC = () => {
                   size="lg"
                   icon={ArrowRight}
                   className="w-full bg-red-600 hover:bg-red-700 text-white"
-                  onClick={handleFormSubmit}
+                  onClick={handleButtonClick}
                 >
                   Get My Free Audit Report
                 </PremiumButton>
