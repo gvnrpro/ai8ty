@@ -78,52 +78,7 @@ const OptimizedMobileCTA: React.FC = () => {
           </div>
           
           <div className="bg-gradient-to-r from-neural/95 to-quantum/95 backdrop-blur-xl border-t border-white/20 shadow-2xl">
-            <div className="px-4 py-3">
-              {/* Main CTA Section */}
-              <div className="flex items-center justify-between gap-3 mb-3">
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-center gap-2 mb-1">
-                    <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse flex-shrink-0"></div>
-                    <h3 className="text-white font-semibold text-sm leading-tight">
-                      Turn Your Site Into a Revenue Machine
-                    </h3>
-                  </div>
-                  <p className="text-white/80 text-xs leading-tight">
-                    Free strategy call • 30-day guarantee • GCC focused
-                  </p>
-                </div>
-                
-                <button onClick={handleDismiss} className="tap-target p-2 text-white/60 hover:text-white transition-colors rounded-lg hover:bg-white/10 flex-shrink-0" aria-label="Close">
-                  <X size={16} />
-                </button>
-              </div>
-
-              {/* Action Buttons */}
-              <div className="grid grid-cols-3 gap-2">
-                <button onClick={scrollToContact} className="mobile-cta-primary flex flex-col items-center justify-center py-3 px-2 text-xs">
-                  <Calendar size={16} className="mb-1" />
-                  <span className="font-semibold">Book Call</span>
-                </button>
-                
-                <button onClick={handleWhatsApp} className="mobile-cta-whatsapp flex flex-col items-center justify-center py-3 px-2 text-xs">
-                  <MessageCircle size={16} className="mb-1" />
-                  <span className="font-semibold">WhatsApp</span>
-                </button>
-                
-                <button onClick={scrollToAudit} className="mobile-cta-secondary flex flex-col items-center justify-center py-3 px-2 text-xs">
-                  <ArrowRight size={16} className="mb-1" />
-                  <span className="font-semibold">Free Audit</span>
-                </button>
-              </div>
-
-              {/* Quick Call Option */}
-              <div className="mt-3 pt-3 border-t border-white/10">
-                <button onClick={handleCall} className="w-full flex items-center justify-center gap-2 py-2 text-white/80 hover:text-white transition-colors text-xs">
-                  <Phone size={14} />
-                  <span>Call Now</span>
-                </button>
-              </div>
-            </div>
+            
           </div>
         </motion.div>}
     </AnimatePresence>;
