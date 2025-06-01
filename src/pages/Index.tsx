@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
 import ContactSection from '@/components/ContactSection';
@@ -9,19 +8,12 @@ import { useToast } from '@/hooks/use-toast';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 // Enhanced revenue-focused components
-import RevenueHeroSection from '@/components/enhanced/RevenueHeroSection';
-import IntelligenceShiftSection from '@/components/enhanced/IntelligenceShiftSection';
-import AboutSection from '@/components/enhanced/AboutSection';
-import WorkShowcase from '@/components/enhanced/WorkShowcase';
-import WebsiteAuditSection from '@/components/enhanced/WebsiteAuditSection';
-import WhyThisWorksSection from '@/components/enhanced/WhyThisWorksSection';
-import BoldGuaranteeSection from '@/components/enhanced/BoldGuaranteeSection';
-import LimitedSpotsSection from '@/components/enhanced/LimitedSpotsSection';
-import WhoThisIsForSection from '@/components/enhanced/WhoThisIsForSection';
-import WhatsAppFunnelSection from '@/components/enhanced/WhatsAppFunnelSection';
-import EnhancedResultsSection from '@/components/enhanced/EnhancedResultsSection';
-import OptimizedMobileCTA from '@/components/enhanced/OptimizedMobileCTA';
-import SitemapGenerator from '@/components/enhanced/SitemapGenerator';
+import TransformedHeroSection from '@/components/enhanced/TransformedHeroSection';
+import TransformedAuditSection from '@/components/enhanced/TransformedAuditSection';
+import TransformedGuaranteeSection from '@/components/enhanced/TransformedGuaranteeSection';
+import TransformedWhatsAppFunnel from '@/components/enhanced/TransformedWhatsAppFunnel';
+import WhyThisWorksTransformed from '@/components/enhanced/WhyThisWorksTransformed';
+import StickyWhatsAppCTA from '@/components/enhanced/StickyWhatsAppCTA';
 
 // Existing components that still work well
 import ProblemSection from '@/components/ProblemSection';
@@ -108,7 +100,7 @@ const Index = () => {
   }, [language, toast]);
 
   const getSeoDescription = () => {
-    return "Turn your website into a 24/7 sales machine with AI8TY's mobile-optimized revenue systems. Lightning-fast load times, mobile-first design, and GCC-focused solutions. If it doesn't generate leads in 30 days, it's free.";
+    return "We Turn Your Website Into a 24/7 Sales Machine — Or You Don't Pay. Done-for-you websites, automation, and SEO engineered for leads, speed, and growth. If it doesn't make you money in 30 days, it's free. AED 7,500 site generates AED 75,000 in leads = 10x ROI.";
   };
 
   const getStructuredData = () => {
@@ -156,9 +148,9 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>AI8TY | Mobile-Optimized 24/7 Sales Machine - Dubai Revenue Systems</title>
+        <title>We Turn Your Website Into a 24/7 Sales Machine — Or You Don't Pay | AI8TY Dubai</title>
         <meta name="description" content={getSeoDescription()} />
-        <meta name="keywords" content="mobile website revenue system dubai, 24/7 sales machine mobile, business automation UAE mobile, lead generation websites mobile, conversion optimization GCC mobile, AI8TY dubai mobile" />
+        <meta name="keywords" content="24/7 sales machine website dubai, revenue generating websites GCC, done for you websites UAE, website automation dubai, lead generation websites saudi arabia, ROI tracking websites qatar, GCC website conversion optimization" />
         
         {/* Mobile-specific meta tags */}
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover" />
@@ -167,7 +159,7 @@ const Index = () => {
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         <meta name="format-detection" content="telephone=yes" />
         
-        <meta property="og:title" content="AI8TY | Mobile-Optimized 24/7 Sales Machine" />
+        <meta property="og:title" content="We Turn Your Website Into a 24/7 Sales Machine — Or You Don't Pay" />
         <meta property="og:description" content={getSeoDescription()} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://ai8ty.com" />
@@ -176,7 +168,7 @@ const Index = () => {
         <meta property="og:locale" content="en_US" />
 
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="AI8TY | Mobile-Optimized 24/7 Sales Machine" />
+        <meta name="twitter:title" content="We Turn Your Website Into a 24/7 Sales Machine — Or You Don't Pay" />
         <meta name="twitter:description" content={getSeoDescription()} />
         <meta name="twitter:image" content="https://ai8ty.com/og-image-mobile-revenue-system.png" />
         <meta name="twitter:creator" content="@ai8ty" />
@@ -202,9 +194,9 @@ const Index = () => {
         <Navigation />
         
         <main className="relative">
-          {/* Hero Section */}
+          {/* Transformed Hero Section */}
           <section id="hero-section">
-            <RevenueHeroSection />
+            <TransformedHeroSection />
           </section>
           
           {/* Core Content Sections */}
@@ -222,10 +214,13 @@ const Index = () => {
             <WorkShowcase />
           </section>
           
-          <WhyThisWorksSection />
+          {/* Why This Works - Transformed */}
+          <WhyThisWorksTransformed />
           
-          {/* Lead Generation */}
-          <WebsiteAuditSection />
+          {/* Transformed Lead Generation */}
+          <section id="website-audit">
+            <TransformedAuditSection />
+          </section>
           
           {/* Services */}
           <section id="enhanced-services">
@@ -235,13 +230,13 @@ const Index = () => {
           {/* Social Proof & Results */}
           <EnhancedResultsSection />
           
-          {/* Trust & Guarantee */}
-          <BoldGuaranteeSection />
+          {/* Transformed Trust & Guarantee */}
+          <TransformedGuaranteeSection />
           <WhoThisIsForSection />
           
           {/* Urgency & Conversion */}
           <LimitedSpotsSection />
-          <WhatsAppFunnelSection />
+          <TransformedWhatsAppFunnel />
           
           {/* Process & FAQ */}
           <ProcessSection />
@@ -256,6 +251,7 @@ const Index = () => {
           <AIReadinessQuiz />
           <WhatsAppCTA />
           <OptimizedMobileCTA />
+          <StickyWhatsAppCTA />
         </main>
         
         <StrategicFooter />
