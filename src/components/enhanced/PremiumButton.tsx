@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
@@ -25,7 +24,7 @@ const PremiumButton: React.FC<PremiumButtonProps> = ({
   loading = false,
   ...rest
 }) => {
-  // Filter out potentially conflicting event handlers
+  // Remove drag events (unsupported by motion.button)
   const {
     onDrag,
     onDragEnd,
@@ -64,14 +63,13 @@ const PremiumButton: React.FC<PremiumButtonProps> = ({
       transition={{ type: "spring", stiffness: 400, damping: 17 }}
       {...filteredRest}
     >
-      {/* Glow effect for primary variant */}
       {variant === 'primary' && (
         <motion.div
           className="absolute inset-0 bg-gradient-to-r from-neural/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
           initial={false}
         />
       )}
-      
+
       <span className="relative z-10 flex items-center justify-center gap-3">
         {Icon && iconPosition === 'left' && (
           <motion.div
@@ -81,9 +79,9 @@ const PremiumButton: React.FC<PremiumButtonProps> = ({
             <Icon size={size === 'sm' ? 16 : size === 'md' ? 18 : size === 'lg' ? 20 : 22} />
           </motion.div>
         )}
-        
+
         <span>{children}</span>
-        
+
         {Icon && iconPosition === 'right' && (
           <motion.div
             className="transition-transform group-hover:translate-x-1"
