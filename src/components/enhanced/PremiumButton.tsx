@@ -4,15 +4,12 @@ import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
 import { LucideIcon } from 'lucide-react';
 
-interface PremiumButtonProps {
+interface PremiumButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
   variant?: 'primary' | 'secondary' | 'ghost' | 'quantum';
   size?: 'sm' | 'md' | 'lg' | 'xl';
   icon?: LucideIcon;
   iconPosition?: 'left' | 'right';
-  onClick?: () => void;
-  className?: string;
-  disabled?: boolean;
   loading?: boolean;
 }
 
@@ -25,7 +22,8 @@ const PremiumButton: React.FC<PremiumButtonProps> = ({
   onClick,
   className,
   disabled = false,
-  loading = false
+  loading = false,
+  ...rest
 }) => {
   const baseClasses = "relative overflow-hidden font-space font-medium transition-all duration-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-neural/50 disabled:opacity-50 disabled:cursor-not-allowed";
   
@@ -51,6 +49,7 @@ const PremiumButton: React.FC<PremiumButtonProps> = ({
       whileHover={{ scale: 1.02, y: -2 }}
       whileTap={{ scale: 0.98 }}
       transition={{ type: "spring", stiffness: 400, damping: 17 }}
+      {...rest}
     >
       {/* Glow effect for primary variant */}
       {variant === 'primary' && (

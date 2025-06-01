@@ -1,4 +1,3 @@
-
 import React, { useRef, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { ArrowRight, CheckCircle, Zap, Target, MessageCircle, TrendingUp, Clock, DollarSign, Settings } from 'lucide-react';
@@ -191,26 +190,24 @@ const TransformedAuditSection: React.FC = () => {
                   />
                 </div>
                 
-                <PremiumButton
+                <button
                   type="submit"
-                  variant="primary"
-                  size="lg"
                   disabled={isSubmitting}
-                  className="w-full bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-700 hover:to-red-700"
+                  className="w-full bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-700 hover:to-red-700 text-white font-bold py-4 px-8 rounded-lg transition-all duration-300 flex items-center justify-center gap-3 disabled:opacity-50"
                 >
                   {isSubmitting ? (
                     <>
-                      <div className="animate-spin w-5 h-5 border-2 border-white/30 border-t-white rounded-full mr-3"></div>
+                      <div className="animate-spin w-5 h-5 border-2 border-white/30 border-t-white rounded-full"></div>
                       Roasting Your Site...
                     </>
                   ) : (
                     <>
-                      <Zap className="mr-3" size={20} />
+                      <Zap size={20} />
                       Roast My Site (Free)
-                      <ArrowRight className="ml-3" size={18} />
+                      <ArrowRight size={18} />
                     </>
                   )}
-                </PremiumButton>
+                </button>
               </form>
 
               <div className="mt-6 p-4 bg-white/5 rounded-lg border border-white/10">

@@ -14,6 +14,8 @@ import TransformedGuaranteeSection from '@/components/enhanced/TransformedGuaran
 import TransformedWhatsAppFunnel from '@/components/enhanced/TransformedWhatsAppFunnel';
 import WhyThisWorksTransformed from '@/components/enhanced/WhyThisWorksTransformed';
 import StickyWhatsAppCTA from '@/components/enhanced/StickyWhatsAppCTA';
+import LimitedSpotsSection from '@/components/enhanced/LimitedSpotsSection';
+import OptimizedMobileCTA from '@/components/enhanced/OptimizedMobileCTA';
 
 // Existing components that still work well
 import ProblemSection from '@/components/ProblemSection';
@@ -22,6 +24,12 @@ import ProcessSection from '@/components/ProcessSection';
 import FAQSection from '@/components/FAQSection';
 import WhatsAppCTA from '@/components/WhatsAppCTA';
 import StrategicFooter from '@/components/StrategicFooter';
+import IntelligenceShiftSection from '@/components/IntelligenceShiftSection';
+import AboutSection from '@/components/enhanced/AboutSection';
+import WorkShowcase from '@/components/enhanced/WorkShowcase';
+import EnhancedResultsSection from '@/components/enhanced/EnhancedResultsSection';
+import WhoThisIsForSection from '@/components/enhanced/WhoThisIsForSection';
+import SitemapGenerator from '@/components/enhanced/SitemapGenerator';
 
 // Extend Window interface for gtag
 declare global {
