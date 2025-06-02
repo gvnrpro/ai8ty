@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect, useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
 import ContactSection from '@/components/ContactSection';
@@ -7,28 +8,24 @@ import AIReadinessQuiz from '@/components/AIReadinessQuiz';
 import { useToast } from '@/hooks/use-toast';
 import { useLanguage } from '@/contexts/LanguageContext';
 
-// Enhanced revenue-focused components
-import TransformedHeroSection from '@/components/enhanced/TransformedHeroSection';
-import TransformedAuditSection from '@/components/enhanced/TransformedAuditSection';
+// NEW MASTER REBUILD COMPONENTS - Conversion-First Structure
+import RevenueHeroSection from '@/components/enhanced/RevenueHeroSection';
+import ClarityProblemSection from '@/components/enhanced/ClarityProblemSection';
+import DigitalGrowthSystemSection from '@/components/enhanced/DigitalGrowthSystemSection';
+import GCCProofSection from '@/components/enhanced/GCCProofSection';
+import IndustrySelectorSection from '@/components/enhanced/IndustrySelectorSection';
 import TransformedGuaranteeSection from '@/components/enhanced/TransformedGuaranteeSection';
-import TransformedWhatsAppFunnel from '@/components/enhanced/TransformedWhatsAppFunnel';
-import WhyThisWorksTransformed from '@/components/enhanced/WhyThisWorksTransformed';
-import StickyWhatsAppCTA from '@/components/enhanced/StickyWhatsAppCTA';
-import LimitedSpotsSection from '@/components/enhanced/LimitedSpotsSection';
-import OptimizedMobileCTA from '@/components/enhanced/OptimizedMobileCTA';
+import TransformedAuditSection from '@/components/enhanced/TransformedAuditSection';
 
-// Existing components that still work well
-import ProblemSection from '@/components/ProblemSection';
-import EnhancedServicesSection from '@/components/enhanced/EnhancedServicesSection';
+// Supporting sections that enhance the conversion flow
+import TransformedWhatsAppFunnel from '@/components/enhanced/TransformedWhatsAppFunnel';
+import LimitedSpotsSection from '@/components/enhanced/LimitedSpotsSection';
 import ProcessSection from '@/components/ProcessSection';
 import FAQSection from '@/components/FAQSection';
 import WhatsAppCTA from '@/components/WhatsAppCTA';
 import StrategicFooter from '@/components/StrategicFooter';
-import IntelligenceShiftSection from '@/components/IntelligenceShiftSection';
-import AboutSection from '@/components/enhanced/AboutSection';
-import WorkShowcase from '@/components/enhanced/WorkShowcase';
-import EnhancedResultsSection from '@/components/enhanced/EnhancedResultsSection';
-import WhoThisIsForSection from '@/components/enhanced/WhoThisIsForSection';
+import OptimizedMobileCTA from '@/components/enhanced/OptimizedMobileCTA';
+import StickyWhatsAppCTA from '@/components/enhanced/StickyWhatsAppCTA';
 import SitemapGenerator from '@/components/enhanced/SitemapGenerator';
 
 // Extend Window interface for gtag
@@ -51,67 +48,65 @@ const Index = () => {
   useEffect(() => {
     setInitialLoadComplete(true);
     
-    // Mobile-specific optimizations
-    const optimizeForMobile = () => {
+    // High-performance optimizations for flagship site
+    const optimizeForPerformance = () => {
       const isMobile = window.innerWidth < 768;
       
       if (isMobile) {
-        // Faster animations for mobile
+        // Aggressive mobile optimization
         document.documentElement.style.setProperty('--motion-fast', '0.1s');
         document.documentElement.style.setProperty('--motion-medium', '0.2s');
         document.documentElement.style.setProperty('--motion-slow', '0.3s');
-        
-        // Reduce particle density on mobile for performance
-        document.documentElement.style.setProperty('--particle-density', '8');
-        
-        // Optimize scroll behavior
-        document.documentElement.style.setProperty('scroll-behavior', 'smooth');
+        document.documentElement.style.setProperty('--particle-density', '6');
       } else {
+        // Desktop performance optimization
         document.documentElement.style.setProperty('--motion-fast', '0.15s');
         document.documentElement.style.setProperty('--motion-medium', '0.3s');
         document.documentElement.style.setProperty('--motion-slow', '0.6s');
-        document.documentElement.style.setProperty('--particle-density', '15');
+        document.documentElement.style.setProperty('--particle-density', '12');
       }
     };
     
-    optimizeForMobile();
-    window.addEventListener('resize', optimizeForMobile);
+    optimizeForPerformance();
+    window.addEventListener('resize', optimizeForPerformance);
     
-    // Mobile-optimized welcome message
-    const showWelcomeMessage = () => {
+    // Elite welcome message
+    const showEliteWelcomeMessage = () => {
       const isMobile = window.innerWidth < 768;
       toast({
-        title: isMobile ? "Revenue System Ready 📱" : "Revenue System Ready",
+        title: isMobile ? "Elite Digital Growth Engineering 🏆" : "Welcome to Elite Digital Growth Engineering",
         description: isMobile 
-          ? "Turn your website into a 24/7 sales machine. Tap to explore!" 
-          : "Discover how AI8TY can turn your website into a 24/7 sales machine.",
-        duration: isMobile ? 4000 : 5000,
+          ? "Your website should be your strongest sales asset. Tap to discover how!" 
+          : "Discover how AI8TY transforms websites into high-performance sales assets for GCC businesses.",
+        duration: isMobile ? 4000 : 6000,
       });
     };
 
-    setTimeout(showWelcomeMessage, 1000);
+    setTimeout(showEliteWelcomeMessage, 1000);
 
-    // Performance tracking with safe checks
+    // Advanced performance tracking
     if (typeof window !== 'undefined' && window.gtag) {
       window.gtag('event', 'page_view', {
-        page_title: 'AI8TY Revenue System - Mobile Optimized',
+        page_title: 'AI8TY Elite Digital Growth Engineering - GCC Leader',
         page_location: window.location.href,
         custom_map: {
-          'mobile_optimized': window.innerWidth < 768
+          'flagship_experience': true,
+          'conversion_optimized': true,
+          'gcc_focused': true
         }
       });
     }
     
     return () => {
-      window.removeEventListener('resize', optimizeForMobile);
+      window.removeEventListener('resize', optimizeForPerformance);
     };
   }, [language, toast]);
 
   const getSeoDescription = () => {
-    return "We Turn Your Website Into a 24/7 Sales Machine — Or You Don't Pay. Done-for-you websites, automation, and SEO engineered for leads, speed, and growth. If it doesn't make you money in 30 days, it's free. AED 7,500 site generates AED 75,000 in leads = 10x ROI.";
+    return "👉 Your Website Should Be Your Strongest Sales Asset. We design, optimize, and automate high-performance websites for GCC businesses that want results — not excuses. Elite digital growth engineering with 30-day results guarantee. Response within 24h | GCC-Based | Results Guaranteed.";
   };
 
-  const getStructuredData = () => {
+  const getAdvancedStructuredData = () => {
     return {
       "@context": "https://schema.org",
       "@type": "Organization",
@@ -119,28 +114,25 @@ const Index = () => {
       "description": getSeoDescription(),
       "url": "https://ai8ty.com",
       "logo": "https://ai8ty.com/logo.png",
+      "slogan": "Your Website Should Be Your Strongest Sales Asset",
+      "foundingDate": "2023",
       "contactPoint": {
         "@type": "ContactPoint",
         "telephone": "+971509229009",
         "contactType": "Customer Service",
-        "availableLanguage": ["English", "Arabic"]
+        "availableLanguage": ["English", "Arabic"],
+        "areaServed": ["AE", "SA", "QA", "KW", "BH", "OM"]
       },
       "address": {
         "@type": "PostalAddress",
         "addressCountry": "AE",
-        "addressLocality": "Dubai"
+        "addressLocality": "Dubai",
+        "addressRegion": "Dubai"
       },
       "sameAs": [
         "https://linkedin.com/company/ai8ty",
         "https://twitter.com/ai8ty"
       ],
-      "offers": {
-        "@type": "Offer",
-        "name": "Mobile-Optimized Website Revenue System",
-        "description": "24/7 sales machine websites with <2s load times and 30-day money-back guarantee",
-        "priceCurrency": "AED",
-        "availability": "https://schema.org/InStock"
-      },
       "serviceArea": {
         "@type": "GeoCircle",
         "geoMidpoint": {
@@ -148,7 +140,37 @@ const Index = () => {
           "latitude": 25.2048,
           "longitude": 55.2708
         },
-        "geoRadius": "1000"
+        "geoRadius": "2000"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Digital Growth Engineering Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Conversion-Optimized Website",
+              "description": "Speed-first, mobile-first, SEO-ready websites"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Automated Lead Systems",
+              "description": "CRM integrations, WhatsApp, lead scoring, triggers"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Search Visibility & Authority SEO",
+              "description": "Localized, AI-ready, schema-structured optimization"
+            }
+          }
+        ]
       }
     };
   };
@@ -156,29 +178,30 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>We Turn Your Website Into a 24/7 Sales Machine — Or You Don't Pay | AI8TY Dubai</title>
+        <title>👉 Your Website Should Be Your Strongest Sales Asset | AI8TY Elite Digital Growth Engineering</title>
         <meta name="description" content={getSeoDescription()} />
-        <meta name="keywords" content="24/7 sales machine website dubai, revenue generating websites GCC, done for you websites UAE, website automation dubai, lead generation websites saudi arabia, ROI tracking websites qatar, GCC website conversion optimization" />
+        <meta name="keywords" content="website design dubai, lead generation UAE, SEO services GCC, conversion rate optimization UAE, high performance websites UAE, fast loading websites mobile, AI optimized content structure, digital growth engineering, elite website development, GCC business growth, website strongest sales asset" />
         
-        {/* Mobile-specific meta tags */}
+        {/* Advanced mobile optimization */}
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover" />
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         <meta name="format-detection" content="telephone=yes" />
         
-        <meta property="og:title" content="We Turn Your Website Into a 24/7 Sales Machine — Or You Don't Pay" />
+        {/* Enhanced social sharing */}
+        <meta property="og:title" content="👉 Your Website Should Be Your Strongest Sales Asset | AI8TY" />
         <meta property="og:description" content={getSeoDescription()} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://ai8ty.com" />
-        <meta property="og:image" content="https://ai8ty.com/og-image-mobile-revenue-system.png" />
-        <meta property="og:site_name" content="AI8TY" />
+        <meta property="og:image" content="https://ai8ty.com/og-image-elite-digital-growth.png" />
+        <meta property="og:site_name" content="AI8TY Elite Digital Growth Engineering" />
         <meta property="og:locale" content="en_US" />
 
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="We Turn Your Website Into a 24/7 Sales Machine — Or You Don't Pay" />
+        <meta name="twitter:title" content="👉 Your Website Should Be Your Strongest Sales Asset" />
         <meta name="twitter:description" content={getSeoDescription()} />
-        <meta name="twitter:image" content="https://ai8ty.com/og-image-mobile-revenue-system.png" />
+        <meta name="twitter:image" content="https://ai8ty.com/og-image-elite-digital-growth.png" />
         <meta name="twitter:creator" content="@ai8ty" />
 
         <link rel="canonical" href="https://ai8ty.com" />
@@ -187,14 +210,18 @@ const Index = () => {
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="//wa.me" />
+        <link rel="preload" href="/ai8tyview.jpg" as="image" />
         
-        {/* Enhanced structured data for mobile revenue system */}
+        {/* Advanced structured data */}
         <script type="application/ld+json">
-          {JSON.stringify(getStructuredData())}
+          {JSON.stringify(getAdvancedStructuredData())}
         </script>
 
         <meta name="theme-color" content="#3B82F6" />
         <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+        
+        {/* Core Web Vitals optimization hints */}
+        <link rel="preload" as="script" href="/src/main.tsx" />
       </Helmet>
 
       <div ref={mainRef} className="min-h-screen bg-ai8ty-black">
@@ -202,60 +229,68 @@ const Index = () => {
         <Navigation />
         
         <main className="relative">
-          {/* Transformed Hero Section */}
+          {/* 🚀 NEW CONVERSION-FIRST STRUCTURE */}
+          
+          {/* HERO: Your Website Should Be Your Strongest Sales Asset */}
           <section id="hero-section">
-            <TransformedHeroSection />
+            <RevenueHeroSection />
           </section>
           
-          {/* Core Content Sections */}
-          <ProblemSection />
-          
-          <section id="intelligence-shift">
-            <IntelligenceShiftSection />
+          {/* PROBLEM: Clarity. Conversion. Consistency. Most Sites Deliver None. */}
+          <section id="clarity-problem">
+            <ClarityProblemSection />
           </section>
           
-          <section id="about-section">
-            <AboutSection />
+          {/* SOLUTION: What We Deliver: Your Digital Growth System */}
+          <section id="digital-growth-system">
+            <DigitalGrowthSystemSection />
           </section>
           
-          <section id="work-showcase">
-            <WorkShowcase />
+          {/* CASE PROOF: GCC Brands Trust AI8TY To Deliver Growth That Performs */}
+          <section id="gcc-proof">
+            <GCCProofSection />
           </section>
           
-          {/* Why This Works - Transformed */}
-          <WhyThisWorksTransformed />
+          {/* INDUSTRY SELECTOR: Solutions Tailored for Your Industry */}
+          <section id="industry-selector">
+            <IndustrySelectorSection />
+          </section>
           
-          {/* Transformed Lead Generation */}
+          {/* GUARANTEE: If You Don't Get Qualified Leads in 30 Days — You Don't Pay */}
+          <section id="guarantee">
+            <TransformedGuaranteeSection />
+          </section>
+          
+          {/* LEAD GENERATION: Free Website Audit/Roast */}
           <section id="website-audit">
             <TransformedAuditSection />
           </section>
           
-          {/* Services */}
-          <section id="enhanced-services">
-            <EnhancedServicesSection />
+          {/* URGENCY & SOCIAL PROOF */}
+          <section id="limited-spots">
+            <LimitedSpotsSection />
           </section>
           
-          {/* Social Proof & Results */}
-          <EnhancedResultsSection />
+          {/* WHATSAPP FUNNEL */}
+          <section id="whatsapp-funnel">
+            <TransformedWhatsAppFunnel />
+          </section>
           
-          {/* Transformed Trust & Guarantee */}
-          <TransformedGuaranteeSection />
-          <WhoThisIsForSection />
+          {/* PROCESS & FAQ */}
+          <section id="process">
+            <ProcessSection />
+          </section>
           
-          {/* Urgency & Conversion */}
-          <LimitedSpotsSection />
-          <TransformedWhatsAppFunnel />
+          <section id="faq">
+            <FAQSection />
+          </section>
           
-          {/* Process & FAQ */}
-          <ProcessSection />
-          <FAQSection />
-          
-          {/* Contact */}
+          {/* FINAL CONTACT */}
           <section id="contact">
             <ContactSection />
           </section>
           
-          {/* Support Elements */}
+          {/* SUPPORT ELEMENTS */}
           <AIReadinessQuiz />
           <WhatsAppCTA />
           <OptimizedMobileCTA />
