@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
@@ -24,7 +25,7 @@ const PremiumButton: React.FC<PremiumButtonProps> = ({
   loading = false,
   ...rest
 }) => {
-  // Remove drag events (unsupported by motion.button)
+  // Remove all conflicting event handlers between React and Framer Motion
   const {
     onDrag,
     onDragEnd,
@@ -34,6 +35,10 @@ const PremiumButton: React.FC<PremiumButtonProps> = ({
     onDragLeave,
     onDragOver,
     onDrop,
+    onAnimationStart,
+    onAnimationEnd,
+    onAnimationIteration,
+    onTransitionEnd,
     ...filteredRest
   } = rest;
 
