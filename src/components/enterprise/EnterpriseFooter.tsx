@@ -26,7 +26,7 @@ const EnterpriseFooter: React.FC = () => {
             <a href="/privacy" className="hover:text-white transition-colors">Privacy Policy</a>
             <a href="/terms" className="hover:text-white transition-colors">Terms of Service</a>
             <a href="/security" className="hover:text-white transition-colors">Security</a>
-            <span>© 2024 AI8TY. All rights reserved.</span>
+            <span>© 2025 AI8TY. All rights reserved.</span>
           </motion.div>
         </div>
       </div>
