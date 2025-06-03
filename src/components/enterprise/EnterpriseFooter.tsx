@@ -11,7 +11,7 @@ const EnterpriseFooter: React.FC = () => {
         }} transition={{
           duration: 0.6
         }}>
-            <img src="/lovable-uploads/4b4a830d-afce-4dc3-8cc3-4fae3e2728ed.png" alt="AI8TY" className="h-8 w-auto" />
+            <img src="/lovable-uploads/4b4a830d-afce-4dc3-8cc3-4fae3e2728ed.png" alt="AI8TY" className="h-12 w-auto object-contain" />
             
           </motion.div>
 
