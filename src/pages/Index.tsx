@@ -9,6 +9,7 @@ import EnterpriseNavigation from '@/components/enterprise/EnterpriseNavigation';
 import EnterpriseHeroSection from '@/components/enterprise/EnterpriseHeroSection';
 import ValuePropositionSection from '@/components/enterprise/ValuePropositionSection';
 import WhyAI8TYSection from '@/components/enterprise/WhyAI8TYSection';
+import InnovationSection from '@/components/enterprise/InnovationSection';
 import EnterpriseFooter from '@/components/enterprise/EnterpriseFooter';
 
 const Index = () => {
@@ -44,7 +45,7 @@ const Index = () => {
   }, [language, toast]);
 
   const getSeoDescription = () => {
-    return "AI Systems Engineered for Enterprise Complexity. Advanced intelligence infrastructure for organizations operating at scale. Foundational model rigor, domain-adapted performance, institutional-grade security.";
+    return "Operational AI Systems for GCC Business Leaders. Enterprise-grade AI infrastructure for financial, retail, healthcare, logistics, and public sector organizations in the UAE and Gulf region.";
   };
 
   const getStructuredData = () => {
@@ -55,7 +56,7 @@ const Index = () => {
       "description": getSeoDescription(),
       "url": "https://ai8ty.com",
       "logo": "https://ai8ty.com/logo.png",
-      "slogan": "AI Systems Engineered for Enterprise Complexity",
+      "slogan": "Operational AI Systems for GCC Business Leaders",
       "foundingDate": "2023",
       "contactPoint": {
         "@type": "ContactPoint",
@@ -86,7 +87,7 @@ const Index = () => {
             "itemOffered": {
               "@type": "Service",
               "name": "Financial Institution AI Systems",
-              "description": "AML pattern suppression and cross-border liquidity AI"
+              "description": "Operational AI for banks and financial services in the GCC"
             }
           },
           {
@@ -101,8 +102,8 @@ const Index = () => {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "Manufacturing Intelligence Systems",
-              "description": "Industrial IoT intelligence and supply chain optimization"
+              "name": "Public Sector AI Systems",
+              "description": "Government intelligence systems and citizen service optimization"
             }
           }
         ]
@@ -113,13 +114,13 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>AI Systems Engineered for Enterprise Complexity | AI8TY</title>
+        <title>Operational AI Systems for GCC Business Leaders | AI8TY</title>
         <meta name="description" content={getSeoDescription()} />
-        <meta name="keywords" content="enterprise AI systems, institutional AI, financial AI, healthcare AI, manufacturing AI, enterprise intelligence, AI8TY" />
+        <meta name="keywords" content="enterprise AI systems, GCC AI solutions, UAE AI infrastructure, operational AI, financial AI, healthcare AI, manufacturing AI, AI8TY" />
         
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover" />
         
-        <meta property="og:title" content="AI Systems Engineered for Enterprise Complexity | AI8TY" />
+        <meta property="og:title" content="Operational AI Systems for GCC Business Leaders | AI8TY" />
         <meta property="og:description" content={getSeoDescription()} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://ai8ty.com" />
@@ -127,7 +128,7 @@ const Index = () => {
         <meta property="og:site_name" content="AI8TY Enterprise Systems" />
 
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="AI Systems Engineered for Enterprise Complexity" />
+        <meta name="twitter:title" content="Operational AI Systems for GCC Business Leaders" />
         <meta name="twitter:description" content={getSeoDescription()} />
         <meta name="twitter:image" content="https://ai8ty.com/og-image-enterprise.png" />
 
@@ -153,6 +154,11 @@ const Index = () => {
           {/* VALUE PROPOSITION */}
           <section id="value-proposition">
             <ValuePropositionSection />
+          </section>
+          
+          {/* INNOVATION SECTION */}
+          <section id="innovation">
+            <InnovationSection />
           </section>
           
           {/* WHY AI8TY */}

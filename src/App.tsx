@@ -8,10 +8,14 @@ import { HelmetProvider } from "react-helmet-async";
 import React from 'react';
 import Index from "./pages/Index";
 import Solutions from "./pages/Solutions";
+import Contact from "./pages/Contact";
 import FinancialInstitutions from "./pages/solutions/FinancialInstitutions";
 import HealthcareNetworks from "./pages/solutions/HealthcareNetworks";
-import ManufacturingGroups from "./pages/solutions/ManufacturingGroups";
-import RetailConglomerates from "./pages/solutions/RetailConglomerates";
+import ManufacturingFirms from "./pages/solutions/ManufacturingFirms";
+import RetailGroups from "./pages/solutions/RetailGroups";
+import PrivateWealthOffices from "./pages/solutions/PrivateWealthOffices";
+import AviationLogistics from "./pages/solutions/AviationLogistics";
+import PublicSector from "./pages/solutions/PublicSector";
 import NotFound from "./pages/NotFound";
 import { LanguageProvider } from "./contexts/LanguageContext";
 
@@ -38,10 +42,14 @@ const App = () => {
                 <Routes>
                   <Route path="/" element={<Index />} />
                   <Route path="/solutions" element={<Solutions />} />
+                  <Route path="/contact" element={<Contact />} />
                   <Route path="/solutions/financial-institutions" element={<FinancialInstitutions />} />
                   <Route path="/solutions/healthcare-networks" element={<HealthcareNetworks />} />
-                  <Route path="/solutions/manufacturing-groups" element={<ManufacturingGroups />} />
-                  <Route path="/solutions/retail-conglomerates" element={<RetailConglomerates />} />
+                  <Route path="/solutions/manufacturing-firms" element={<ManufacturingFirms />} />
+                  <Route path="/solutions/retail-groups" element={<RetailGroups />} />
+                  <Route path="/solutions/private-wealth-offices" element={<PrivateWealthOffices />} />
+                  <Route path="/solutions/aviation-logistics" element={<AviationLogistics />} />
+                  <Route path="/solutions/public-sector" element={<PublicSector />} />
                   {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                   <Route path="*" element={<NotFound />} />
                 </Routes>

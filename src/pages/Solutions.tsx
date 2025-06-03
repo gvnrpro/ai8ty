@@ -3,7 +3,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
-import { Building2, Heart, Factory, ShoppingCart } from 'lucide-react';
+import { Building2, Heart, Factory, ShoppingCart, Wallet, Plane, Shield } from 'lucide-react';
 import EnterpriseNavigation from '@/components/enterprise/EnterpriseNavigation';
 import EnterpriseFooter from '@/components/enterprise/EnterpriseFooter';
 
@@ -15,25 +15,43 @@ const Solutions = () => {
       id: 'financial-institutions',
       title: 'Financial Institutions',
       icon: Building2,
-      description: 'Advanced compliance and risk management systems'
+      description: 'Advanced compliance, risk management, and operational AI systems for banks and financial services'
     },
     {
       id: 'healthcare-networks',
       title: 'Healthcare Networks',
       icon: Heart,
-      description: 'Secure patient data intelligence and operational optimization'
+      description: 'Secure patient data intelligence and operational optimization for medical institutions'
     },
     {
-      id: 'manufacturing-groups',
-      title: 'Manufacturing Groups',
-      icon: Factory,
-      description: 'Industrial IoT intelligence and supply chain optimization'
-    },
-    {
-      id: 'retail-conglomerates',
-      title: 'Retail Conglomerates',
+      id: 'retail-groups',
+      title: 'Retail Groups',
       icon: ShoppingCart,
-      description: 'Customer intelligence and inventory optimization systems'
+      description: 'Customer intelligence, inventory optimization, and omnichannel analytics for retail operations'
+    },
+    {
+      id: 'manufacturing-firms',
+      title: 'Manufacturing Firms',
+      icon: Factory,
+      description: 'Industrial IoT intelligence, predictive maintenance, and supply chain optimization'
+    },
+    {
+      id: 'private-wealth-offices',
+      title: 'Private Wealth Offices',
+      icon: Wallet,
+      description: 'Portfolio risk assessment, client intelligence, and investment decision support systems'
+    },
+    {
+      id: 'aviation-logistics',
+      title: 'Aviation & Logistics',
+      icon: Plane,
+      description: 'Operational efficiency, cargo optimization, and predictive maintenance for transport sectors'
+    },
+    {
+      id: 'public-sector',
+      title: 'Public Sector',
+      icon: Shield,
+      description: 'Government intelligence systems, citizen service optimization, and regulatory compliance automation'
     }
   ];
 
@@ -63,8 +81,8 @@ const Solutions = () => {
   return (
     <>
       <Helmet>
-        <title>AI Solutions by Sector | AI8TY Enterprise Systems</title>
-        <meta name="description" content="Tailored AI system implementations for Financial Institutions, Healthcare Networks, Manufacturing Groups, and Retail Conglomerates." />
+        <title>Operational AI Solutions for UAE and GCC Enterprises | AI8TY</title>
+        <meta name="description" content="AI8TY delivers AI systems designed for regulated, high-stakes sectors in the Gulf. Engineered for local market realities, regulatory frameworks, and operational risk management." />
       </Helmet>
 
       <div className="min-h-screen bg-slate-900">
@@ -82,19 +100,19 @@ const Solutions = () => {
               variants={itemVariants}
             >
               <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-                Select Your Sector for{' '}
+                Operational AI Solutions for{' '}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-slate-300">
-                  Tailored Briefings
+                  UAE and GCC Enterprises
                 </span>
               </h1>
               
-              <p className="text-xl text-slate-300 max-w-3xl mx-auto">
-                Domain-specific AI implementations designed for institutional complexity
+              <p className="text-xl text-slate-300 max-w-4xl mx-auto leading-relaxed">
+                AI8TY delivers AI systems designed for regulated, high-stakes sectors in the Gulf. Engineered for local market realities, regulatory frameworks, and operational risk management.
               </p>
             </motion.div>
 
             <motion.div 
-              className="grid md:grid-cols-2 gap-8"
+              className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
               variants={containerVariants}
             >
               {industries.map((industry) => (
@@ -106,7 +124,7 @@ const Solutions = () => {
                   whileHover={{ y: -2 }}
                   whileTap={{ scale: 0.98 }}
                 >
-                  <div className="flex items-start gap-6">
+                  <div className="flex flex-col items-start gap-6">
                     <div className="w-16 h-16 bg-slate-700 group-hover:bg-slate-600 rounded-sm flex items-center justify-center transition-colors">
                       <industry.icon size={28} className="text-white" />
                     </div>
@@ -116,12 +134,12 @@ const Solutions = () => {
                         {industry.title}
                       </h3>
                       
-                      <p className="text-slate-400 leading-relaxed mb-4">
+                      <p className="text-slate-400 leading-relaxed mb-4 text-sm">
                         {industry.description}
                       </p>
                       
                       <span className="text-sm text-blue-400 font-medium">
-                        Request Briefing →
+                        Request Private Briefing →
                       </span>
                     </div>
                   </div>
