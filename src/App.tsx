@@ -7,7 +7,11 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import React from 'react';
 import Index from "./pages/Index";
-import Services from "./pages/Services";
+import Solutions from "./pages/Solutions";
+import FinancialInstitutions from "./pages/solutions/FinancialInstitutions";
+import HealthcareNetworks from "./pages/solutions/HealthcareNetworks";
+import ManufacturingGroups from "./pages/solutions/ManufacturingGroups";
+import RetailConglomerates from "./pages/solutions/RetailConglomerates";
 import NotFound from "./pages/NotFound";
 import { LanguageProvider } from "./contexts/LanguageContext";
 
@@ -33,7 +37,11 @@ const App = () => {
               <BrowserRouter>
                 <Routes>
                   <Route path="/" element={<Index />} />
-                  <Route path="/services" element={<Services />} />
+                  <Route path="/solutions" element={<Solutions />} />
+                  <Route path="/solutions/financial-institutions" element={<FinancialInstitutions />} />
+                  <Route path="/solutions/healthcare-networks" element={<HealthcareNetworks />} />
+                  <Route path="/solutions/manufacturing-groups" element={<ManufacturingGroups />} />
+                  <Route path="/solutions/retail-conglomerates" element={<RetailConglomerates />} />
                   {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                   <Route path="*" element={<NotFound />} />
                 </Routes>
