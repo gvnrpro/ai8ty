@@ -3,152 +3,180 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
-import { Building2, Heart, Factory, ShoppingCart, Wallet, Plane, Shield } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
+import { ArrowRight, Building2, Heart, Factory, ShoppingCart, Landmark, Plane, Users } from 'lucide-react';
 import EnterpriseNavigation from '@/components/enterprise/EnterpriseNavigation';
 import EnterpriseFooter from '@/components/enterprise/EnterpriseFooter';
+import TechBackground from '@/components/enterprise/TechBackground';
 
 const Solutions = () => {
   const navigate = useNavigate();
+  const { language } = useLanguage();
+  const isArabic = language === 'ar';
+
+  const content = {
+    en: {
+      title: 'Operational AI Solutions for UAE and GCC Enterprises',
+      subtitle: 'AI8TY delivers AI systems designed for regulated, high-stakes sectors in the Gulf. Engineered for local market realities, regulatory frameworks, and operational risk management.',
+      cta: 'Request Private Briefing'
+    },
+    ar: {
+      title: 'حلول الذكاء الاصطناعي التشغيلية لشركات الإمارات ودول مجلس التعاون',
+      subtitle: 'تقدم AI8TY أنظمة ذكاء اصطناعي مصممة للقطاعات المنظمة عالية المخاطر في الخليج. مهندسة لواقع السوق المحلي والأطر التنظيمية وإدارة المخاطر التشغيلية.',
+      cta: 'طلب إحاطة خاصة'
+    }
+  };
 
   const industries = [
     {
       id: 'financial-institutions',
-      title: 'Financial Institutions',
       icon: Building2,
-      description: 'Advanced compliance, risk management, and operational AI systems for banks and financial services'
+      titleEn: 'Financial Institutions',
+      titleAr: 'المؤسسات المالية',
+      descEn: 'AI systems for banks, investment firms, and financial services in the GCC region.',
+      descAr: 'أنظمة الذكاء الاصطناعي للبنوك وشركات الاستثمار والخدمات المالية في منطقة دول مجلس التعاون.',
+      path: '/solutions/financial-institutions'
     },
     {
       id: 'healthcare-networks',
-      title: 'Healthcare Networks',
       icon: Heart,
-      description: 'Secure patient data intelligence and operational optimization for medical institutions'
+      titleEn: 'Healthcare Networks',
+      titleAr: 'شبكات الرعاية الصحية',
+      descEn: 'Secure patient data intelligence and operational optimization for healthcare providers.',
+      descAr: 'ذكاء بيانات المرضى الآمن والتحسين التشغيلي لمقدمي الرعاية الصحية.',
+      path: '/solutions/healthcare-networks'
     },
     {
       id: 'retail-groups',
-      title: 'Retail Groups',
       icon: ShoppingCart,
-      description: 'Customer intelligence, inventory optimization, and omnichannel analytics for retail operations'
+      titleEn: 'Retail Groups',
+      titleAr: 'مجموعات التجزئة',
+      descEn: 'Customer intelligence, inventory optimization, and omnichannel analytics for retail.',
+      descAr: 'ذكاء العملاء وتحسين المخزون وتحليلات القنوات المتعددة للتجزئة.',
+      path: '/solutions/retail-groups'
     },
     {
       id: 'manufacturing-firms',
-      title: 'Manufacturing Firms',
       icon: Factory,
-      description: 'Industrial IoT intelligence, predictive maintenance, and supply chain optimization'
+      titleEn: 'Manufacturing Firms',
+      titleAr: 'شركات التصنيع',
+      descEn: 'Predictive maintenance, supply chain intelligence, and production optimization.',
+      descAr: 'الصيانة التنبؤية وذكاء سلسلة التوريد وتحسين الإنتاج.',
+      path: '/solutions/manufacturing-firms'
     },
     {
       id: 'private-wealth-offices',
-      title: 'Private Wealth Offices',
-      icon: Wallet,
-      description: 'Portfolio risk assessment, client intelligence, and investment decision support systems'
+      icon: Landmark,
+      titleEn: 'Private Wealth Offices',
+      titleAr: 'مكاتب الثروات الخاصة',
+      descEn: 'Portfolio risk mapping, client intelligence, and investment decision support systems.',
+      descAr: 'رسم خرائط مخاطر المحافظ وذكاء العملاء وأنظمة دعم قرارات الاستثمار.',
+      path: '/solutions/private-wealth-offices'
     },
     {
       id: 'aviation-logistics',
-      title: 'Aviation & Logistics',
       icon: Plane,
-      description: 'Operational efficiency, cargo optimization, and predictive maintenance for transport sectors'
+      titleEn: 'Aviation & Logistics',
+      titleAr: 'الطيران واللوجستيات',
+      descEn: 'Predictive maintenance, cargo optimization, and operational efficiency monitoring.',
+      descAr: 'الصيانة التنبؤية وتحسين الشحن ومراقبة الكفاءة التشغيلية.',
+      path: '/solutions/aviation-logistics'
     },
     {
       id: 'public-sector',
-      title: 'Public Sector',
-      icon: Shield,
-      description: 'Government intelligence systems, citizen service optimization, and regulatory compliance automation'
+      icon: Users,
+      titleEn: 'Public Sector',
+      titleAr: 'القطاع العام',
+      descEn: 'Citizen service optimization, emergency prediction models, and regulatory compliance.',
+      descAr: 'تحسين خدمات المواطنين ونماذج التنبؤ بالطوارئ والامتثال التنظيمي.',
+      path: '/solutions/public-sector'
     }
   ];
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: [0.16, 1, 0.3, 1]
-      }
-    }
-  };
+  const currentContent = content[isArabic ? 'ar' : 'en'];
 
   return (
     <>
       <Helmet>
-        <title>Operational AI Solutions for UAE and GCC Enterprises | AI8TY</title>
-        <meta name="description" content="AI8TY delivers AI systems designed for regulated, high-stakes sectors in the Gulf. Engineered for local market realities, regulatory frameworks, and operational risk management." />
+        <title>
+          {isArabic ? 'حلول الذكاء الاصطناعي التشغيلية | AI8TY' : 'Operational AI Solutions | AI8TY'}
+        </title>
+        <meta 
+          name="description" 
+          content={currentContent.subtitle} 
+        />
       </Helmet>
 
-      <div className="min-h-screen bg-slate-900">
+      <div className={`min-h-screen bg-slate-900 ${isArabic ? 'rtl' : ''}`}>
         <EnterpriseNavigation />
         
-        <main className="pt-32 pb-24">
-          <motion.div
-            className="container mx-auto max-w-6xl px-6"
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-          >
-            <motion.div 
-              className="text-center mb-16"
-              variants={itemVariants}
-            >
-              <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-                Operational AI Solutions for{' '}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-slate-300">
-                  UAE and GCC Enterprises
-                </span>
-              </h1>
+        <main className="relative pt-20 md:pt-24">
+          {/* Hero Section */}
+          <section className="py-16 md:py-24 px-4 md:px-6 relative overflow-hidden">
+            <TechBackground density={30} color="#3B82F6" className="opacity-10" />
+            
+            <div className="container mx-auto max-w-6xl text-center">
+              <motion.h1 
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 md:mb-8 leading-tight"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+              >
+                {currentContent.title}
+              </motion.h1>
               
-              <p className="text-xl text-slate-300 max-w-4xl mx-auto leading-relaxed">
-                AI8TY delivers AI systems designed for regulated, high-stakes sectors in the Gulf. Engineered for local market realities, regulatory frameworks, and operational risk management.
-              </p>
-            </motion.div>
+              <motion.p 
+                className="text-lg md:text-xl text-slate-300 mb-12 md:mb-16 max-w-4xl mx-auto leading-relaxed"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+              >
+                {currentContent.subtitle}
+              </motion.p>
+            </div>
+          </section>
 
-            <motion.div 
-              className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
-              variants={containerVariants}
-            >
-              {industries.map((industry) => (
-                <motion.button
-                  key={industry.id}
-                  variants={itemVariants}
-                  onClick={() => navigate(`/solutions/${industry.id}`)}
-                  className="group p-8 bg-slate-800 border border-slate-700 hover:border-slate-600 rounded-sm transition-all duration-300 text-left hover:bg-slate-750"
-                  whileHover={{ y: -2 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  <div className="flex flex-col items-start gap-6">
-                    <div className="w-16 h-16 bg-slate-700 group-hover:bg-slate-600 rounded-sm flex items-center justify-center transition-colors">
-                      <industry.icon size={28} className="text-white" />
+          {/* Industry Selector Grid */}
+          <section className="py-16 md:py-24 px-4 md:px-6">
+            <div className="container mx-auto max-w-6xl">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                {industries.map((industry, index) => (
+                  <motion.div
+                    key={industry.id}
+                    className="group bg-slate-800/50 border border-slate-700 rounded-xl p-6 md:p-8 hover:border-blue-500/50 transition-all duration-300 cursor-pointer"
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: index * 0.1 }}
+                    whileHover={{ scale: 1.02, y: -4 }}
+                    onClick={() => navigate(industry.path)}
+                  >
+                    <div className="flex items-center gap-4 mb-4 md:mb-6">
+                      <div className="w-12 h-12 md:w-16 md:h-16 bg-blue-600/20 border border-blue-500/30 rounded-lg flex items-center justify-center group-hover:bg-blue-600/30 transition-colors">
+                        <industry.icon size={24} className="text-blue-400" />
+                      </div>
+                      <h3 className="text-lg md:text-xl font-bold text-white group-hover:text-blue-400 transition-colors">
+                        {isArabic ? industry.titleAr : industry.titleEn}
+                      </h3>
                     </div>
                     
-                    <div className="flex-1">
-                      <h3 className="text-xl font-semibold text-white mb-3 group-hover:text-blue-400 transition-colors">
-                        {industry.title}
-                      </h3>
-                      
-                      <p className="text-slate-400 leading-relaxed mb-4 text-sm">
-                        {industry.description}
-                      </p>
-                      
-                      <span className="text-sm text-blue-400 font-medium">
-                        Request Private Briefing →
-                      </span>
-                    </div>
-                  </div>
-                </motion.button>
-              ))}
-            </motion.div>
-          </motion.div>
+                    <p className="text-sm md:text-base text-slate-300 leading-relaxed mb-4 md:mb-6">
+                      {isArabic ? industry.descAr : industry.descEn}
+                    </p>
+                    
+                    <motion.div
+                      className="flex items-center gap-2 text-blue-400 font-medium group-hover:gap-3 transition-all"
+                      whileHover={{ x: isArabic ? -4 : 4 }}
+                    >
+                      <span className="text-sm md:text-base">{currentContent.cta}</span>
+                      <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
+                    </motion.div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </section>
         </main>
-
+        
         <EnterpriseFooter />
       </div>
     </>
