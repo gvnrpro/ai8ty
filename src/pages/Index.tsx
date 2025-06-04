@@ -1,15 +1,16 @@
+
 import React, { useState, useEffect, useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useToast } from '@/hooks/use-toast';
 import { useLanguage } from '@/contexts/LanguageContext';
 
-// ENHANCED MINIMAL ENTERPRISE COMPONENTS
-import EnhancedNavigation from '@/components/enterprise/EnhancedNavigation';
-import MinimalHeroSection from '@/components/enterprise/MinimalHeroSection';
-import MinimalValueProposition from '@/components/enterprise/MinimalValueProposition';
+// APPLE-INSPIRED COMPONENTS
+import AppleInspiredNavigation from '@/components/enterprise/AppleInspiredNavigation';
+import AppleInspiredHero from '@/components/enterprise/AppleInspiredHero';
+import AppleInspiredValueProp from '@/components/enterprise/AppleInspiredValueProp';
 import WhyAI8TYSection from '@/components/enterprise/WhyAI8TYSection';
 import InnovationSection from '@/components/enterprise/InnovationSection';
-import MinimalFooter from '@/components/enterprise/MinimalFooter';
+import AppleInspiredFooter from '@/components/enterprise/AppleInspiredFooter';
 
 const Index = () => {
   const [initialLoadComplete, setInitialLoadComplete] = useState(false);
@@ -20,18 +21,15 @@ const Index = () => {
   useEffect(() => {
     setInitialLoadComplete(true);
     
-    // Performance optimization for animations
+    // Apple-style performance optimization
     const optimizeForPerformance = () => {
       const isMobile = window.innerWidth < 768;
+      const isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       
-      if (isMobile) {
-        document.documentElement.style.setProperty('--motion-fast', '0.15s');
-        document.documentElement.style.setProperty('--motion-medium', '0.3s');
-        document.documentElement.style.setProperty('--motion-slow', '0.5s');
-      } else {
-        document.documentElement.style.setProperty('--motion-fast', '0.2s');
-        document.documentElement.style.setProperty('--motion-medium', '0.4s');
-        document.documentElement.style.setProperty('--motion-slow', '0.8s');
+      if (isMobile || isReducedMotion) {
+        document.documentElement.style.setProperty('--duration-150', '50ms');
+        document.documentElement.style.setProperty('--duration-200', '100ms');
+        document.documentElement.style.setProperty('--duration-300', '150ms');
       }
     };
     
@@ -47,80 +45,17 @@ const Index = () => {
     return "Enterprise-grade AI infrastructure for financial, retail, healthcare, logistics, and public sector organizations in the UAE and Gulf region.";
   };
 
-  const getStructuredData = () => {
-    return {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "AI8TY",
-      "description": getSeoDescription(),
-      "url": "https://ai8ty.com",
-      "logo": "https://ai8ty.com/logo.png",
-      "slogan": "Operational AI Systems for GCC Business Leaders",
-      "foundingDate": "2023",
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "contactType": "Enterprise Sales",
-        "availableLanguage": ["English"]
-      },
-      "address": {
-        "@type": "PostalAddress",
-        "addressCountry": "AE",
-        "addressLocality": "Dubai",
-        "addressRegion": "Dubai"
-      },
-      "serviceArea": {
-        "@type": "GeoCircle",
-        "geoMidpoint": {
-          "@type": "GeoCoordinates",
-          "latitude": 25.2048,
-          "longitude": 55.2708
-        },
-        "geoRadius": "2000"
-      },
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Enterprise AI Systems",
-        "itemListElement": [
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Financial Institution AI Systems",
-              "description": "Operational AI for banks and financial services in the GCC"
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Healthcare Network Intelligence",
-              "description": "Secure patient data intelligence and operational optimization"
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Public Sector AI Systems",
-              "description": "Government intelligence systems and citizen service optimization"
-            }
-          }
-        ]
-      }
-    };
-  };
-
   return (
     <>
       <Helmet>
         <title>Operational AI Systems for GCC Business Leaders | AI8TY</title>
-        <meta name="description" content="Enterprise-grade AI infrastructure for financial, retail, healthcare, logistics, and public sector organizations in the UAE and Gulf region." />
+        <meta name="description" content={getSeoDescription()} />
         <meta name="keywords" content="enterprise AI systems, GCC AI solutions, UAE AI infrastructure, operational AI, financial AI, healthcare AI, manufacturing AI, AI8TY" />
         
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover" />
         
         <meta property="og:title" content="Operational AI Systems for GCC Business Leaders | AI8TY" />
-        <meta property="og:description" content="Enterprise-grade AI infrastructure for financial, retail, healthcare, logistics, and public sector organizations in the UAE and Gulf region." />
+        <meta property="og:description" content={getSeoDescription()} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://ai8ty.com" />
         <meta property="og:image" content="https://ai8ty.com/og-image-enterprise.png" />
@@ -128,27 +63,27 @@ const Index = () => {
 
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Operational AI Systems for GCC Business Leaders" />
-        <meta name="twitter:description" content="Enterprise-grade AI infrastructure for financial, retail, healthcare, logistics, and public sector organizations in the UAE and Gulf region." />
+        <meta name="twitter:description" content={getSeoDescription()} />
         <meta name="twitter:image" content="https://ai8ty.com/og-image-enterprise.png" />
 
         <link rel="canonical" href="https://ai8ty.com" />
         
-        <meta name="theme-color" content="#1e293b" />
+        <meta name="theme-color" content="#0f172a" />
         <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
       </Helmet>
 
-      <div ref={mainRef} className="min-h-screen bg-slate-900">
-        <EnhancedNavigation />
+      <div ref={mainRef} className="min-h-screen">
+        <AppleInspiredNavigation />
         
         <main className="relative">
-          {/* MINIMAL HERO */}
+          {/* APPLE-INSPIRED HERO */}
           <section id="hero-section">
-            <MinimalHeroSection />
+            <AppleInspiredHero />
           </section>
           
-          {/* MINIMAL VALUE PROPOSITION */}
+          {/* APPLE-INSPIRED VALUE PROPOSITION */}
           <section id="value-proposition">
-            <MinimalValueProposition />
+            <AppleInspiredValueProp />
           </section>
           
           {/* INNOVATION SECTION */}
@@ -162,7 +97,7 @@ const Index = () => {
           </section>
         </main>
         
-        <MinimalFooter />
+        <AppleInspiredFooter />
       </div>
     </>
   );
