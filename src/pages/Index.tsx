@@ -1,16 +1,15 @@
-
 import React, { useState, useEffect, useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useToast } from '@/hooks/use-toast';
 import { useLanguage } from '@/contexts/LanguageContext';
 
-// NEW ENTERPRISE COMPONENTS
-import EnterpriseNavigation from '@/components/enterprise/EnterpriseNavigation';
-import EnterpriseHeroSection from '@/components/enterprise/EnterpriseHeroSection';
-import ValuePropositionSection from '@/components/enterprise/ValuePropositionSection';
+// ENHANCED MINIMAL ENTERPRISE COMPONENTS
+import EnhancedNavigation from '@/components/enterprise/EnhancedNavigation';
+import MinimalHeroSection from '@/components/enterprise/MinimalHeroSection';
+import MinimalValueProposition from '@/components/enterprise/MinimalValueProposition';
 import WhyAI8TYSection from '@/components/enterprise/WhyAI8TYSection';
 import InnovationSection from '@/components/enterprise/InnovationSection';
-import EnterpriseFooter from '@/components/enterprise/EnterpriseFooter';
+import MinimalFooter from '@/components/enterprise/MinimalFooter';
 
 const Index = () => {
   const [initialLoadComplete, setInitialLoadComplete] = useState(false);
@@ -21,18 +20,18 @@ const Index = () => {
   useEffect(() => {
     setInitialLoadComplete(true);
     
-    // Enterprise-grade performance optimization
+    // Performance optimization for animations
     const optimizeForPerformance = () => {
       const isMobile = window.innerWidth < 768;
       
       if (isMobile) {
-        document.documentElement.style.setProperty('--motion-fast', '0.1s');
-        document.documentElement.style.setProperty('--motion-medium', '0.2s');
-        document.documentElement.style.setProperty('--motion-slow', '0.3s');
-      } else {
         document.documentElement.style.setProperty('--motion-fast', '0.15s');
         document.documentElement.style.setProperty('--motion-medium', '0.3s');
-        document.documentElement.style.setProperty('--motion-slow', '0.6s');
+        document.documentElement.style.setProperty('--motion-slow', '0.5s');
+      } else {
+        document.documentElement.style.setProperty('--motion-fast', '0.2s');
+        document.documentElement.style.setProperty('--motion-medium', '0.4s');
+        document.documentElement.style.setProperty('--motion-slow', '0.8s');
       }
     };
     
@@ -45,7 +44,7 @@ const Index = () => {
   }, [language, toast]);
 
   const getSeoDescription = () => {
-    return "Operational AI Systems for GCC Business Leaders. Enterprise-grade AI infrastructure for financial, retail, healthcare, logistics, and public sector organizations in the UAE and Gulf region.";
+    return "Enterprise-grade AI infrastructure for financial, retail, healthcare, logistics, and public sector organizations in the UAE and Gulf region.";
   };
 
   const getStructuredData = () => {
@@ -115,13 +114,13 @@ const Index = () => {
     <>
       <Helmet>
         <title>Operational AI Systems for GCC Business Leaders | AI8TY</title>
-        <meta name="description" content={getSeoDescription()} />
+        <meta name="description" content="Enterprise-grade AI infrastructure for financial, retail, healthcare, logistics, and public sector organizations in the UAE and Gulf region." />
         <meta name="keywords" content="enterprise AI systems, GCC AI solutions, UAE AI infrastructure, operational AI, financial AI, healthcare AI, manufacturing AI, AI8TY" />
         
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover" />
         
         <meta property="og:title" content="Operational AI Systems for GCC Business Leaders | AI8TY" />
-        <meta property="og:description" content={getSeoDescription()} />
+        <meta property="og:description" content="Enterprise-grade AI infrastructure for financial, retail, healthcare, logistics, and public sector organizations in the UAE and Gulf region." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://ai8ty.com" />
         <meta property="og:image" content="https://ai8ty.com/og-image-enterprise.png" />
@@ -129,31 +128,27 @@ const Index = () => {
 
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Operational AI Systems for GCC Business Leaders" />
-        <meta name="twitter:description" content={getSeoDescription()} />
+        <meta name="twitter:description" content="Enterprise-grade AI infrastructure for financial, retail, healthcare, logistics, and public sector organizations in the UAE and Gulf region." />
         <meta name="twitter:image" content="https://ai8ty.com/og-image-enterprise.png" />
 
         <link rel="canonical" href="https://ai8ty.com" />
         
-        <script type="application/ld+json">
-          {JSON.stringify(getStructuredData())}
-        </script>
-
         <meta name="theme-color" content="#1e293b" />
         <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
       </Helmet>
 
       <div ref={mainRef} className="min-h-screen bg-slate-900">
-        <EnterpriseNavigation />
+        <EnhancedNavigation />
         
         <main className="relative">
-          {/* ENTERPRISE HERO */}
+          {/* MINIMAL HERO */}
           <section id="hero-section">
-            <EnterpriseHeroSection />
+            <MinimalHeroSection />
           </section>
           
-          {/* VALUE PROPOSITION */}
+          {/* MINIMAL VALUE PROPOSITION */}
           <section id="value-proposition">
-            <ValuePropositionSection />
+            <MinimalValueProposition />
           </section>
           
           {/* INNOVATION SECTION */}
@@ -167,7 +162,7 @@ const Index = () => {
           </section>
         </main>
         
-        <EnterpriseFooter />
+        <MinimalFooter />
       </div>
     </>
   );
