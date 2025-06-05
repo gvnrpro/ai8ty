@@ -186,7 +186,7 @@
   }
   
   .card-apple:hover {
-    @apply bg-white/8 border-white/20;
+    @apply bg-white/[0.08] border-white/20;
     transform: translateY(-2px);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
   }
@@ -231,7 +231,7 @@
   .stagger-fade-in > *:nth-child(1) { animation-delay: 0ms; }
   .stagger-fade-in > *:nth-child(2) { animation-delay: 100ms; }
   .stagger-fade-in > *:nth-child(3) { animation-delay: 200ms; }
-  .stagger-fade-in > *:nth-child(4) { animation-delay: 300ms; }
+  .stagger-fade-in > *:nth-child(4) { animation-delay: 400ms; }
   .stagger-fade-in > *:nth-child(5) { animation-delay: 400ms; }
   .stagger-fade-in > *:nth-child(6) { animation-delay: 500ms; }
 
