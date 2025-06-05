@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useToast } from '@/hooks/use-toast';
@@ -8,8 +7,11 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import AppleInspiredNavigation from '@/components/enterprise/AppleInspiredNavigation';
 import AppleInspiredHero from '@/components/enterprise/AppleInspiredHero';
 import AppleInspiredValueProp from '@/components/enterprise/AppleInspiredValueProp';
-import WhyAI8TYSection from '@/components/enterprise/WhyAI8TYSection';
 import InnovationSection from '@/components/enterprise/InnovationSection';
+import WhyAI8TYSection from '@/components/enterprise/WhyAI8TYSection';
+import AppleCaseStudiesSection from '@/components/enterprise/AppleCaseStudiesSection';
+import AppleTestimonialsSection from '@/components/enterprise/AppleTestimonialsSection';
+import ApplePremiumContactSection from '@/components/enterprise/ApplePremiumContactSection';
 import AppleInspiredFooter from '@/components/enterprise/AppleInspiredFooter';
 
 const Index = () => {
@@ -91,9 +93,24 @@ const Index = () => {
             <InnovationSection />
           </section>
           
+          {/* CASE STUDIES */}
+          <section id="case-studies">
+            <AppleCaseStudiesSection />
+          </section>
+          
           {/* WHY AI8TY */}
           <section id="why-ai8ty">
             <WhyAI8TYSection />
+          </section>
+          
+          {/* TESTIMONIALS */}
+          <section id="testimonials">
+            <AppleTestimonialsSection />
+          </section>
+          
+          {/* PREMIUM CONTACT */}
+          <section id="contact">
+            <ApplePremiumContactSection />
           </section>
         </main>
         
