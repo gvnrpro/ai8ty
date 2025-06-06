@@ -8,6 +8,7 @@ import AppleInspiredNavigation from './AppleInspiredNavigation';
 import AppleInspiredFooter from './AppleInspiredFooter';
 import { useLanguage } from '@/contexts/LanguageContext';
 
+
 interface Challenge {
   title: string;
   description: string;
@@ -66,6 +67,21 @@ interface ComprehensiveIndustryTemplateProps {
   roiInputs: ROIInput[];
   implementationSteps: ImplementationStep[];
 }
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0 },
+};
+
 
 const ComprehensiveIndustryTemplate: React.FC<ComprehensiveIndustryTemplateProps> = ({
   title,
