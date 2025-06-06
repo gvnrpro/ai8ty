@@ -7,18 +7,22 @@ import { ArrowRight, Mail, Phone, MapPin, Clock } from 'lucide-react';
 import EnterpriseNavigation from '@/components/enterprise/EnterpriseNavigation';
 import EnterpriseFooter from '@/components/enterprise/EnterpriseFooter';
 import TechBackground from '@/components/enterprise/TechBackground';
+import toast, { Toaster } from 'react-hot-toast';
+import { useInView } from 'react-intersection-observer';
 
 const Contact = () => {
   const { language } = useLanguage();
   const isArabic = language === 'ar';
   const [formData, setFormData] = useState({
-    name: '',
-    organization: '',
-    sector: '',
-    email: '',
-    phone: '',
-    message: ''
-  });
+  name: '',
+  organization: '',
+  sector: '',
+  email: '',
+  phone: '',
+  message: '',
+  referral: ''
+});
+
 
   const content = {
     en: {
@@ -82,11 +86,27 @@ const Contact = () => {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Handle form submission
-    console.log('Form submitted:', formData);
-  };
+ const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+  try {
+    // Simulate submission delay or real API call
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+
+    toast.success(isArabic ? 'تم إرسال الطلب بنجاح' : 'Briefing request submitted successfully');
+    setFormData({
+      name: '',
+      organization: '',
+      sector: '',
+      email: '',
+      phone: '',
+      message: '',
+      referral: ''
+    });
+  } catch (error) {
+    toast.error(isArabic ? 'حدث خطأ. حاول مرة أخرى.' : 'Something went wrong. Please try again.');
+  }
+};
+
 
   const contactInfo = [
     {
@@ -276,6 +296,25 @@ const Contact = () => {
                         required
                       />
                     </div>
+<div>
+  <label className="block text-sm font-medium text-slate-300 mb-2">
+    {isArabic ? 'كيف سمعت عنا؟' : 'How did you hear about us?'}
+  </label>
+  <select
+    name="referral"
+    value={formData.referral}
+    onChange={handleInputChange}
+    className="w-full px-4 py-3 md:py-4 bg-slate-800/50 border border-slate-600 rounded-lg text-white focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all text-base touch-manipulation"
+    required
+  >
+    <option value="">{isArabic ? 'اختر خياراً' : 'Select an option'}</option>
+    <option value="LinkedIn">{isArabic ? 'لينكدإن' : 'LinkedIn'}</option>
+    <option value="X (Twitter)">{isArabic ? 'تويتر (X)' : 'X (Twitter)'}</option>
+    <option value="Referral">{isArabic ? 'إحالة' : 'Referral'}</option>
+    <option value="Search Engine">{isArabic ? 'محرك بحث' : 'Search Engine'}</option>
+    <option value="Other">{isArabic ? 'أخرى' : 'Other'}</option>
+  </select>
+</div>
 
                     <motion.button
                       type="submit"
