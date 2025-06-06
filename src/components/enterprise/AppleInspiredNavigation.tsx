@@ -21,6 +21,19 @@ const AppleInspiredNavigation: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [mobileMenuOpen]);
+
   const navigation = {
     en: {
       overview: 'Overview',
@@ -135,10 +148,10 @@ const AppleInspiredNavigation: React.FC = () => {
           </motion.button>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile Menu - FIXED TRANSPARENCY */}
         {mobileMenuOpen && (
           <motion.div 
-            className="fixed inset-0 glass-apple-strong z-40 md:hidden"
+            className="fixed inset-0 bg-slate-950/98 backdrop-blur-2xl z-40 md:hidden"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
