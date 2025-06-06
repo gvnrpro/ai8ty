@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate, useLocation } from 'react-router-dom';
@@ -14,21 +13,13 @@ const AppleInspiredNavigation: React.FC = () => {
   const isArabic = language === 'ar';
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
+    const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Prevent body scroll when mobile menu is open
   useEffect(() => {
-    if (mobileMenuOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
-    
+    document.body.style.overflow = mobileMenuOpen ? 'hidden' : 'unset';
     return () => {
       document.body.style.overflow = 'unset';
     };
@@ -37,26 +28,24 @@ const AppleInspiredNavigation: React.FC = () => {
   const navigation = {
     en: {
       overview: 'Overview',
-      solutions: 'Solutions', 
+      solutions: 'Solutions',
       contact: 'Contact',
-      cta: 'Schedule Briefing'
+      cta: 'Schedule Briefing',
     },
     ar: {
       overview: 'نظرة عامة',
       solutions: 'الحلول',
       contact: 'اتصل بنا',
-      cta: 'جدولة إحاطة'
-    }
+      cta: 'جدولة إحاطة',
+    },
   };
 
   const currentNav = navigation[isArabic ? 'ar' : 'en'];
 
   return (
-    <motion.nav 
+    <motion.nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled 
-          ? 'glass-apple-strong border-b border-white/10' 
-          : 'bg-transparent'
+        scrolled ? 'glass-apple-strong border-b border-white/10' : 'bg-transparent'
       } ${isArabic ? 'rtl' : ''}`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
@@ -64,21 +53,21 @@ const AppleInspiredNavigation: React.FC = () => {
     >
       <div className="container-apple h-16 flex items-center justify-between">
         {/* Logo */}
-        <motion.button 
+        <motion.button
           onClick={() => navigate('/')}
-          className="flex items-center gap-3 hover-scale z-50"
+          className="flex items-center gap-3 hover-scale z-50 ml-3 md:ml-0"
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
         >
-          <img 
-            src="/lovable-uploads/4b4a830d-afce-4dc3-8cc3-4fae3e2728ed.png" 
-            alt="AI8TY Logo" 
-            className="h-7 w-auto object-contain transition-opacity duration-200 hover:opacity-80" 
+          <img
+            src="/lovable-uploads/4b4a830d-afce-4dc3-8cc3-4fae3e2728ed.png"
+            alt="AI8TY Logo"
+            className="h-8 w-auto object-contain transition-opacity duration-200 hover:opacity-80"
           />
         </motion.button>
 
         {/* Mobile Menu Button */}
-        <button 
+        <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           className="md:hidden glass-apple p-2 rounded-lg z-50 hover-scale"
           aria-label="Toggle menu"
@@ -96,15 +85,15 @@ const AppleInspiredNavigation: React.FC = () => {
           {[
             { path: '/', label: currentNav.overview },
             { path: '/solutions', label: currentNav.solutions },
-            { path: '/contact', label: currentNav.contact }
+            { path: '/contact', label: currentNav.contact },
           ].map((item, index) => (
             <motion.button
               key={item.path}
               onClick={() => navigate(item.path)}
               className={`relative text-caption transition-colors duration-200 hover-lift ${
-                location.pathname === item.path || 
+                location.pathname === item.path ||
                 (item.path === '/solutions' && location.pathname.startsWith('/solutions'))
-                  ? 'text-foreground' 
+                  ? 'text-foreground'
                   : 'text-muted-foreground hover:text-foreground'
               }`}
               initial={{ opacity: 0, y: 10 }}
@@ -112,12 +101,12 @@ const AppleInspiredNavigation: React.FC = () => {
               transition={{ delay: index * 0.1 }}
             >
               {item.label}
-              {(location.pathname === item.path || 
+              {(location.pathname === item.path ||
                 (item.path === '/solutions' && location.pathname.startsWith('/solutions'))) && (
                 <motion.div
                   className="absolute -bottom-1 left-0 right-0 h-px bg-blue-500"
                   layoutId="activeTab"
-                  transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                  transition={{ type: 'spring', stiffness: 300, damping: 30 }}
                 />
               )}
             </motion.button>
@@ -126,17 +115,14 @@ const AppleInspiredNavigation: React.FC = () => {
 
         {/* Desktop Language & CTA */}
         <div className="hidden md:flex items-center gap-4">
-          {/* Language Switcher */}
-          <button 
+          <button
             onClick={() => setLanguage(language === 'en' ? 'ar' : 'en')}
             className="flex items-center gap-2 glass-apple px-3 py-1.5 rounded-lg hover-scale"
           >
             <Globe size={14} />
-            <span className="text-caption font-medium">
-              {language === 'en' ? 'EN' : 'عر'}
-            </span>
+            <span className="text-caption font-medium">{language === 'en' ? 'EN' : 'عر'}</span>
           </button>
-          
+
           <motion.button
             onClick={() => navigate('/contact')}
             className="btn-apple-secondary hover-lift text-caption"
@@ -148,9 +134,9 @@ const AppleInspiredNavigation: React.FC = () => {
           </motion.button>
         </div>
 
-        {/* Mobile Menu - FIXED TRANSPARENCY */}
+        {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <motion.div 
+          <motion.div
             className="fixed inset-0 bg-slate-950/98 backdrop-blur-2xl z-40 md:hidden"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -160,7 +146,7 @@ const AppleInspiredNavigation: React.FC = () => {
               {[
                 { path: '/', label: currentNav.overview },
                 { path: '/solutions', label: currentNav.solutions },
-                { path: '/contact', label: currentNav.contact }
+                { path: '/contact', label: currentNav.contact },
               ].map((item) => (
                 <button
                   key={item.path}
@@ -169,9 +155,9 @@ const AppleInspiredNavigation: React.FC = () => {
                     setMobileMenuOpen(false);
                   }}
                   className={`text-title transition-colors duration-200 hover-scale ${
-                    location.pathname === item.path || 
+                    location.pathname === item.path ||
                     (item.path === '/solutions' && location.pathname.startsWith('/solutions'))
-                      ? 'text-foreground' 
+                      ? 'text-foreground'
                       : 'text-muted-foreground hover:text-foreground'
                   }`}
                 >
@@ -180,7 +166,7 @@ const AppleInspiredNavigation: React.FC = () => {
               ))}
 
               <div className="pt-8 flex flex-col items-center gap-4">
-                <button 
+                <button
                   onClick={() => setLanguage(language === 'en' ? 'ar' : 'en')}
                   className="flex items-center gap-2 glass-apple px-4 py-2 rounded-xl"
                 >
