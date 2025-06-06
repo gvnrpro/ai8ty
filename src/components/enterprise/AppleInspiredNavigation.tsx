@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Menu, X, Globe } from 'lucide-react';
+import NavButton from '@/components/NavButton';
 
 const AppleInspiredNavigation: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -62,7 +63,7 @@ const AppleInspiredNavigation: React.FC = () => {
           <img
             src="/lovable-uploads/4b4a830d-afce-4dc3-8cc3-4fae3e2728ed.png"
             alt="AI8TY Logo"
-            className="h-8 w-auto object-contain transition-opacity duration-200 hover:opacity-80"
+            className="h-7 w-auto object-contain ml-2 md:ml-0 transition-opacity duration-200 hover:opacity-80"
           />
         </motion.button>
 
@@ -81,37 +82,26 @@ const AppleInspiredNavigation: React.FC = () => {
         </button>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-8">
-          {[
-            { path: '/', label: currentNav.overview },
-            { path: '/solutions', label: currentNav.solutions },
-            { path: '/contact', label: currentNav.contact },
-          ].map((item, index) => (
-            <motion.button
-              key={item.path}
-              onClick={() => navigate(item.path)}
-              className={`relative text-caption transition-colors duration-200 hover-lift ${
-                location.pathname === item.path ||
-                (item.path === '/solutions' && location.pathname.startsWith('/solutions'))
-                  ? 'text-foreground'
-                  : 'text-muted-foreground hover:text-foreground'
-              }`}
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
-            >
-              {item.label}
-              {(location.pathname === item.path ||
-                (item.path === '/solutions' && location.pathname.startsWith('/solutions'))) && (
-                <motion.div
-                  className="absolute -bottom-1 left-0 right-0 h-px bg-blue-500"
-                  layoutId="activeTab"
-                  transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-                />
-              )}
-            </motion.button>
-          ))}
-        </div>
+<div className="hidden md:flex items-center gap-8">
+  {[
+    { path: '/', label: currentNav.overview },
+    { path: '/solutions', label: currentNav.solutions },
+    { path: '/contact', label: currentNav.contact },
+  ].map((item, index) => (
+    <NavButton
+      key={item.path}
+      path={item.path}
+      label={item.label}
+      index={index}
+      isActive={
+        location.pathname === item.path ||
+        (item.path === '/solutions' && location.pathname.startsWith('/solutions'))
+      }
+      variant="desktop"
+    />
+  ))}
+</div>
+
 
         {/* Desktop Language & CTA */}
         <div className="hidden md:flex items-center gap-4">
@@ -142,50 +132,27 @@ const AppleInspiredNavigation: React.FC = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
           >
-            <div className="flex flex-col items-center justify-center h-full space-y-8 stagger-fade-in">
-              {[
-                { path: '/', label: currentNav.overview },
-                { path: '/solutions', label: currentNav.solutions },
-                { path: '/contact', label: currentNav.contact },
-              ].map((item) => (
-                <button
-                  key={item.path}
-                  onClick={() => {
-                    navigate(item.path);
-                    setMobileMenuOpen(false);
-                  }}
-                  className={`text-title transition-colors duration-200 hover-scale ${
-                    location.pathname === item.path ||
-                    (item.path === '/solutions' && location.pathname.startsWith('/solutions'))
-                      ? 'text-foreground'
-                      : 'text-muted-foreground hover:text-foreground'
-                  }`}
-                >
-                  {item.label}
-                </button>
-              ))}
+          <div className="flex flex-col items-center justify-center h-full space-y-8 stagger-fade-in">
+  {[
+    { path: '/', label: currentNav.overview },
+    { path: '/solutions', label: currentNav.solutions },
+    { path: '/contact', label: currentNav.contact },
+  ].map((item, index) => (
+    <NavButton
+      key={item.path}
+      path={item.path}
+      label={item.label}
+      index={index}
+      isActive={
+        location.pathname === item.path ||
+        (item.path === '/solutions' && location.pathname.startsWith('/solutions'))
+      }
+      variant="mobile"
+      onClick={() => setMobileMenuOpen(false)}
+    />
+  ))}
+</div>
 
-              <div className="pt-8 flex flex-col items-center gap-4">
-                <button
-                  onClick={() => setLanguage(language === 'en' ? 'ar' : 'en')}
-                  className="flex items-center gap-2 glass-apple px-4 py-2 rounded-xl"
-                >
-                  <Globe size={16} />
-                  <span className="text-body font-medium">
-                    {language === 'en' ? 'العربية' : 'English'}
-                  </span>
-                </button>
-
-                <button
-                  onClick={() => {
-                    navigate('/contact');
-                    setMobileMenuOpen(false);
-                  }}
-                  className="btn-apple-primary"
-                >
-                  {currentNav.cta}
-                </button>
-              </div>
             </div>
           </motion.div>
         )}
