@@ -348,17 +348,12 @@ const ComprehensiveIndustryTemplate: React.FC<ComprehensiveIndustryTemplateProps
           {/* Case Study Section */}
           <section ref={caseStudyRef} className="section-apple bg-gradient-to-br from-slate-900 to-slate-800">
             <motion.div className="container-apple" variants={containerVariants} initial="hidden" animate={caseStudyInView ? "visible" : "hidden"}>
-              <motion.div className="text-center mb-16" variants={itemVariants}>
-                <h2 className="text-title-large mb-6">Proven Results in Action</h2>
-                <p className="text-body-large container-apple-narrow">
-                  Real transformation delivered for organizations across the GCC region.
-                </p>
-              </motion.div>
+              
 
               <div className="premium-card premium-border-card max-w-4xl mx-auto">
                 <motion.div variants={itemVariants}>
                   <div className="mb-8">
-                    <h3 className="text-title mb-2 text-slate-800">{caseStudy.company}</h3>
+                    <h3 className="text-title mb-2">{caseStudy.company}</h3>
                     <p className="text-body text-muted-foreground">{caseStudy.industry}</p>
                   </div>
 
