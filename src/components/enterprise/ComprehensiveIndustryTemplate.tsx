@@ -1,9 +1,8 @@
-
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { ArrowRight, CheckCircle, Calculator, Clock, Target, Zap, Star } from 'lucide-react';
+import { ArrowRight, CheckCircle, Calculator, Clock, Target, Zap, Star, LucideIcon } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import AppleInspiredNavigation from './AppleInspiredNavigation';
 import AppleInspiredFooter from './AppleInspiredFooter';
@@ -17,7 +16,7 @@ interface Challenge {
 }
 
 interface Capability {
-  icon: React.ComponentType<{ size?: number; className?: string }>;
+  icon: LucideIcon;
   title: string;
   description: string;
   benefits: string[];
@@ -87,7 +86,7 @@ const ComprehensiveIndustryTemplate: React.FC<ComprehensiveIndustryTemplateProps
   const { language } = useLanguage();
   const isArabic = language === 'ar';
   const [roiValues, setROIValues] = useState(
-    roiInputs.reduce((acc, input) => ({ ...acc, [input.label]: input.defaultValue }), {})
+    roiInputs.reduce((acc, input) => ({ ...acc, [input.label]: input.defaultValue }), {} as Record<string, number>)
   );
 
   const heroRef = useRef(null);
@@ -107,31 +106,8 @@ const ComprehensiveIndustryTemplate: React.FC<ComprehensiveIndustryTemplateProps
   const calculateROI = () => {
     return Object.entries(roiValues).reduce((total, [key, value]) => {
       const input = roiInputs.find(input => input.label === key);
-      return total + (value * (input?.multiplier || 0));
+      return total + (Number(value) * (input?.multiplier || 0));
     }, 0);
-  };
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.8,
-        ease: [0.16, 1, 0.3, 1]
-      }
-    }
   };
 
   // Enhanced Schema Data
@@ -357,34 +333,37 @@ const ComprehensiveIndustryTemplate: React.FC<ComprehensiveIndustryTemplateProps
               </motion.div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {capabilities.map((capability, index) => (
-                  <motion.div
-                    key={index}
-                    className="premium-card hover-lift group"
-                    variants={itemVariants}
-                  >
-                    <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${gradientFrom} ${gradientTo} flex items-center justify-center mb-6`}>
-                      <capability.icon size={24} className="text-white" />
-                    </div>
-                    
-                    <h3 className="text-title mb-4 text-foreground group-hover:text-blue-400 transition-colors">
-                      {capability.title}
-                    </h3>
-                    
-                    <p className="text-body text-muted-foreground mb-6">
-                      {capability.description}
-                    </p>
+                {capabilities.map((capability, index) => {
+                  const IconComponent = capability.icon;
+                  return (
+                    <motion.div
+                      key={index}
+                      className="premium-card hover-lift group"
+                      variants={itemVariants}
+                    >
+                      <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${gradientFrom} ${gradientTo} flex items-center justify-center mb-6`}>
+                        <IconComponent size={24} className="text-white" />
+                      </div>
+                      
+                      <h3 className="text-title mb-4 text-foreground group-hover:text-blue-400 transition-colors">
+                        {capability.title}
+                      </h3>
+                      
+                      <p className="text-body text-muted-foreground mb-6">
+                        {capability.description}
+                      </p>
 
-                    <div className="space-y-2">
-                      {capability.benefits.map((benefit, benefitIndex) => (
-                        <div key={benefitIndex} className="flex items-start gap-3">
-                          <CheckCircle size={16} className={`${primaryColor} mt-0.5 flex-shrink-0`} />
-                          <span className="text-caption text-muted-foreground">{benefit}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </motion.div>
-                ))}
+                      <div className="space-y-2">
+                        {capability.benefits.map((benefit, benefitIndex) => (
+                          <div key={benefitIndex} className="flex items-start gap-3">
+                            <CheckCircle size={16} className={`${primaryColor} mt-0.5 flex-shrink-0`} />
+                            <span className="text-caption text-muted-foreground">{benefit}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </motion.div>
+                  );
+                })}
               </div>
             </motion.div>
           </section>
@@ -408,46 +387,44 @@ const ComprehensiveIndustryTemplate: React.FC<ComprehensiveIndustryTemplateProps
                 <motion.div variants={itemVariants}>
                   <div className="mb-8">
                     <h3 className="text-title mb-2">{caseStudy.company}</h3>
-                    <p className="text-body text-blue-400">{caseStudy.industry}</p>
+                    <p className="text-body text-muted-foreground">{caseStudy.industry}</p>
                   </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                  <div className="space-y-6 mb-8">
                     <div>
-                      <h4 className="text-title mb-4 text-red-400">The Challenge</h4>
+                      <h4 className="text-title-small mb-3 text-red-400">Challenge</h4>
                       <p className="text-body text-muted-foreground">{caseStudy.challenge}</p>
                     </div>
                     
                     <div>
-                      <h4 className="text-title mb-4 text-green-400">Our Solution</h4>
+                      <h4 className="text-title-small mb-3 text-blue-400">Solution</h4>
                       <p className="text-body text-muted-foreground">{caseStudy.solution}</p>
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
+                  <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
                     {caseStudy.results.map((result, index) => (
                       <div key={index} className="text-center">
-                        <div className={`text-display ${primaryColor} mb-2`}>{result.value}</div>
-                        <div className="text-caption font-semibold text-foreground mb-1">{result.label}</div>
-                        <div className="text-caption text-muted-foreground">{result.description}</div>
+                        <div className={`text-headline font-bold mb-2 gradient-text ${gradientFrom} ${gradientTo}`}>
+                          {result.value}
+                        </div>
+                        <div className="text-caption font-medium text-foreground mb-1">
+                          {result.label}
+                        </div>
+                        <div className="text-caption text-muted-foreground">
+                          {result.description}
+                        </div>
                       </div>
                     ))}
                   </div>
 
-                  <div className="border-l-4 border-blue-500 pl-6 bg-blue-500/5 rounded-r-xl p-4">
-                    <blockquote className="text-body italic text-muted-foreground mb-4">
-                      "{caseStudy.quote}"
-                    </blockquote>
-                    <div className="flex items-center gap-3">
-                      <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-full flex items-center justify-center">
-                        <span className="text-white font-bold text-caption">
-                          {caseStudy.author.split(' ').map(n => n[0]).join('')}
-                        </span>
-                      </div>
-                      <div>
-                        <div className="text-caption font-semibold text-foreground">{caseStudy.author}</div>
-                        <div className="text-caption text-muted-foreground">{caseStudy.title}</div>
-                      </div>
-                    </div>
+                  <blockquote className="border-l-4 border-blue-500 pl-6 italic text-body text-muted-foreground mb-6">
+                    "{caseStudy.quote}"
+                  </blockquote>
+
+                  <div className="text-caption text-muted-foreground">
+                    <strong className="text-foreground">{caseStudy.author}</strong><br />
+                    {caseStudy.title}
                   </div>
                 </motion.div>
               </div>
@@ -465,42 +442,53 @@ const ComprehensiveIndustryTemplate: React.FC<ComprehensiveIndustryTemplateProps
               <motion.div className="text-center mb-16" variants={itemVariants}>
                 <h2 className="text-title-large mb-6">Calculate Your ROI Impact</h2>
                 <p className="text-body-large container-apple-narrow">
-                  See the potential value AI8TY can deliver to your organization.
+                  See the potential return on investment for your organization with our AI solutions.
                 </p>
               </motion.div>
 
-              <div className="max-w-2xl mx-auto premium-card">
+              <div className="premium-card premium-border-card max-w-2xl mx-auto">
                 <motion.div variants={itemVariants}>
                   <div className="flex items-center gap-3 mb-8">
-                    <Calculator className={`${primaryColor}`} size={24} />
-                    <h3 className="text-title">ROI Calculator</h3>
+                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-green-600 to-emerald-600 flex items-center justify-center">
+                      <Calculator size={24} className="text-white" />
+                    </div>
+                    <h3 className="text-title">Investment Calculator</h3>
                   </div>
 
                   <div className="space-y-6 mb-8">
                     {roiInputs.map((input, index) => (
                       <div key={index}>
-                        <label className="block text-caption font-medium mb-2">{input.label}</label>
+                        <label className="block text-caption font-medium text-foreground mb-2">
+                          {input.label}
+                        </label>
                         <input
                           type="number"
                           value={roiValues[input.label]}
-                          onChange={(e) => setROIValues(prev => ({ ...prev, [input.label]: parseInt(e.target.value) || 0 }))}
-                          className="w-full glass-premium border border-white/20 rounded-xl px-4 py-3 text-foreground bg-white/5"
+                          onChange={(e) => setROIValues(prev => ({
+                            ...prev,
+                            [input.label]: Number(e.target.value)
+                          }))}
+                          className="w-full px-4 py-3 rounded-xl bg-slate-900/50 border border-slate-700 text-foreground focus:border-blue-500 focus:outline-none transition-colors"
                         />
                       </div>
                     ))}
                   </div>
 
-                  <div className="text-center p-6 bg-gradient-to-br from-green-500/10 to-emerald-500/10 border border-green-500/20 rounded-xl">
-                    <div className="text-caption text-green-400 mb-2">Projected Annual Value</div>
-                    <div className="text-display text-green-400">${calculateROI().toLocaleString()}</div>
-                    <div className="text-caption text-muted-foreground mt-2">Based on industry benchmarks and optimization potential</div>
+                  <div className="p-6 bg-gradient-to-br from-green-500/10 to-emerald-500/10 border border-green-500/20 rounded-xl text-center">
+                    <div className="text-caption text-green-400 mb-2">Estimated Annual Value</div>
+                    <div className="text-headline font-bold text-green-400">
+                      ${calculateROI().toLocaleString()}
+                    </div>
+                    <div className="text-caption text-muted-foreground mt-2">
+                      Based on industry benchmarks and optimization potential
+                    </div>
                   </div>
                 </motion.div>
               </div>
             </motion.div>
           </section>
 
-          {/* Implementation Section */}
+          {/* Implementation Steps Section */}
           <section ref={implementationRef} className="section-apple bg-gradient-to-br from-slate-900/50 to-slate-800/50">
             <motion.div
               className="container-apple"
@@ -509,49 +497,60 @@ const ComprehensiveIndustryTemplate: React.FC<ComprehensiveIndustryTemplateProps
               animate={implementationInView ? "visible" : "hidden"}
             >
               <motion.div className="text-center mb-16" variants={itemVariants}>
-                <h2 className="text-title-large mb-6">Your Journey to AI Excellence</h2>
+                <h2 className="text-title-large mb-6">Your Path to Transformation</h2>
                 <p className="text-body-large container-apple-narrow">
-                  A structured approach to implementing AI systems that deliver immediate and lasting value.
+                  A proven methodology that ensures successful AI implementation across your organization.
                 </p>
               </motion.div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              <div className="space-y-8">
                 {implementationSteps.map((step, index) => (
                   <motion.div
                     key={index}
                     className="premium-card premium-border-card"
                     variants={itemVariants}
                   >
-                    <div className="flex items-center gap-3 mb-6">
-                      <div className={`w-8 h-8 rounded-full bg-gradient-to-br ${gradientFrom} ${gradientTo} flex items-center justify-center text-white font-bold text-caption`}>
-                        {index + 1}
-                      </div>
-                      <div>
-                        <div className={`text-caption font-semibold ${primaryColor}`}>{step.phase}</div>
-                        <div className="text-caption text-muted-foreground flex items-center gap-1">
-                          <Clock size={12} />
-                          {step.duration}
+                    <div className="flex items-start gap-6">
+                      <div className="flex-shrink-0">
+                        <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${gradientFrom} ${gradientTo} flex items-center justify-center`}>
+                          <span className="text-white font-bold">{index + 1}</span>
                         </div>
                       </div>
-                    </div>
-
-                    <h3 className="text-title mb-4 text-foreground">{step.title}</h3>
-                    <p className="text-body text-muted-foreground mb-6">{step.description}</p>
-
-                    <div className="space-y-2">
-                      <div className="text-caption font-semibold text-foreground mb-3">Key Outcomes:</div>
-                      {step.outcomes.map((outcome, outcomeIndex) => (
-                        <div key={outcomeIndex} className="flex items-start gap-2">
-                          <Target size={12} className={`${primaryColor} mt-1 flex-shrink-0`} />
-                          <span className="text-caption text-muted-foreground">{outcome}</span>
+                      
+                      <div className="flex-1">
+                        <div className="flex items-center gap-4 mb-4">
+                          <h3 className="text-title text-foreground">{step.phase}: {step.title}</h3>
+                          <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-caption text-blue-400">
+                            <Clock size={12} />
+                            {step.duration}
+                          </span>
                         </div>
-                      ))}
+                        
+                        <p className="text-body text-muted-foreground mb-6">
+                          {step.description}
+                        </p>
+
+                        <div>
+                          <h4 className="text-caption font-semibold text-foreground mb-3">Key Outcomes</h4>
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                            {step.outcomes.map((outcome, outcomeIndex) => (
+                              <div key={outcomeIndex} className="flex items-start gap-3">
+                                <Target size={16} className={`${primaryColor} mt-0.5 flex-shrink-0`} />
+                                <span className="text-caption text-muted-foreground">{outcome}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </motion.div>
                 ))}
               </div>
 
-              <motion.div className="text-center mt-16" variants={itemVariants}>
+              <motion.div 
+                className="text-center mt-16"
+                variants={itemVariants}
+              >
                 <button
                   onClick={() => navigate('/contact')}
                   className="btn-premium group"
