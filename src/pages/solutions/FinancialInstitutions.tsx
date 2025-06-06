@@ -7,9 +7,9 @@ const FinancialInstitutions = () => {
   const templateProps = {
     // Meta & SEO
     title: 'AI8TY for Financial Institutions',
-    subtitle: 'Intelligence that transforms risk into opportunity',
+    subtitle: 'Intelligence that transforms banking',
     metaTitle: 'AI Systems for Financial Institutions | AI8TY',
-    metaDescription: 'Advanced AI implementations for global finance including AML pattern suppression, cross-border liquidity optimization, and private wealth inference engines.',
+    metaDescription: 'Operational AI systems for banks and financial institutions including risk assessment, fraud detection, and regulatory compliance automation.',
     
     // Visual Design
     primaryColor: 'text-blue-500',
@@ -17,174 +17,174 @@ const FinancialInstitutions = () => {
     gradientTo: 'to-indigo-600',
     
     // Content
-    heroDescription: 'Transform your financial operations with AI systems that understand regulatory complexity, manage risk intelligently, and unlock new revenue opportunities across the GCC market.',
+    heroDescription: 'Transform financial operations with AI systems designed for UAE banking regulations, from real-time fraud detection to intelligent risk assessment and automated compliance monitoring.',
     
     challenges: [
       {
-        title: 'AML & Compliance Complexity',
-        description: 'Manual AML processes generate thousands of false positives, overwhelming compliance teams and creating regulatory exposure.',
-        impact: 'Up to 95% false positive rates, $270M annual compliance costs, regulatory penalties averaging $2.8B',
-        solution: 'AI-powered pattern recognition reduces false positives by 80% while ensuring 100% regulatory compliance across UAE CBUAE, ADGM, and DIFC requirements.'
+        title: 'Real-Time Fraud Detection',
+        description: 'Traditional fraud detection systems create delays and false positives, impacting customer experience while missing sophisticated threats.',
+        impact: 'Fraud losses average $2.8M annually, 34% false positive rate, customer satisfaction drops 22% during investigations',
+        solution: 'AI-powered fraud detection analyzes transaction patterns in real-time, reducing false positives by 89% while catching sophisticated fraud attempts.'
       },
       {
-        title: 'Cross-Border Liquidity Management',
-        description: 'Complex currency exposures and liquidity requirements across GCC markets create operational inefficiencies.',
-        impact: 'Daily liquidity gaps averaging $50M, 40% increase in operational costs, missed arbitrage opportunities',
-        solution: 'Real-time liquidity optimization algorithms predict cash flows and optimize currency positions across all GCC markets.'
+        title: 'Risk Assessment Complexity',
+        description: 'Manual risk evaluation processes are slow and inconsistent, creating compliance risks and limiting business agility.',
+        impact: 'Risk assessment takes 5-7 days, 15% inconsistency in evaluations, regulatory compliance concerns',
+        solution: 'Intelligent risk modeling provides instant, consistent risk assessments using 200+ data points and regulatory guidelines.'
       },
       {
-        title: 'Private Wealth Intelligence Gaps',
-        description: 'Fragmented client data prevents personalized wealth management and limits cross-selling opportunities.',
-        impact: 'Average client lifetime value 60% below potential, 23% client attrition rate, missed revenue opportunities',
-        solution: 'Unified client intelligence platform provides 360-degree wealth insights and personalized investment recommendations.'
+        title: 'Customer Experience Optimization',
+        description: 'Fragmented customer data prevents personalized service and creates friction in the banking experience.',
+        impact: 'Customer acquisition costs 40% above market, satisfaction scores 73%, limited cross-selling success',
+        solution: 'Unified customer intelligence delivers personalized experiences while maintaining strict privacy and security standards.'
       },
       {
-        title: 'Real-Time Risk Assessment',
-        description: 'Legacy risk systems cannot process market changes fast enough for modern trading and lending decisions.',
-        impact: 'Risk exposure miscalculations, delayed decision-making, potential losses up to $5M daily',
-        solution: 'Millisecond risk calculations with predictive analytics for proactive risk management and optimal capital allocation.'
+        title: 'Regulatory Compliance Burden',
+        description: 'Manual compliance processes consume significant resources and create regulatory reporting risks.',
+        impact: 'Compliance costs $3.2M annually, 25% of staff time, risk of regulatory penalties',
+        solution: 'Automated compliance monitoring ensures adherence to UAE Central Bank regulations with real-time reporting.'
       }
     ],
     
     capabilities: [
       {
         icon: Shield,
-        title: 'Intelligent AML & Compliance',
-        description: 'Advanced pattern recognition that learns from historical data to identify genuine risks while reducing false positives.',
+        title: 'Advanced Fraud Protection',
+        description: 'Real-time transaction monitoring and behavioral analysis that detects fraud while minimizing false positives.',
         benefits: [
-          '80% reduction in false positives',
-          'Real-time transaction monitoring',
-          'Automated regulatory reporting',
-          'Cross-jurisdictional compliance'
-        ]
-      },
-      {
-        icon: TrendingUp,
-        title: 'Predictive Risk Analytics',
-        description: 'AI models that forecast market volatility, credit risks, and operational exposures before they impact your portfolio.',
-        benefits: [
-          'Early risk detection',
-          'Dynamic stress testing',
-          'Portfolio optimization',
-          'Regulatory capital efficiency'
+          '99.7% fraud detection accuracy',
+          '89% reduction in false positives',
+          'Real-time transaction scoring',
+          'Behavioral pattern analysis'
         ]
       },
       {
         icon: Brain,
-        title: 'Client Intelligence Engine',
-        description: 'Comprehensive wealth analytics that predict client needs and identify cross-selling opportunities.',
+        title: 'Intelligent Risk Assessment',
+        description: 'Comprehensive risk modeling that evaluates creditworthiness and compliance risks in real-time.',
         benefits: [
-          'Personalized investment strategies',
-          'Proactive client engagement',
-          'Revenue opportunity identification',
-          'Churn prediction and prevention'
-        ]
-      },
-      {
-        icon: Zap,
-        title: 'Automated Decision Systems',
-        description: 'High-speed lending and trading decisions based on real-time data analysis and risk assessment.',
-        benefits: [
-          'Sub-second decision making',
-          'Optimal pricing strategies',
-          'Automated loan approvals',
-          'Dynamic limit management'
-        ]
-      },
-      {
-        icon: Building2,
-        title: 'Cross-Border Operations',
-        description: 'Seamless management of multi-currency operations and regulatory requirements across GCC markets.',
-        benefits: [
-          'Unified regulatory reporting',
-          'Currency optimization',
-          'Cross-border payment efficiency',
-          'Market opportunity identification'
+          'Instant risk scoring',
+          'Regulatory compliance integration',
+          'Portfolio risk optimization',
+          'Predictive default modeling'
         ]
       },
       {
         icon: Users,
-        title: 'Relationship Intelligence',
-        description: 'Deep insights into client relationships, family office structures, and beneficial ownership patterns.',
+        title: 'Customer Intelligence Platform',
+        description: 'Unified customer insights that enable personalized banking experiences and intelligent product recommendations.',
         benefits: [
-          'Enhanced due diligence',
-          'Family office optimization',
-          'Relationship mapping',
-          'Trust structure analysis'
+          'Personalized product recommendations',
+          'Customer lifetime value optimization',
+          'Behavioral insights',
+          'Cross-selling intelligence'
+        ]
+      },
+      {
+        icon: TrendingUp,
+        title: 'Investment Portfolio Optimization',
+        description: 'AI-driven portfolio management and investment advisory services tailored for GCC market conditions.',
+        benefits: [
+          'Portfolio performance optimization',
+          'Risk-adjusted returns',
+          'Market trend analysis',
+          'Automated rebalancing'
+        ]
+      },
+      {
+        icon: Zap,
+        title: 'Automated Compliance',
+        description: 'Comprehensive regulatory compliance monitoring and reporting aligned with UAE Central Bank requirements.',
+        benefits: [
+          'Real-time compliance monitoring',
+          'Automated regulatory reporting',
+          'AML/KYC optimization',
+          'Audit trail management'
+        ]
+      },
+      {
+        icon: Building2,
+        title: 'Operational Intelligence',
+        description: 'End-to-end operational optimization that reduces costs and improves service delivery efficiency.',
+        benefits: [
+          'Process automation',
+          'Cost optimization',
+          'Service quality improvement',
+          'Performance analytics'
         ]
       }
     ],
     
     caseStudy: {
-      company: 'First Gulf Banking Group',
-      industry: 'Multi-National Banking & Financial Services',
-      challenge: 'The bank was struggling with a 94% false positive rate in their AML system, requiring 200+ compliance officers to manually review 50,000+ alerts monthly. Additionally, cross-border liquidity management across 6 GCC countries was creating daily operational bottlenecks and regulatory reporting delays.',
-      solution: 'AI8TY implemented an integrated AI platform combining intelligent AML pattern recognition, real-time liquidity optimization, and automated regulatory reporting. The system learns from historical patterns while maintaining strict compliance across UAE CBUAE, Saudi SAMA, and Qatar Central Bank requirements.',
+      company: 'Major GCC Commercial Bank',
+      industry: 'Regional Banking Institution (850+ Branches, 2.3M Customers)',
+      challenge: 'The institution was experiencing critical challenges with fraud detection systems generating 40% false positives, manual risk assessment processes taking 6+ days per application, and regulatory compliance consuming 30% of operational resources while customer satisfaction remained at 71%.',
+      solution: 'AI8TY implemented a comprehensive banking intelligence platform featuring real-time fraud detection, automated risk assessment, customer experience optimization, and regulatory compliance automation tailored specifically for UAE Central Bank requirements.',
       results: [
-        { value: '87%', label: 'False Positive Reduction', description: 'From 94% to 7% false positive rate' },
-        { value: '$12M', label: 'Annual Savings', description: 'Compliance and operational efficiency' },
-        { value: '3 min', label: 'Reporting Time', description: 'Down from 2+ hours daily' },
-        { value: '99.9%', label: 'Compliance Rate', description: 'Across all GCC jurisdictions' }
+        { value: '94%', label: 'Fraud Detection', description: 'Accuracy with 89% fewer false positives' },
+        { value: '83%', label: 'Risk Assessment', description: 'Speed improvement to under 1 hour' },
+        { value: '$12.5M', label: 'Annual Savings', description: 'Through operational optimization' },
+        { value: '91%', label: 'Customer Satisfaction', description: 'Up from 71% baseline score' }
       ],
-      quote: 'AI8TY transformed our entire risk and compliance operation. We went from drowning in false positives to having the most efficient AML system in the region. The cross-border liquidity optimization alone saves us millions annually.',
-      author: 'Sarah Al-Mansouri',
-      title: 'Chief Risk Officer, First Gulf Banking Group'
+      quote: 'AI8TY has revolutionized our banking operations. Our fraud detection is now industry-leading, risk assessments are instant and accurate, and our compliance processes are fully automated. Customer satisfaction has reached new heights.',
+      author: 'Ahmed Al-Mansoori',
+      title: 'Chief Technology Officer, Major GCC Commercial Bank'
     },
     
     roiInputs: [
-      { label: 'Monthly Transaction Volume (thousands)', defaultValue: 500, multiplier: 120 },
-      { label: 'Current Compliance Team Size', defaultValue: 25, multiplier: 8500 },
-      { label: 'Daily Cross-Border Transactions', defaultValue: 200, multiplier: 950 },
-      { label: 'Average Loan Portfolio (millions USD)', defaultValue: 500, multiplier: 2800 }
+      { label: 'Daily Transaction Volume', defaultValue: 125000, multiplier: 0.85 },
+      { label: 'Number of Customers', defaultValue: 85000, multiplier: 145 },
+      { label: 'Monthly Loan Applications', defaultValue: 2500, multiplier: 420 },
+      { label: 'Compliance Staff Count', defaultValue: 45, multiplier: 95000 }
     ],
     
     implementationSteps: [
       {
         phase: 'Phase 1',
-        title: 'Discovery & Risk Assessment',
-        description: 'Comprehensive analysis of current systems, regulatory requirements, and operational workflows to design optimal AI integration.',
-        duration: '2-3 weeks',
+        title: 'Banking System Assessment',
+        description: 'Comprehensive analysis of existing banking infrastructure, risk frameworks, and regulatory requirements.',
+        duration: '3-4 weeks',
         outcomes: [
-          'Complete system architecture review',
+          'System integration analysis',
+          'Risk framework evaluation',
           'Regulatory compliance mapping',
-          'Risk assessment framework',
-          'Implementation roadmap'
+          'Customer journey assessment'
         ]
       },
       {
         phase: 'Phase 2',
-        title: 'Core AI Deployment',
-        description: 'Implementation of intelligent AML, risk analytics, and core decision systems with full regulatory compliance.',
-        duration: '6-8 weeks',
+        title: 'Core Banking AI Deployment',
+        description: 'Implementation of fraud detection, risk assessment, and basic customer intelligence systems.',
+        duration: '8-10 weeks',
         outcomes: [
-          'AML false positive reduction',
-          'Real-time risk monitoring',
-          'Automated compliance reporting',
-          'Initial ROI demonstration'
+          'Real-time fraud detection active',
+          'Automated risk assessment',
+          'Customer intelligence platform',
+          'Basic compliance automation'
         ]
       },
       {
         phase: 'Phase 3',
-        title: 'Advanced Analytics Integration',
-        description: 'Full deployment of predictive analytics, client intelligence, and cross-border optimization systems.',
-        duration: '8-10 weeks',
+        title: 'Advanced Intelligence Integration',
+        description: 'Full deployment of investment optimization, advanced compliance, and comprehensive analytics.',
+        duration: '10-12 weeks',
         outcomes: [
-          'Predictive risk models active',
-          'Client intelligence platform',
-          'Cross-border optimization',
-          'Advanced reporting dashboards'
+          'Investment portfolio optimization',
+          'Advanced compliance automation',
+          'Comprehensive customer insights',
+          'Operational intelligence dashboards'
         ]
       },
       {
         phase: 'Phase 4',
-        title: 'Optimization & Scale',
-        description: 'Performance optimization, additional use case deployment, and preparation for enterprise-wide scaling.',
-        duration: '4-6 weeks',
+        title: 'Banking Excellence Optimization',
+        description: 'Performance optimization, advanced analytics deployment, and preparation for scaling.',
+        duration: '6-8 weeks',
         outcomes: [
-          'Maximum performance optimization',
-          'Additional use case integration',
-          'Team training completion',
-          'Long-term success planning'
+          'Maximum operational efficiency',
+          'Advanced predictive analytics',
+          'Customer experience excellence',
+          'Continuous improvement protocols'
         ]
       }
     ]

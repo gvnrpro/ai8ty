@@ -1,139 +1,162 @@
 
-import React, { useRef } from 'react';
+import React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { motion, useInView } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
-import { useLanguage } from '@/contexts/LanguageContext';
-import { 
-  ArrowRight, 
-  Building2, 
-  Heart, 
-  Factory, 
-  ShoppingCart, 
-  Landmark, 
-  Plane, 
-  Users,
-  Shield,
-  Zap,
-  Globe
-} from 'lucide-react';
+import { Building2, Heart, Factory, ShoppingBag, Landmark, Plane, Users, Home, Scale } from 'lucide-react';
 import AppleInspiredNavigation from '@/components/enterprise/AppleInspiredNavigation';
 import AppleInspiredFooter from '@/components/enterprise/AppleInspiredFooter';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const Solutions = () => {
   const navigate = useNavigate();
   const { language } = useLanguage();
   const isArabic = language === 'ar';
-  const sectionsRef = useRef(null);
-  const isInView = useInView(sectionsRef, { once: true, amount: 0.2 });
 
-  const content = {
+  const solutionsData = {
     en: {
-      subtitle: 'Solutions Portfolio',
-      title: 'Operational AI designed for your industry',
-      description: 'AI8TY delivers specialized AI systems engineered for the unique challenges, regulations, and opportunities of each major sector across the Gulf region.',
-      cta: 'Explore Solution',
-      trustTitle: 'Trusted across the GCC',
-      trustDescription: 'Our enterprise AI systems are built for the specific needs and regulatory requirements of the Gulf region.'
+      title: 'AI Systems Built for Your Industry',
+      subtitle: 'Operational intelligence tailored to the unique challenges of GCC business leaders',
+      description: 'Every industry faces distinct operational challenges. Our AI systems are designed specifically for the complexities of your sector, ensuring immediate impact and measurable results.',
+      industries: [
+        {
+          icon: Building2,
+          title: 'Financial Institutions',
+          description: 'Risk assessment, fraud detection, and investment optimization systems designed for UAE banking regulations.',
+          path: '/solutions/financial-institutions',
+          color: 'from-blue-600 to-indigo-600'
+        },
+        {
+          icon: Heart,
+          title: 'Healthcare Networks',
+          description: 'Patient flow optimization and clinical decision support with MOHAP compliance and privacy-first design.',
+          path: '/solutions/healthcare-networks',
+          color: 'from-emerald-600 to-teal-600'
+        },
+        {
+          icon: Factory,
+          title: 'Manufacturing Firms',
+          description: 'Predictive maintenance and supply chain optimization for industrial operations across the Emirates.',
+          path: '/solutions/manufacturing-firms',
+          color: 'from-orange-600 to-red-600'
+        },
+        {
+          icon: ShoppingBag,
+          title: 'Retail Groups',
+          description: 'Customer intelligence and inventory optimization for omnichannel retail excellence.',
+          path: '/solutions/retail-groups',
+          color: 'from-purple-600 to-pink-600'
+        },
+        {
+          icon: Landmark,
+          title: 'Private Wealth Offices',
+          description: 'Portfolio intelligence and family office optimization for UHNW wealth management.',
+          path: '/solutions/private-wealth-offices',
+          color: 'from-amber-600 to-yellow-600'
+        },
+        {
+          icon: Plane,
+          title: 'Aviation & Logistics',
+          description: 'Fleet optimization and cargo intelligence for transportation and logistics operations.',
+          path: '/solutions/aviation-logistics',
+          color: 'from-cyan-600 to-blue-600'
+        },
+        {
+          icon: Users,
+          title: 'Public Sector',
+          description: 'Citizen service optimization and smart city intelligence for government excellence.',
+          path: '/solutions/public-sector',
+          color: 'from-teal-600 to-green-600'
+        },
+        {
+          icon: Home,
+          title: 'Real Estate',
+          description: 'Property portfolio optimization and market intelligence for real estate excellence.',
+          path: '/solutions/real-estate',
+          color: 'from-rose-600 to-pink-600'
+        },
+        {
+          icon: Scale,
+          title: 'Law Firms',
+          description: 'Legal research automation and case management intelligence for modern law practices.',
+          path: '/solutions/law-firms',
+          color: 'from-slate-600 to-gray-600'
+        }
+      ]
     },
     ar: {
-      subtitle: 'محفظة الحلول',
-      title: 'ذكاء اصطناعي تشغيلي مصمم لصناعتك',
-      description: 'تقدم AI8TY أنظمة ذكاء اصطناعي متخصصة مهندسة للتحديات والأنظمة والفرص الفريدة لكل قطاع رئيسي في منطقة الخليج.',
-      cta: 'استكشف الحل',
-      trustTitle: 'موثوق في جميع أنحاء دول مجلس التعاون الخليجي',
-      trustDescription: 'تم تصميم أنظمة الذكاء الاصطناعي للمؤسسات لدينا لتلبية الاحتياجات المحددة والمتطلبات التنظيمية لمنطقة الخليج.'
+      title: 'أنظمة ذكاء اصطناعي مبنية لصناعتك',
+      subtitle: 'ذكاء تشغيلي مصمم خصيصاً للتحديات الفريدة لقادة الأعمال في دول مجلس التعاون',
+      description: 'كل صناعة تواجه تحديات تشغيلية مميزة. أنظمة الذكاء الاصطناعي الخاصة بنا مصممة خصيصاً لتعقيدات قطاعك، مما يضمن تأثيراً فورياً ونتائج قابلة للقياس.',
+      industries: [
+        {
+          icon: Building2,
+          title: 'المؤسسات المالية',
+          description: 'أنظمة تقييم المخاطر واكتشاف الاحتيال وتحسين الاستثمارات المصممة للوائح المصرفية الإماراتية.',
+          path: '/solutions/financial-institutions',
+          color: 'from-blue-600 to-indigo-600'
+        },
+        {
+          icon: Heart,
+          title: 'شبكات الرعاية الصحية',
+          description: 'تحسين تدفق المرضى ودعم القرارات السريرية مع امتثال وزارة الصحة وتصميم يركز على الخصوصية.',
+          path: '/solutions/healthcare-networks',
+          color: 'from-emerald-600 to-teal-600'
+        },
+        {
+          icon: Factory,
+          title: 'الشركات الصناعية',
+          description: 'الصيانة التنبؤية وتحسين سلسلة التوريد للعمليات الصناعية عبر الإمارات.',
+          path: '/solutions/manufacturing-firms',
+          color: 'from-orange-600 to-red-600'
+        },
+        {
+          icon: ShoppingBag,
+          title: 'مجموعات التجزئة',
+          description: 'ذكاء العملاء وتحسين المخزون لتميز التجزئة متعددة القنوات.',
+          path: '/solutions/retail-groups',
+          color: 'from-purple-600 to-pink-600'
+        },
+        {
+          icon: Landmark,
+          title: 'مكاتب الثروات الخاصة',
+          description: 'ذكاء المحافظ وتحسين مكاتب العائلة لإدارة الثروات عالية القيمة.',
+          path: '/solutions/private-wealth-offices',
+          color: 'from-amber-600 to-yellow-600'
+        },
+        {
+          icon: Plane,
+          title: 'الطيران واللوجستيات',
+          description: 'تحسين الأسطول وذكاء البضائع لعمليات النقل واللوجستيات.',
+          path: '/solutions/aviation-logistics',
+          color: 'from-cyan-600 to-blue-600'
+        },
+        {
+          icon: Users,
+          title: 'القطاع العام',
+          description: 'تحسين خدمات المواطنين وذكاء المدن الذكية لتميز الحكومة.',
+          path: '/solutions/public-sector',
+          color: 'from-teal-600 to-green-600'
+        },
+        {
+          icon: Home,
+          title: 'العقارات',
+          description: 'تحسين محفظة العقارات وذكاء السوق لتميز العقارات.',
+          path: '/solutions/real-estate',
+          color: 'from-rose-600 to-pink-600'
+        },
+        {
+          icon: Scale,
+          title: 'شركات المحاماة',
+          description: 'أتمتة البحث القانوني وذكاء إدارة القضايا لممارسات القانون الحديثة.',
+          path: '/solutions/law-firms',
+          color: 'from-slate-600 to-gray-600'
+        }
+      ]
     }
   };
 
-  const industries = [
-    {
-      id: 'financial-institutions',
-      icon: Building2,
-      titleEn: 'Financial Institutions',
-      titleAr: 'المؤسسات المالية',
-      descEn: 'Risk intelligence, regulatory compliance, and customer insight systems for GCC financial services.',
-      descAr: 'ذكاء المخاطر والامتثال التنظيمي وأنظمة رؤى العملاء للخدمات المالية في دول مجلس التعاون.',
-      path: '/solutions/financial-institutions',
-      gradient: 'from-blue-500/20 to-indigo-500/20',
-      primaryColor: 'text-blue-500',
-      benefits: ['AML pattern suppression', 'Cross-border liquidity AI', 'Risk assessment optimization']
-    },
-    {
-      id: 'healthcare-networks',
-      icon: Heart,
-      titleEn: 'Healthcare Networks',
-      titleAr: 'شبكات الرعاية الصحية',
-      descEn: 'Patient intelligence, operational optimization, and MOHAP-compliant data systems.',
-      descAr: 'ذكاء المرضى والتحسين التشغيلي وأنظمة البيانات المتوافقة مع وزارة الصحة.',
-      path: '/solutions/healthcare-networks',
-      gradient: 'from-emerald-500/20 to-teal-500/20',
-      primaryColor: 'text-emerald-500',
-      benefits: ['Patient data intelligence', 'Clinical decision support', 'Resource allocation AI']
-    },
-    {
-      id: 'retail-groups',
-      icon: ShoppingCart,
-      titleEn: 'Retail Groups',
-      titleAr: 'مجموعات التجزئة',
-      descEn: 'Customer intelligence, inventory optimization, and omnichannel analytics for retail excellence.',
-      descAr: 'ذكاء العملاء وتحسين المخزون وتحليلات القنوات المتعددة للتميز في التجزئة.',
-      path: '/solutions/retail-groups',
-      gradient: 'from-purple-500/20 to-pink-500/20',
-      primaryColor: 'text-purple-500',
-      benefits: ['Customer behavior prediction', 'Inventory optimization AI', 'Omnichannel analytics']
-    },
-    {
-      id: 'manufacturing-firms',
-      icon: Factory,
-      titleEn: 'Manufacturing Firms',
-      titleAr: 'شركات التصنيع',
-      descEn: 'Predictive maintenance, supply chain intelligence, and production optimization systems.',
-      descAr: 'الصيانة التنبؤية وذكاء سلسلة التوريد وأنظمة تحسين الإنتاج.',
-      path: '/solutions/manufacturing-firms',
-      gradient: 'from-orange-500/20 to-red-500/20',
-      primaryColor: 'text-orange-500',
-      benefits: ['Predictive maintenance', 'Quality control automation', 'Production efficiency AI']
-    },
-    {
-      id: 'private-wealth-offices',
-      icon: Landmark,
-      titleEn: 'Private Wealth Offices',
-      titleAr: 'مكاتب الثروات الخاصة',
-      descEn: 'Portfolio intelligence, client insight systems, and investment decision support.',
-      descAr: 'ذكاء المحافظ وأنظمة رؤى العملاء ودعم قرارات الاستثمار.',
-      path: '/solutions/private-wealth-offices',
-      gradient: 'from-amber-500/20 to-yellow-500/20',
-      primaryColor: 'text-amber-500',
-      benefits: ['Portfolio risk mapping', 'Client intelligence AI', 'Investment decision support']
-    },
-    {
-      id: 'aviation-logistics',
-      icon: Plane,
-      titleEn: 'Aviation & Logistics',
-      titleAr: 'الطيران واللوجستيات',
-      descEn: 'Predictive maintenance, cargo optimization, and operational efficiency systems.',
-      descAr: 'الصيانة التنبؤية وتحسين الشحن وأنظمة الكفاءة التشغيلية.',
-      path: '/solutions/aviation-logistics',
-      gradient: 'from-cyan-500/20 to-blue-500/20',
-      primaryColor: 'text-cyan-500',
-      benefits: ['Aircraft maintenance AI', 'Cargo load optimization', 'Route planning intelligence']
-    },
-    {
-      id: 'public-sector',
-      icon: Users,
-      titleEn: 'Public Sector',
-      titleAr: 'القطاع العام',
-      descEn: 'Citizen service optimization, smart city initiatives, and regulatory compliance systems.',
-      descAr: 'تحسين خدمات المواطنين ومبادرات المدن الذكية وأنظمة الامتثال التنظيمي.',
-      path: '/solutions/public-sector',
-      gradient: 'from-teal-500/20 to-green-500/20',
-      primaryColor: 'text-teal-500',
-      benefits: ['Citizen service optimization', 'Emergency services AI', 'Regulatory compliance']
-    }
-  ];
-
-  const currentContent = content[isArabic ? 'ar' : 'en'];
+  const currentContent = solutionsData[isArabic ? 'ar' : 'en'];
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -158,180 +181,146 @@ const Solutions = () => {
     }
   };
 
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "AI8TY Industry Solutions",
+    "description": "Operational AI systems tailored for specific industries in the GCC region",
+    "provider": {
+      "@type": "Organization",
+      "name": "AI8TY",
+      "url": "https://ai8ty.com"
+    },
+    "serviceType": "Artificial Intelligence Systems",
+    "areaServed": {
+      "@type": "Place",
+      "name": "Gulf Cooperation Council"
+    }
+  };
+
   return (
     <>
       <Helmet>
-        <title>
-          {isArabic ? 'حلول الذكاء الاصطناعي التشغيلية | AI8TY' : 'Operational AI Solutions | AI8TY'}
-        </title>
-        <meta 
-          name="description" 
-          content={currentContent.description} 
-        />
+        <title>Industry-Specific AI Solutions | AI8TY</title>
+        <meta name="description" content="Operational AI systems tailored for financial institutions, healthcare networks, manufacturing firms, retail groups, and more across the GCC region." />
+        <meta name="keywords" content="industry AI solutions, GCC AI systems, sector-specific AI, operational intelligence, UAE AI technology" />
+        <script type="application/ld+json">
+          {JSON.stringify(structuredData)}
+        </script>
+        <meta property="og:title" content="Industry-Specific AI Solutions | AI8TY" />
+        <meta property="og:description" content="Operational AI systems tailored for financial institutions, healthcare networks, manufacturing firms, retail groups, and more across the GCC region." />
+        <meta property="og:type" content="website" />
+        <link rel="canonical" href="https://ai8ty.com/solutions" />
       </Helmet>
 
       <div className={`min-h-screen ${isArabic ? 'rtl' : ''}`}>
         <AppleInspiredNavigation />
         
-        <main className="relative pt-20">
+        <main className="pt-24">
           {/* Hero Section */}
-          <section className="section-apple-large relative overflow-hidden">
-            {/* Apple-style background treatment */}
-            <div className="absolute inset-0 opacity-40">
-              <div className="absolute top-[20%] left-[10%] w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />
-              <div className="absolute bottom-[30%] right-[15%] w-80 h-80 bg-purple-500/8 rounded-full blur-3xl" />
-              <div className="absolute top-[40%] right-[20%] w-px h-32 bg-gradient-to-b from-blue-500/30 to-transparent" />
+          <section className="section-apple-large relative">
+            <div className="absolute inset-0 opacity-30 pointer-events-none">
+              <div className="absolute top-[20%] left-[10%] w-[30vw] h-[30vw] bg-blue-500/10 rounded-full blur-[100px]" />
+              <div className="absolute bottom-[20%] right-[10%] w-[25vw] h-[25vw] bg-purple-500/8 rounded-full blur-[80px]" />
             </div>
 
-            <div className="container-apple text-center relative z-10">
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            <motion.div
+              className="container-apple text-center relative z-10"
+              variants={containerVariants}
+              initial="hidden"
+              animate="visible"
+            >
+              <motion.h1 
+                className="text-display mb-6"
+                variants={itemVariants}
               >
-                <p className="text-caption text-blue-500 font-medium mb-4 tracking-wider uppercase">
-                  {currentContent.subtitle}
-                </p>
-                <h1 className="text-display-large mb-6">
-                  {currentContent.title}
-                </h1>
-                <p className="text-body-large container-apple-narrow mb-8">
-                  {currentContent.description}
-                </p>
+                {currentContent.title}
+              </motion.h1>
+              
+              <motion.p 
+                className="text-body-large container-apple-narrow mb-8"
+                variants={itemVariants}
+              >
+                {currentContent.subtitle}
+              </motion.p>
 
-                <div className="flex justify-center space-x-6 mt-12 mb-16">
-                  <motion.div 
-                    className="flex items-center justify-center gap-5"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.3, duration: 0.7 }}
-                  >
-                    <Shield size={24} className="text-blue-500" />
-                    <div className="text-left">
-                      <p className="text-sm font-medium">GCC Compliance</p>
-                      <p className="text-xs text-gray-400">Built-in regulatory frameworks</p>
-                    </div>
-                  </motion.div>
-
-                  <motion.div 
-                    className="flex items-center justify-center gap-5"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.5, duration: 0.7 }}
-                  >
-                    <Zap size={24} className="text-purple-500" />
-                    <div className="text-left">
-                      <p className="text-sm font-medium">ROI Focused</p>
-                      <p className="text-xs text-gray-400">Measurable business outcomes</p>
-                    </div>
-                  </motion.div>
-
-                  <motion.div 
-                    className="flex items-center justify-center gap-5"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.7, duration: 0.7 }}
-                  >
-                    <Globe size={24} className="text-emerald-500" />
-                    <div className="text-left">
-                      <p className="text-sm font-medium">Regional Expertise</p>
-                      <p className="text-xs text-gray-400">Understanding local markets</p>
-                    </div>
-                  </motion.div>
-                </div>
-              </motion.div>
-            </div>
+              <motion.p 
+                className="text-body container-apple-narrow mb-16"
+                variants={itemVariants}
+              >
+                {currentContent.description}
+              </motion.p>
+            </motion.div>
           </section>
 
-          {/* Industry Solutions Grid */}
-          <section ref={sectionsRef} className="section-apple">
-            <div className="container-apple">
-              <motion.div
-                variants={containerVariants}
-                initial="hidden"
-                animate={isInView ? "visible" : "hidden"}
-              >
-                <motion.div variants={itemVariants} className="text-center mb-16">
-                  <h2 className="text-display mb-6">{currentContent.trustTitle}</h2>
-                  <p className="text-body-large container-apple-narrow">
-                    {currentContent.trustDescription}
-                  </p>
-                </motion.div>
+          {/* Industries Grid */}
+          <section className="section-apple">
+            <motion.div
+              className="container-apple"
+              variants={containerVariants}
+              initial="hidden"
+              animate="visible"
+            >
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {currentContent.industries.map((industry, index) => (
+                  <motion.div
+                    key={industry.path}
+                    className="premium-card hover-lift group cursor-pointer"
+                    variants={itemVariants}
+                    onClick={() => navigate(industry.path)}
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${industry.color} flex items-center justify-center mb-6`}>
+                      <industry.icon size={24} className="text-white" />
+                    </div>
+                    
+                    <h3 className="text-title mb-4 text-foreground group-hover:text-blue-400 transition-colors">
+                      {industry.title}
+                    </h3>
+                    
+                    <p className="text-body text-muted-foreground">
+                      {industry.description}
+                    </p>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          </section>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                  {industries.map((industry, index) => (
-                    <motion.div
-                      key={industry.id}
-                      variants={itemVariants}
-                      className="premium-card group relative cursor-pointer"
-                      onClick={() => navigate(industry.path)}
-                      whileHover={{ y: -5 }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      {/* Ambient background */}
-                      <div className={`absolute inset-0 bg-gradient-to-br ${industry.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl`} />
-                      
-                      <div className="relative z-10 p-8">
-                        {/* Icon */}
-                        <div className={`w-16 h-16 glass-apple rounded-2xl flex items-center justify-center mb-6 group-hover:bg-white/10 transition-colors duration-300`}>
-                          <industry.icon size={28} className={`${industry.primaryColor} group-hover:text-white transition-colors duration-300`} />
-                        </div>
-                        
-                        {/* Content */}
-                        <h3 className="text-title-large mb-4 group-hover:text-white transition-colors duration-300">
-                          {isArabic ? industry.titleAr : industry.titleEn}
-                        </h3>
-                        
-                        <p className="text-body leading-relaxed mb-6 group-hover:text-white/90 transition-colors duration-300">
-                          {isArabic ? industry.descAr : industry.descEn}
-                        </p>
-                        
-                        {/* Benefits */}
-                        <div className="mb-6 space-y-2">
-                          {industry.benefits.map((benefit, i) => (
-                            <div key={i} className="flex items-center gap-2">
-                              <div className={`w-1.5 h-1.5 rounded-full ${industry.primaryColor} group-hover:bg-white transition-colors duration-300`} />
-                              <span className="text-caption text-muted-foreground group-hover:text-white/80 transition-colors duration-300">
-                                {benefit}
-                              </span>
-                            </div>
-                          ))}
-                        </div>
-                        
-                        {/* CTA */}
-                        <div className={`flex items-center gap-2 ${industry.primaryColor} font-medium group-hover:text-white transition-all duration-300 mt-auto`}>
-                          <span className="text-caption">{currentContent.cta}</span>
-                          <ArrowRight size={16} className="transition-transform group-hover:translate-x-1 duration-300" />
-                        </div>
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
-              </motion.div>
-
-              {/* Premium Contact CTA */}
-              <motion.div
-                className="mt-20 text-center"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8 }}
+          {/* CTA Section */}
+          <section className="section-apple bg-gradient-to-br from-slate-900 to-slate-800">
+            <motion.div
+              className="container-apple text-center"
+              variants={containerVariants}
+              initial="hidden"
+              animate="visible"
+            >
+              <motion.h2 
+                className="text-title-large mb-6"
+                variants={itemVariants}
               >
-                <h2 className="text-title-large mb-6">Can't find your industry?</h2>
-                <p className="text-body mb-8 max-w-lg mx-auto">
-                  Our AI expertise spans across many industries. Contact us to discuss your specific requirements.
-                </p>
-                <button
-                  onClick={() => navigate('/contact')}
-                  className="btn-apple-premium hover-lift"
-                >
-                  Schedule Custom Consultation
-                </button>
-              </motion.div>
-            </div>
+                Ready to Transform Your Industry?
+              </motion.h2>
+              
+              <motion.p 
+                className="text-body-large mb-8 container-apple-narrow"
+                variants={itemVariants}
+              >
+                Schedule a strategic briefing to discover how AI8TY can revolutionize your operations.
+              </motion.p>
+
+              <motion.button
+                onClick={() => navigate('/contact')}
+                className="btn-premium"
+                variants={itemVariants}
+              >
+                Schedule Strategic Briefing
+              </motion.button>
+            </motion.div>
           </section>
         </main>
-        
+
         <AppleInspiredFooter />
       </div>
     </>
