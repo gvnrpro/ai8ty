@@ -7,22 +7,18 @@ import { useNavigate } from 'react-router-dom';
 import AppleInspiredNavigation from './AppleInspiredNavigation';
 import AppleInspiredFooter from './AppleInspiredFooter';
 import { useLanguage } from '@/contexts/LanguageContext';
-
-
 interface Challenge {
   title: string;
   description: string;
   impact: string;
   solution: string;
 }
-
 interface Capability {
   icon: LucideIcon;
   title: string;
   description: string;
   benefits: string[];
 }
-
 interface CaseStudy {
   company: string;
   industry: string;
@@ -37,13 +33,11 @@ interface CaseStudy {
   author: string;
   title: string;
 }
-
 interface ROIInput {
   label: string;
   defaultValue: number;
   multiplier: number;
 }
-
 interface ImplementationStep {
   phase: string;
   title: string;
@@ -51,7 +45,6 @@ interface ImplementationStep {
   duration: string;
   outcomes: string[];
 }
-
 interface ComprehensiveIndustryTemplateProps {
   title: string;
   subtitle: string;
@@ -68,21 +61,26 @@ interface ComprehensiveIndustryTemplateProps {
   implementationSteps: ImplementationStep[];
 }
 const containerVariants = {
-  hidden: { opacity: 0 },
+  hidden: {
+    opacity: 0
+  },
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.2,
-    },
-  },
+      staggerChildren: 0.2
+    }
+  }
 };
-
 const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0 },
+  hidden: {
+    opacity: 0,
+    y: 20
+  },
+  visible: {
+    opacity: 1,
+    y: 0
+  }
 };
-
-
 const ComprehensiveIndustryTemplate: React.FC<ComprehensiveIndustryTemplateProps> = ({
   title,
   subtitle,
@@ -99,30 +97,42 @@ const ComprehensiveIndustryTemplate: React.FC<ComprehensiveIndustryTemplateProps
   implementationSteps
 }) => {
   const navigate = useNavigate();
-  const { language } = useLanguage();
+  const {
+    language
+  } = useLanguage();
   const isArabic = language === 'ar';
-  const [roiValues, setROIValues] = useState(
-    roiInputs.reduce((acc, input) => ({ ...acc, [input.label]: input.defaultValue }), {} as Record<string, number>)
-  );
-
+  const [roiValues, setROIValues] = useState(roiInputs.reduce((acc, input) => ({
+    ...acc,
+    [input.label]: input.defaultValue
+  }), {} as Record<string, number>));
   const heroRef = useRef(null);
   const challengesRef = useRef(null);
   const capabilitiesRef = useRef(null);
   const caseStudyRef = useRef(null);
   const roiRef = useRef(null);
   const implementationRef = useRef(null);
-
-  const heroInView = useInView(heroRef, { once: true });
-  const challengesInView = useInView(challengesRef, { once: true });
-  const capabilitiesInView = useInView(capabilitiesRef, { once: true });
-  const caseStudyInView = useInView(caseStudyRef, { once: true });
-  const roiInView = useInView(roiRef, { once: true });
-  const implementationInView = useInView(implementationRef, { once: true });
-
+  const heroInView = useInView(heroRef, {
+    once: true
+  });
+  const challengesInView = useInView(challengesRef, {
+    once: true
+  });
+  const capabilitiesInView = useInView(capabilitiesRef, {
+    once: true
+  });
+  const caseStudyInView = useInView(caseStudyRef, {
+    once: true
+  });
+  const roiInView = useInView(roiRef, {
+    once: true
+  });
+  const implementationInView = useInView(implementationRef, {
+    once: true
+  });
   const calculateROI = () => {
     return Object.entries(roiValues).reduce((total, [key, value]) => {
       const input = roiInputs.find(input => input.label === key);
-      return total + (Number(value) * (input?.multiplier || 0));
+      return total + Number(value) * (input?.multiplier || 0);
     }, 0);
   };
 
@@ -130,79 +140,69 @@ const ComprehensiveIndustryTemplate: React.FC<ComprehensiveIndustryTemplateProps
   const industryName = title.replace('AI8TY for ', '');
   const schemaData = {
     "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Organization",
-        "@id": "https://ai8ty.com/#organization",
-        "name": "AI8TY",
-        "url": "https://ai8ty.com",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://ai8ty.com/lovable-uploads/4b4a830d-afce-4dc3-8cc3-4fae3e2728ed.png"
-        },
-        "description": "Operational AI systems for enterprise organizations in the GCC region",
-        "areaServed": {
-          "@type": "Place",
-          "name": "Gulf Cooperation Council"
-        }
+    "@graph": [{
+      "@type": "Organization",
+      "@id": "https://ai8ty.com/#organization",
+      "name": "AI8TY",
+      "url": "https://ai8ty.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://ai8ty.com/lovable-uploads/4b4a830d-afce-4dc3-8cc3-4fae3e2728ed.png"
       },
-      {
-        "@type": "Service",
-        "@id": `https://ai8ty.com/solutions/${title.toLowerCase().replace(/\s+/g, '-')}#service`,
-        "name": title,
-        "description": metaDescription,
-        "provider": {
-          "@id": "https://ai8ty.com/#organization"
-        },
-        "serviceType": "Artificial Intelligence Systems",
-        "category": industryName,
-        "areaServed": {
-          "@type": "Place",
-          "name": "Gulf Cooperation Council"
-        }
-      },
-      {
-        "@type": "Review",
-        "reviewRating": {
-          "@type": "Rating",
-          "ratingValue": "5",
-          "bestRating": "5"
-        },
-        "author": {
-          "@type": "Person",
-          "name": caseStudy.author
-        },
-        "reviewBody": caseStudy.quote,
-        "itemReviewed": {
-          "@id": `https://ai8ty.com/solutions/${title.toLowerCase().replace(/\s+/g, '-')}#service`
-        }
-      },
-      {
-        "@type": "FAQPage",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": `How does AI8TY help ${industryName} organizations?`,
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": heroDescription
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "What is the implementation timeline?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": `Implementation typically takes ${implementationSteps.length} phases over 6-8 months, starting with assessment and ending with full optimization.`
-            }
-          }
-        ]
+      "description": "Operational AI systems for enterprise organizations in the GCC region",
+      "areaServed": {
+        "@type": "Place",
+        "name": "Gulf Cooperation Council"
       }
-    ]
+    }, {
+      "@type": "Service",
+      "@id": `https://ai8ty.com/solutions/${title.toLowerCase().replace(/\s+/g, '-')}#service`,
+      "name": title,
+      "description": metaDescription,
+      "provider": {
+        "@id": "https://ai8ty.com/#organization"
+      },
+      "serviceType": "Artificial Intelligence Systems",
+      "category": industryName,
+      "areaServed": {
+        "@type": "Place",
+        "name": "Gulf Cooperation Council"
+      }
+    }, {
+      "@type": "Review",
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "5",
+        "bestRating": "5"
+      },
+      "author": {
+        "@type": "Person",
+        "name": caseStudy.author
+      },
+      "reviewBody": caseStudy.quote,
+      "itemReviewed": {
+        "@id": `https://ai8ty.com/solutions/${title.toLowerCase().replace(/\s+/g, '-')}#service`
+      }
+    }, {
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": `How does AI8TY help ${industryName} organizations?`,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": heroDescription
+        }
+      }, {
+        "@type": "Question",
+        "name": "What is the implementation timeline?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": `Implementation typically takes ${implementationSteps.length} phases over 6-8 months, starting with assessment and ending with full optimization.`
+        }
+      }]
+    }]
   };
-
-  return (
-    <>
+  return <>
       <Helmet>
         <title>{metaTitle}</title>
         <meta name="description" content={metaDescription} />
@@ -244,12 +244,7 @@ const ComprehensiveIndustryTemplate: React.FC<ComprehensiveIndustryTemplateProps
               <div className="absolute inset-0 immersive-grid opacity-10" />
             </div>
 
-            <motion.div
-              className="container-apple text-center relative z-10"
-              variants={containerVariants}
-              initial="hidden"
-              animate={heroInView ? "visible" : "hidden"}
-            >
+            <motion.div className="container-apple text-center relative z-10" variants={containerVariants} initial="hidden" animate={heroInView ? "visible" : "hidden"}>
               <motion.div variants={itemVariants} className="mb-8">
                 <span className={`inline-flex items-center gap-2 glass-premium px-5 py-2.5 rounded-full text-caption font-medium hover-scale-subtle ${primaryColor}`}>
                   <Zap size={14} />
@@ -262,29 +257,19 @@ const ComprehensiveIndustryTemplate: React.FC<ComprehensiveIndustryTemplateProps
                 <span className={`block gradient-text ${gradientFrom} ${gradientTo}`}>{subtitle}</span>
               </motion.h1>
               
-              <motion.p 
-                className="text-body-large container-apple-narrow mb-12 leading-relaxed"
-                variants={itemVariants}
-              >
+              <motion.p className="text-body-large container-apple-narrow mb-12 leading-relaxed" variants={itemVariants}>
                 {heroDescription}
               </motion.p>
 
-              <motion.div
-                className="flex flex-col sm:flex-row items-center justify-center gap-6"
-                variants={itemVariants}
-              >
-                <button
-                  onClick={() => navigate('/contact')}
-                  className="btn-premium group"
-                >
+              <motion.div className="flex flex-col sm:flex-row items-center justify-center gap-6" variants={itemVariants}>
+                <button onClick={() => navigate('/contact')} className="btn-premium group">
                   <span className="relative z-10">Schedule Strategic Briefing</span>
                   <ArrowRight size={16} className="relative z-10 transition-transform group-hover:translate-x-0.5 duration-200" />
                 </button>
                 
-                <button
-                  onClick={() => roiRef.current?.scrollIntoView({ behavior: 'smooth' })}
-                  className="btn-apple-secondary premium-border-card hover-lift"
-                >
+                <button onClick={() => roiRef.current?.scrollIntoView({
+                behavior: 'smooth'
+              })} className="btn-apple-secondary premium-border-card hover-lift">
                   Calculate ROI Impact
                 </button>
               </motion.div>
@@ -293,12 +278,7 @@ const ComprehensiveIndustryTemplate: React.FC<ComprehensiveIndustryTemplateProps
 
           {/* Challenges Section */}
           <section ref={challengesRef} className="section-apple bg-gradient-to-br from-slate-900/50 to-slate-800/50">
-            <motion.div
-              className="container-apple"
-              variants={containerVariants}
-              initial="hidden"
-              animate={challengesInView ? "visible" : "hidden"}
-            >
+            <motion.div className="container-apple" variants={containerVariants} initial="hidden" animate={challengesInView ? "visible" : "hidden"}>
               <motion.div className="text-center mb-16" variants={itemVariants}>
                 <h2 className="text-title-large mb-6">Critical Challenges We Solve</h2>
                 <p className="text-body-large container-apple-narrow">
@@ -307,12 +287,7 @@ const ComprehensiveIndustryTemplate: React.FC<ComprehensiveIndustryTemplateProps
               </motion.div>
 
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                {challenges.map((challenge, index) => (
-                  <motion.div
-                    key={index}
-                    className="premium-card premium-border-card"
-                    variants={itemVariants}
-                  >
+                {challenges.map((challenge, index) => <motion.div key={index} className="premium-card premium-border-card" variants={itemVariants}>
                     <h3 className="text-title mb-4 text-foreground">{challenge.title}</h3>
                     <p className="text-body text-muted-foreground mb-4">{challenge.description}</p>
                     
@@ -327,20 +302,14 @@ const ComprehensiveIndustryTemplate: React.FC<ComprehensiveIndustryTemplateProps
                         <p className="text-caption text-green-300">{challenge.solution}</p>
                       </div>
                     </div>
-                  </motion.div>
-                ))}
+                  </motion.div>)}
               </div>
             </motion.div>
           </section>
 
           {/* Capabilities Section */}
           <section ref={capabilitiesRef} className="section-apple">
-            <motion.div
-              className="container-apple"
-              variants={containerVariants}
-              initial="hidden"
-              animate={capabilitiesInView ? "visible" : "hidden"}
-            >
+            <motion.div className="container-apple" variants={containerVariants} initial="hidden" animate={capabilitiesInView ? "visible" : "hidden"}>
               <motion.div className="text-center mb-16" variants={itemVariants}>
                 <h2 className="text-title-large mb-6">AI Capabilities Built for Your Success</h2>
                 <p className="text-body-large container-apple-narrow">
@@ -350,13 +319,8 @@ const ComprehensiveIndustryTemplate: React.FC<ComprehensiveIndustryTemplateProps
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {capabilities.map((capability, index) => {
-                  const IconComponent = capability.icon;
-                  return (
-                    <motion.div
-                      key={index}
-                      className="premium-card hover-lift group"
-                      variants={itemVariants}
-                    >
+                const IconComponent = capability.icon;
+                return <motion.div key={index} className="premium-card hover-lift group" variants={itemVariants}>
                       <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${gradientFrom} ${gradientTo} flex items-center justify-center mb-6`}>
                         <IconComponent size={24} className="text-white" />
                       </div>
@@ -370,28 +334,20 @@ const ComprehensiveIndustryTemplate: React.FC<ComprehensiveIndustryTemplateProps
                       </p>
 
                       <div className="space-y-2">
-                        {capability.benefits.map((benefit, benefitIndex) => (
-                          <div key={benefitIndex} className="flex items-start gap-3">
+                        {capability.benefits.map((benefit, benefitIndex) => <div key={benefitIndex} className="flex items-start gap-3">
                             <CheckCircle size={16} className={`${primaryColor} mt-0.5 flex-shrink-0`} />
                             <span className="text-caption text-muted-foreground">{benefit}</span>
-                          </div>
-                        ))}
+                          </div>)}
                       </div>
-                    </motion.div>
-                  );
-                })}
+                    </motion.div>;
+              })}
               </div>
             </motion.div>
           </section>
 
           {/* Case Study Section */}
           <section ref={caseStudyRef} className="section-apple bg-gradient-to-br from-slate-900 to-slate-800">
-            <motion.div
-              className="container-apple"
-              variants={containerVariants}
-              initial="hidden"
-              animate={caseStudyInView ? "visible" : "hidden"}
-            >
+            <motion.div className="container-apple" variants={containerVariants} initial="hidden" animate={caseStudyInView ? "visible" : "hidden"}>
               <motion.div className="text-center mb-16" variants={itemVariants}>
                 <h2 className="text-title-large mb-6">Proven Results in Action</h2>
                 <p className="text-body-large container-apple-narrow">
@@ -402,7 +358,7 @@ const ComprehensiveIndustryTemplate: React.FC<ComprehensiveIndustryTemplateProps
               <div className="premium-card premium-border-card max-w-4xl mx-auto">
                 <motion.div variants={itemVariants}>
                   <div className="mb-8">
-                    <h3 className="text-title mb-2">{caseStudy.company}</h3>
+                    <h3 className="text-title mb-2 text-slate-800">{caseStudy.company}</h3>
                     <p className="text-body text-muted-foreground">{caseStudy.industry}</p>
                   </div>
 
@@ -419,8 +375,7 @@ const ComprehensiveIndustryTemplate: React.FC<ComprehensiveIndustryTemplateProps
                   </div>
 
                   <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-                    {caseStudy.results.map((result, index) => (
-                      <div key={index} className="text-center">
+                    {caseStudy.results.map((result, index) => <div key={index} className="text-center">
                         <div className={`text-headline font-bold mb-2 gradient-text ${gradientFrom} ${gradientTo}`}>
                           {result.value}
                         </div>
@@ -430,8 +385,7 @@ const ComprehensiveIndustryTemplate: React.FC<ComprehensiveIndustryTemplateProps
                         <div className="text-caption text-muted-foreground">
                           {result.description}
                         </div>
-                      </div>
-                    ))}
+                      </div>)}
                   </div>
 
                   <blockquote className="border-l-4 border-blue-500 pl-6 italic text-body text-muted-foreground mb-6">
@@ -449,12 +403,7 @@ const ComprehensiveIndustryTemplate: React.FC<ComprehensiveIndustryTemplateProps
 
           {/* ROI Calculator Section */}
           <section ref={roiRef} className="section-apple">
-            <motion.div
-              className="container-apple"
-              variants={containerVariants}
-              initial="hidden"
-              animate={roiInView ? "visible" : "hidden"}
-            >
+            <motion.div className="container-apple" variants={containerVariants} initial="hidden" animate={roiInView ? "visible" : "hidden"}>
               <motion.div className="text-center mb-16" variants={itemVariants}>
                 <h2 className="text-title-large mb-6">Calculate Your ROI Impact</h2>
                 <p className="text-body-large container-apple-narrow">
@@ -472,22 +421,15 @@ const ComprehensiveIndustryTemplate: React.FC<ComprehensiveIndustryTemplateProps
                   </div>
 
                   <div className="space-y-6 mb-8">
-                    {roiInputs.map((input, index) => (
-                      <div key={index}>
+                    {roiInputs.map((input, index) => <div key={index}>
                         <label className="block text-caption font-medium text-foreground mb-2">
                           {input.label}
                         </label>
-                        <input
-                          type="number"
-                          value={roiValues[input.label]}
-                          onChange={(e) => setROIValues(prev => ({
-                            ...prev,
-                            [input.label]: Number(e.target.value)
-                          }))}
-                          className="w-full px-4 py-3 rounded-xl bg-slate-900/50 border border-slate-700 text-foreground focus:border-blue-500 focus:outline-none transition-colors"
-                        />
-                      </div>
-                    ))}
+                        <input type="number" value={roiValues[input.label]} onChange={e => setROIValues(prev => ({
+                      ...prev,
+                      [input.label]: Number(e.target.value)
+                    }))} className="w-full px-4 py-3 rounded-xl bg-slate-900/50 border border-slate-700 text-foreground focus:border-blue-500 focus:outline-none transition-colors" />
+                      </div>)}
                   </div>
 
                   <div className="p-6 bg-gradient-to-br from-green-500/10 to-emerald-500/10 border border-green-500/20 rounded-xl text-center">
@@ -506,12 +448,7 @@ const ComprehensiveIndustryTemplate: React.FC<ComprehensiveIndustryTemplateProps
 
           {/* Implementation Steps Section */}
           <section ref={implementationRef} className="section-apple bg-gradient-to-br from-slate-900/50 to-slate-800/50">
-            <motion.div
-              className="container-apple"
-              variants={containerVariants}
-              initial="hidden"
-              animate={implementationInView ? "visible" : "hidden"}
-            >
+            <motion.div className="container-apple" variants={containerVariants} initial="hidden" animate={implementationInView ? "visible" : "hidden"}>
               <motion.div className="text-center mb-16" variants={itemVariants}>
                 <h2 className="text-title-large mb-6">Your Path to Transformation</h2>
                 <p className="text-body-large container-apple-narrow">
@@ -520,12 +457,7 @@ const ComprehensiveIndustryTemplate: React.FC<ComprehensiveIndustryTemplateProps
               </motion.div>
 
               <div className="space-y-8">
-                {implementationSteps.map((step, index) => (
-                  <motion.div
-                    key={index}
-                    className="premium-card premium-border-card"
-                    variants={itemVariants}
-                  >
+                {implementationSteps.map((step, index) => <motion.div key={index} className="premium-card premium-border-card" variants={itemVariants}>
                     <div className="flex items-start gap-6">
                       <div className="flex-shrink-0">
                         <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${gradientFrom} ${gradientTo} flex items-center justify-center`}>
@@ -549,28 +481,19 @@ const ComprehensiveIndustryTemplate: React.FC<ComprehensiveIndustryTemplateProps
                         <div>
                           <h4 className="text-caption font-semibold text-foreground mb-3">Key Outcomes</h4>
                           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                            {step.outcomes.map((outcome, outcomeIndex) => (
-                              <div key={outcomeIndex} className="flex items-start gap-3">
+                            {step.outcomes.map((outcome, outcomeIndex) => <div key={outcomeIndex} className="flex items-start gap-3">
                                 <Target size={16} className={`${primaryColor} mt-0.5 flex-shrink-0`} />
                                 <span className="text-caption text-muted-foreground">{outcome}</span>
-                              </div>
-                            ))}
+                              </div>)}
                           </div>
                         </div>
                       </div>
                     </div>
-                  </motion.div>
-                ))}
+                  </motion.div>)}
               </div>
 
-              <motion.div 
-                className="text-center mt-16"
-                variants={itemVariants}
-              >
-                <button
-                  onClick={() => navigate('/contact')}
-                  className="btn-premium group"
-                >
+              <motion.div className="text-center mt-16" variants={itemVariants}>
+                <button onClick={() => navigate('/contact')} className="btn-premium group">
                   <span className="relative z-10">Start Your Transformation</span>
                   <ArrowRight size={16} className="relative z-10 transition-transform group-hover:translate-x-0.5 duration-200" />
                 </button>
@@ -581,8 +504,6 @@ const ComprehensiveIndustryTemplate: React.FC<ComprehensiveIndustryTemplateProps
 
         <AppleInspiredFooter />
       </div>
-    </>
-  );
+    </>;
 };
-
 export default ComprehensiveIndustryTemplate;
