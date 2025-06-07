@@ -1,5 +1,4 @@
-
-import React from 'react';
+import React, { Suspense } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
@@ -18,6 +17,9 @@ const Solutions = () => {
       title: 'AI Systems Built for Your Industry',
       subtitle: 'Operational intelligence tailored to the unique challenges of GCC business leaders',
       description: 'Every industry faces distinct operational challenges. Our AI systems are designed specifically for the complexities of your sector, ensuring immediate impact and measurable results.',
+      cta: 'Ready to Transform Your Industry?',
+      ctaDescription: 'Schedule a strategic briefing to discover how AI8TY can revolutionize your operations.',
+      ctaButton: 'Schedule Strategic Briefing',
       industries: [
         {
           icon: Building2,
@@ -88,6 +90,9 @@ const Solutions = () => {
       title: 'أنظمة ذكاء اصطناعي مبنية لصناعتك',
       subtitle: 'ذكاء تشغيلي مصمم خصيصاً للتحديات الفريدة لقادة الأعمال في دول مجلس التعاون',
       description: 'كل صناعة تواجه تحديات تشغيلية مميزة. أنظمة الذكاء الاصطناعي الخاصة بنا مصممة خصيصاً لتعقيدات قطاعك، مما يضمن تأثيراً فورياً ونتائج قابلة للقياس.',
+      cta: 'مستعد لتحويل صناعتك؟',
+      ctaDescription: 'جدولة إحاطة استراتيجية لاكتشاف كيف يمكن لـ AI8TY أن تحدث ثورة في عملياتك.',
+      ctaButton: 'جدولة إحاطة استراتيجية',
       industries: [
         {
           icon: Building2,
@@ -253,42 +258,59 @@ const Solutions = () => {
             </motion.div>
           </section>
 
-          {/* Industries Grid */}
+          {/* Industries Grid with Loading States */}
           <section className="section-apple">
-            <motion.div
-              className="container-apple"
-              variants={containerVariants}
-              initial="hidden"
-              animate="visible"
-            >
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {currentContent.industries.map((industry, index) => (
-                  <motion.div
-                    key={industry.path}
-                    className="premium-card hover-lift group cursor-pointer"
-                    variants={itemVariants}
-                    onClick={() => navigate(industry.path)}
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                  >
-                    <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${industry.color} flex items-center justify-center mb-6`}>
-                      <industry.icon size={24} className="text-white" />
+            <Suspense fallback={
+              <div className="container-apple">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  {Array.from({ length: 9 }).map((_, index) => (
+                    <div key={index} className="premium-card animate-pulse">
+                      <div className="w-12 h-12 rounded-xl bg-slate-700 mb-6" />
+                      <div className="h-6 bg-slate-700 rounded mb-4" />
+                      <div className="space-y-2">
+                        <div className="h-4 bg-slate-700 rounded" />
+                        <div className="h-4 bg-slate-700 rounded w-3/4" />
+                      </div>
                     </div>
-                    
-                    <h3 className="text-title mb-4 text-foreground group-hover:text-blue-400 transition-colors">
-                      {industry.title}
-                    </h3>
-                    
-                    <p className="text-body text-muted-foreground">
-                      {industry.description}
-                    </p>
-                  </motion.div>
-                ))}
+                  ))}
+                </div>
               </div>
-            </motion.div>
+            }>
+              <motion.div
+                className="container-apple"
+                variants={containerVariants}
+                initial="hidden"
+                animate="visible"
+              >
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                  {currentContent.industries.map((industry, index) => (
+                    <motion.div
+                      key={industry.path}
+                      className="premium-card hover-lift group cursor-pointer touch-manipulation"
+                      variants={itemVariants}
+                      onClick={() => navigate(industry.path)}
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                    >
+                      <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${industry.color} flex items-center justify-center mb-6`}>
+                        <industry.icon size={24} className="text-white" />
+                      </div>
+                      
+                      <h3 className="text-title mb-4 text-foreground group-hover:text-blue-400 transition-colors">
+                        {industry.title}
+                      </h3>
+                      
+                      <p className="text-body text-muted-foreground leading-relaxed">
+                        {industry.description}
+                      </p>
+                    </motion.div>
+                  ))}
+                </div>
+              </motion.div>
+            </Suspense>
           </section>
 
-          {/* CTA Section */}
+          {/* Enhanced CTA Section */}
           <section className="section-apple bg-gradient-to-br from-slate-900 to-slate-800">
             <motion.div
               className="container-apple text-center"
@@ -300,22 +322,24 @@ const Solutions = () => {
                 className="text-title-large mb-6"
                 variants={itemVariants}
               >
-                Ready to Transform Your Industry?
+                {currentContent.cta}
               </motion.h2>
               
               <motion.p 
                 className="text-body-large mb-8 container-apple-narrow"
                 variants={itemVariants}
               >
-                Schedule a strategic briefing to discover how AI8TY can revolutionize your operations.
+                {currentContent.ctaDescription}
               </motion.p>
 
               <motion.button
                 onClick={() => navigate('/contact')}
-                className="btn-premium"
+                className="btn-premium touch-manipulation"
                 variants={itemVariants}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
               >
-                Schedule Strategic Briefing
+                {currentContent.ctaButton}
               </motion.button>
             </motion.div>
           </section>
