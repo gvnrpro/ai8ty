@@ -132,27 +132,25 @@ const AppleInspiredNavigation: React.FC = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
           >
-          <div className="flex flex-col items-center justify-center h-full space-y-8 stagger-fade-in">
-  {[
-    { path: '/', label: currentNav.overview },
-    { path: '/solutions', label: currentNav.solutions },
-    { path: '/contact', label: currentNav.contact },
-  ].map((item, index) => (
-    <NavButton
-      key={item.path}
-      path={item.path}
-      label={item.label}
-      index={index}
-      isActive={
-        location.pathname === item.path ||
-        (item.path === '/solutions' && location.pathname.startsWith('/solutions'))
-      }
-      variant="mobile"
-      onClick={() => setMobileMenuOpen(false)}
-    />
-  ))}
-</div>
-
+            <div className="flex flex-col items-center justify-center h-full space-y-8 stagger-fade-in">
+              {[
+                { path: '/', label: currentNav.overview },
+                { path: '/solutions', label: currentNav.solutions },
+                { path: '/contact', label: currentNav.contact },
+              ].map((item, index) => (
+                <NavButton
+                  key={item.path}
+                  path={item.path}
+                  label={item.label}
+                  index={index}
+                  isActive={
+                    location.pathname === item.path ||
+                    (item.path === '/solutions' && location.pathname.startsWith('/solutions'))
+                  }
+                  variant="mobile"
+                  onClick={() => setMobileMenuOpen(false)}
+                />
+              ))}
             </div>
           </motion.div>
         )}
