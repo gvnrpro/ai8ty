@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
@@ -156,13 +155,60 @@ const Contact = () => {
   return (
     <>
       <Helmet>
-        <title>
-          {isArabic ? 'اتصل بنا | AI8TY' : 'Contact Us | AI8TY'}
-        </title>
-        <meta 
-          name="description" 
-          content={currentContent.subtitle}
-        />
+        <title>{isArabic ? 'اتصل بنا | AI8TY' : 'Contact Us | AI8TY'}</title>
+        <meta name="description" content={currentContent.subtitle} />
+        <meta name="keywords" content="contact AI8TY, AI consultancy UAE, GCC AI contact, AI8TY email, AI8TY phone, AI8TY Dubai, enterprise AI contact, AI8TY support" />
+        <link rel="canonical" href="https://ai8ty.com/contact" />
+        <meta property="og:title" content={isArabic ? 'اتصل بنا | AI8TY' : 'Contact Us | AI8TY'} />
+        <meta property="og:description" content={currentContent.subtitle} />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://ai8ty.com/contact" />
+        <meta property="og:image" content="https://ai8ty.com/og-image-enterprise.png" />
+        <meta property="og:site_name" content="AI8TY Enterprise Systems" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={isArabic ? 'اتصل بنا | AI8TY' : 'Contact Us | AI8TY'} />
+        <meta name="twitter:description" content={currentContent.subtitle} />
+        <meta name="twitter:image" content="https://ai8ty.com/og-image-enterprise.png" />
+        <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+        <meta name="theme-color" content="#0f172a" />
+        <link rel="alternate" href="https://ai8ty.com/contact" hrefLang="en" />
+        <link rel="alternate" href="https://ai8ty.com/ar/contact" hrefLang="ar" />
+        <script type="application/ld+json">{`
+          {
+            "@context": "https://schema.org",
+            "@type": "ContactPage",
+            "name": "${isArabic ? 'اتصل بنا | AI8TY' : 'Contact Us | AI8TY'}",
+            "url": "https://ai8ty.com/contact",
+            "description": "${currentContent.subtitle}",
+            "inLanguage": ["en", "ar"],
+            "breadcrumb": {
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ai8ty.com" },
+                { "@type": "ListItem", "position": 2, "name": "Contact", "item": "https://ai8ty.com/contact" }
+              ]
+            },
+            "about": {
+              "@type": "Thing",
+              "name": "AI8TY Contact",
+              "sameAs": "https://ai8ty.com/contact"
+            },
+            "contactPoint": [{
+              "@type": "ContactPoint",
+              "email": "enterprise@ai8ty.com",
+              "telephone": "+971 4 123 4567",
+              "contactType": "customer support",
+              "areaServed": "AE,SA,QA,KW,OM,BH"
+            }],
+            "speakable": {
+              "@type": "SpeakableSpecification",
+              "xpath": [
+                "/html/head/title",
+                "/html/head/meta[@name='description']/@content"
+              ]
+            }
+          }
+        `}</script>
       </Helmet>
 
       <div className={`min-h-screen bg-slate-900 ${isArabic ? 'rtl' : ''}`}>

@@ -206,16 +206,53 @@ const Solutions = () => {
   return (
     <>
       <Helmet>
-        <title>Industry-Specific AI Solutions | AI8TY</title>
-        <meta name="description" content="Operational AI systems tailored for financial institutions, healthcare networks, manufacturing firms, retail groups, and more across the GCC region." />
-        <meta name="keywords" content="industry AI solutions, GCC AI systems, sector-specific AI, operational intelligence, UAE AI technology" />
-        <script type="application/ld+json">
-          {JSON.stringify(structuredData)}
-        </script>
-        <meta property="og:title" content="Industry-Specific AI Solutions | AI8TY" />
-        <meta property="og:description" content="Operational AI systems tailored for financial institutions, healthcare networks, manufacturing firms, retail groups, and more across the GCC region." />
-        <meta property="og:type" content="website" />
+        <title>{isArabic ? 'أنظمة ذكاء اصطناعي مبنية لصناعتك | AI8TY' : 'AI Systems Built for Your Industry | AI8TY'}</title>
+        <meta name="description" content={isArabic ? solutionsData.ar.description : solutionsData.en.description} />
+        <meta name="keywords" content="AI industry solutions, GCC AI, UAE AI, sector AI, financial AI, healthcare AI, manufacturing AI, retail AI, logistics AI, public sector AI, law firm AI, AI8TY" />
         <link rel="canonical" href="https://ai8ty.com/solutions" />
+        <meta property="og:title" content={isArabic ? 'أنظمة ذكاء اصطناعي مبنية لصناعتك | AI8TY' : 'AI Systems Built for Your Industry | AI8TY'} />
+        <meta property="og:description" content={isArabic ? solutionsData.ar.description : solutionsData.en.description} />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://ai8ty.com/solutions" />
+        <meta property="og:image" content="https://ai8ty.com/og-image-enterprise.png" />
+        <meta property="og:site_name" content="AI8TY Enterprise Systems" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={isArabic ? 'أنظمة ذكاء اصطناعي مبنية لصناعتك | AI8TY' : 'AI Systems Built for Your Industry | AI8TY'} />
+        <meta name="twitter:description" content={isArabic ? solutionsData.ar.description : solutionsData.en.description} />
+        <meta name="twitter:image" content="https://ai8ty.com/og-image-enterprise.png" />
+        <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+        <meta name="theme-color" content="#0f172a" />
+        <link rel="alternate" href="https://ai8ty.com/solutions" hrefLang="en" />
+        <link rel="alternate" href="https://ai8ty.com/ar/solutions" hrefLang="ar" />
+        <script type="application/ld+json">{`
+          {
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "name": "${isArabic ? 'أنظمة ذكاء اصطناعي مبنية لصناعتك | AI8TY' : 'AI Systems Built for Your Industry | AI8TY'}",
+            "url": "https://ai8ty.com/solutions",
+            "description": "${isArabic ? solutionsData.ar.description : solutionsData.en.description}",
+            "inLanguage": ["en", "ar"],
+            "breadcrumb": {
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ai8ty.com" },
+                { "@type": "ListItem", "position": 2, "name": "Solutions", "item": "https://ai8ty.com/solutions" }
+              ]
+            },
+            "about": {
+              "@type": "Thing",
+              "name": "AI8TY Industry AI Solutions",
+              "sameAs": "https://ai8ty.com/solutions"
+            },
+            "speakable": {
+              "@type": "SpeakableSpecification",
+              "xpath": [
+                "/html/head/title",
+                "/html/head/meta[@name='description']/@content"
+              ]
+            }
+          }
+        `}</script>
       </Helmet>
 
       <div className={`min-h-screen ${isArabic ? 'rtl' : ''}`}>

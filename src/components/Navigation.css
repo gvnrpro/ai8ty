@@ -1,0 +1,52 @@
+/* ...existing code... */
+
+.sticky-nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: var(--nav-bg, #fff);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.skip-to-content {
+  position: absolute;
+  left: -999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  z-index: 2000;
+  background: #222;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.skip-to-content:focus {
+  left: 16px;
+  top: 16px;
+  width: auto;
+  height: auto;
+  outline: 2px solid #00b8d9;
+}
+
+.language-switcher button {
+  margin: 0 2px;
+  padding: 6px 12px;
+  border: none;
+  background: #f0f0f0;
+  color: #222;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.language-switcher button.active,
+.language-switcher button:focus {
+  background: #00b8d9;
+  color: #fff;
+  outline: 2px solid #00b8d9;
+}
+
+/* ...existing code... */
