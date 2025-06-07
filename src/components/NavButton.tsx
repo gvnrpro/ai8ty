@@ -56,6 +56,15 @@ const NavButton: React.FC<NavButtonProps> = ({
       initial="initial"
       animate="animate"
       custom={index}
+      aria-label={label}
+      role="menuitem"
+      tabIndex={0}
+      onKeyDown={e => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          handleClick();
+        }
+      }}
     >
       {label}
 

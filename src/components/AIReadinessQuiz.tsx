@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronRight, ChevronLeft, CheckCircle, Brain, Zap, Target } from 'lucide-react';
@@ -126,6 +125,14 @@ const AIReadinessQuiz: React.FC = () => {
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0, opacity: 0 }}
             transition={{ duration: 0.3 }}
+            aria-label="Open AI Readiness Assessment"
+            tabIndex={0}
+            onKeyDown={e => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                setIsOpen(true);
+              }
+            }}
           >
             <Brain size={24} />
             <motion.div
@@ -158,6 +165,14 @@ const AIReadinessQuiz: React.FC = () => {
               <button
                 onClick={() => setIsOpen(false)}
                 className="text-white/60 hover:text-white transition-colors"
+                aria-label="Close AI Readiness Assessment"
+                tabIndex={0}
+                onKeyDown={e => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    setIsOpen(false);
+                  }
+                }}
               >
                 ×
               </button>
@@ -205,6 +220,14 @@ const AIReadinessQuiz: React.FC = () => {
                         className="w-full text-left p-3 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 hover:border-neural/30 transition-all duration-200 text-sm text-white/80 hover:text-white"
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
+                        aria-label={option.text}
+                        tabIndex={0}
+                        onKeyDown={e => {
+                          if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            handleAnswer(option.value);
+                          }
+                        }}
                       >
                         {option.text}
                       </motion.button>
@@ -222,7 +245,15 @@ const AIReadinessQuiz: React.FC = () => {
                       currentQuestion === 0
                         ? "text-white/40 cursor-not-allowed"
                         : "text-white/70 hover:text-white hover:bg-white/10"
-                    )}
+                    )
+                    aria-label="Go Back"
+                    tabIndex={0}
+                    onKeyDown={e => {
+                      if ((e.key === 'Enter' || e.key === ' ') && currentQuestion !== 0) {
+                        e.preventDefault();
+                        goBack();
+                      }
+                    }}
                   >
                     <ChevronLeft size={16} />
                     Back
@@ -270,13 +301,28 @@ const AIReadinessQuiz: React.FC = () => {
                   <button
                     onClick={() => window.location.href = 'mailto:futureis@ai8ty.com?subject=AI Readiness Assessment Results'}
                     className="w-full btn-primary text-sm"
+                    aria-label="Get Custom Strategy"
+                    tabIndex={0}
+                    onKeyDown={e => {
+                      if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        window.location.href = 'mailto:futureis@ai8ty.com?subject=AI Readiness Assessment Results';
+                      }
+                    }}
                   >
                     Get Custom Strategy
                   </button>
-                  
                   <button
                     onClick={resetQuiz}
                     className="w-full text-white/70 hover:text-white text-sm transition-colors"
+                    aria-label="Retake Assessment"
+                    tabIndex={0}
+                    onKeyDown={e => {
+                      if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        resetQuiz();
+                      }
+                    }}
                   >
                     Retake Assessment
                   </button>
