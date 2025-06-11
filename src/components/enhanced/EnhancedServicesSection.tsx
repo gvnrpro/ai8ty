@@ -1,7 +1,6 @@
-
 import React, { useRef, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { Bot, Search, Globe, Calendar, CheckCircle, ArrowRight } from 'lucide-react';
+import { PenTool, Layout, Camera, Lightbulb, CheckCircle, ArrowRight } from 'lucide-react';
 import PremiumCard from './PremiumCard';
 import PremiumButton from './PremiumButton';
 
@@ -35,73 +34,71 @@ const EnhancedServicesSection: React.FC = () => {
 
   const services = [
     {
-      icon: Bot,
-      title: "AI Workflow Automation",
-      description: "Custom-built AI agents to automate your internal operations, lead generation, and more.",
+      icon: PenTool,
+      title: "Brand Identity & Strategy",
+      description: "We craft bold, memorable brands that stand out and connect. From logo to voice, we build your creative DNA.",
       benefits: [
-        "Save 10+ hours/week",
-        "Replace repetitive manual work", 
-        "No tech skills needed"
+        "Distinctive visual identity",
+        "Brand strategy & positioning",
+        "Guidelines for consistency"
       ],
-      quote: "We turn your busywork into smart work.",
+      quote: "Your brand is your superpower. We make it unforgettable.",
       color: "neural",
       detailedBenefits: [
-        "Automated lead qualification and scoring",
-        "Smart email sequences that adapt to user behavior",
-        "CRM data entry and management automation",
-        "Intelligent customer support workflows"
+        "Logo, color, and typography systems",
+        "Brand voice and messaging",
+        "Brand books and asset kits"
       ]
     },
     {
-      icon: Search,
-      title: "AI Search Optimization",
-      description: "We future-proof your visibility by optimizing your digital presence for tools like ChatGPT, Perplexity, and Google SGE.",
+      icon: Layout,
+      title: "Web Design & Digital Experiences",
+      description: "Minimal, high-impact websites and digital products that engage and convert. Built for speed, beauty, and results.",
       benefits: [
-        "Structured data + LLM optimization",
-        "Entity alignment and semantic search readiness",
-        "Context-aware content for AI assistants"
+        "Modern, responsive design",
+        "UX-first, conversion-focused",
+        "Custom or CMS builds (Webflow, Shopify, etc.)"
       ],
-      quote: "We make sure your business shows up when AI answers your customers' questions.",
+      quote: "We turn ideas into digital experiences that move people.",
       color: "quantum",
       detailedBenefits: [
-        "Schema markup for AI understanding",
-        "Knowledge graph optimization",
-        "Voice search optimization",
-        "Featured snippet targeting"
+        "Wireframes and prototypes",
+        "UI/UX design systems",
+        "Performance and accessibility optimization"
       ]
     },
     {
-      icon: Globe,
-      title: "High-Performance Websites",
-      description: "Lightning-fast, mobile-first websites that convert attention into action.",
+      icon: Camera,
+      title: "Content & Campaigns",
+      description: "From viral campaigns to stunning visuals, we create content that gets noticed and shared.",
       benefits: [
-        "UX-first, conversion-optimized",
-        "CMS or custom builds (Webflow, Shopify, etc.)",
-        "Integrated with automation and SEO best practices"
+        "Creative campaign concepts",
+        "Photo, video, and motion",
+        "Social & digital activation"
       ],
+      quote: "Stories that spark action, visuals that stick.",
       color: "intelligence",
       detailedBenefits: [
-        "Sub-3 second load times guaranteed",
-        "Mobile-first responsive design",
-        "Conversion rate optimization built-in",
-        "Analytics and tracking setup"
+        "Campaign strategy and rollout",
+        "Content production (photo, video, animation)",
+        "Influencer and social media activation"
       ]
     },
     {
-      icon: Calendar,
-      title: "Event Strategy & Execution",
-      description: "High-impact launches, branded events, and digital activations that drive awareness and engagement.",
+      icon: Lightbulb,
+      title: "Creative Consulting",
+      description: "Big ideas, sharp strategy. We help you find your edge and make bold moves in a crowded world.",
       benefits: [
-        "Virtual & in-person events",
-        "Brand storytelling & viral experiences",
-        "Full funnel execution"
+        "Brand & digital audits",
+        "Go-to-market strategy",
+        "Innovation workshops"
       ],
+      quote: "Fresh perspective. Real results.",
       color: "sand",
       detailedBenefits: [
-        "Event concept and strategy development",
-        "Multi-channel promotion campaigns",
-        "Live event production and management",
-        "Post-event engagement and follow-up"
+        "Competitive analysis",
+        "Positioning & messaging workshops",
+        "Creative direction & ideation"
       ]
     }
   ];
