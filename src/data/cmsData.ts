@@ -92,35 +92,35 @@ export const blogPosts: BlogPost[] = [
 export const featuredProjects: ProjectItem[] = [
   {
     id: "project-1",
-    title: "NEXUS Health Platform",
-    description: "AI-powered diagnostic assistant and patient management system for healthcare providers.",
-    imageUrl: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d",
-    tags: ["Healthcare", "AI", "System Design"],
+    title: "Brand Rebirth for Lumen Studio",
+    description: "Complete rebranding, visual identity, and website for a boutique architecture firm.",
+    imageUrl: "/lovable-uploads/4b4a830d-afce-4dc3-8cc3-4fae3e2728ed.png",
+    tags: ["Branding", "Web Design", "Identity"],
     externalLink: "#"
   },
   {
     id: "project-2",
-    title: "FinCore Banking OS",
-    description: "Next-generation core banking system with integrated AI for risk assessment and customer insights.",
-    imageUrl: "https://images.unsplash.com/photo-1563986768609-322da13575f3",
-    tags: ["Fintech", "Banking", "Enterprise"],
+    title: "Social Campaign: #CreateTomorrow",
+    description: "Award-winning digital campaign for a tech startup launch.",
+    imageUrl: "/ai8tyview.jpg",
+    tags: ["Campaign", "Social Media", "Creative Direction"],
     externalLink: "#"
   },
   {
     id: "project-3",
-    title: "RetailIQ",
-    description: "Retail intelligence platform for inventory optimization and personalized customer experiences.",
-    imageUrl: "https://images.unsplash.com/photo-1534452203293-494d7ddbf7e0",
-    tags: ["Retail", "Analytics", "CX"],
+    title: "Editorial Design for ArtNow Magazine",
+    description: "Print and digital magazine design for a leading art publication.",
+    imageUrl: "/favicon-32x32.png",
+    tags: ["Editorial", "Print", "Digital"],
     externalLink: "#"
   },
   {
     id: "project-4",
-    title: "LogisticsHive",
-    description: "End-to-end logistics management platform with predictive routing and real-time tracking.",
-    imageUrl: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e", // Fixed this to include imageUrl
-    videoUrl: "https://static.videezy.com/system/resources/previews/000/021/807/original/abstract-flowing-neon-lines-loopable-background-4k.mp4",
-    tags: ["Logistics", "Automation", "Enterprise"],
+    title: "Interactive Portfolio for Studio Nova",
+    description: "Immersive web experience for a creative collective.",
+    imageUrl: "/favicon-16x16.png",
+    videoUrl: undefined,
+    tags: ["Web Experience", "UI/UX", "Animation"],
     externalLink: "#"
   }
 ];
@@ -130,37 +130,37 @@ export const clientLogos: ClientLogo[] = [
   {
     id: "client-1",
     name: "Acme Corporation",
-    imageUrl: "https://via.placeholder.com/150x50?text=ACME",
+    imageUrl: "/lovable-uploads/4b4a830d-afce-4dc3-8cc3-4fae3e2728ed.png", // Example real logo
     height: 50
   },
   {
     id: "client-2",
     name: "Tech Innovations",
-    imageUrl: "https://via.placeholder.com/150x50?text=TECH+INC",
+    imageUrl: "/ai8tyview.jpg", // Example fallback to a real image in public
     height: 50
   },
   {
     id: "client-3",
     name: "Global Solutions",
-    imageUrl: "https://via.placeholder.com/150x50?text=GLOBAL",
+    imageUrl: "/favicon-32x32.png", // Example fallback
     height: 50
   },
   {
     id: "client-4",
     name: "Future Systems",
-    imageUrl: "https://via.placeholder.com/150x50?text=FUTURE",
+    imageUrl: "/favicon-16x16.png", // Example fallback
     height: 50
   },
   {
     id: "client-5",
     name: "Alpha Industries",
-    imageUrl: "https://via.placeholder.com/150x50?text=ALPHA",
+    imageUrl: "/apple-touch-icon.png", // Example fallback
     height: 50
   },
   {
     id: "client-6",
     name: "Omega Group",
-    imageUrl: "https://via.placeholder.com/150x50?text=OMEGA",
+    imageUrl: "/android-chrome-192x192.png", // Example fallback
     height: 50
   }
 ];
