@@ -1,5 +1,6 @@
-
+# Allow all web and AI crawlers full access
 User-agent: *
-Allow: /
+Disallow:
 
+# Declare sitemap location
 Sitemap: https://ai8ty.com/sitemap.xml
