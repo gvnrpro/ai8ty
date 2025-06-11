@@ -7,9 +7,9 @@
   If you are not using Tailwind in your build pipeline, comment them out or remove them.
   If you are using Tailwind, ensure your build pipeline is set up to process these files.
 */
-/* @tailwind base; */
-/* @tailwind components; */
-/* @tailwind utilities; */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 /* Replace @apply with equivalent CSS for critical classes */
 .btn-apple-primary, .btn-apple-secondary, .btn-premium, .btn-primary, .btn-secondary, .btn-ghost {

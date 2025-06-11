@@ -1,8 +1,7 @@
-
 import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Clock } from 'lucide-react';
+import { ArrowRight, Phone } from 'lucide-react';
 
 const FinalCTASection: React.FC = () => {
   const ref = useRef(null);
@@ -31,17 +30,10 @@ const FinalCTASection: React.FC = () => {
     }
   };
 
-  const scrollToContact = () => {
-    const contactSection = document.getElementById('contact');
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
     <section 
       ref={ref}
-      className="neural-section relative overflow-hidden bg-depth-1"
+      className="py-24 px-6 relative overflow-hidden bg-depth-1"
     >
       {/* Enhanced background with multiple gradients */}
       <div className="absolute inset-0">
@@ -56,49 +48,31 @@ const FinalCTASection: React.FC = () => {
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
       >
-        <motion.div 
-          className="text-center"
-          variants={itemVariants}
-        >
-          <h2 className="strategic-title text-3xl md:text-5xl lg:text-6xl mb-8">
-            Ready to Get Your Time Back?
-            <br />
-            <span className="bg-gradient-to-r from-neural via-quantum to-intelligence bg-clip-text text-transparent">
-              Start Working Smarter Today
-            </span>
+        <motion.div className="text-center mb-16" variants={itemVariants}>
+          <h2 className="text-4xl md:text-5xl font-syne font-bold mb-6">
+            Ready to Create Something Bold?
           </h2>
-          
-          <motion.p 
-            className="text-xl md:text-2xl font-space text-white/90 leading-relaxed mb-12 max-w-4xl mx-auto"
-            variants={itemVariants}
+          <p className="text-xl md:text-2xl font-space text-white/80 max-w-2xl mx-auto">
+            Let’s build a brand, website, or campaign that people remember. Reach out and let’s make it happen.
+          </p>
+        </motion.div>
+        
+        <motion.div className="flex flex-col md:flex-row gap-8 justify-center items-center mb-10" variants={containerVariants}>
+          <Button
+            size="lg"
+            className="btn-primary text-lg px-8 py-4 font-bold flex items-center gap-3 shadow-lg"
+            onClick={() => window.location.href = '#contact'}
           >
-            Most businesses waste 15+ hours per week on tasks that could be automated. 
-            Let's identify your biggest time-wasters and show you exactly how to eliminate them.
-          </motion.p>
-          
-          <motion.div 
-            className="mb-8"
-            variants={itemVariants}
+            Start a Project <ArrowRight size={20} />
+          </Button>
+          <Button
+            size="lg"
+            variant="ghost"
+            className="text-lg px-8 py-4 font-bold flex items-center gap-3"
+            onClick={() => window.location.href = '#contact'}
           >
-            <Button 
-              onClick={scrollToContact}
-              className="btn-primary text-xl group relative overflow-hidden px-12 py-6 min-h-[56px]"
-              size="lg"
-            >
-              <Clock className="mr-4 relative z-10" size={20} />
-              <span className="relative z-10 font-medium">
-                Get My Time Back (Free Audit)
-              </span>
-              <ArrowRight className="ml-4 relative z-10 transition-transform group-hover:translate-x-1" size={20} />
-            </Button>
-          </motion.div>
-          
-          <motion.p 
-            className="text-sm text-white/60 font-space"
-            variants={itemVariants}
-          >
-            30-second form. 30-minute call. Serious time savings.
-          </motion.p>
+            Book a Call <Phone size={20} />
+          </Button>
         </motion.div>
         
         {/* Floating elements for visual appeal */}
