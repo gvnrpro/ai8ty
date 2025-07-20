@@ -218,7 +218,7 @@ const AppleInspiredHero: React.FC = () => {
 
       {/* Scroll Down Indicator */}
       <motion.div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-70 cursor-pointer select-none"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-70 cursor-pointer select-none apple-focus"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5, duration: 1 }}
@@ -232,7 +232,6 @@ const AppleInspiredHero: React.FC = () => {
         role="button"
         tabIndex={0}
         aria-label={`${currentContent.scrollDown} to next section`}
-        className="apple-focus"
       >
         <div className="w-6 h-10 border-2 border-blue-400 rounded-full flex justify-center items-start p-1">
           <motion.span
