@@ -799,7 +799,7 @@
   }
   
   .hover-scale-subtle {
-    @apply hover:scale-101;
+    @apply hover:scale-105;
   }
   
   .btn-premium {
