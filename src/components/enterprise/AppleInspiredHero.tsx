@@ -18,23 +18,23 @@ const AppleInspiredHero: React.FC = () => {
 
   const content = {
     en: {
-      badge: 'Transforming the Gulf Region',
-      headline: "AI that doesn't just compute.",
-      subheadline: 'It transforms.',
+      badge: 'Building the Future of AI Access',
+      headline: "Building systems for a more intelligent,",
+      subheadline: 'more accessible future.',
       description:
-        'The only AI platform built specifically for GCC enterprises. Turn complex operations into competitive advantages with systems that understand your market, regulations, and ambitions.',
-      cta: "See What's Possible",
-      secondaryCta: 'Schedule Strategic Briefing',
+        'AI8TY makes advanced digital capabilities—AI, automation, infrastructure—accessible to ambitious businesses, creators, and communities.',
+      cta: "Learn More",
+      secondaryCta: 'Try AI8TY',
       scrollDown: 'Scroll down',
     },
     ar: {
-      badge: 'تحويل منطقة الخليج',
-      headline: 'ذكاء اصطناعي لا يحسب فقط.',
-      subheadline: 'بل يحول.',
+      badge: 'بناء مستقبل الوصول للذكاء الاصطناعي',
+      headline: 'بناء أنظمة لمستقبل أكثر ذكاءً،',
+      subheadline: 'وأكثر سهولة في الوصول.',
       description:
-        'منصة الذكاء الاصطناعي الوحيدة المبنية خصيصًا لمؤسسات دول مجلس التعاون. حول العمليات المعقدة إلى مزايا تنافسية مع أنظمة تفهم السوق واللوائح والطموحات الخاصة بك.',
-      cta: 'شاهد ما هو ممكن',
-      secondaryCta: 'جدولة إحاطة استراتيجية',
+        'AI8TY تجعل القدرات الرقمية المتقدمة—الذكاء الاصطناعي، والأتمتة، والبنية التحتية—في متناول الشركات الطموحة والمبدعين والمجتمعات.',
+      cta: 'تعرف أكثر',
+      secondaryCta: 'جرب AI8TY',
       scrollDown: 'مرر للأسفل',
     },
   };
@@ -82,11 +82,8 @@ const AppleInspiredHero: React.FC = () => {
         <div className="absolute top-[10%] left-[5%] w-[40vw] h-[40vw] bg-blue-500/10 rounded-full blur-[120px]" />
         <div className="absolute bottom-[10%] right-[5%] w-[30vw] h-[30vw] bg-purple-500/8 rounded-full blur-[100px]" />
         <div className="absolute inset-0 immersive-grid opacity-20" />
-        <div className="absolute top-[20%] left-[10%] w-px h-[35vh] bg-gradient-to-b from-blue-500/30 to-transparent" />
-        <div className="absolute top-[40%] right-[15%] w-px h-[25vh] bg-gradient-to-b from-purple-500/20 to-transparent" />
-        <div className="absolute bottom-[30%] left-[20%] w-px h-[20vh] bg-gradient-to-b from-emerald-500/25 to-transparent" />
-
-        {/* Floating animated dots */}
+        
+        {/* Floating animated dots representing accessibility */}
         <motion.div
           className="absolute top-[25%] right-[20%] w-2 h-2 bg-blue-400/60 rounded-full"
           animate={{ y: [0, -20, 0], x: [0, 5, 0], opacity: [0.6, 1, 0.6] }}
@@ -141,7 +138,7 @@ const AppleInspiredHero: React.FC = () => {
           className="flex flex-col sm:flex-row items-center justify-center gap-6"
           variants={itemVariants}
         >
-          <button onClick={() => navigate('/solutions')} className="btn-premium group">
+          <button onClick={() => navigate('/about')} className="btn-premium group">
             <span className="relative z-10">{currentContent.cta}</span>
             <ArrowRight
               size={16}
@@ -150,14 +147,14 @@ const AppleInspiredHero: React.FC = () => {
           </button>
 
           <button
-            onClick={() => navigate('/contact')}
+            onClick={() => navigate('/explore')}
             className="btn-apple-secondary premium-border-card hover-lift group"
           >
             <span>{currentContent.secondaryCta}</span>
           </button>
         </motion.div>
 
-        {/* Floating visual */}
+        {/* Floating visual - more accessible, less corporate */}
         <motion.div className="mt-24 relative" variants={itemVariants}>
           <div className="relative inline-block premium-3d-card">
             <div className="w-36 h-36 glass-premium rounded-3xl flex items-center justify-center mx-auto">
@@ -170,20 +167,7 @@ const AppleInspiredHero: React.FC = () => {
 
             <div className="absolute inset-0 w-36 h-36 bg-gradient-to-br from-blue-500/30 to-purple-500/30 rounded-3xl blur-2xl mx-auto" />
 
-            <motion.div
-              className="absolute w-4 h-1 bg-blue-400/20 rounded-full"
-              animate={{ rotate: [0, 360] }}
-              transition={{ duration: 8, repeat: Infinity, ease: 'linear' }}
-              style={{
-                top: '50%',
-                left: '50%',
-                translateX: '-50%',
-                translateY: '-50%',
-                rotate: 0,
-                transformOrigin: '80px 0px',
-              }}
-            />
-
+            {/* Network effect representing accessibility and connection */}
             <motion.div
               className="absolute w-1 h-1 bg-blue-400/60 rounded-full"
               style={{ top: '50%', left: '50%', translateX: '-50%', translateY: '-50%' }}

@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate, useLocation } from 'react-router-dom';
@@ -28,16 +29,20 @@ const AppleInspiredNavigation: React.FC = () => {
 
   const navigation = {
     en: {
-      overview: 'Overview',
-      solutions: 'Solutions',
-      contact: 'Contact',
-      cta: 'Schedule Briefing',
+      about: 'About',
+      whatWeBuild: 'What We Build',
+      labs: 'Labs',
+      insights: 'Insights',
+      careers: 'Join Us',
+      explore: 'Explore',
     },
     ar: {
-      overview: 'نظرة عامة',
-      solutions: 'الحلول',
-      contact: 'اتصل بنا',
-      cta: 'جدولة إحاطة',
+      about: 'حول',
+      whatWeBuild: 'ما نبنيه',
+      labs: 'المختبرات',
+      insights: 'الرؤى',
+      careers: 'انضم إلينا',
+      explore: 'استكشف',
     },
   };
   const currentNav = navigation[isArabic ? 'ar' : 'en'];
@@ -80,19 +85,18 @@ const AppleInspiredNavigation: React.FC = () => {
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-8">
           {[
-            { path: '/', label: currentNav.overview },
-            { path: '/solutions', label: currentNav.solutions },
-            { path: '/contact', label: currentNav.contact },
+            { path: '/about', label: currentNav.about },
+            { path: '/what-we-build', label: currentNav.whatWeBuild },
+            { path: '/labs', label: currentNav.labs },
+            { path: '/insights', label: currentNav.insights },
+            { path: '/explore', label: currentNav.explore },
           ].map((item, index) => (
             <NavButton
               key={item.path}
               path={item.path}
               label={item.label}
               index={index}
-              isActive={
-                location.pathname === item.path ||
-                (item.path === '/solutions' && location.pathname.startsWith('/solutions'))
-              }
+              isActive={location.pathname === item.path}
               variant="desktop"
             />
           ))}
@@ -100,29 +104,14 @@ const AppleInspiredNavigation: React.FC = () => {
 
         {/* Desktop Language & CTA */}
         <div className="hidden md:flex items-center gap-4">
-          <button
-            onClick={() => setLanguage(language === 'en' ? 'ar' : 'en')}
-            className="
-              flex items-center gap-2
-              glass-apple rounded-lg hover-scale
-              py-2 px-3
-              min-w-[72px]
-              justify-center
-              text-sm font-medium
-            "
-          >
-            <Globe size={16} />
-            <span>{language === 'en' ? 'EN' : 'عر'}</span>
-          </button>
-
           <motion.button
-            onClick={() => navigate('/contact')}
+            onClick={() => navigate('/careers')}
             className="btn-apple-secondary hover-lift text-caption"
             initial={{ opacity: 0, x: 10 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.4 }}
           >
-            {currentNav.cta}
+            {currentNav.careers}
           </motion.button>
         </div>
 
@@ -136,42 +125,23 @@ const AppleInspiredNavigation: React.FC = () => {
           >
             <div className="flex flex-col items-center justify-center h-full space-y-8 stagger-fade-in">
               {[
-                { path: '/', label: currentNav.overview },
-                { path: '/solutions', label: currentNav.solutions },
-                { path: '/contact', label: currentNav.contact },
+                { path: '/about', label: currentNav.about },
+                { path: '/what-we-build', label: currentNav.whatWeBuild },
+                { path: '/labs', label: currentNav.labs },
+                { path: '/insights', label: currentNav.insights },
+                { path: '/explore', label: currentNav.explore },
+                { path: '/careers', label: currentNav.careers },
               ].map((item, index) => (
                 <NavButton
                   key={item.path}
                   path={item.path}
                   label={item.label}
                   index={index}
-                  isActive={
-                    location.pathname === item.path ||
-                    (item.path === '/solutions' && location.pathname.startsWith('/solutions'))
-                  }
+                  isActive={location.pathname === item.path}
                   variant="mobile"
                   onClick={() => setMobileMenuOpen(false)}
                 />
               ))}
-
-              {/* Mobile Language Switcher Button */}
-              <button
-                onClick={() => {
-                  setLanguage(language === 'en' ? 'ar' : 'en');
-                  setMobileMenuOpen(false);
-                }}
-                className="
-                  flex items-center gap-2
-                  glass-apple rounded-lg hover-scale
-                  py-2 px-3
-                  min-w-[72px]
-                  justify-center
-                  text-sm font-medium
-                "
-              >
-                <Globe size={16} />
-                <span>{language === 'en' ? 'EN' : 'عر'}</span>
-              </button>
             </div>
           </motion.div>
         )}
