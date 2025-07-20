@@ -24,25 +24,65 @@ const Index = () => {
   useEffect(() => {
     setInitialLoadComplete(true);
     
-    // Apple-style performance optimization
+    // Performance optimization with proper cleanup
     const optimizeForPerformance = () => {
       const isMobile = window.innerWidth < 768;
       const isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const isLowPower = navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 2;
       
-      if (isMobile || isReducedMotion) {
+      // Adjust animation performance based on device capabilities
+      if (isMobile || isReducedMotion || isLowPower) {
         document.documentElement.style.setProperty('--duration-150', '50ms');
         document.documentElement.style.setProperty('--duration-200', '100ms');
         document.documentElement.style.setProperty('--duration-300', '150ms');
+        document.documentElement.classList.add('reduce-animations');
+      } else {
+        document.documentElement.classList.remove('reduce-animations');
+      }
+      
+      // Enable GPU acceleration for supported devices
+      if (!isMobile && !isLowPower) {
+        document.documentElement.classList.add('gpu-acceleration-enabled');
+      }
+    };
+
+    // Progressive enhancement checks
+    const checkFeatureSupport = () => {
+      // Check for backdrop-filter support
+      if (!CSS.supports('backdrop-filter', 'blur(10px)')) {
+        document.documentElement.classList.add('no-backdrop-filter');
+      }
+      
+      // Check for transform3d support
+      if (!CSS.supports('transform', 'translate3d(0,0,0)')) {
+        document.documentElement.classList.add('no-transform3d');
       }
     };
     
     optimizeForPerformance();
-    window.addEventListener('resize', optimizeForPerformance);
+    checkFeatureSupport();
     
+    const debouncedOptimize = debounce(optimizeForPerformance, 250);
+    window.addEventListener('resize', debouncedOptimize);
+    
+    // Cleanup
     return () => {
-      window.removeEventListener('resize', optimizeForPerformance);
+      window.removeEventListener('resize', debouncedOptimize);
     };
   }, [language, toast]);
+
+  // Debounce utility function
+  const debounce = (func: Function, wait: number) => {
+    let timeout: NodeJS.Timeout;
+    return function executedFunction(...args: any[]) {
+      const later = () => {
+        clearTimeout(timeout);
+        func(...args);
+      };
+      clearTimeout(timeout);
+      timeout = setTimeout(later, wait);
+    };
+  };
 
   const getSeoDescription = () => {
     return "Enterprise-grade AI infrastructure for financial, retail, healthcare, logistics, and public sector organizations in the UAE and Gulf region.";
@@ -187,6 +227,14 @@ const Index = () => {
       </Helmet>
 
       <div ref={mainRef} className="min-h-screen">
+        {/* Skip to main content for accessibility */}
+        <a 
+          href="#main-content" 
+          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-primary text-primary-foreground px-4 py-2 rounded-md z-50 transition-all duration-200"
+        >
+          Skip to main content
+        </a>
+        
         <AppleInspiredNavigation />
         
         <main className="relative">
