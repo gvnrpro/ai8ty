@@ -1,6 +1,7 @@
+
 import React from 'react';
 import { motion } from 'framer-motion';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const buttonVariants = {
   initial: { opacity: 0, y: 10 },
@@ -29,28 +30,35 @@ const NavButton: React.FC<NavButtonProps> = ({
   variant = 'desktop',
 }) => {
   const navigate = useNavigate();
-  const location = useLocation();
 
   const handleClick = () => {
     if (onClick) onClick();
     navigate(path);
   };
 
-  const sharedClasses = 'transition-colors duration-200 hover-scale';
-  const desktopClass = isActive
-    ? 'text-foreground'
-    : 'text-muted-foreground hover:text-foreground';
-  const mobileClass = isActive
-    ? 'text-foreground'
-    : 'text-muted-foreground hover:text-foreground';
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      handleClick();
+    }
+  };
+
+  const sharedClasses = 'transition-colors duration-200 hover-scale-subtle apple-focus rounded-md';
+  const desktopClasses = `
+    ${isActive ? 'text-foreground' : 'text-muted-foreground hover:text-foreground'}
+    px-3 py-2 min-h-[44px] flex items-center justify-center
+  `;
+  const mobileClasses = `
+    ${isActive ? 'text-foreground' : 'text-muted-foreground hover:text-foreground'}
+    px-4 py-3 min-h-[56px] min-w-[200px] flex items-center justify-center text-lg
+  `;
 
   return (
     <motion.button
       onClick={handleClick}
-      className={`relative ${
-        variant === 'desktop' ? 'text-caption' : 'text-title'
-      } ${sharedClasses} ${
-        variant === 'desktop' ? desktopClass : mobileClass
+      onKeyDown={handleKeyDown}
+      className={`relative ${sharedClasses} ${
+        variant === 'desktop' ? desktopClasses : mobileClasses
       }`}
       variants={buttonVariants}
       initial="initial"
@@ -59,18 +67,12 @@ const NavButton: React.FC<NavButtonProps> = ({
       aria-label={label}
       role="menuitem"
       tabIndex={0}
-      onKeyDown={e => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          handleClick();
-        }
-      }}
     >
       {label}
 
       {isActive && variant === 'desktop' && (
         <motion.div
-          className="absolute -bottom-1 left-0 right-0 h-px bg-blue-500"
+          className="absolute -bottom-1 left-0 right-0 h-px bg-neural"
           layoutId="activeTab"
           transition={{ type: 'spring', stiffness: 300, damping: 30 }}
         />
