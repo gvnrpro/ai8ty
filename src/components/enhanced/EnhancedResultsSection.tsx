@@ -33,39 +33,39 @@ const EnhancedResultsSection: React.FC = () => {
 
   const resultsTestimonials = [
     {
-      quote: "AI8TY rebuilt our site and automated our lead capture. We went from 2-3 inquiries per month to 15-20 qualified leads. Revenue increased 300% in 6 months.",
-      author: "Khalid Al-Rashid",
-      title: "CEO, Dubai Construction Solutions",
+      quote: "AI8TY rebuilt our platform and automated our course delivery. We went from 50 students per month to 300+ engaged learners. Revenue increased 300% in 6 months.",
+      author: "Sarah Johnson",
+      title: "Founder, EduBuilder Platform",
       results: "300% Revenue Increase",
       timeframe: "6 months",
       icon: DollarSign,
-      beforeAfter: { before: "2-3 leads/month", after: "15-20 qualified leads/month" }
+      beforeAfter: { before: "50 students/month", after: "300+ engaged learners/month" }
     },
     {
-      quote: "The automation alone saves me 15 hours per week. No more manual follow-ups, everything runs automatically. My team can focus on closing deals instead of chasing prospects.",
-      author: "Fatima Al-Zahra", 
-      title: "Founder, Emirates Digital Marketing",
+      quote: "The automation alone saves me 15 hours per week. No more manual content workflows, everything runs automatically. I can focus on creating instead of managing systems.",
+      author: "Marcus Chen", 
+      title: "Content Creator & Educator",
       results: "15 Hours Saved Weekly",
       timeframe: "Immediate",
       icon: Clock,
       beforeAfter: { before: "60 hours/week manual work", after: "45 hours/week + automation" }
     },
     {
-      quote: "Our website was invisible on Google. AI8TY's SEO work got us ranking #1 for 'business consulting Dubai' and 8 other key terms. Organic traffic up 500%.",
-      author: "Mohammed Hassan",
-      title: "Managing Director, Gulf Business Advisory", 
-      results: "500% Organic Traffic Growth",
+      quote: "My small business was invisible online. AI8TY's accessible tools got me ranking #1 for 'local handmade crafts' and 8 other key terms. Organic reach up 500%.",
+      author: "Elena Rodriguez",
+      title: "Artisan & Small Business Owner", 
+      results: "500% Organic Reach Growth",
       timeframe: "4 months",
       icon: TrendingUp,
-      beforeAfter: { before: "Page 5+ Google rankings", after: "#1 position for key terms" }
+      beforeAfter: { before: "Page 5+ search rankings", after: "#1 position for key terms" }
     }
   ];
 
   const stats = [
-    { value: "AED 2.3M", label: "Generated for Clients", icon: DollarSign },
+    { value: "$2.3M", label: "Generated for Users", icon: DollarSign },
     { value: "240+", label: "Hours Saved Monthly", icon: Clock },
-    { value: "68%", label: "Average Conversion Increase", icon: TrendingUp },
-    { value: "95%", label: "Client Satisfaction Rate", icon: Star }
+    { value: "68%", label: "Average Productivity Increase", icon: TrendingUp },
+    { value: "95%", label: "User Satisfaction Rate", icon: Star }
   ];
 
   return (
@@ -86,10 +86,10 @@ const EnhancedResultsSection: React.FC = () => {
           variants={itemVariants}
         >
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-syne font-bold mb-6">
-            📈 <span className="text-white">Real GCC Businesses,</span>
+            📈 <span className="text-white">Real Builders & Creators,</span>
             <br />
             <span className="bg-gradient-to-r from-green-500 via-blue-500 to-purple-500 bg-clip-text text-transparent">
-              Real Revenue Results
+              Real Impact Results
             </span>
           </h2>
           
