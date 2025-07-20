@@ -1,4 +1,3 @@
-
 import React, { Suspense, lazy } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
@@ -10,15 +9,19 @@ import { LanguageProvider } from '@/contexts/LanguageContext';
 
 // Lazy load main pages
 const Index = lazy(() => import("./pages/Index"));
-const About = lazy(() => import("./pages/About"));
-const Labs = lazy(() => import("./pages/Labs"));
+const Solutions = lazy(() => import("./pages/Solutions"));
 const Contact = lazy(() => import("./pages/Contact"));
 
-// Create placeholder pages for new navigation items
-const WhatWeBuild = lazy(() => import("./pages/WhatWeBuild"));
-const Insights = lazy(() => import("./pages/Insights"));
-const Careers = lazy(() => import("./pages/Careers"));
-const Explore = lazy(() => import("./pages/Explore"));
+// Solution Pages
+const FinancialInstitutions = lazy(() => import("./pages/solutions/FinancialInstitutions"));
+const HealthcareNetworks = lazy(() => import("./pages/solutions/HealthcareNetworks"));
+const ManufacturingFirms = lazy(() => import("./pages/solutions/ManufacturingFirms"));
+const RetailGroups = lazy(() => import("./pages/solutions/RetailGroups"));
+const PrivateWealthOffices = lazy(() => import("./pages/solutions/PrivateWealthOffices"));
+const AviationLogistics = lazy(() => import("./pages/solutions/AviationLogistics"));
+const PublicSector = lazy(() => import("./pages/solutions/PublicSector"));
+const RealEstate = lazy(() => import("./pages/solutions/RealEstate"));
+const LawFirms = lazy(() => import("./pages/solutions/LawFirms"));
 
 const queryClient = new QueryClient();
 
@@ -33,13 +36,19 @@ const App = () => (
             <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}>
               <Routes>
                 <Route path="/" element={<Index />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/what-we-build" element={<WhatWeBuild />} />
-                <Route path="/labs" element={<Labs />} />
-                <Route path="/insights" element={<Insights />} />
-                <Route path="/explore" element={<Explore />} />
-                <Route path="/careers" element={<Careers />} />
+                <Route path="/solutions" element={<Solutions />} />
                 <Route path="/contact" element={<Contact />} />
+                
+                {/* Solution Pages */}
+                <Route path="/solutions/financial-institutions" element={<FinancialInstitutions />} />
+                <Route path="/solutions/healthcare-networks" element={<HealthcareNetworks />} />
+                <Route path="/solutions/manufacturing-firms" element={<ManufacturingFirms />} />
+                <Route path="/solutions/retail-groups" element={<RetailGroups />} />
+                <Route path="/solutions/private-wealth-offices" element={<PrivateWealthOffices />} />
+                <Route path="/solutions/aviation-logistics" element={<AviationLogistics />} />
+                <Route path="/solutions/public-sector" element={<PublicSector />} />
+                <Route path="/solutions/real-estate" element={<RealEstate />} />
+                <Route path="/solutions/law-firms" element={<LawFirms />} />
               </Routes>
             </Suspense>
           </BrowserRouter>

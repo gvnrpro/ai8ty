@@ -76,7 +76,7 @@ const AIReadinessQuiz: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [score, setScore] = useState(0);
   const [loading, setLoading] = useState(false);
-  const { toast } = useToast();
+  const { showToast } = useToast();
 
   const handleAnswer = (value: number) => {
     const newAnswers = [...answers];
@@ -123,16 +123,9 @@ const AIReadinessQuiz: React.FC = () => {
     try {
       // Simulate async submission
       await new Promise((resolve) => setTimeout(resolve, 2000));
-      toast({
-        title: "Success",
-        description: "Quiz submitted successfully!"
-      });
+      showToast('Quiz submitted successfully!', 'success');
     } catch (err) {
-      toast({
-        title: "Error",
-        description: "There was an error submitting the quiz.",
-        variant: "destructive"
-      });
+      showToast('There was an error submitting the quiz.', 'error');
     } finally {
       setLoading(false);
     }
