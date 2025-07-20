@@ -59,7 +59,7 @@ const AppleInspiredNavigation: React.FC = () => {
 
       <motion.nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          scrolled ? 'glass-apple-strong border-b border-white/10' : 'bg-transparent'
+          scrolled ? 'glass-apple-strong border-b border-white/10' : 'glass-apple border-b border-white/5'
         } ${isArabic ? 'rtl' : ''}`}
         initial={{ y: -100 }}
         animate={{ y: 0 }}
