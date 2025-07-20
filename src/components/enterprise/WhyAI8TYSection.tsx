@@ -1,45 +1,96 @@
 
 import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { CheckCircle, ArrowRight } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { 
+  Users, 
+  Brain, 
+  Lightbulb, 
+  Shield, 
+  Zap, 
+  ArrowUpRight
+} from 'lucide-react';
 
 const WhyAI8TYSection: React.FC = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.2 });
-  const navigate = useNavigate();
   const { language } = useLanguage();
   const isArabic = language === 'ar';
 
   const content = {
     en: {
       subtitle: 'Why AI8TY',
-      title: 'Built specifically for the Gulf region\'s unique requirements',
-      description: 'While global AI solutions offer generic capabilities, AI8TY delivers systems engineered for the regulatory, cultural, and operational realities of GCC enterprises.',
-      benefits: [
-        'UAE PDPL and MOHAP compliant from day one',
-        'Arabic language processing with cultural context',
-        'Local data residency and sovereignty',
-        'GCC regulatory framework integration',
-        'Regional business practice optimization',
-        'Cultural sensitivity in AI decision-making'
-      ],
-      cta: 'Schedule Strategic Briefing'
+      title: 'Built to bridge the gap between advanced AI labs and everyday builders',
+      description: 'We believe that powerful technology should be accessible to everyone, not just the few. Our approach focuses on clarity, safety, and real-world impact.',
+      features: [
+        {
+          icon: Users,
+          title: 'Impact Beyond Technologists',
+          description: 'Tools and systems designed to empower creators, businesses, and communities regardless of technical background.',
+          highlight: 'For Everyone'
+        },
+        {
+          icon: Brain,
+          title: 'Accelerated AI Innovation Access',
+          description: 'Bringing cutting-edge AI capabilities to market faster, with the safety and reliability you need.',
+          highlight: 'Faster Access'
+        },
+        {
+          icon: Lightbulb,
+          title: 'Clarity Over Complexity',
+          description: 'Every interface, every interaction designed to be intuitive. Technology should enhance, not complicate.',
+          highlight: 'Simple & Clear'
+        },
+        {
+          icon: Shield,
+          title: 'Safety-First Approach',
+          description: 'Built-in security, privacy protection, and ethical AI practices from the ground up.',
+          highlight: 'Always Safe'
+        },
+        {
+          icon: Zap,
+          title: 'Real-World Results',
+          description: 'Focused on practical applications that solve actual problems and deliver measurable outcomes.',
+          highlight: 'Proven Impact'
+        }
+      ]
     },
     ar: {
       subtitle: 'لماذا AI8TY',
-      title: 'مبني خصيصاً للمتطلبات الفريدة لمنطقة الخليج',
-      description: 'بينما تقدم حلول الذكاء الاصطناعي العالمية قدرات عامة، تقدم AI8TY أنظمة مهندسة للواقع التنظيمي والثقافي والتشغيلي لمؤسسات دول مجلس التعاون.',
-      benefits: [
-        'متوافق مع قانون حماية البيانات الإماراتي ووزارة الصحة من اليوم الأول',
-        'معالجة اللغة العربية مع السياق الثقافي',
-        'إقامة البيانات المحلية والسيادة',
-        'تكامل الإطار التنظيمي لدول مجلس التعاون',
-        'تحسين ممارسات الأعمال الإقليمية',
-        'الحساسية الثقافية في صنع قرارات الذكاء الاصطناعي'
-      ],
-      cta: 'جدولة إحاطة استراتيجية'
+      title: 'مبني لسد الفجوة بين مختبرات الذكاء الاصطناعي المتقدمة والبناة اليوميين',
+      description: 'نحن نؤمن أن التكنولوجيا القوية يجب أن تكون في متناول الجميع، وليس قلة قليلة فقط. نهجنا يركز على الوضوح والأمان والتأثير الحقيقي.',
+      features: [
+        {
+          icon: Users,
+          title: 'تأثير يتجاوز التقنيين',
+          description: 'أدوات وأنظمة مصممة لتمكين المبدعين والشركات والمجتمعات بغض النظر عن الخلفية التقنية.',
+          highlight: 'للجميع'
+        },
+        {
+          icon: Brain,
+          title: 'وصول مسرع لابتكار الذكاء الاصطناعي',
+          description: 'جلب قدرات الذكاء الاصطناعي المتطورة إلى السوق بشكل أسرع، مع الأمان والموثوقية التي تحتاجها.',
+          highlight: 'وصول أسرع'
+        },
+        {
+          icon: Lightbulb,
+          title: 'الوضوح بدلاً من التعقيد',
+          description: 'كل واجهة، كل تفاعل مصمم ليكون بديهياً. التكنولوجيا يجب أن تعزز، وليس تعقد.',
+          highlight: 'بسيط وواضح'
+        },
+        {
+          icon: Shield,
+          title: 'نهج الأمان أولاً',
+          description: 'أمان مدمج، وحماية الخصوصية، وممارسات الذكاء الاصطناعي الأخلاقية من الأساس.',
+          highlight: 'آمن دائماً'
+        },
+        {
+          icon: Zap,
+          title: 'نتائج حقيقية',
+          description: 'مركز على التطبيقات العملية التي تحل المشاكل الفعلية وتحقق نتائج قابلة للقياس.',
+          highlight: 'تأثير مثبت'
+        }
+      ]
     }
   };
 
@@ -48,120 +99,70 @@ const WhyAI8TYSection: React.FC = () => {
   return (
     <section 
       ref={ref}
-      className={`section-apple ${isArabic ? 'rtl' : ''}`}
-      style={{ 
-        background: 'radial-gradient(ellipse at center, hsl(var(--gray-900)) 0%, hsl(var(--background)) 100%)'
-      }}
+      className={`section-apple bg-gradient-to-b from-gray-950/50 to-background ${isArabic ? 'rtl' : ''}`}
     >
       <div className="container-apple">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 items-center">
-          {/* Content */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          >
-            <p className="text-caption text-blue-500 font-medium mb-4 tracking-wider uppercase">
-              {currentContent.subtitle}
-            </p>
-            <h2 className="text-display mb-6">
-              {currentContent.title}
-            </h2>
-            <p className="text-body-large mb-10">
-              {currentContent.description}
-            </p>
+        {/* Section Header */}
+        <motion.div
+          className="text-center mb-20"
+          initial={{ opacity: 0, y: 40 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <p className="text-caption text-blue-500 font-medium mb-4 tracking-wider uppercase">
+            {currentContent.subtitle}
+          </p>
+          <h2 className="text-display mb-6 container-apple-narrow">
+            {currentContent.title}
+          </h2>
+          <p className="text-body-large container-apple-narrow">
+            {currentContent.description}
+          </p>
+        </motion.div>
 
-            {/* Benefits List */}
-            <div className="space-y-4 mb-10">
-              {currentContent.benefits.map((benefit, index) => (
-                <motion.div
-                  key={index}
-                  className="flex items-start gap-4"
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={isInView ? { opacity: 1, x: 0 } : {}}
-                  transition={{ 
-                    duration: 0.6, 
-                    delay: 0.3 + (index * 0.1),
-                    ease: [0.16, 1, 0.3, 1] 
-                  }}
-                >
-                  <CheckCircle size={20} className="text-blue-500 mt-0.5 flex-shrink-0" />
-                  <span className="text-body">{benefit}</span>
-                </motion.div>
-              ))}
-            </div>
-
-            {/* CTA */}
-            <motion.button
-              onClick={() => navigate('/contact')}
-              className="btn-apple-primary hover-lift group"
-              initial={{ opacity: 0, y: 20 }}
+        {/* Features Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {currentContent.features.map((feature, index) => (
+            <motion.div
+              key={index}
+              className="group relative card-apple hover-lift overflow-hidden"
+              initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: 0.8 }}
+              transition={{ 
+                duration: 0.6, 
+                delay: 0.2 + (index * 0.1),
+                ease: [0.16, 1, 0.3, 1] 
+              }}
             >
-              <span>{currentContent.cta}</span>
-              <ArrowRight size={16} className="transition-transform group-hover:translate-x-0.5 duration-200" />
-            </motion.button>
-          </motion.div>
+              {/* Highlight Badge */}
+              <div className="absolute top-4 right-4 px-3 py-1 bg-blue-500/20 text-blue-400 text-xs font-medium rounded-full border border-blue-500/30">
+                {feature.highlight}
+              </div>
 
-          {/* Visual Element */}
-          <motion.div
-            className="relative"
-            initial={{ opacity: 0, x: 30 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-          >
-            {/* Apple-style floating visualization */}
-            <div className="relative">
-              {/* Main card */}
-              <div className="card-apple p-8 hover-scale">
-                <div className="text-center">
-                  <div className="w-20 h-20 mx-auto mb-6 glass-apple rounded-2xl flex items-center justify-center">
-                    <img 
-                      src="/lovable-uploads/4b4a830d-afce-4dc3-8cc3-4fae3e2728ed.png" 
-                      alt="AI8TY" 
-                      className="h-10 w-auto object-contain opacity-80" 
-                    />
-                  </div>
-                  <h3 className="text-title mb-3">GCC-Native AI Systems</h3>
-                  <p className="text-body text-muted-foreground">
-                    Engineered for regional excellence
-                  </p>
+              <div className="relative z-10">
+                {/* Icon */}
+                <div className="w-12 h-12 bg-blue-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-500/20 transition-colors duration-300">
+                  <feature.icon size={24} className="text-blue-500" />
+                </div>
+
+                {/* Content */}
+                <h3 className="text-title mb-4 group-hover:text-blue-400 transition-colors duration-300">
+                  {feature.title}
+                </h3>
+                <p className="text-body leading-relaxed mb-6">
+                  {feature.description}
+                </p>
+
+                {/* Arrow indicator */}
+                <div className="flex items-center text-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <ArrowUpRight size={16} className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
                 </div>
               </div>
 
-              {/* Floating elements */}
-              <motion.div
-                className="absolute -top-4 -left-4 w-24 h-24 glass-apple rounded-xl p-4"
-                animate={{ 
-                  y: [0, -10, 0],
-                  rotate: [0, 5, 0]
-                }}
-                transition={{ 
-                  duration: 6,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
-              >
-                <div className="w-full h-full bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-lg" />
-              </motion.div>
-
-              <motion.div
-                className="absolute -bottom-6 -right-6 w-32 h-32 glass-apple rounded-2xl p-6"
-                animate={{ 
-                  y: [0, 10, 0],
-                  rotate: [0, -5, 0]
-                }}
-                transition={{ 
-                  duration: 8,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
-              >
-                <div className="w-full h-full bg-gradient-to-br from-green-500/20 to-blue-500/20 rounded-xl" />
-              </motion.div>
-            </div>
-          </motion.div>
+              {/* Hover Background Effect */}
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

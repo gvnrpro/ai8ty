@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate, useLocation } from 'react-router-dom';
@@ -28,16 +29,20 @@ const AppleInspiredNavigation: React.FC = () => {
 
   const navigation = {
     en: {
-      overview: 'Overview',
-      solutions: 'Solutions',
-      contact: 'Contact',
-      cta: 'Schedule Briefing',
+      about: 'About',
+      whatWeBuild: 'What We Build',
+      labs: 'Labs',
+      insights: 'Insights',
+      explore: 'Explore',
+      cta: 'Try AI8TY',
     },
     ar: {
-      overview: 'نظرة عامة',
-      solutions: 'الحلول',
-      contact: 'اتصل بنا',
-      cta: 'جدولة إحاطة',
+      about: 'حول',
+      whatWeBuild: 'ما نبنيه',
+      labs: 'المختبرات',
+      insights: 'رؤى',
+      explore: 'استكشف',
+      cta: 'جرب AI8TY',
     },
   };
   const currentNav = navigation[isArabic ? 'ar' : 'en'];
@@ -80,19 +85,18 @@ const AppleInspiredNavigation: React.FC = () => {
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-8">
           {[
-            { path: '/', label: currentNav.overview },
-            { path: '/solutions', label: currentNav.solutions },
-            { path: '/contact', label: currentNav.contact },
+            { path: '/about', label: currentNav.about },
+            { path: '/what-we-build', label: currentNav.whatWeBuild },
+            { path: '/labs', label: currentNav.labs },
+            { path: '/insights', label: currentNav.insights },
+            { path: '/explore', label: currentNav.explore },
           ].map((item, index) => (
             <NavButton
               key={item.path}
               path={item.path}
               label={item.label}
               index={index}
-              isActive={
-                location.pathname === item.path ||
-                (item.path === '/solutions' && location.pathname.startsWith('/solutions'))
-              }
+              isActive={location.pathname === item.path}
               variant="desktop"
             />
           ))}
@@ -116,7 +120,7 @@ const AppleInspiredNavigation: React.FC = () => {
           </button>
 
           <motion.button
-            onClick={() => navigate('/contact')}
+            onClick={() => navigate('/explore')}
             className="btn-apple-secondary hover-lift text-caption"
             initial={{ opacity: 0, x: 10 }}
             animate={{ opacity: 1, x: 0 }}
@@ -136,19 +140,18 @@ const AppleInspiredNavigation: React.FC = () => {
           >
             <div className="flex flex-col items-center justify-center h-full space-y-8 stagger-fade-in">
               {[
-                { path: '/', label: currentNav.overview },
-                { path: '/solutions', label: currentNav.solutions },
-                { path: '/contact', label: currentNav.contact },
+                { path: '/about', label: currentNav.about },
+                { path: '/what-we-build', label: currentNav.whatWeBuild },
+                { path: '/labs', label: currentNav.labs },
+                { path: '/insights', label: currentNav.insights },
+                { path: '/explore', label: currentNav.explore },
               ].map((item, index) => (
                 <NavButton
                   key={item.path}
                   path={item.path}
                   label={item.label}
                   index={index}
-                  isActive={
-                    location.pathname === item.path ||
-                    (item.path === '/solutions' && location.pathname.startsWith('/solutions'))
-                  }
+                  isActive={location.pathname === item.path}
                   variant="mobile"
                   onClick={() => setMobileMenuOpen(false)}
                 />

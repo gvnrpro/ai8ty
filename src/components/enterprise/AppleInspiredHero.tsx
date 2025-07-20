@@ -18,23 +18,23 @@ const AppleInspiredHero: React.FC = () => {
 
   const content = {
     en: {
-      badge: 'Transforming the Gulf Region',
-      headline: "AI that doesn't just compute.",
-      subheadline: 'It transforms.',
+      badge: 'Between AI Labs and Builders',
+      headline: "Building systems for a more intelligent,",
+      subheadline: 'more accessible future.',
       description:
-        'The only AI platform built specifically for GCC enterprises. Turn complex operations into competitive advantages with systems that understand your market, regulations, and ambitions.',
-      cta: "See What's Possible",
-      secondaryCta: 'Schedule Strategic Briefing',
+        'AI8TY makes advanced digital capabilities—AI, automation, infrastructure—accessible to ambitious businesses, creators, and communities worldwide.',
+      cta: "See What We Build",
+      secondaryCta: 'Learn More',
       scrollDown: 'Scroll down',
     },
     ar: {
-      badge: 'تحويل منطقة الخليج',
-      headline: 'ذكاء اصطناعي لا يحسب فقط.',
-      subheadline: 'بل يحول.',
+      badge: 'بين مختبرات الذكاء الاصطناعي والبناة',
+      headline: 'بناء أنظمة لمستقبل أكثر ذكاءً،',
+      subheadline: 'وأكثر سهولة في الوصول.',
       description:
-        'منصة الذكاء الاصطناعي الوحيدة المبنية خصيصًا لمؤسسات دول مجلس التعاون. حول العمليات المعقدة إلى مزايا تنافسية مع أنظمة تفهم السوق واللوائح والطموحات الخاصة بك.',
-      cta: 'شاهد ما هو ممكن',
-      secondaryCta: 'جدولة إحاطة استراتيجية',
+        'تجعل AI8TY القدرات الرقمية المتقدمة - الذكاء الاصطناعي والأتمتة والبنية التحتية - في متناول الشركات الطموحة والمبدعين والمجتمعات في جميع أنحاء العالم.',
+      cta: 'شاهد ما نبنيه',
+      secondaryCta: 'تعلم أكثر',
       scrollDown: 'مرر للأسفل',
     },
   };
@@ -141,7 +141,7 @@ const AppleInspiredHero: React.FC = () => {
           className="flex flex-col sm:flex-row items-center justify-center gap-6"
           variants={itemVariants}
         >
-          <button onClick={() => navigate('/solutions')} className="btn-premium group">
+          <button onClick={() => navigate('/what-we-build')} className="btn-premium group">
             <span className="relative z-10">{currentContent.cta}</span>
             <ArrowRight
               size={16}
@@ -150,7 +150,7 @@ const AppleInspiredHero: React.FC = () => {
           </button>
 
           <button
-            onClick={() => navigate('/contact')}
+            onClick={() => navigate('/about')}
             className="btn-apple-secondary premium-border-card hover-lift group"
           >
             <span>{currentContent.secondaryCta}</span>

@@ -12,56 +12,56 @@ const AppleInspiredValueProp: React.FC = () => {
 
   const content = {
     en: {
-      subtitle: 'Built for Excellence',
-      title: 'Enterprise AI that transforms operations across the Gulf region',
-      description: 'From financial institutions to healthcare networks, we deliver AI systems that drive measurable results while maintaining the highest standards of security and compliance.',
+      subtitle: 'What We Build',
+      title: 'Intelligent tools and infrastructure for real-world impact',
+      description: 'From AI-powered automation to accessible infrastructure, we create systems that bridge the gap between cutting-edge technology and practical solutions.',
       features: [
         {
-          icon: Shield,
-          title: 'Regulatory Compliance',
-          description: 'UAE PDPL, MOHAP, and GCC-ready deployments with built-in security frameworks.'
-        },
-        {
           icon: Zap,
-          title: 'Operational Excellence',
-          description: 'AI systems designed to streamline complex workflows and enhance decision-making.'
-        },
-        {
-          icon: Globe,
-          title: 'Regional Expertise',
-          description: 'Deep understanding of Gulf market dynamics and regulatory requirements.'
+          title: 'Accessible to Non-Technical Teams',
+          description: 'Tools designed for clarity over complexity, enabling everyone to harness advanced capabilities.'
         },
         {
           icon: Target,
-          title: 'Measurable Impact',
-          description: 'ROI-focused implementations with clear performance metrics and outcomes.'
+          title: 'Built for Clarity Over Complexity',
+          description: 'Clean, intuitive systems that focus on outcomes rather than overwhelming users with technical details.'
+        },
+        {
+          icon: Globe,
+          title: 'Tools People Can Actually Use',
+          description: 'Practical applications that solve real problems for businesses, creators, and communities worldwide.'
+        },
+        {
+          icon: Shield,
+          title: 'Safety as a Foundational Principle',
+          description: 'Every system built with security, privacy, and responsible AI practices at its core.'
         }
       ]
     },
     ar: {
-      subtitle: 'مبني للتميز',
-      title: 'ذكاء اصطناعي للمؤسسات يحول العمليات في منطقة الخليج',
-      description: 'من المؤسسات المالية إلى شبكات الرعاية الصحية، نقدم أنظمة ذكاء اصطناعي تحقق نتائج قابلة للقياس مع الحفاظ على أعلى معايير الأمان والامتثال.',
+      subtitle: 'ما نبنيه',
+      title: 'أدوات ذكية وبنية تحتية للتأثير الحقيقي',
+      description: 'من الأتمتة المدعومة بالذكاء الاصطناعي إلى البنية التحتية المتاحة، نحن ننشئ أنظمة تربط بين التكنولوجيا المتطورة والحلول العملية.',
       features: [
         {
-          icon: Shield,
-          title: 'الامتثال التنظيمي',
-          description: 'عمليات نشر جاهزة لقانون حماية البيانات الإماراتي ووزارة الصحة ومجلس التعاون مع أطر أمان مدمجة.'
-        },
-        {
           icon: Zap,
-          title: 'التميز التشغيلي',
-          description: 'أنظمة ذكاء اصطناعي مصممة لتبسيط سير العمل المعقد وتعزيز صنع القرار.'
-        },
-        {
-          icon: Globe,
-          title: 'الخبرة الإقليمية',
-          description: 'فهم عميق لديناميكيات السوق الخليجية والمتطلبات التنظيمية.'
+          title: 'في متناول الفرق غير التقنية',
+          description: 'أدوات مصممة للوضوح بدلاً من التعقيد، مما يمكن الجميع من الاستفادة من القدرات المتقدمة.'
         },
         {
           icon: Target,
-          title: 'تأثير قابل للقياس',
-          description: 'تطبيقات تركز على العائد على الاستثمار مع مقاييس أداء ونتائج واضحة.'
+          title: 'مبني للوضوح بدلاً من التعقيد',
+          description: 'أنظمة نظيفة وبديهية تركز على النتائج بدلاً من إرباك المستخدمين بالتفاصيل التقنية.'
+        },
+        {
+          icon: Globe,
+          title: 'أدوات يمكن للناس استخدامها فعلاً',
+          description: 'تطبيقات عملية تحل المشاكل الحقيقية للشركات والمبدعين والمجتمعات في جميع أنحاء العالم.'
+        },
+        {
+          icon: Shield,
+          title: 'الأمان كمبدأ أساسي',
+          description: 'كل نظام مبني مع الأمان والخصوصية وممارسات الذكاء الاصطناعي المسؤولة في جوهره.'
         }
       ]
     }
