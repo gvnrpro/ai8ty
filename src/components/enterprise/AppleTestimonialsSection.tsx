@@ -59,34 +59,6 @@ const AppleTestimonialsSection: React.FC = () => {
     avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&crop=face"
   }];
   const currentContent = content[isArabic ? 'ar' : 'en'];
-  return <section ref={ref} className={`section-apple relative overflow-hidden ${isArabic ? 'rtl' : ''}`} style={{
-    background: 'radial-gradient(ellipse at center, hsl(var(--gray-900)) 0%, hsl(var(--background)) 100%)'
-  }}>
-      {/* Apple-style ambient elements */}
-      
-
-      <div className="container-apple relative z-10">
-        {/* Section Header */}
-        
-
-        {/* Testimonials Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {testimonials.map((testimonial, index) => <motion.div key={testimonial.id} className="group relative" initial={{
-          opacity: 0,
-          y: 40
-        }} animate={isInView ? {
-          opacity: 1,
-          y: 0
-        } : {}} transition={{
-          duration: 0.8,
-          delay: 0.2 + index * 0.2,
-          ease: [0.16, 1, 0.3, 1]
-        }}>
-              {/* Apple-style testimonial card */}
-              
-            </motion.div>)}
-        </div>
-      </div>
-    </section>;
+  return;
 };
 export default AppleTestimonialsSection;
