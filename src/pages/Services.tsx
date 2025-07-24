@@ -1,3 +1,4 @@
+
 import React, { useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion, useInView } from 'framer-motion';
@@ -199,59 +200,9 @@ const Services = () => {
   return (
     <>
       <Helmet>
-        <title>Services & Solutions | AI8TY</title>
-        <meta name="description" content="Explore AI8TY's full suite of AI-powered services: SEO, digital marketing, branding, automation, creative, and more for GCC enterprises." />
-        <meta name="keywords" content="AI services, GCC AI, UAE AI, digital marketing, SEO, branding, automation, creative, AI8TY, enterprise AI, AI consulting" />
-        <link rel="canonical" href="https://ai8ty.com/services" />
-        <meta property="og:title" content="Services & Solutions | AI8TY" />
-        <meta property="og:description" content="Explore AI8TY's full suite of AI-powered services: SEO, digital marketing, branding, automation, creative, and more for GCC enterprises." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://ai8ty.com/services" />
-        <meta property="og:image" content="https://ai8ty.com/og-image-enterprise.png" />
-        <meta property="og:site_name" content="AI8TY Enterprise Systems" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Services & Solutions | AI8TY" />
-        <meta name="twitter:description" content="Explore AI8TY's full suite of AI-powered services: SEO, digital marketing, branding, automation, creative, and more for GCC enterprises." />
-        <meta name="twitter:image" content="https://ai8ty.com/og-image-enterprise.png" />
-        <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-        <meta name="theme-color" content="#0f172a" />
-        <link rel="alternate" href="https://ai8ty.com/services" hrefLang="en" />
-        <link rel="alternate" href="https://ai8ty.com/ar/services" hrefLang="ar" />
-        <script type="application/ld+json">{`
-          {
-            "@context": "https://schema.org",
-            "@type": "Service",
-            "name": "AI8TY Services & Solutions",
-            "url": "https://ai8ty.com/services",
-            "description": "Explore AI8TY's full suite of AI-powered services: SEO, digital marketing, branding, automation, creative, and more for GCC enterprises.",
-            "inLanguage": ["en", "ar"],
-            "provider": {
-              "@type": "Organization",
-              "name": "AI8TY",
-              "url": "https://ai8ty.com"
-            },
-            "areaServed": ["AE", "SA", "QA", "KW", "OM", "BH"],
-            "breadcrumb": {
-              "@type": "BreadcrumbList",
-              "itemListElement": [
-                { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ai8ty.com" },
-                { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://ai8ty.com/services" }
-              ]
-            },
-            "about": {
-              "@type": "Thing",
-              "name": "AI8TY AI Services",
-              "sameAs": "https://ai8ty.com/services"
-            },
-            "speakable": {
-              "@type": "SpeakableSpecification",
-              "xpath": [
-                "/html/head/title",
-                "/html/head/meta[@name='description']/@content"
-              ]
-            }
-          }
-        `}</script>
+        <title>AI8TY Services | Smart Solutions, Handled For You - Dubai & UAE</title>
+        <meta name="description" content="Complete digital services that work smarter, not harder. From AI automation to marketing that actually works - we handle the complexity so you get results." />
+        <meta name="keywords" content="digital marketing services dubai, AI automation UAE, web development, branding services, workflow automation, business growth solutions" />
       </Helmet>
 
       <div className="min-h-screen bg-ai8ty-black text-ai8ty-white overflow-x-hidden">

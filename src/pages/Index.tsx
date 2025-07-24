@@ -13,7 +13,6 @@ import AppleCaseStudiesSection from '@/components/enterprise/AppleCaseStudiesSec
 import AppleTestimonialsSection from '@/components/enterprise/AppleTestimonialsSection';
 import ApplePremiumContactSection from '@/components/enterprise/ApplePremiumContactSection';
 import AppleInspiredFooter from '@/components/enterprise/AppleInspiredFooter';
-import ClientWall from '@/components/ClientWall';
 
 const Index = () => {
   const [initialLoadComplete, setInitialLoadComplete] = useState(false);
@@ -24,65 +23,25 @@ const Index = () => {
   useEffect(() => {
     setInitialLoadComplete(true);
     
-    // Performance optimization with proper cleanup
+    // Apple-style performance optimization
     const optimizeForPerformance = () => {
       const isMobile = window.innerWidth < 768;
       const isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      const isLowPower = navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 2;
       
-      // Adjust animation performance based on device capabilities
-      if (isMobile || isReducedMotion || isLowPower) {
+      if (isMobile || isReducedMotion) {
         document.documentElement.style.setProperty('--duration-150', '50ms');
         document.documentElement.style.setProperty('--duration-200', '100ms');
         document.documentElement.style.setProperty('--duration-300', '150ms');
-        document.documentElement.classList.add('reduce-animations');
-      } else {
-        document.documentElement.classList.remove('reduce-animations');
-      }
-      
-      // Enable GPU acceleration for supported devices
-      if (!isMobile && !isLowPower) {
-        document.documentElement.classList.add('gpu-acceleration-enabled');
-      }
-    };
-
-    // Progressive enhancement checks
-    const checkFeatureSupport = () => {
-      // Check for backdrop-filter support
-      if (!CSS.supports('backdrop-filter', 'blur(10px)')) {
-        document.documentElement.classList.add('no-backdrop-filter');
-      }
-      
-      // Check for transform3d support
-      if (!CSS.supports('transform', 'translate3d(0,0,0)')) {
-        document.documentElement.classList.add('no-transform3d');
       }
     };
     
     optimizeForPerformance();
-    checkFeatureSupport();
+    window.addEventListener('resize', optimizeForPerformance);
     
-    const debouncedOptimize = debounce(optimizeForPerformance, 250);
-    window.addEventListener('resize', debouncedOptimize);
-    
-    // Cleanup
     return () => {
-      window.removeEventListener('resize', debouncedOptimize);
+      window.removeEventListener('resize', optimizeForPerformance);
     };
   }, [language, toast]);
-
-  // Debounce utility function
-  const debounce = (func: Function, wait: number) => {
-    let timeout: NodeJS.Timeout;
-    return function executedFunction(...args: any[]) {
-      const later = () => {
-        clearTimeout(timeout);
-        func(...args);
-      };
-      clearTimeout(timeout);
-      timeout = setTimeout(later, wait);
-    };
-  };
 
   const getSeoDescription = () => {
     return "Enterprise-grade AI infrastructure for financial, retail, healthcare, logistics, and public sector organizations in the UAE and Gulf region.";
@@ -113,128 +72,9 @@ const Index = () => {
         
         <meta name="theme-color" content="#0f172a" />
         <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-        <script type="application/ld+json">{`
-          {
-            "@context": "https://schema.org",
-            "@type": "WebSite",
-            "name": "AI8TY",
-            "url": "https://ai8ty.com",
-            "description": "Enterprise-grade AI infrastructure for financial, retail, healthcare, logistics, and public sector organizations in the UAE and Gulf region.",
-            "inLanguage": ["en", "ar"],
-            "publisher": {
-              "@type": "Organization",
-              "name": "AI8TY",
-              "url": "https://ai8ty.com",
-              "logo": {
-                "@type": "ImageObject",
-                "url": "https://ai8ty.com/ai8tyview.jpg"
-              },
-              "sameAs": [
-                "https://www.linkedin.com/company/ai8ty/",
-                "https://twitter.com/ai8ty"
-              ],
-              "contactPoint": [{
-                "@type": "ContactPoint",
-                "email": "enterprise@ai8ty.com",
-                "contactType": "customer support",
-                "areaServed": "AE,SA,QA,KW,OM,BH"
-              }]
-            },
-            "potentialAction": {
-              "@type": "SearchAction",
-              "target": "https://ai8ty.com/?s={search_term_string}",
-              "query-input": "required name=search_term_string"
-            }
-          }
-        `}</script>
-        <script type="application/ld+json">{`
-          {
-            "@context": "https://schema.org",
-            "@type": "WebPage",
-            "name": "Operational AI Systems for GCC Business Leaders | AI8TY",
-            "url": "https://ai8ty.com",
-            "description": "Enterprise-grade AI infrastructure for financial, retail, healthcare, logistics, and public sector organizations in the UAE and Gulf region.",
-            "inLanguage": ["en", "ar"],
-            "breadcrumb": {
-              "@type": "BreadcrumbList",
-              "itemListElement": [{
-                "@type": "ListItem",
-                "position": 1,
-                "name": "Home",
-                "item": "https://ai8ty.com"
-              }]
-            },
-            "about": {
-              "@type": "Thing",
-              "name": "AI8TY Enterprise AI Systems",
-              "sameAs": "https://ai8ty.com"
-            },
-            "speakable": {
-              "@type": "SpeakableSpecification",
-              "xpath": [
-                "/html/head/title",
-                "/html/head/meta[@name='description']/@content"
-              ]
-            }
-          }
-        `}</script>
-        <script type="application/ld+json">{JSON.stringify({
-          '@context': 'https://schema.org',
-          '@type': 'FAQPage',
-          'mainEntity': [
-            {
-              '@type': 'Question',
-              'name': 'Do I need to understand AI?',
-              'acceptedAnswer': {
-                '@type': 'Answer',
-                'text': 'Nope. We handle all of it — strategy, setup, and execution.'
-              }
-            },
-            {
-              '@type': 'Question',
-              'name': 'When will I see results?',
-              'acceptedAnswer': {
-                '@type': 'Answer',
-                'text': 'Many clients see measurable traction within the first 30–45 days.'
-              }
-            },
-            {
-              '@type': 'Question',
-              'name': 'Is this a software or a service?',
-              'acceptedAnswer': {
-                '@type': 'Answer',
-                'text': 'Service — done-for-you, customized to your business.'
-              }
-            },
-            {
-              '@type': 'Question',
-              'name': 'What if I already have a team or agency?',
-              'acceptedAnswer': {
-                '@type': 'Answer',
-                'text': 'We can support or replace. Your call.'
-              }
-            },
-            {
-              '@type': 'Question',
-              'name': "What's the cost?",
-              'acceptedAnswer': {
-                '@type': 'Answer',
-                'text': "We'll build a custom package after your free call."
-              }
-            }
-          ]
-        })}</script>
       </Helmet>
 
       <div ref={mainRef} className="min-h-screen">
-        {/* Skip to main content for accessibility */}
-        <a 
-          href="#main-content" 
-          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-primary text-primary-foreground px-4 py-2 rounded-md z-50 transition-all duration-200"
-        >
-          Skip to main content
-        </a>
-        
         <AppleInspiredNavigation />
         
         <main className="relative">
@@ -266,11 +106,6 @@ const Index = () => {
           {/* TESTIMONIALS */}
           <section id="testimonials">
             <AppleTestimonialsSection />
-          </section>
-          
-          {/* CLIENT WALL - TRUST AND SOCIAL PROOF */}
-          <section id="client-wall">
-            <ClientWall />
           </section>
           
           {/* PREMIUM CONTACT */}

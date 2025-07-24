@@ -34,40 +34,40 @@ const WorkShowcase: React.FC = () => {
 
   const caseStudies = [
     {
-      title: "Austin Tech Startup",
-      industry: "SaaS Development",
-      location: "Austin, TX",
-      challenge: "Manual user onboarding across multiple tools",
-      solution: "AI-powered onboarding automation with intelligent routing",
+      title: "Dubai Real Estate Firm",
+      industry: "Property Development",
+      location: "Dubai, UAE",
+      challenge: "Manual lead tracking across 5 platforms",
+      solution: "Unified CRM with WhatsApp automation",
       results: [
         { metric: "15 hours", label: "Saved per week" },
-        { metric: "340%", label: "User activation improvement" },
-        { metric: "$2.3M", label: "Additional ARR tracked" }
+        { metric: "340%", label: "Lead response improvement" },
+        { metric: "AED 2.3M", label: "Additional revenue tracked" }
       ],
       testimonial: "AI8TY gave us our weekends back. Everything just works now."
     },
     {
-      title: "Toronto Design Agency",
-      industry: "Creative Services", 
-      location: "Toronto, CA",
-      challenge: "Client project management took 3 weeks",
-      solution: "Automated workflow system with client collaboration portal",
+      title: "Riyadh Consulting Group",
+      industry: "Business Advisory", 
+      location: "Riyadh, KSA",
+      challenge: "Client onboarding took 3 weeks",
+      solution: "Automated document collection & client portal",
       results: [
-        { metric: "3 days", label: "New project setup time" },
+        { metric: "3 days", label: "New onboarding time" },
         { metric: "92%", label: "Client satisfaction score" },
-        { metric: "25 hours", label: "Saved monthly per project" }
+        { metric: "25 hours", label: "Saved monthly per client" }
       ],
       testimonial: "Our clients are amazed by how smooth everything is. We look like industry leaders now."
     },
     {
-      title: "Berlin E-commerce Collective",
-      industry: "Online Retail",
-      location: "Berlin, DE", 
-      challenge: "Inventory management chaos across platforms",
-      solution: "Unified inventory system with AI-powered demand predictions",
+      title: "Doha Trading Company",
+      industry: "Import/Export",
+      location: "Doha, Qatar", 
+      challenge: "Inventory management chaos",
+      solution: "Real-time inventory system with AI predictions",
       results: [
         { metric: "40%", label: "Inventory optimization" },
-        { metric: "€850K", label: "Cost savings annually" },
+        { metric: "AED 850K", label: "Cost savings annually" },
         { metric: "99.8%", label: "System uptime" }
       ],
       testimonial: "We went from spreadsheet hell to having full visibility. Game changer."
@@ -103,7 +103,7 @@ const WorkShowcase: React.FC = () => {
             📈 <span className="text-white">Real Results from</span>
             <br />
             <span className="bg-gradient-to-r from-green-500 via-blue-500 to-purple-500 bg-clip-text text-transparent">
-              Real Global Builders
+              Real GCC Businesses
             </span>
           </h2>
           
@@ -201,7 +201,7 @@ const WorkShowcase: React.FC = () => {
               Ready to Be Our Next Success Story?
             </h3>
             <p className="font-space text-white/90 mb-6 text-sm md:text-base">
-              Join 50+ builders and creators who have transformed their workflows with AI8TY.
+              Join 50+ GCC businesses that have transformed their operations with AI8TY.
             </p>
             <PremiumButton
               variant="primary"

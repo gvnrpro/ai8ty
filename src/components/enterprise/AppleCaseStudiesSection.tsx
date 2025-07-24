@@ -15,14 +15,14 @@ const AppleCaseStudiesSection: React.FC = () => {
   const content = {
     en: {
       subtitle: 'Real Impact',
-      title: 'Transforming how builders and creators operate globally',
-      description: 'See how forward-thinking individuals and organizations worldwide are leveraging AI8TY to drive accessible innovation.',
+      title: 'Transforming how the Gulf region operates',
+      description: 'See how forward-thinking organizations across the GCC are leveraging AI8TY to drive measurable outcomes.',
       cta: 'View Full Case Study'
     },
     ar: {
       subtitle: 'تأثير حقيقي',
-      title: 'تحويل طريقة عمل البناة والمبدعين عالمياً',
-      description: 'شاهد كيف يستفيد الأفراد والمنظمات ذات التفكير المستقبلي في جميع أنحاء العالم من AI8TY لتحقيق الابتكار المتاح للجميع.',
+      title: 'تحويل طريقة عمل منطقة الخليج',
+      description: 'شاهد كيف تستفيد المنظمات ذات التفكير المستقبلي في دول مجلس التعاون من AI8TY لتحقيق نتائج قابلة للقياس.',
       cta: 'عرض دراسة الحالة الكاملة'
     }
   };
@@ -30,35 +30,35 @@ const AppleCaseStudiesSection: React.FC = () => {
   const caseStudies = [
     {
       id: 1,
-      clientEn: 'Global Education Collective',
-      clientAr: 'مجموعة تعليمية عالمية',
-      industryEn: 'Online Education',
-      industryAr: 'التعليم الرقمي',
-      challengeEn: 'Personalized learning automation across 500+ daily students',
-      challengeAr: 'أتمتة التعلم الشخصي عبر أكثر من 500 طالب يومياً',
-      resultEn: '40% improved completion rates with 99.7% accessibility',
-      resultAr: '40% تحسن في معدلات الإكمال مع إمكانية وصول 99.7%',
+      clientEn: 'Leading UAE Bank',
+      clientAr: 'بنك إماراتي رائد',
+      industryEn: 'Financial Services',
+      industryAr: 'الخدمات المالية',
+      challengeEn: 'Risk assessment automation across 500+ daily transactions',
+      challengeAr: 'أتمتة تقييم المخاطر عبر أكثر من 500 معاملة يومية',
+      resultEn: '40% faster processing with 99.7% accuracy',
+      resultAr: '40% أسرع في المعالجة مع دقة 99.7%',
       metrics: [
-        { iconEn: TrendingUp, valueEn: '40%', labelEn: 'Completion Rates', valueAr: '40%', labelAr: 'معدلات الإكمال' },
-        { iconEn: Shield, valueEn: '99.7%', labelEn: 'Accessibility Score', valueAr: '99.7%', labelAr: 'درجة الوصول' },
-        { iconEn: Zap, valueEn: '$2.3M', labelEn: 'Community Impact', valueAr: '2.3م$', labelAr: 'تأثير المجتمع' }
+        { iconEn: TrendingUp, valueEn: '40%', labelEn: 'Faster Processing', valueAr: '40%', labelAr: 'معالجة أسرع' },
+        { iconEn: Shield, valueEn: '99.7%', labelEn: 'Accuracy Rate', valueAr: '99.7%', labelAr: 'معدل الدقة' },
+        { iconEn: Zap, valueEn: '$2.3M', labelEn: 'Annual Savings', valueAr: '2.3م$', labelAr: 'وفورات سنوية' }
       ],
       gradient: 'from-blue-500/20 via-indigo-500/20 to-purple-500/20'
     },
     {
       id: 2,
-      clientEn: 'Creator Support Network',
-      clientAr: 'شبكة دعم المبدعين',
-      industryEn: 'Content Creation',
-      industryAr: 'إنتاج المحتوى',
-      challengeEn: 'Content workflow optimization across 12 creator teams',
-      challengeAr: 'تحسين سير عمل المحتوى عبر 12 فريق مبدع',
-      resultEn: '25% faster production with improved creator satisfaction',
-      resultAr: '25% إنتاج أسرع مع تحسين رضا المبدعين',
+      clientEn: 'Major Healthcare Network',
+      clientAr: 'شبكة رعاية صحية رئيسية',
+      industryEn: 'Healthcare',
+      industryAr: 'الرعاية الصحية',
+      challengeEn: 'Patient flow optimization across 12 facilities',
+      challengeAr: 'تحسين تدفق المرضى عبر 12 منشأة',
+      resultEn: '25% reduction in wait times, improved patient satisfaction',
+      resultAr: '25% تقليل في أوقات الانتظار، تحسين رضا المرضى',
       metrics: [
-        { iconEn: TrendingUp, valueEn: '25%', labelEn: 'Production Speed', valueAr: '25%', labelAr: 'سرعة الإنتاج' },
-        { iconEn: Shield, valueEn: '95%', labelEn: 'Creator Satisfaction', valueAr: '95%', labelAr: 'رضا المبدعين' },
-        { iconEn: Zap, valueEn: '15K', labelEn: 'Daily Users Served', valueAr: '15 ألف', labelAr: 'مستخدم يومياً' }
+        { iconEn: TrendingUp, valueEn: '25%', labelEn: 'Reduced Wait Time', valueAr: '25%', labelAr: 'تقليل وقت الانتظار' },
+        { iconEn: Shield, valueEn: '95%', labelEn: 'Patient Satisfaction', valueAr: '95%', labelAr: 'رضا المرضى' },
+        { iconEn: Zap, valueEn: '15K', labelEn: 'Daily Patients', valueAr: '15 ألف', labelAr: 'مريض يوميًا' }
       ],
       gradient: 'from-green-500/20 via-emerald-500/20 to-teal-500/20'
     }

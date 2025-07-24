@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
@@ -6,22 +7,18 @@ import { ArrowRight, Mail, Phone, MapPin, Clock } from 'lucide-react';
 import EnterpriseNavigation from '@/components/enterprise/EnterpriseNavigation';
 import EnterpriseFooter from '@/components/enterprise/EnterpriseFooter';
 import TechBackground from '@/components/enterprise/TechBackground';
-import toast, { Toaster } from 'react-hot-toast';
-import { useInView } from 'react-intersection-observer';
 
 const Contact = () => {
   const { language } = useLanguage();
   const isArabic = language === 'ar';
   const [formData, setFormData] = useState({
-  name: '',
-  organization: '',
-  sector: '',
-  email: '',
-  phone: '',
-  message: '',
-  referral: ''
-});
-
+    name: '',
+    organization: '',
+    sector: '',
+    email: '',
+    phone: '',
+    message: ''
+  });
 
   const content = {
     en: {
@@ -85,27 +82,11 @@ const Contact = () => {
     });
   };
 
- const handleSubmit = async (e: React.FormEvent) => {
-  e.preventDefault();
-  try {
-    // Simulate submission delay or real API call
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-
-    toast.success(isArabic ? 'تم إرسال الطلب بنجاح' : 'Briefing request submitted successfully');
-    setFormData({
-      name: '',
-      organization: '',
-      sector: '',
-      email: '',
-      phone: '',
-      message: '',
-      referral: ''
-    });
-  } catch (error) {
-    toast.error(isArabic ? 'حدث خطأ. حاول مرة أخرى.' : 'Something went wrong. Please try again.');
-  }
-};
-
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Handle form submission
+    console.log('Form submitted:', formData);
+  };
 
   const contactInfo = [
     {
@@ -155,60 +136,13 @@ const Contact = () => {
   return (
     <>
       <Helmet>
-        <title>{isArabic ? 'اتصل بنا | AI8TY' : 'Contact Us | AI8TY'}</title>
-        <meta name="description" content={currentContent.subtitle} />
-        <meta name="keywords" content="contact AI8TY, AI consultancy UAE, GCC AI contact, AI8TY email, AI8TY phone, AI8TY Dubai, enterprise AI contact, AI8TY support" />
-        <link rel="canonical" href="https://ai8ty.com/contact" />
-        <meta property="og:title" content={isArabic ? 'اتصل بنا | AI8TY' : 'Contact Us | AI8TY'} />
-        <meta property="og:description" content={currentContent.subtitle} />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://ai8ty.com/contact" />
-        <meta property="og:image" content="https://ai8ty.com/og-image-enterprise.png" />
-        <meta property="og:site_name" content="AI8TY Enterprise Systems" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={isArabic ? 'اتصل بنا | AI8TY' : 'Contact Us | AI8TY'} />
-        <meta name="twitter:description" content={currentContent.subtitle} />
-        <meta name="twitter:image" content="https://ai8ty.com/og-image-enterprise.png" />
-        <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-        <meta name="theme-color" content="#0f172a" />
-        <link rel="alternate" href="https://ai8ty.com/contact" hrefLang="en" />
-        <link rel="alternate" href="https://ai8ty.com/ar/contact" hrefLang="ar" />
-        <script type="application/ld+json">{`
-          {
-            "@context": "https://schema.org",
-            "@type": "ContactPage",
-            "name": "${isArabic ? 'اتصل بنا | AI8TY' : 'Contact Us | AI8TY'}",
-            "url": "https://ai8ty.com/contact",
-            "description": "${currentContent.subtitle}",
-            "inLanguage": ["en", "ar"],
-            "breadcrumb": {
-              "@type": "BreadcrumbList",
-              "itemListElement": [
-                { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ai8ty.com" },
-                { "@type": "ListItem", "position": 2, "name": "Contact", "item": "https://ai8ty.com/contact" }
-              ]
-            },
-            "about": {
-              "@type": "Thing",
-              "name": "AI8TY Contact",
-              "sameAs": "https://ai8ty.com/contact"
-            },
-            "contactPoint": [{
-              "@type": "ContactPoint",
-              "email": "enterprise@ai8ty.com",
-              "telephone": "+971 4 123 4567",
-              "contactType": "customer support",
-              "areaServed": "AE,SA,QA,KW,OM,BH"
-            }],
-            "speakable": {
-              "@type": "SpeakableSpecification",
-              "xpath": [
-                "/html/head/title",
-                "/html/head/meta[@name='description']/@content"
-              ]
-            }
-          }
-        `}</script>
+        <title>
+          {isArabic ? 'اتصل بنا | AI8TY' : 'Contact Us | AI8TY'}
+        </title>
+        <meta 
+          name="description" 
+          content={currentContent.subtitle}
+        />
       </Helmet>
 
       <div className={`min-h-screen bg-slate-900 ${isArabic ? 'rtl' : ''}`}>
@@ -342,25 +276,6 @@ const Contact = () => {
                         required
                       />
                     </div>
-<div>
-  <label className="block text-sm font-medium text-slate-300 mb-2">
-    {isArabic ? 'كيف سمعت عنا؟' : 'How did you hear about us?'}
-  </label>
-  <select
-    name="referral"
-    value={formData.referral}
-    onChange={handleInputChange}
-    className="w-full px-4 py-3 md:py-4 bg-slate-800/50 border border-slate-600 rounded-lg text-white focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all text-base touch-manipulation"
-    required
-  >
-    <option value="">{isArabic ? 'اختر خياراً' : 'Select an option'}</option>
-    <option value="LinkedIn">{isArabic ? 'لينكدإن' : 'LinkedIn'}</option>
-    <option value="X (Twitter)">{isArabic ? 'تويتر (X)' : 'X (Twitter)'}</option>
-    <option value="Referral">{isArabic ? 'إحالة' : 'Referral'}</option>
-    <option value="Search Engine">{isArabic ? 'محرك بحث' : 'Search Engine'}</option>
-    <option value="Other">{isArabic ? 'أخرى' : 'Other'}</option>
-  </select>
-</div>
 
                     <motion.button
                       type="submit"

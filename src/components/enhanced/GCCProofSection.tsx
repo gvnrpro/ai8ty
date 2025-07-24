@@ -33,28 +33,28 @@ const GCCProofSection: React.FC = () => {
 
   const caseResults = [
     {
-      industry: "Education",
-      flag: "🎓",
-      result: "3× Student Engagement",
-      description: "Online learning platform used AI-powered tools to create personalized study paths, tripling student completion rates",
+      industry: "Retail",
+      flag: "🇦🇪",
+      result: "3× Leads in 6 Weeks",
+      description: "E-commerce fashion brand saw 300% increase in qualified leads through mobile optimization and conversion funnels",
       metric: "300%",
       icon: TrendingUp,
       color: "from-green-500 to-emerald-500"
     },
     {
-      industry: "Creator Economy",
-      flag: "🎨",
-      result: "5× Content Production Speed",
-      description: "Independent creator automated video editing and thumbnail generation, producing 5x more content while maintaining quality",
+      industry: "Legal",
+      flag: "🇸🇦",
+      result: "5× Time Saved via Automation",
+      description: "Law firm automated client intake and consultation booking, freeing up 20+ hours per week for billable work",
       metric: "5×",
       icon: Clock,
       color: "from-blue-500 to-cyan-500"
     },
     {
-      industry: "Small Business",
-      flag: "🏪",
-      result: "+42% Customer Reach",
-      description: "Local bakery expanded online presence with AI-powered social media and customer management, reaching 42% more customers",
+      industry: "Hospitality",
+      flag: "🇦🇪",
+      result: "+42% Direct Bookings in 30 Days",
+      description: "Dubai hotel reduced OTA dependency with optimized booking flow and local SEO strategy",
       metric: "+42%",
       icon: Target,
       color: "from-purple-500 to-pink-500"
@@ -79,10 +79,10 @@ const GCCProofSection: React.FC = () => {
           variants={itemVariants}
         >
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-syne font-bold mb-6">
-            🏆 <span className="text-white">Builders & Creators Trust AI8TY</span>
+            🏆 <span className="text-white">GCC Brands Trust AI8TY</span>
             <br />
             <span className="bg-gradient-to-r from-green-500 via-blue-500 to-purple-500 bg-clip-text text-transparent">
-              To Democratize Intelligence
+              To Deliver Growth That Performs
             </span>
           </h2>
           
@@ -144,7 +144,7 @@ const GCCProofSection: React.FC = () => {
                 >
                   <div className="flex items-center justify-center gap-2">
                     <MapPin size={16} className="text-neural" />
-                    <span className="text-neural font-semibold text-sm">Global Accessibility</span>
+                    <span className="text-neural font-semibold text-sm">GCC Market Expertise</span>
                   </div>
                 </motion.div>
               </PremiumCard>
