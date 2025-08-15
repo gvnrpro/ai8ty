@@ -12,29 +12,29 @@ const InnovationSection: React.FC = () => {
 
   const content = {
     en: {
-      subtitle: 'Innovation at Scale',
-      title: 'AI that transforms how the Gulf region operates',
-      description: 'From Dubai\'s financial district to Riyadh\'s Vision 2030 initiatives, our AI systems are powering the next generation of Gulf enterprises.',
+      subtitle: 'Strategic Implementation',
+      title: 'AI architecture that connects your operational dots',
+      description: 'We solve the integration puzzle that keeps enterprise AI from delivering real results. Purpose-built systems that work with your existing infrastructure while opening new competitive possibilities.',
       features: [
         {
           icon: Brain,
-          title: 'Intelligent Automation',
-          description: 'AI systems that learn, adapt, and evolve with your business operations.'
+          title: 'System Integration',
+          description: 'AI that connects your ERP, CRM, and operational systems into one intelligent network.'
         },
         {
           icon: Zap,
-          title: 'Real-time Insights',
-          description: 'Instant decision support across all critical business functions.'
+          title: 'Decision Acceleration',
+          description: 'Turn months of analysis into real-time strategic insights. No more waiting for reports.'
         },
         {
           icon: Shield,
-          title: 'Enterprise Security',
-          description: 'Bank-level security with full regulatory compliance across the GCC.'
+          title: 'Enterprise Reliability',
+          description: 'Bank-grade security with zero single points of failure. Your operations stay running.'
         },
         {
           icon: Target,
-          title: 'Precision Results',
-          description: 'Measurable outcomes with clear ROI tracking and performance metrics.'
+          title: 'Competitive Edge',
+          description: 'AI implementations focused on market advantage, not just cost reduction.'
         }
       ]
     },

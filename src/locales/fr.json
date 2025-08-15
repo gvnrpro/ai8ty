@@ -2,62 +2,62 @@
 {
   "nav": {
     "home": "Accueil",
-    "about": "À propos",
-    "services": "Services",
-    "ai8tyCard": "Carte AI8TY",
-    "work": "Projets",
-    "contact": "Contact"
+    "about": "Histoire",
+    "services": "Capacités",
+    "ai8tyCard": "Études de Cas",
+    "work": "Portfolio",
+    "contact": "Partenaire"
   },
   "hero": {
-    "title": "L'intelligence par le design",
-    "subtitle": "Le cabinet de stratégie créative pour les marques visionnaires",
-    "cta": "Découvrez nos services"
+    "title": "Infrastructure IA Stratégique",
+    "subtitle": "Conçue pour les entreprises les plus ambitieuses du Golfe",
+    "cta": "Explorer l'Implémentation"
   },
   "about": {
-    "title": "À propos d'AI8TY",
-    "description": "Fusion du design humain et de l'IA pour résoudre les problèmes d'aujourd'hui et construire les systèmes de demain."
+    "title": "Conçu Différemment",
+    "description": "Où la stratégie d'entreprise rencontre l'IA opérationnelle. Nous ne construisons pas des produits—nous architecturons des avantages concurrentiels."
   },
   "services": {
-    "title": "Nos Services",
-    "subtitle": "Des solutions complètes pour les marques tournées vers l'avenir",
+    "title": "Architecture d'Implémentation",
+    "subtitle": "Systèmes IA de bout en bout qui s'intègrent à votre infrastructure existante",
     "explorer": {
-      "title": "Plateforme de Services",
-      "subtitle": "Découvrez comment nos services intégrés transforment les entreprises en systèmes de croissance unifiés."
+      "title": "Modules Opérationnels",
+      "subtitle": "Chaque module conçu pour résoudre des défis d'entreprise spécifiques tout en se connectant à votre système plus large."
     }
   },
   "work": {
-    "title": "Des réalisations éloquentes",
-    "subtitle": "Des refontes de marque aux systèmes d'IA, nos clients ne se contentent pas de suivre - ils mènent."
+    "title": "Les Résultats Parlent Plus Fort",
+    "subtitle": "Implémentations réelles. Impact mesurable. Pas de vanity metrics."
   },
   "blog": {
-    "title": "Perspectives AI8TY",
-    "subtitle": "Réflexions sur l'IA, le design et l'avenir de la stratégie créative"
+    "title": "Insights d'Implémentation",
+    "subtitle": "Leçons réelles du déploiement d'IA dans des environnements d'entreprise complexes"
   },
   "team": {
-    "title": "Rencontrez l'équipe",
-    "subtitle": "Les visionnaires derrière les innovations d'AI8TY"
+    "title": "Les Architectes",
+    "subtitle": "Ingénieurs et stratèges qui ont construit des systèmes d'entreprise qui évoluent"
   },
   "contact": {
-    "title": "Connectons-nous",
-    "subtitle": "Prêt à transformer votre vision en réalité ?",
-    "cta": "Contactez-nous"
+    "title": "Partenariat Stratégique",
+    "subtitle": "Prêt à ingénier votre avantage concurrentiel ?",
+    "cta": "Commencer l'Évaluation"
   },
   "footer": {
-    "rights": "© 2025 AI8TY. Conçu par Vision.",
+    "rights": "© 2025 AI8TY. Infrastructure IA Stratégique.",
     "privacy": "Politique de confidentialité",
     "terms": "Conditions",
-    "tagline": "Nous concevons le levier. Pas des livrables. AI8TY est le cabinet de conseil en stratégie créative pour les marques visionnaires aux Émirats arabes unis et au-delà.",
-    "ps": "Vous êtes toujours libre de faire défiler, de sauvegarder ou de partir - mais nous préférons vous montrer ce qui est possible.",
-    "cta": "Découvrez ce qu'AI8TY pourrait réellement construire pour votre entreprise",
-    "services": "Services",
-    "connect": "Connecter"
+    "tagline": "Nous ne construisons pas d'outils IA. Nous architecturons des avantages concurrentiels. Infrastructure IA sur mesure pour les entreprises du Golfe qui refusent de se contenter de solutions génériques.",
+    "ps": "Chaque conversation commence par comprendre vos défis spécifiques. Pas de démos génériques. Pas de solutions universelles.",
+    "cta": "Voir votre feuille de route d'implémentation IA spécifique",
+    "services": "Capacités",
+    "connect": "Partenaire"
   },
   "transformation": {
-    "title": "Du chaos à la clarté",
-    "subtitle": "Voyez comment AI8TY transforme des systèmes d'entreprise fragmentés en moteurs de croissance unifiés."
+    "title": "Du Fragmenté à l'Unifié",
+    "subtitle": "Regardez comment l'IA stratégique transforme les processus déconnectés en avantages concurrentiels."
   },
   "prototype": {
-    "title": "Votre prototype AI8TY",
-    "subtitle": "Cartographions le potentiel de votre entreprise et montrons-vous ce qui est possible."
+    "title": "Votre Plan d'Implémentation",
+    "subtitle": "Cartographions vos défis spécifiques et architecturons votre solution."
   }
 }

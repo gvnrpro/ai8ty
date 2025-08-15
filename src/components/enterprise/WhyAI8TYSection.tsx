@@ -14,18 +14,18 @@ const WhyAI8TYSection: React.FC = () => {
 
   const content = {
     en: {
-      subtitle: 'Why AI8TY',
-      title: 'Built specifically for the Gulf region\'s unique requirements',
-      description: 'While global AI solutions offer generic capabilities, AI8TY delivers systems engineered for the regulatory, cultural, and operational realities of GCC enterprises.',
+      subtitle: 'Strategic Difference',
+      title: 'Enterprise AI built for Gulf market realities',
+      description: 'Global AI vendors sell you the same system they sell everywhere else. We architect solutions for your specific regulatory environment, operational complexity, and competitive landscape.',
       benefits: [
-        'UAE PDPL and MOHAP compliant from day one',
-        'Arabic language processing with cultural context',
-        'Local data residency and sovereignty',
-        'GCC regulatory framework integration',
-        'Regional business practice optimization',
-        'Cultural sensitivity in AI decision-making'
+        'Zero data export—everything stays within UAE/GCC borders',
+        'Native Arabic processing with business context understanding',
+        'Pre-configured for ADGM, DIFC, and DMCC compliance frameworks',
+        'Integration with Gulf banking standards and payment systems',
+        'Cultural business logic embedded in decision algorithms',
+        'Technical implementation that respects regional operational practices'
       ],
-      cta: 'Schedule Strategic Briefing'
+      cta: 'Schedule Technical Assessment'
     },
     ar: {
       subtitle: 'لماذا AI8TY',

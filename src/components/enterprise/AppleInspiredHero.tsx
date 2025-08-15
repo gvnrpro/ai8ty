@@ -21,20 +21,20 @@ const AppleInspiredHero: React.FC = () => {
   const opacity = useTransform(scrollY, [0, 300], [1, 0]);
   const content = {
     en: {
-      badge: 'Transforming the Gulf Region',
-      headline: 'AI that doesn\'t just compute.',
-      subheadline: 'It transforms.',
-      description: 'The only AI platform built specifically for GCC enterprises. Turn complex operations into competitive advantages with systems that understand your market, regulations, and ambitions.',
-      cta: 'See What\'s Possible',
-      secondaryCta: 'Schedule Strategic Briefing'
+      badge: 'Enterprise AI That Actually Works',
+      headline: 'Stop implementing.',
+      subheadline: 'Start architecting.',
+      description: 'Purpose-built AI infrastructure for Gulf enterprises. No generic solutions. No cookie-cutter approaches. Just strategic AI systems engineered for your specific operational realities.',
+      cta: 'See Your Blueprint',
+      secondaryCta: 'Schedule Technical Assessment'
     },
     ar: {
-      badge: 'تحويل منطقة الخليج',
-      headline: 'ذكاء اصطناعي لا يحسب فقط.',
-      subheadline: 'بل يحول.',
-      description: 'منصة الذكاء الاصطناعي الوحيدة المبنية خصيصًا لمؤسسات دول مجلس التعاون. حول العمليات المعقدة إلى مزايا تنافسية مع أنظمة تفهم السوق واللوائح والطموحات الخاصة بك.',
-      cta: 'شاهد ما هو ممكن',
-      secondaryCta: 'جدولة إحاطة استراتيجية'
+      badge: 'ذكاء اصطناعي للمؤسسات يعمل بالفعل',
+      headline: 'توقف عن التنفيذ.',
+      subheadline: 'ابدأ في التصميم المعماري.',
+      description: 'بنية تحتية للذكاء الاصطناعي مصممة خصيصاً لمؤسسات الخليج. لا حلول عامة. لا مناهج موحدة. فقط أنظمة ذكاء اصطناعي استراتيجية مهندسة لواقعك التشغيلي المحدد.',
+      cta: 'شاهد مخططك',
+      secondaryCta: 'جدولة تقييم تقني'
     }
   };
   const currentContent = content[isArabic ? 'ar' : 'en'];

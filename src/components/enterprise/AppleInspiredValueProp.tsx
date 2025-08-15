@@ -12,29 +12,29 @@ const AppleInspiredValueProp: React.FC = () => {
 
   const content = {
     en: {
-      subtitle: 'Built for Excellence',
-      title: 'Enterprise AI that transforms operations across the Gulf region',
-      description: 'From financial institutions to healthcare networks, we deliver AI systems that drive measurable results while maintaining the highest standards of security and compliance.',
+      subtitle: 'Strategic Architecture',
+      title: 'AI infrastructure that integrates with your existing enterprise systems',
+      description: 'We don\'t replace your tech stack—we make it intelligent. Strategic AI integration that enhances your current operations while building toward your competitive future.',
       features: [
         {
           icon: Shield,
-          title: 'Regulatory Compliance',
-          description: 'UAE PDPL, MOHAP, and GCC-ready deployments with built-in security frameworks.'
+          title: 'Enterprise Integration',
+          description: 'Seamless connection with SAP, Oracle, Microsoft, and custom enterprise systems. Your data stays where it belongs.'
         },
         {
           icon: Zap,
-          title: 'Operational Excellence',
-          description: 'AI systems designed to streamline complex workflows and enhance decision-making.'
+          title: 'Operational Intelligence',
+          description: 'Real-time insights that turn your operational data into strategic advantage. No reporting delays, no data silos.'
         },
         {
           icon: Globe,
-          title: 'Regional Expertise',
-          description: 'Deep understanding of Gulf market dynamics and regulatory requirements.'
+          title: 'Gulf-Native Design',
+          description: 'Built for GCC regulatory requirements, Arabic processing, and regional business practices from day one.'
         },
         {
           icon: Target,
-          title: 'Measurable Impact',
-          description: 'ROI-focused implementations with clear performance metrics and outcomes.'
+          title: 'Competitive Results',
+          description: 'Strategic implementations focused on market advantage, not just operational efficiency.'
         }
       ]
     },

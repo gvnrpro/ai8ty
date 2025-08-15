@@ -2,62 +2,62 @@
 {
   "nav": {
     "home": "Home",
-    "about": "About",
-    "services": "Services",
-    "ai8tyCard": "AI8TY Card",
-    "work": "Work",
-    "contact": "Contact"
+    "about": "Story",
+    "services": "Capabilities",
+    "ai8tyCard": "Case Studies",
+    "work": "Portfolio",
+    "contact": "Partner"
   },
   "hero": {
-    "title": "Strategic Business Operating System",
-    "subtitle": "The business transformation platform for visionary UAE enterprises",
-    "cta": "Explore Our System"
+    "title": "Strategic AI Infrastructure",
+    "subtitle": "Built for the Gulf's most ambitious enterprises",
+    "cta": "Explore Implementation"
   },
   "about": {
-    "title": "About AI8TY",
-    "description": "Combining systems, design, and AI to build your business future OS."
+    "title": "Built Different",
+    "description": "Where enterprise strategy meets operational AI. We don't build products—we architect competitive advantages."
   },
   "services": {
-    "title": "The AI8TY System",
-    "subtitle": "Comprehensive business solutions for forward-thinking UAE brands",
+    "title": "Implementation Architecture",
+    "subtitle": "End-to-end AI systems that integrate with your existing infrastructure",
     "explorer": {
-      "title": "Platform of Services",
-      "subtitle": "Discover how our integrated services transform businesses into unified growth systems."
+      "title": "Operational Modules",
+      "subtitle": "Each module designed to solve specific enterprise challenges while connecting to your broader system."
     }
   },
   "work": {
-    "title": "Work That Speaks",
-    "subtitle": "From rebrands to AI systems, our clients don't just keep up—they lead."
+    "title": "Results Speak Louder",
+    "subtitle": "Real implementations. Measurable impact. No vanity metrics."
   },
   "blog": {
-    "title": "AI8TY Insights",
-    "subtitle": "Strategic perspectives on business growth, AI, and digital transformation"
+    "title": "Implementation Insights",
+    "subtitle": "Real lessons from deploying AI in complex enterprise environments"
   },
   "team": {
-    "title": "Meet the Team",
-    "subtitle": "The visionaries behind AI8TY's innovations"
+    "title": "The Architects",
+    "subtitle": "Engineers and strategists who've built enterprise systems that scale"
   },
   "contact": {
-    "title": "Let's Connect",
-    "subtitle": "Ready to transform your business system?",
-    "cta": "Get in touch"
+    "title": "Strategic Partnership",
+    "subtitle": "Ready to engineer your competitive advantage?",
+    "cta": "Begin Assessment"
   },
   "footer": {
-    "rights": "© 2025 AI8TY. Business Transformation OS.",
+    "rights": "© 2025 AI8TY. Strategic AI Infrastructure.",
     "privacy": "Privacy Policy",
     "terms": "Terms",
-    "tagline": "We engineer leverage. Not deliverables. AI8TY is the business transformation platform for visionary brands in the UAE and beyond.",
-    "ps": "You're free to scroll, save, or come back later — but the system's ready when you are.",
-    "cta": "See what AI8TY would actually build for your business",
-    "services": "Services",
-    "connect": "Connect"
+    "tagline": "We don't build AI tools. We architect competitive advantages. Purpose-built AI infrastructure for Gulf enterprises who refuse to settle for generic solutions.",
+    "ps": "Every conversation starts with understanding your specific challenges. No generic demos. No one-size-fits-all solutions.",
+    "cta": "See your specific AI implementation roadmap",
+    "services": "Capabilities",
+    "connect": "Partner"
   },
   "transformation": {
-    "title": "From Chaos to Clarity",
-    "subtitle": "See how AI8TY transforms fragmented business systems into unified growth engines."
+    "title": "From Fragmented to Unified",
+    "subtitle": "Watch how strategic AI transforms disconnected processes into competitive advantages."
   },
   "prototype": {
-    "title": "Your AI8TY Prototype",
-    "subtitle": "Let's map your business potential and show you what's possible."
+    "title": "Your Implementation Blueprint",
+    "subtitle": "Let's map your specific challenges and architect your solution."
   }
 }

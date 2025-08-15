@@ -14,51 +14,51 @@ const AppleCaseStudiesSection: React.FC = () => {
 
   const content = {
     en: {
-      subtitle: 'Real Impact',
-      title: 'Transforming how the Gulf region operates',
-      description: 'See how forward-thinking organizations across the GCC are leveraging AI8TY to drive measurable outcomes.',
-      cta: 'View Full Case Study'
+      subtitle: 'Strategic Results',
+      title: 'AI implementations that actually moved the needle',
+      description: 'Real enterprises. Real challenges. Real results. See how strategic AI architecture creates measurable competitive advantages.',
+      cta: 'Request Implementation Details'
     },
     ar: {
-      subtitle: 'تأثير حقيقي',
-      title: 'تحويل طريقة عمل منطقة الخليج',
-      description: 'شاهد كيف تستفيد المنظمات ذات التفكير المستقبلي في دول مجلس التعاون من AI8TY لتحقيق نتائج قابلة للقياس.',
-      cta: 'عرض دراسة الحالة الكاملة'
+      subtitle: 'نتائج استراتيجية',
+      title: 'تطبيقات ذكاء اصطناعي حققت تأثيراً فعلياً',
+      description: 'مؤسسات حقيقية. تحديات حقيقية. نتائج حقيقية. شاهد كيف تخلق الهندسة المعمارية الاستراتيجية للذكاء الاصطناعي مزايا تنافسية قابلة للقياس.',
+      cta: 'طلب تفاصيل التنفيذ'
     }
   };
 
   const caseStudies = [
     {
       id: 1,
-      clientEn: 'Leading UAE Bank',
-      clientAr: 'بنك إماراتي رائد',
-      industryEn: 'Financial Services',
-      industryAr: 'الخدمات المالية',
-      challengeEn: 'Risk assessment automation across 500+ daily transactions',
-      challengeAr: 'أتمتة تقييم المخاطر عبر أكثر من 500 معاملة يومية',
-      resultEn: '40% faster processing with 99.7% accuracy',
-      resultAr: '40% أسرع في المعالجة مع دقة 99.7%',
+      clientEn: 'DIFC Financial Institution',
+      clientAr: 'مؤسسة مالية في مركز دبي المالي العالمي',
+      industryEn: 'Cross-Border Banking',
+      industryAr: 'الخدمات المصرفية العابرة للحدود',
+      challengeEn: 'Real-time compliance monitoring across UAE Central Bank, SAMA, and QCB regulations while processing 50K+ transactions daily',
+      challengeAr: 'مراقبة الامتثال في الوقت الفعلي عبر لوائح البنك المركزي الإماراتي ومؤسسة النقد العربي السعودي وبنك قطر المركزي أثناء معالجة أكثر من 50 ألف معاملة يومياً',
+      resultEn: 'Zero compliance violations in 18 months. Regulatory updates implemented in hours vs. weeks.',
+      resultAr: 'صفر انتهاكات امتثال في 18 شهراً. تطبيق التحديثات التنظيمية في ساعات بدلاً من أسابيع.',
       metrics: [
-        { iconEn: TrendingUp, valueEn: '40%', labelEn: 'Faster Processing', valueAr: '40%', labelAr: 'معالجة أسرع' },
-        { iconEn: Shield, valueEn: '99.7%', labelEn: 'Accuracy Rate', valueAr: '99.7%', labelAr: 'معدل الدقة' },
-        { iconEn: Zap, valueEn: '$2.3M', labelEn: 'Annual Savings', valueAr: '2.3م$', labelAr: 'وفورات سنوية' }
+        { iconEn: Shield, valueEn: '0', labelEn: 'Compliance Violations', valueAr: '0', labelAr: 'انتهاكات الامتثال' },
+        { iconEn: TrendingUp, valueEn: '47%', labelEn: 'Faster Processing', valueAr: '47%', labelAr: 'معالجة أسرع' },
+        { iconEn: Zap, valueEn: '50K+', labelEn: 'Daily Transactions', valueAr: '50 ألف+', labelAr: 'معاملة يومية' }
       ],
       gradient: 'from-blue-500/20 via-indigo-500/20 to-purple-500/20'
     },
     {
       id: 2,
-      clientEn: 'Major Healthcare Network',
-      clientAr: 'شبكة رعاية صحية رئيسية',
-      industryEn: 'Healthcare',
-      industryAr: 'الرعاية الصحية',
-      challengeEn: 'Patient flow optimization across 12 facilities',
-      challengeAr: 'تحسين تدفق المرضى عبر 12 منشأة',
-      resultEn: '25% reduction in wait times, improved patient satisfaction',
-      resultAr: '25% تقليل في أوقات الانتظار، تحسين رضا المرضى',
+      clientEn: 'GCC Healthcare Network',
+      clientAr: 'شبكة رعاية صحية خليجية',
+      industryEn: 'Multi-Country Healthcare',
+      industryAr: 'رعاية صحية متعددة البلدان',
+      challengeEn: 'Unified patient intelligence across 12 hospitals in 3 countries with fragmented EHR systems causing 40% diagnostic delays',
+      challengeAr: 'ذكاء مريض موحد عبر 12 مستشفى في 3 دول مع أنظمة سجلات صحية إلكترونية مجزأة تسبب 40% تأخير في التشخيص',
+      resultEn: 'Diagnostic delays eliminated. 32% improvement in resource utilization. Patient satisfaction increased 28%.',
+      resultAr: 'تم القضاء على تأخيرات التشخيص. تحسن 32% في استخدام الموارد. زيادة رضا المرضى 28%.',
       metrics: [
-        { iconEn: TrendingUp, valueEn: '25%', labelEn: 'Reduced Wait Time', valueAr: '25%', labelAr: 'تقليل وقت الانتظار' },
-        { iconEn: Shield, valueEn: '95%', labelEn: 'Patient Satisfaction', valueAr: '95%', labelAr: 'رضا المرضى' },
-        { iconEn: Zap, valueEn: '15K', labelEn: 'Daily Patients', valueAr: '15 ألف', labelAr: 'مريض يوميًا' }
+        { iconEn: TrendingUp, valueEn: '0%', labelEn: 'Diagnostic Delays', valueAr: '0%', labelAr: 'تأخيرات التشخيص' },
+        { iconEn: Shield, valueEn: '32%', labelEn: 'Resource Optimization', valueAr: '32%', labelAr: 'تحسين الموارد' },
+        { iconEn: Zap, valueEn: '28%', labelEn: 'Patient Satisfaction', valueAr: '28%', labelAr: 'رضا المرضى' }
       ],
       gradient: 'from-green-500/20 via-emerald-500/20 to-teal-500/20'
     }
