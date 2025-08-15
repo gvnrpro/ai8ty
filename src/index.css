@@ -250,6 +250,14 @@
   .hover-scale:hover {
     transform: scale(1.02);
   }
+  
+  .hover-scale-subtle {
+    transition: transform var(--duration-200) var(--ease-out-quart);
+  }
+  
+  .hover-scale-subtle:hover {
+    transform: scale(1.01);
+  }
 
   /* Apple-style glass effects */
   .glass-apple {

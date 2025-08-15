@@ -59,6 +59,117 @@ const AppleTestimonialsSection: React.FC = () => {
     avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&crop=face"
   }];
   const currentContent = content[isArabic ? 'ar' : 'en'];
-  return;
+  
+  return (
+    <section className={`section-apple bg-gradient-to-b from-slate-950 to-slate-900 ${isArabic ? 'rtl' : ''}`}>
+      <motion.div
+        ref={ref}
+        className="container-apple"
+        variants={{
+          hidden: { opacity: 0 },
+          visible: {
+            opacity: 1,
+            transition: {
+              staggerChildren: 0.1,
+              delayChildren: 0.2
+            }
+          }
+        }}
+        initial="hidden"
+        animate={isInView ? "visible" : "hidden"}
+      >
+        {/* Section Header */}
+        <motion.div 
+          className="text-center mb-16"
+          variants={{
+            hidden: { opacity: 0, y: 30 },
+            visible: {
+              opacity: 1,
+              y: 0,
+              transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] }
+            }
+          }}
+        >
+          <motion.p className="text-caption text-blue-400 mb-4 font-medium">
+            {currentContent.subtitle}
+          </motion.p>
+          <motion.h2 className="text-display mb-6">
+            {currentContent.title}
+          </motion.h2>
+          <motion.p className="text-body-large max-w-3xl mx-auto">
+            {currentContent.description}
+          </motion.p>
+        </motion.div>
+
+        {/* Testimonials Grid */}
+        <div className="grid lg:grid-cols-3 gap-8">
+          {testimonials.map((testimonial, index) => (
+            <motion.div
+              key={testimonial.id}
+              className="premium-card group"
+              variants={{
+                hidden: { opacity: 0, y: 50 },
+                visible: {
+                  opacity: 1,
+                  y: 0,
+                  transition: {
+                    duration: 0.8,
+                    delay: index * 0.1,
+                    ease: [0.16, 1, 0.3, 1]
+                  }
+                }
+              }}
+              whileHover={{ scale: 1.02 }}
+              transition={{ duration: 0.3 }}
+            >
+              {/* Quote Icon */}
+              <div className="flex justify-between items-start mb-6">
+                <Quote className="w-8 h-8 text-blue-400/60" />
+                <div className="flex gap-1">
+                  {[...Array(5)].map((_, i) => (
+                    <Star 
+                      key={i} 
+                      className="w-4 h-4 text-yellow-400 fill-current" 
+                    />
+                  ))}
+                </div>
+              </div>
+
+              {/* Testimonial Content */}
+              <blockquote className="text-body mb-8 leading-relaxed">
+                "{isArabic ? testimonial.quoteAr : testimonial.quoteEn}"
+              </blockquote>
+
+              {/* Author Info */}
+              <div className="flex items-center gap-4">
+                <motion.div
+                  className="w-12 h-12 rounded-full overflow-hidden ring-2 ring-white/10"
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <img
+                    src={testimonial.avatar}
+                    alt={isArabic ? testimonial.nameAr : testimonial.nameEn}
+                    className="w-full h-full object-cover"
+                  />
+                </motion.div>
+                <div>
+                  <h4 className="text-title text-white font-medium">
+                    {isArabic ? testimonial.nameAr : testimonial.nameEn}
+                  </h4>
+                  <p className="text-caption">
+                    {isArabic ? testimonial.titleAr : testimonial.titleEn}
+                  </p>
+                  <p className="text-caption text-white/50">
+                    {isArabic ? testimonial.companyAr : testimonial.companyEn}
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </motion.div>
+    </section>
+  );
 };
 export default AppleTestimonialsSection;

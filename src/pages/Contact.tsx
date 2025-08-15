@@ -9,6 +9,8 @@ import {
 } from 'lucide-react';
 import AppleInspiredNavigation from '@/components/enterprise/AppleInspiredNavigation';
 import AppleInspiredFooter from '@/components/enterprise/AppleInspiredFooter';
+import FormField from '@/components/FormField';
+import FormSelect from '@/components/FormSelect';
 
 const Contact = () => {
   const { language } = useLanguage();
@@ -132,7 +134,86 @@ const Contact = () => {
         subtitle: 'جدول إحاطة خاصة مع استراتيجيي الذكاء الاصطناعي لدينا. حوّل عملياتك بالذكاء الاصطناعي على مستوى المؤسسات.',
         description: 'انضم إلى قادة الصناعة عبر دول مجلس التعاون الذين يثقون في AI8TY لتحقيق نتائج قابلة للقياس من خلال تطبيق الذكاء الاصطناعي المتطور.'
       },
-      // ... Arabic translations would continue here
+      form: {
+        title: 'طلب إحاطة استراتيجية',
+        subtitle: 'يستجيب فريقنا المؤسسي عادة في غضون ساعتين خلال أيام العمل.',
+        fields: {
+          name: 'الاسم الكامل',
+          organization: 'المنظمة',
+          title: 'منصبك',
+          sector: 'قطاع الصناعة',
+          email: 'البريد الإلكتروني للعمل',
+          phone: 'الخط المباشر',
+          timeline: 'الجدول الزمني للمشروع',
+          budget: 'نطاق الاستثمار',
+          message: 'الأهداف الاستراتيجية',
+          priority: 'أولوية الإحاطة'
+        },
+        placeholders: {
+          name: 'أدخل اسمك الكامل',
+          organization: 'شركتك أو منظمتك',
+          title: 'الرئيس التنفيذي، المدير التقني، رئيس الابتكار...',
+          email: 'your.email@company.com',
+          phone: '+971 XX XXX XXXX',
+          message: 'اشرح أهدافك الاستراتيجية والتحديات الحالية...'
+        },
+        submit: 'جدولة الإحاطة',
+        submitting: 'جاري الجدولة...',
+        success: 'تم جدولة الإحاطة',
+        priorities: {
+          standard: 'قياسي (خلال 24 ساعة)',
+          urgent: 'عاجل (خلال ساعتين)',
+          immediate: 'فوري (خلال 30 دقيقة)'
+        }
+      },
+      contact: {
+        title: 'الوصول التنفيذي',
+        subtitle: 'وصول مباشر إلى فريق القيادة الاستراتيجية لدينا',
+        channels: [
+          {
+            icon: Mail,
+            label: 'استفسارات المؤسسات',
+            value: 'enterprise@ai8ty.com',
+            description: 'خط مباشر إلى فريقنا الاستراتيجي',
+            href: 'mailto:enterprise@ai8ty.com'
+          },
+          {
+            icon: Phone,
+            label: 'الخط الساخن التنفيذي',
+            value: '+971 4 123 4567',
+            description: 'خط دعم أولوية 24/7',
+            href: 'tel:+97141234567'
+          },
+          {
+            icon: Calendar,
+            label: 'تقويم تنفيذي',
+            value: 'حجز اجتماع مباشر',
+            description: 'جدولة مع C-suite مباشرة',
+            href: '#calendar'
+          },
+          {
+            icon: MapPin,
+            label: 'مقر مجلس التعاون الخليجي',
+            value: 'مركز دبي المالي العالمي',
+            description: 'DIFC، دبي، الإمارات العربية المتحدة',
+            href: null
+          }
+        ]
+      },
+      stats: [
+        { number: '<2h', label: 'وقت الاستجابة', icon: Clock },
+        { number: '98%', label: 'رضا العملاء', icon: Award },
+        { number: '24/7', label: 'دعم المؤسسات', icon: Shield },
+        { number: '50+', label: 'قادة الصناعة', icon: Users }
+      ],
+      benefits: [
+        'استشارة استراتيجية سرية',
+        'خارطة طريق تنفيذ مخصصة للذكاء الاصطناعي',
+        'إسقاط العائد على الاستثمار والجدول الزمني',
+        'توجيه الامتثال التنظيمي',
+        'وصول مباشر للفريق التنفيذي',
+        'طابور تنفيذ أولوية'
+      ]
     }
   }), []);
 
@@ -476,7 +557,7 @@ const Contact = () => {
                         name="priority"
                         value={formData.priority}
                         onChange={handleInputChange}
-                        options={Object.entries(currentContent.form.priorities).map(([key, value]) => value)}
+                        options={Object.values(currentContent.form.priorities)}
                         placeholder="Select priority"
                       />
 
@@ -591,62 +672,6 @@ const Contact = () => {
   );
 };
 
-// Form Field Component
-const FormField: React.FC<{
-  label: string;
-  name: string;
-  type?: string;
-  value: string;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  placeholder?: string;
-  required?: boolean;
-}> = ({ label, name, type = 'text', value, onChange, placeholder, required }) => (
-  <div>
-    <label className="block text-sm font-medium text-white/90 mb-3">
-      {label}
-    </label>
-    <input
-      type={type}
-      name={name}
-      value={value}
-      onChange={onChange}
-      placeholder={placeholder}
-      required={required}
-      className="w-full px-4 py-4 bg-white/5 border border-white/20 rounded-xl text-white placeholder-white/40 focus:outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-400/20 transition-all"
-    />
-  </div>
-);
-
-// Form Select Component
-const FormSelect: React.FC<{
-  label: string;
-  name: string;
-  value: string;
-  onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
-  options: string[];
-  placeholder?: string;
-  required?: boolean;
-}> = ({ label, name, value, onChange, options, placeholder, required }) => (
-  <div>
-    <label className="block text-sm font-medium text-white/90 mb-3">
-      {label}
-    </label>
-    <select
-      name={name}
-      value={value}
-      onChange={onChange}
-      required={required}
-      className="w-full px-4 py-4 bg-white/5 border border-white/20 rounded-xl text-white focus:outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-400/20 transition-all"
-    >
-      <option value="">{placeholder}</option>
-      {options.map((option, index) => (
-        <option key={index} value={option} className="bg-slate-800">
-          {option}
-        </option>
-      ))}
-    </select>
-  </div>
-);
 
 // Contact Card Component
 const ContactCard: React.FC<{
