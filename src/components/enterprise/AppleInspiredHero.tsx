@@ -132,8 +132,8 @@ const AppleInspiredHero: React.FC = () => {
         {/* Enhanced cinematic headline with gradient accent */}
         <motion.div variants={itemVariants} className="mb-6">
           <h1 className="text-display-large mb-4">
-            <span className="block text-7xl">{currentContent.headline}</span>
-            <span className="block gradient-text text-6xl">{currentContent.subheadline}</span>
+            <span className="block text-7xl font-extralight">{currentContent.headline}</span>
+            <span className="block gradient-text text-6xl font-light">{currentContent.subheadline}</span>
           </h1>
         </motion.div>
 
