@@ -21,20 +21,20 @@ const AppleInspiredHero: React.FC = () => {
   const opacity = useTransform(scrollY, [0, 300], [1, 0]);
   const content = {
     en: {
-      badge: 'Enterprise AI That Actually Works',
-      headline: 'Stop implementing.',
-      subheadline: 'Start architecting.',
-      description: 'Purpose-built AI infrastructure for Gulf enterprises. No generic solutions. No cookie-cutter approaches. Just strategic AI systems engineered for your specific operational realities.',
-      cta: 'See Your Blueprint',
-      secondaryCta: 'Schedule Technical Assessment'
+      badge: 'Enterprise AI Architecture',
+      headline: 'We Don\'t Build AI Tools.',
+      subheadline: 'We Architect Competitive Advantages.',
+      description: 'When DIFC banks need Arabic-compliant risk models, when UAE healthcare networks require culturally-aware patient systems, when manufacturing conglomerates need supply chain intelligence—they partner with us. Purpose-built AI infrastructure that integrates with your existing enterprise systems, not against them.',
+      cta: 'Assess Your Infrastructure',
+      secondaryCta: 'View Strategic Implementations'
     },
     ar: {
-      badge: 'ذكاء اصطناعي للمؤسسات يعمل بالفعل',
-      headline: 'توقف عن التنفيذ.',
-      subheadline: 'ابدأ في التصميم المعماري.',
-      description: 'بنية تحتية للذكاء الاصطناعي مصممة خصيصاً لمؤسسات الخليج. لا حلول عامة. لا مناهج موحدة. فقط أنظمة ذكاء اصطناعي استراتيجية مهندسة لواقعك التشغيلي المحدد.',
-      cta: 'شاهد مخططك',
-      secondaryCta: 'جدولة تقييم تقني'
+      badge: 'هندسة الذكاء الاصطناعي المؤسسي',
+      headline: 'نحن لا نبني أدوات ذكاء اصطناعي.',
+      subheadline: 'نصمم مزايا تنافسية.',
+      description: 'عندما تحتاج بنوك مركز دبي المالي العالمي إلى نماذج مخاطر متوافقة مع العربية، عندما تتطلب الشبكات الصحية الإماراتية أنظمة مرضى واعية ثقافياً، عندما تحتاج التكتلات التصنيعية إلى ذكاء سلسلة التوريد—يتشاركون معنا. بنية تحتية للذكاء الاصطناعي مصممة خصيصاً تتكامل مع أنظمة المؤسسات الحالية، وليس ضدها.',
+      cta: 'قيّم بنيتك التحتية',
+      secondaryCta: 'عرض التطبيقات الاستراتيجية'
     }
   };
   const currentContent = content[isArabic ? 'ar' : 'en'];
