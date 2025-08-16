@@ -14,9 +14,9 @@ const AppleTestimonialsSection: React.FC = () => {
   const isArabic = language === 'ar';
   const content = {
     en: {
-      subtitle: 'Strategic Validation',
-      title: 'What happens when enterprises choose purpose-built AI',
-      description: 'Leaders who refused generic solutions and invested in AI infrastructure designed specifically for their operational realities.'
+      subtitle: 'What Actually Happened',
+      title: 'When AI finally works',
+      description: 'Leaders who stopped believing vendor promises and demanded systems that deliver results.'
     },
     ar: {
       subtitle: 'التحقق الاستراتيجي',
@@ -26,36 +26,36 @@ const AppleTestimonialsSection: React.FC = () => {
   };
   const testimonials = [{
     id: 1,
-    quoteEn: "We evaluated every major AI vendor for 18 months. None could handle our DIFC regulatory requirements while connecting to our legacy core banking system. AI8TY delivered what everyone else said was impossible—and went live 3 months ahead of schedule.",
-    quoteAr: "قمنا بتقييم كل مورد ذكاء اصطناعي رئيسي لمدة 18 شهراً. لم يتمكن أي منهم من التعامل مع متطلبات مركز دبي المالي العالمي أثناء الاتصال بنظام الخدمات المصرفية الأساسية القديم. قدمت AI8TY ما قال الجميع أنه مستحيل—وبدأت التشغيل قبل الموعد المحدد بـ3 أشهر.",
+    quoteEn: "Eighteen months. Twelve vendors. Zero solutions. Everyone promised Arabic compliance. Nobody delivered. AI8TY built what works. Three months early.",
+    quoteAr: "ثمانية عشر شهراً. اثنا عشر مورداً. صفر حلول. الجميع وعد بالامتثال العربي. لم يسلم أحد. بنت AI8TY ما يعمل. قبل ثلاثة أشهر.",
     nameEn: "Sarah Al-Mansouri",
     nameAr: "سارة المنصوري",
-    titleEn: "Chief Technology Officer",
-    titleAr: "المدير التنفيذي للتكنولوجيا",
-    companyEn: "Regional Financial Institution",
-    companyAr: "مؤسسة مالية إقليمية",
+    titleEn: "CTO",
+    titleAr: "مدير التكنولوجيا",
+    companyEn: "Regional Bank",
+    companyAr: "بنك إقليمي",
     avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b2c5?w=400&h=400&fit=crop&crop=face"
   }, {
     id: 2,
-    quoteEn: "Their team didn't just implement AI—they redesigned our competitive strategy. Six months later, we're processing patient diagnostics 10x faster while our competitors are still struggling with solutions that don't understand Arabic medical terminology.",
-    quoteAr: "فريقهم لم يطبق الذكاء الاصطناعي فقط—بل أعاد تصميم استراتيجيتنا التنافسية. بعد ستة أشهر، نقوم بمعالجة تشخيصات المرضى أسرع بـ10 مرات بينما لا يزال منافسونا يعانون مع حلول لا تفهم المصطلحات الطبية العربية.",
+    quoteEn: "Ten times faster diagnostics. Arabic medical terms. Perfect accuracy. My competitors are still demoing solutions that don't work.",
+    quoteAr: "تشخيصات أسرع بعشر مرات. مصطلحات طبية عربية. دقة مثالية. منافسي لا يزالون يعرضون حلولاً لا تعمل.",
     nameEn: "Ahmed Al-Rashid",
     nameAr: "أحمد الراشد",
-    titleEn: "Head of Strategic Operations",
-    titleAr: "رئيس العمليات الاستراتيجية",
+    titleEn: "Head of Operations",
+    titleAr: "رئيس العمليات",
     companyEn: "Healthcare Network",
-    companyAr: "شبكة رعاية صحية",
+    companyAr: "شبكة صحية",
     avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face"
   }, {
     id: 3,
-    quoteEn: "What impressed me wasn't the technology—it was their understanding of how business actually works in the Gulf. They built AI that respects our operational culture while pushing us toward genuine innovation. That's incredibly rare.",
-    quoteAr: "ما أعجبني لم يكن التكنولوجيا—بل فهمهم لكيفية عمل الأعمال فعلياً في الخليج. لقد بنوا ذكاءً اصطناعياً يحترم ثقافتنا التشغيلية بينما يدفعنا نحو الابتكار الحقيقي. هذا نادر للغاية.",
+    quoteEn: "They understand Gulf business. Real culture. Real operations. Built AI that works with how we actually do things. Rare.",
+    quoteAr: "يفهمون أعمال الخليج. ثقافة حقيقية. عمليات حقيقية. بنوا ذكاءً اصطناعياً يعمل مع كيفية قيامنا بالأشياء فعلياً. نادر.",
     nameEn: "Fatima Al-Zahra",
     nameAr: "فاطمة الزهراء",
-    titleEn: "Chief Operating Officer",
-    titleAr: "المدير التنفيذي للعمليات",
-    companyEn: "Manufacturing Conglomerate",
-    companyAr: "تكتل تصنيعي",
+    titleEn: "COO",
+    titleAr: "مدير العمليات",
+    companyEn: "Manufacturing Group",
+    companyAr: "مجموعة تصنيع",
     avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&crop=face"
   }];
   const currentContent = content[isArabic ? 'ar' : 'en'];

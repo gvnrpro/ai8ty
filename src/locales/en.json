@@ -1,62 +1,62 @@
 {
   "nav": {
     "home": "Home",
-    "about": "Approach",
-    "services": "Architecture",
-    "ai8tyCard": "Implementations",
-    "work": "Outcomes",
-    "contact": "Partnership"
+    "about": "Method",
+    "services": "Build",
+    "ai8tyCard": "Case Studies",
+    "work": "Results",
+    "contact": "Talk"
   },
   "hero": {
-    "title": "Enterprise AI Architecture",
-    "subtitle": "Purpose-built AI infrastructure for Gulf enterprises who refuse to settle for generic solutions",
-    "cta": "Assess Your Infrastructure"
+    "title": "AI That Actually Works",
+    "subtitle": "For Gulf enterprises tired of solutions that promise everything and deliver nothing",
+    "cta": "See How We Build"
   },
   "about": {
-    "title": "We Don't Build AI Tools. We Architect Competitive Advantages.",
-    "description": "When DIFC banks need Arabic-compliant risk models, when UAE healthcare networks require culturally-aware patient systems, when manufacturing conglomerates need supply chain intelligence that understands Gulf dynamics—they call us. We architect AI infrastructure that integrates with your existing enterprise systems, not against them."
+    "title": "No More Vaporware.",
+    "description": "DIFC banks don't have time for AI theater. UAE hospitals can't afford systems that break under pressure. Manufacturing giants need solutions that work Monday morning, not just in demos. We build AI that handles reality."
   },
   "services": {
-    "title": "AI Infrastructure Architecture",
-    "subtitle": "Enterprise-grade AI systems that integrate seamlessly with your existing SAP, Oracle, and custom enterprise infrastructure",
+    "title": "How We Actually Build It",
+    "subtitle": "Real AI for real problems. No buzzwords. No magic. Just engineering.",
     "explorer": {
-      "title": "Strategic Implementation Modules",
-      "subtitle": "Each module addresses specific Gulf enterprise challenges: DIFC compliance, Arabic language processing, cultural considerations, and cross-border operations."
+      "title": "What Gets Built",
+      "subtitle": "Arabic compliance systems. Cultural AI for patient care. Supply chain intelligence that understands Gulf logistics."
     }
   },
   "work": {
-    "title": "Real Implementations, Measurable ROI",
-    "subtitle": "When a UAE bank reduced compliance processing from 3 weeks to 2 days. When a Saudi manufacturer increased supply chain efficiency by 34%. When a Qatari healthcare network improved patient outcomes by 28%."
+    "title": "The Numbers Don't Lie",
+    "subtitle": "A UAE bank: 3 weeks to 2 days. A Saudi factory: 34% efficiency gain. A Qatar hospital: 28% better outcomes."
   },
   "blog": {
-    "title": "Strategic AI Intelligence",
-    "subtitle": "Exclusive insights from deploying AI infrastructure in the world's most regulated and culturally complex enterprise environments"
+    "title": "What We've Learned",
+    "subtitle": "Real insights from building AI in the world's most demanding markets"
   },
   "team": {
-    "title": "The AI Infrastructure Architects",
-    "subtitle": "Former enterprise architects from McKinsey, Aramco, and ADNOC who've built mission-critical systems for Gulf enterprises"
+    "title": "Who Builds This",
+    "subtitle": "Ex-McKinsey architects. Former Aramco engineers. ADNOC veterans. People who've built systems that can't fail."
   },
   "contact": {
-    "title": "Strategic AI Infrastructure Assessment",
-    "subtitle": "Ready to architect your competitive advantage? Limited partnership slots available for Q1 2025.",
-    "cta": "Request Executive Assessment"
+    "title": "Ready to Build Something Real?",
+    "subtitle": "Limited spots. Q1 2025. No tire-kickers.",
+    "cta": "Request Assessment"
   },
   "footer": {
-    "rights": "© 2025 AI8TY. Enterprise AI Infrastructure Architects.",
-    "privacy": "Privacy Policy",
+    "rights": "© 2025 AI8TY. We build AI that works.",
+    "privacy": "Privacy",
     "terms": "Terms",
-    "tagline": "We don't build AI tools. We architect competitive advantages. Purpose-built AI infrastructure for Gulf enterprises who understand that their competitive edge lies in strategic implementation, not generic solutions.",
-    "ps": "Every strategic partnership begins with a comprehensive infrastructure assessment. We examine your existing enterprise systems, regulatory requirements, and competitive landscape before proposing architecture.",
-    "cta": "Schedule your confidential AI infrastructure assessment",
-    "services": "Architecture",
-    "connect": "Partnership"
+    "tagline": "No demos. No promises. Just AI that works. Built for Gulf enterprises who've been burned by vendors who talk big and deliver small.",
+    "ps": "Every conversation starts with reality. What actually needs to work? What can't break? What really matters? Then we build it.",
+    "cta": "Talk about what you actually need",
+    "services": "Build",
+    "connect": "Talk"
   },
   "transformation": {
-    "title": "From Enterprise Silos to Unified Intelligence",
-    "subtitle": "See how strategic AI infrastructure transforms fragmented enterprise systems into unified competitive advantages that your competitors can't replicate."
+    "title": "Before. After.",
+    "subtitle": "See how real AI transforms broken processes into competitive weapons."
   },
   "prototype": {
-    "title": "Your Strategic AI Architecture Blueprint",
-    "subtitle": "Let's examine your existing enterprise infrastructure, map your regulatory requirements, and architect your competitive advantage."
+    "title": "Your Reality Check",
+    "subtitle": "Let's map what's broken, what matters, and what actually gets built."
   }
 }

@@ -21,12 +21,12 @@ const AppleInspiredHero: React.FC = () => {
   const opacity = useTransform(scrollY, [0, 300], [1, 0]);
   const content = {
     en: {
-      badge: 'Enterprise AI Architecture',
-      headline: 'We Don\'t Build AI Tools.',
-      subheadline: 'We Architect Competitive Advantages.',
-      description: 'When DIFC banks need Arabic-compliant risk models, when UAE healthcare networks require culturally-aware patient systems, when manufacturing conglomerates need supply chain intelligence—they partner with us. Purpose-built AI infrastructure that integrates with your existing enterprise systems, not against them.',
-      cta: 'Assess Your Infrastructure',
-      secondaryCta: 'View Strategic Implementations'
+      badge: 'Enterprise AI That Works',
+      headline: 'No More Vaporware.',
+      subheadline: 'AI That Actually Delivers.',
+      description: 'DIFC banks don\'t have time for AI theater. UAE hospitals can\'t afford systems that break. Manufacturing giants need solutions that work Monday morning. We build AI that handles reality.',
+      cta: 'See How We Build',
+      secondaryCta: 'View Real Results'
     },
     ar: {
       badge: 'هندسة الذكاء الاصطناعي المؤسسي',

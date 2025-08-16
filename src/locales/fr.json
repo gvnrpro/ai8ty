@@ -2,16 +2,16 @@
 {
   "nav": {
     "home": "Accueil",
-    "about": "Histoire",
-    "services": "Capacités",
+    "about": "Méthode",
+    "services": "Construction",
     "ai8tyCard": "Études de Cas",
-    "work": "Portfolio",
-    "contact": "Partenaire"
+    "work": "Résultats",
+    "contact": "Parler"
   },
   "hero": {
-    "title": "Infrastructure IA Stratégique",
-    "subtitle": "Conçue pour les entreprises les plus ambitieuses du Golfe",
-    "cta": "Explorer l'Implémentation"
+    "title": "IA Qui Fonctionne Vraiment",
+    "subtitle": "Pour les entreprises du Golfe fatiguées des solutions qui promettent tout et ne livrent rien",
+    "cta": "Voir Comment On Construit"
   },
   "about": {
     "title": "Conçu Différemment",
