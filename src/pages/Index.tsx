@@ -13,6 +13,9 @@ import AppleCaseStudiesSection from '@/components/enterprise/AppleCaseStudiesSec
 import AppleTestimonialsSection from '@/components/enterprise/AppleTestimonialsSection';
 import ApplePremiumContactSection from '@/components/enterprise/ApplePremiumContactSection';
 import AppleInspiredFooter from '@/components/enterprise/AppleInspiredFooter';
+import LeadMagnetSection from '@/components/seo/LeadMagnetSection';
+import IndustryLandingPages from '@/components/seo/IndustryLandingPages';
+import ThoughtLeadershipSection from '@/components/seo/ThoughtLeadershipSection';
 
 const Index = () => {
   const [initialLoadComplete, setInitialLoadComplete] = useState(false);
@@ -106,6 +109,21 @@ const Index = () => {
           {/* TESTIMONIALS */}
           <section id="testimonials">
             <AppleTestimonialsSection />
+          </section>
+          
+          {/* INDUSTRY LANDING PAGES */}
+          <section id="industries">
+            <IndustryLandingPages />
+          </section>
+          
+          {/* LEAD MAGNETS */}
+          <section id="resources">
+            <LeadMagnetSection />
+          </section>
+          
+          {/* THOUGHT LEADERSHIP */}
+          <section id="insights">
+            <ThoughtLeadershipSection />
           </section>
           
           {/* PREMIUM CONTACT */}

@@ -9,6 +9,7 @@ import { LanguageProvider } from '@/contexts/LanguageContext';
 import Index from "./pages/Index";
 import Solutions from "./pages/Solutions";
 import Contact from "./pages/Contact";
+import AiConsultingUAE from "./pages/AiConsultingUAE";
 
 // Solution Pages
 import FinancialInstitutions from "./pages/solutions/FinancialInstitutions";
@@ -35,6 +36,7 @@ const App = () => (
               <Route path="/" element={<Index />} />
               <Route path="/solutions" element={<Solutions />} />
               <Route path="/contact" element={<Contact />} />
+              <Route path="/ai-consulting-uae" element={<AiConsultingUAE />} />
               
               {/* Solution Pages */}
               <Route path="/solutions/financial-institutions" element={<FinancialInstitutions />} />

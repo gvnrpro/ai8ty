@@ -2,4 +2,18 @@
 User-agent: *
 Allow: /
 
+# High-priority pages for crawling
+Crawl-delay: 1
+
+# SEO-optimized sitemap
 Sitemap: https://ai8ty.com/sitemap.xml
+
+# Block admin/testing paths
+Disallow: /admin/
+Disallow: /test/
+Disallow: /*.json$
+
+# Allow all AI consulting UAE related content
+Allow: /ai-consulting-uae
+Allow: /solutions/
+Allow: /contact
