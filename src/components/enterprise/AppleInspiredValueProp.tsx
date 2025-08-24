@@ -12,56 +12,56 @@ const AppleInspiredValueProp: React.FC = () => {
 
   const content = {
     en: {
-      subtitle: 'Strategic Architecture',
-      title: 'AI infrastructure that integrates with your existing enterprise systems',
-      description: 'We don\'t replace your tech stack—we make it intelligent. Strategic AI integration that enhances your current operations while building toward your competitive future.',
+      subtitle: 'Our Services',
+      title: 'Comprehensive AI Solutions for Your Business',
+      description: 'We offer end-to-end AI consulting services to help you harness the power of artificial intelligence and transform your business operations.',
       features: [
         {
           icon: Shield,
-          title: 'Enterprise Integration',
-          description: 'Seamless connection with SAP, Oracle, Microsoft, and custom enterprise systems. Your data stays where it belongs.'
+          title: 'AI Strategy & Consulting',
+          description: 'Expert guidance to develop and implement AI strategies that align with your business objectives and drive measurable results.'
         },
         {
           icon: Zap,
-          title: 'Operational Intelligence',
-          description: 'Real-time insights that turn your operational data into strategic advantage. No reporting delays, no data silos.'
+          title: 'Custom AI Development',
+          description: 'Tailored AI solutions built specifically for your industry needs, from machine learning models to intelligent automation systems.'
         },
         {
           icon: Globe,
-          title: 'Gulf-Native Design',
-          description: 'Built for GCC regulatory requirements, Arabic processing, and regional business practices from day one.'
+          title: 'Digital Transformation',
+          description: 'Complete digital transformation services that modernize your operations and position you for future growth.'
         },
         {
           icon: Target,
-          title: 'Competitive Results',
-          description: 'Strategic implementations focused on market advantage, not just operational efficiency.'
+          title: 'Implementation & Support',
+          description: 'Full implementation support with ongoing maintenance to ensure your AI solutions deliver continuous value.'
         }
       ]
     },
     ar: {
-      subtitle: 'مبني للتميز',
-      title: 'ذكاء اصطناعي للمؤسسات يحول العمليات في منطقة الخليج',
-      description: 'من المؤسسات المالية إلى شبكات الرعاية الصحية، نقدم أنظمة ذكاء اصطناعي تحقق نتائج قابلة للقياس مع الحفاظ على أعلى معايير الأمان والامتثال.',
+      subtitle: 'خدماتنا',
+      title: 'حلول ذكاء اصطناعي شاملة لأعمالك',
+      description: 'نقدم خدمات استشارية شاملة للذكاء الاصطناعي لمساعدتك على الاستفادة من قوة الذكاء الاصطناعي وتحويل عمليات أعمالك.',
       features: [
         {
           icon: Shield,
-          title: 'الامتثال التنظيمي',
-          description: 'عمليات نشر جاهزة لقانون حماية البيانات الإماراتي ووزارة الصحة ومجلس التعاون مع أطر أمان مدمجة.'
+          title: 'استراتيجية واستشارات الذكاء الاصطناعي',
+          description: 'إرشادات خبيرة لتطوير وتنفيذ استراتيجيات الذكاء الاصطناعي التي تتماشى مع أهداف عملك وتحقق نتائج قابلة للقياس.'
         },
         {
           icon: Zap,
-          title: 'التميز التشغيلي',
-          description: 'أنظمة ذكاء اصطناعي مصممة لتبسيط سير العمل المعقد وتعزيز صنع القرار.'
+          title: 'تطوير ذكاء اصطناعي مخصص',
+          description: 'حلول ذكاء اصطناعي مصممة خصيصاً لاحتياجات صناعتك، من نماذج التعلم الآلي إلى أنظمة الأتمتة الذكية.'
         },
         {
           icon: Globe,
-          title: 'الخبرة الإقليمية',
-          description: 'فهم عميق لديناميكيات السوق الخليجية والمتطلبات التنظيمية.'
+          title: 'التحول الرقمي',
+          description: 'خدمات تحول رقمي كاملة تحدث عملياتك وتضعك في موقع مناسب للنمو المستقبلي.'
         },
         {
           icon: Target,
-          title: 'تأثير قابل للقياس',
-          description: 'تطبيقات تركز على العائد على الاستثمار مع مقاييس أداء ونتائج واضحة.'
+          title: 'التنفيذ والدعم',
+          description: 'دعم تنفيذ كامل مع صيانة مستمرة لضمان أن حلول الذكاء الاصطناعي الخاصة بك تقدم قيمة مستمرة.'
         }
       ]
     }

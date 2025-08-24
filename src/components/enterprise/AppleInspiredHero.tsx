@@ -21,20 +21,20 @@ const AppleInspiredHero: React.FC = () => {
   const opacity = useTransform(scrollY, [0, 300], [1, 0]);
   const content = {
     en: {
-      badge: 'Enterprise AI That Works',
-      headline: 'No More Vaporware.',
-      subheadline: 'AI That Actually Delivers.',
-      description: 'DIFC banks don\'t have time for AI theater. UAE hospitals can\'t afford systems that break. Manufacturing giants need solutions that work Monday morning. We build AI that handles reality.',
-      cta: 'See How We Build',
-      secondaryCta: 'View Real Results'
+      badge: 'AI That Delivers Business Impact',
+      headline: 'Transform Your Business',
+      subheadline: 'With Enterprise AI Solutions',
+      description: 'We help Gulf enterprises leverage artificial intelligence to drive growth, improve efficiency, and gain competitive advantage. From strategy to implementation, we deliver AI solutions that work.',
+      cta: 'Get Started Today',
+      secondaryCta: 'Schedule Consultation'
     },
     ar: {
-      badge: 'هندسة الذكاء الاصطناعي المؤسسي',
-      headline: 'نحن لا نبني أدوات ذكاء اصطناعي.',
-      subheadline: 'نصمم مزايا تنافسية.',
-      description: 'عندما تحتاج بنوك مركز دبي المالي العالمي إلى نماذج مخاطر متوافقة مع العربية، عندما تتطلب الشبكات الصحية الإماراتية أنظمة مرضى واعية ثقافياً، عندما تحتاج التكتلات التصنيعية إلى ذكاء سلسلة التوريد—يتشاركون معنا. بنية تحتية للذكاء الاصطناعي مصممة خصيصاً تتكامل مع أنظمة المؤسسات الحالية، وليس ضدها.',
-      cta: 'قيّم بنيتك التحتية',
-      secondaryCta: 'عرض التطبيقات الاستراتيجية'
+      badge: 'ذكاء اصطناعي يحقق تأثيراً حقيقياً',
+      headline: 'حوّل أعمالك',
+      subheadline: 'بحلول الذكاء الاصطناعي المؤسسي',
+      description: 'نساعد المؤسسات الخليجية على الاستفادة من الذكاء الاصطناعي لتحقيق النمو وتحسين الكفاءة واكتساب ميزة تنافسية. من الاستراتيجية إلى التنفيذ، نقدم حلول ذكاء اصطناعي تعمل بفعالية.',
+      cta: 'ابدأ اليوم',
+      secondaryCta: 'جدولة استشارة'
     }
   };
   const currentContent = content[isArabic ? 'ar' : 'en'];

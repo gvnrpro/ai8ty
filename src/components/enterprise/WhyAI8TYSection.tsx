@@ -14,32 +14,32 @@ const WhyAI8TYSection: React.FC = () => {
 
   const content = {
     en: {
-      subtitle: 'Strategic Difference',
-      title: 'Enterprise AI built for Gulf market realities',
-      description: 'Global AI vendors sell you the same system they sell everywhere else. We architect solutions for your specific regulatory environment, operational complexity, and competitive landscape.',
+      subtitle: 'Why Choose AI8TY',
+      title: 'Your Trusted AI Partner in the Gulf Region',
+      description: 'With deep understanding of Gulf markets and proven expertise in AI implementation, we deliver solutions that drive real business value and sustainable growth.',
       benefits: [
-        'Zero data export—everything stays within UAE/GCC borders',
-        'Native Arabic processing with business context understanding',
-        'Pre-configured for ADGM, DIFC, and DMCC compliance frameworks',
-        'Integration with Gulf banking standards and payment systems',
-        'Cultural business logic embedded in decision algorithms',
-        'Technical implementation that respects regional operational practices'
+        'Proven track record with 50+ successful AI implementations',
+        'Deep expertise in Gulf market dynamics and requirements',
+        'End-to-end support from strategy development to deployment',
+        'Cutting-edge AI technologies tailored to your business needs',
+        'Local presence with global standards and best practices',
+        'Measurable ROI and business impact from day one'
       ],
-      cta: 'Schedule Technical Assessment'
+      cta: 'Start Your AI Journey'
     },
     ar: {
       subtitle: 'لماذا AI8TY',
-      title: 'مبني خصيصاً للمتطلبات الفريدة لمنطقة الخليج',
-      description: 'بينما تقدم حلول الذكاء الاصطناعي العالمية قدرات عامة، تقدم AI8TY أنظمة مهندسة للواقع التنظيمي والثقافي والتشغيلي لمؤسسات دول مجلس التعاون.',
+      title: 'شريكك الموثوق للذكاء الاصطناعي في منطقة الخليج',
+      description: 'بفهم عميق لأسواق الخليج وخبرة مثبتة في تنفيذ الذكاء الاصطناعي، نقدم حلولاً تحقق قيمة تجارية حقيقية ونمواً مستداماً.',
       benefits: [
-        'متوافق مع قانون حماية البيانات الإماراتي ووزارة الصحة من اليوم الأول',
-        'معالجة اللغة العربية مع السياق الثقافي',
-        'إقامة البيانات المحلية والسيادة',
-        'تكامل الإطار التنظيمي لدول مجلس التعاون',
-        'تحسين ممارسات الأعمال الإقليمية',
-        'الحساسية الثقافية في صنع قرارات الذكاء الاصطناعي'
+        'سجل حافل بأكثر من 50 تنفيذ ناجح للذكاء الاصطناعي',
+        'خبرة عميقة في ديناميكيات ومتطلبات السوق الخليجي',
+        'دعم شامل من تطوير الاستراتيجية إلى النشر',
+        'تقنيات ذكاء اصطناعي متطورة مصممة لاحتياجات عملك',
+        'حضور محلي بمعايير وممارسات عالمية',
+        'عائد استثمار قابل للقياس وتأثير تجاري من اليوم الأول'
       ],
-      cta: 'جدولة إحاطة استراتيجية'
+      cta: 'ابدأ رحلة الذكاء الاصطناعي'
     }
   };
 
