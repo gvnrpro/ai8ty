@@ -16,6 +16,9 @@ import AppleInspiredFooter from '@/components/enterprise/AppleInspiredFooter';
 import LeadMagnetSection from '@/components/seo/LeadMagnetSection';
 import IndustryLandingPages from '@/components/seo/IndustryLandingPages';
 import ThoughtLeadershipSection from '@/components/seo/ThoughtLeadershipSection';
+import ExecutivePositioning from '@/components/strategic/ExecutivePositioning';
+import GulfSpecificPositioning from '@/components/strategic/GulfSpecificPositioning';
+import AdvancedLeadQualification from '@/components/strategic/AdvancedLeadQualification';
 
 const Index = () => {
   const [initialLoadComplete, setInitialLoadComplete] = useState(false);
@@ -101,6 +104,16 @@ const Index = () => {
             <AppleCaseStudiesSection />
           </section>
           
+          {/* EXECUTIVE POSITIONING */}
+          <section id="executive-team">
+            <ExecutivePositioning />
+          </section>
+          
+          {/* GULF-SPECIFIC POSITIONING */}
+          <section id="gulf-advantages">
+            <GulfSpecificPositioning />
+          </section>
+          
           {/* WHY AI8TY */}
           <section id="why-ai8ty">
             <WhyAI8TYSection />
@@ -119,6 +132,11 @@ const Index = () => {
           {/* LEAD MAGNETS */}
           <section id="resources">
             <LeadMagnetSection />
+          </section>
+          
+          {/* ADVANCED LEAD QUALIFICATION */}
+          <section id="assessment">
+            <AdvancedLeadQualification />
           </section>
           
           {/* THOUGHT LEADERSHIP */}

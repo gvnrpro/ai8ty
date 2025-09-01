@@ -40,7 +40,7 @@ export interface ClientLogo {
   height: number;
 }
 
-// Team Members Data - Feature only Awwab Abdul as CEO
+// Team Members Data - Executive Leadership Team
 export const teamMembers: TeamMember[] = [
   {
     id: "awwab-abdul",
@@ -48,9 +48,10 @@ export const teamMembers: TeamMember[] = [
     role: "Founder & CEO",
     avatar: "/lovable-uploads/4b4a830d-afce-4dc3-8cc3-4fae3e2728ed.png",
     socialLinks: {
-      instagram: "https://www.instagram.com/theawwababdul/?hl=en"
+      instagram: "https://www.instagram.com/theawwababdul/?hl=en",
+      linkedin: "https://linkedin.com/in/awwababdul"
     },
-    bio: "Visionary leader driving AI innovation in business transformation" // Adding a short bio
+    bio: "12+ years leading enterprise AI transformations across MENA. Former Strategy Director at McKinsey Dubai. MIT AI Ethics certified. Keynote speaker at World Government Summit 2024. Advisory board member, UAE AI Council."
   }
 ];
 

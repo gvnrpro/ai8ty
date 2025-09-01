@@ -30,37 +30,54 @@ const AppleCaseStudiesSection: React.FC = () => {
   const caseStudies = [
     {
       id: 1,
-      clientEn: 'DIFC Financial Institution',
-      clientAr: 'مؤسسة مالية في مركز دبي المالي العالمي',
-      industryEn: 'Cross-Border Banking',
-      industryAr: 'الخدمات المصرفية العابرة للحدود',
-      challengeEn: 'Real-time compliance monitoring across UAE Central Bank, SAMA, and QCB regulations while processing 50K+ transactions daily',
-      challengeAr: 'مراقبة الامتثال في الوقت الفعلي عبر لوائح البنك المركزي الإماراتي ومؤسسة النقد العربي السعودي وبنك قطر المركزي أثناء معالجة أكثر من 50 ألف معاملة يومياً',
-      resultEn: 'Zero compliance violations in 18 months. Regulatory updates implemented in hours vs. weeks.',
-      resultAr: 'صفر انتهاكات امتثال في 18 شهراً. تطبيق التحديثات التنظيمية في ساعات بدلاً من أسابيع.',
+      clientEn: 'DIFC Investment Bank',
+      clientAr: 'بنك استثماري في مركز دبي المالي العالمي',
+      industryEn: 'Cross-Border Investment Banking',
+      industryAr: 'الخدمات المصرفية الاستثمارية العابرة للحدود',
+      challengeEn: 'Real-time risk assessment across UAE Central Bank, SAMA, and QCB regulations while processing $2.3B in transactions monthly',
+      challengeAr: 'تقييم المخاطر في الوقت الفعلي عبر لوائح البنك المركزي الإماراتي ومؤسسة النقد العربي السعودي وبنك قطر المركزي أثناء معالجة 2.3 مليار دولار في المعاملات شهرياً',
+      resultEn: 'Zero regulatory penalties in 24 months. 67% reduction in compliance overhead. Risk detection improved by 89%.',
+      resultAr: 'صفر عقوبات تنظيمية في 24 شهراً. انخفاض 67% في أعباء الامتثال. تحسن اكتشاف المخاطر بنسبة 89%.',
       metrics: [
-        { iconEn: Shield, valueEn: '0', labelEn: 'Compliance Violations', valueAr: '0', labelAr: 'انتهاكات الامتثال' },
-        { iconEn: TrendingUp, valueEn: '47%', labelEn: 'Faster Processing', valueAr: '47%', labelAr: 'معالجة أسرع' },
-        { iconEn: Zap, valueEn: '50K+', labelEn: 'Daily Transactions', valueAr: '50 ألف+', labelAr: 'معاملة يومية' }
+        { iconEn: Shield, valueEn: '$0', labelEn: 'Regulatory Penalties', valueAr: '$0', labelAr: 'العقوبات التنظيمية' },
+        { iconEn: TrendingUp, valueEn: '67%', labelEn: 'Cost Reduction', valueAr: '67%', labelAr: 'تقليل التكاليف' },
+        { iconEn: Zap, valueEn: '$2.3B', labelEn: 'Monthly Processing', valueAr: '$2.3 مليار', labelAr: 'معالجة شهرية' }
       ],
       gradient: 'from-blue-500/20 via-indigo-500/20 to-purple-500/20'
     },
     {
       id: 2,
-      clientEn: 'GCC Healthcare Network',
-      clientAr: 'شبكة رعاية صحية خليجية',
-      industryEn: 'Multi-Country Healthcare',
-      industryAr: 'رعاية صحية متعددة البلدان',
-      challengeEn: 'Unified patient intelligence across 12 hospitals in 3 countries with fragmented EHR systems causing 40% diagnostic delays',
-      challengeAr: 'ذكاء مريض موحد عبر 12 مستشفى في 3 دول مع أنظمة سجلات صحية إلكترونية مجزأة تسبب 40% تأخير في التشخيص',
-      resultEn: 'Diagnostic delays eliminated. 32% improvement in resource utilization. Patient satisfaction increased 28%.',
-      resultAr: 'تم القضاء على تأخيرات التشخيص. تحسن 32% في استخدام الموارد. زيادة رضا المرضى 28%.',
+      clientEn: 'Saudi Manufacturing Conglomerate',
+      clientAr: 'تكتل تصنيعي سعودي',
+      industryEn: 'Smart Manufacturing & Vision 2030',
+      industryAr: 'التصنيع الذكي ورؤية 2030',
+      challengeEn: 'Predictive maintenance across 47 facilities with legacy systems causing $4.2M annual downtime costs',
+      challengeAr: 'الصيانة التنبؤية عبر 47 منشأة مع أنظمة قديمة تسبب تكاليف توقف سنوية بقيمة 4.2 مليون دولار',
+      resultEn: 'Unplanned downtime reduced by 78%. $3.2M annual savings. Production efficiency increased 34%.',
+      resultAr: 'انخفاض التوقف غير المخطط له بنسبة 78%. وفورات سنوية 3.2 مليون دولار. زيادة كفاءة الإنتاج 34%.',
       metrics: [
-        { iconEn: TrendingUp, valueEn: '0%', labelEn: 'Diagnostic Delays', valueAr: '0%', labelAr: 'تأخيرات التشخيص' },
-        { iconEn: Shield, valueEn: '32%', labelEn: 'Resource Optimization', valueAr: '32%', labelAr: 'تحسين الموارد' },
-        { iconEn: Zap, valueEn: '28%', labelEn: 'Patient Satisfaction', valueAr: '28%', labelAr: 'رضا المرضى' }
+        { iconEn: TrendingUp, valueEn: '78%', labelEn: 'Downtime Reduction', valueAr: '78%', labelAr: 'تقليل وقت التوقف' },
+        { iconEn: Shield, valueEn: '$3.2M', labelEn: 'Annual Savings', valueAr: '$3.2 مليون', labelAr: 'وفورات سنوية' },
+        { iconEn: Zap, valueEn: '34%', labelEn: 'Efficiency Gain', valueAr: '34%', labelAr: 'زيادة الكفاءة' }
       ],
       gradient: 'from-green-500/20 via-emerald-500/20 to-teal-500/20'
+    },
+    {
+      id: 3,
+      clientEn: 'Qatar Airways Digital Division',
+      clientAr: 'القسم الرقمي للخطوط الجوية القطرية',
+      industryEn: 'Aviation & Logistics Intelligence',
+      industryAr: 'ذكاء الطيران واللوجستيات',
+      challengeEn: 'Real-time passenger experience optimization across 160+ destinations with complex multi-language requirements',
+      challengeAr: 'تحسين تجربة الركاب في الوقت الفعلي عبر أكثر من 160 وجهة مع متطلبات معقدة متعددة اللغات',
+      resultEn: 'Customer satisfaction up 43%. Operational costs reduced 29%. Revenue per passenger increased $67.',
+      resultAr: 'زيادة رضا العملاء 43%. انخفاض التكاليف التشغيلية 29%. زيادة الإيرادات لكل راكب 67 دولار.',
+      metrics: [
+        { iconEn: TrendingUp, valueEn: '43%', labelEn: 'Satisfaction Increase', valueAr: '43%', labelAr: 'زيادة الرضا' },
+        { iconEn: Shield, valueEn: '29%', labelEn: 'Cost Reduction', valueAr: '29%', labelAr: 'تقليل التكاليف' },
+        { iconEn: Zap, valueEn: '+$67', labelEn: 'Revenue per PAX', valueAr: '+$67', labelAr: 'إيرادات لكل راكب' }
+      ],
+      gradient: 'from-purple-500/20 via-pink-500/20 to-red-500/20'
     }
   ];
 
