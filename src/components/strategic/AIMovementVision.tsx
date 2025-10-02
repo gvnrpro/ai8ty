@@ -13,28 +13,28 @@ const AIMovementVision: React.FC = () => {
     en: {
       subtitle: 'The AI Transformation',
       title: 'Intelligence is reshaping how business works',
-      vision: 'Across every industry and continent, a fundamental shift is underway. AI is no longer a future technology—it is the operating system of modern enterprise. From Fortune 500s to regional powerhouses, organizations are discovering that artificial intelligence is not about replacing human judgment. It is about augmenting it.',
-      founder: 'AI8TY, founded by Awwab Abdul, exists at this intersection—where global AI innovation meets Gulf business reality. We build systems that work, not demos that impress.',
+      vision: 'AI is no longer a future technology—it\'s the operating system of modern enterprise. Organizations worldwide are discovering that artificial intelligence augments human judgment, not replaces it.',
+      founder: 'AI8TY exists at this intersection—where global AI innovation meets Gulf business reality. We build systems that work, not demos that impress.',
       aspects: [
         {
           icon: Brain,
-          titleEn: 'From Automation to Augmentation',
+          titleEn: 'Augmentation Over Automation',
           titleAr: 'من الأتمتة إلى التعزيز',
-          descEn: 'AI systems that enhance human decision-making, not replace it. Every implementation focuses on measurable business outcomes.',
+          descEn: 'AI that enhances human judgment. Every implementation drives measurable outcomes.',
           descAr: 'أنظمة الذكاء الاصطناعي التي تعزز اتخاذ القرارات البشرية، ولا تحل محلها. كل تنفيذ يركز على نتائج الأعمال القابلة للقياس.'
         },
         {
           icon: Globe2,
-          titleEn: 'Global Technology, Regional Understanding',
+          titleEn: 'Global Tech, Regional Reality',
           titleAr: 'التكنولوجيا العالمية، الفهم الإقليمي',
-          descEn: 'Advanced AI capabilities built for the unique regulatory, cultural, and operational requirements of the GCC.',
+          descEn: 'Advanced AI built for GCC regulatory, cultural, and operational requirements.',
           descAr: 'قدرات الذكاء الاصطناعي المتقدمة المصممة للمتطلبات التنظيمية والثقافية والتشغيلية الفريدة لدول مجلس التعاون الخليجي.'
         },
         {
           icon: TrendingUp,
-          titleEn: 'Strategic Implementation',
+          titleEn: 'Strategy First',
           titleAr: 'التنفيذ الاستراتيجي',
-          descEn: 'AI transformation starts with business strategy, not technology selection. We map intelligence capabilities to your competitive advantage.',
+          descEn: 'Business strategy drives technology. We map AI capabilities to competitive advantage.',
           descAr: 'يبدأ تحول الذكاء الاصطناعي باستراتيجية الأعمال، وليس اختيار التكنولوجيا. نقوم بربط قدرات الذكاء بميزتك التنافسية.'
         }
       ]
@@ -42,8 +42,8 @@ const AIMovementVision: React.FC = () => {
     ar: {
       subtitle: 'تحول الذكاء الاصطناعي',
       title: 'الذكاء يعيد تشكيل طريقة عمل الأعمال',
-      vision: 'في كل صناعة وقارة، هناك تحول أساسي قيد التقدم. الذكاء الاصطناعي لم يعد تقنية مستقبلية—إنه نظام التشغيل للمؤسسات الحديثة. من شركات Fortune 500 إلى قوى إقليمية، تكتشف المؤسسات أن الذكاء الاصطناعي ليس عن استبدال الحكم البشري. إنه عن تعزيزه.',
-      founder: 'تتواجد AI8TY، التي أسسها عواب عبد الله، عند هذا التقاطع—حيث يلتقي الابتكار العالمي للذكاء الاصطناعي بواقع الأعمال الخليجية. نحن نبني أنظمة تعمل، وليس عروضاً توضيحية تثير الإعجاب.',
+      vision: 'الذكاء الاصطناعي لم يعد تقنية مستقبلية—إنه نظام التشغيل للمؤسسات الحديثة. المؤسسات تكتشف أن الذكاء الاصطناعي يعزز الحكم البشري، ولا يستبدله.',
+      founder: 'تتواجد AI8TY عند هذا التقاطع—حيث يلتقي الابتكار العالمي للذكاء الاصطناعي بواقع الأعمال الخليجية. نحن نبني أنظمة تعمل، وليس عروضاً توضيحية تثير الإعجاب.',
       aspects: []
     }
   };

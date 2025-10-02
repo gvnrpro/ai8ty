@@ -12,43 +12,43 @@ const ApproachMethodology: React.FC = () => {
   const content = {
     en: {
       subtitle: 'Our Approach',
-      title: 'How we think about AI implementation',
-      description: 'Enterprise AI fails when vendors sell technology instead of solving problems. Our methodology starts with understanding your business, not showcasing AI features.',
+      title: 'How we build AI',
+      description: 'We start with your business, not our technology. Problem first, solution second.',
       methodology: [
         {
           icon: Lightbulb,
-          titleEn: 'Strategic Discovery',
+          titleEn: 'Discovery',
           titleAr: 'الاكتشاف الاستراتيجي',
-          descEn: 'We map your operational workflows, competitive pressures, and regulatory requirements. AI solutions emerge from business needs, not the other way around.',
+          descEn: 'Map workflows, pressures, requirements. Solutions emerge from needs.',
           descAr: 'نقوم برسم خريطة لسير عملك التشغيلي والضغوط التنافسية والمتطلبات التنظيمية. تظهر حلول الذكاء الاصطناعي من احتياجات الأعمال، وليس العكس.'
         },
         {
           icon: Target,
-          titleEn: 'Precision Architecture',
+          titleEn: 'Architecture',
           titleAr: 'العمارة الدقيقة',
-          descEn: 'Custom AI systems designed for your specific operations—whether financial compliance, healthcare diagnostics, or supply chain optimization.',
+          descEn: 'Custom systems for your operations—compliance, diagnostics, supply chain.',
           descAr: 'أنظمة ذكاء اصطناعي مخصصة مصممة لعملياتك المحددة—سواء كانت الامتثال المالي أو التشخيص الصحي أو تحسين سلسلة التوريد.'
         },
         {
           icon: Layers,
-          titleEn: 'Integration Engineering',
+          titleEn: 'Integration',
           titleAr: 'هندسة التكامل',
-          descEn: 'AI that connects seamlessly with your existing systems. No rip-and-replace. No operational disruption. Just enhanced capabilities.',
+          descEn: 'Seamless connection to existing systems. No disruption. Enhanced capabilities.',
           descAr: 'ذكاء اصطناعي يتصل بسلاسة مع أنظمتك الحالية. لا إزالة واستبدال. لا اضطراب تشغيلي. فقط قدرات محسنة.'
         },
         {
           icon: Settings,
-          titleEn: 'Operational Excellence',
+          titleEn: 'Evolution',
           titleAr: 'التميز التشغيلي',
-          descEn: 'Ongoing optimization, performance monitoring, and continuous improvement. AI systems that evolve with your business.',
+          descEn: 'Continuous optimization. Performance monitoring. Systems that grow with you.',
           descAr: 'التحسين المستمر ومراقبة الأداء والتحسين المستمر. أنظمة الذكاء الاصطناعي التي تتطور مع عملك.'
         }
       ]
     },
     ar: {
       subtitle: 'نهجنا',
-      title: 'كيف نفكر في تنفيذ الذكاء الاصطناعي',
-      description: 'يفشل الذكاء الاصطناعي للمؤسسات عندما يبيع الموردون التكنولوجيا بدلاً من حل المشكلات. تبدأ منهجيتنا بفهم عملك، وليس عرض ميزات الذكاء الاصطناعي.',
+      title: 'كيف نبني الذكاء الاصطناعي',
+      description: 'نبدأ بعملك، وليس تكنولوجيتنا. المشكلة أولاً، الحل ثانياً.',
       methodology: []
     }
   };
@@ -125,8 +125,8 @@ const ApproachMethodology: React.FC = () => {
         >
           <p className="text-body-large text-muted-foreground container-apple-narrow">
             {isArabic 
-              ? 'لا توجد حلول عامة. لا عروض توضيحية لامعة. فقط أنظمة ذكاء اصطناعي تعمل.'
-              : 'No generic solutions. No flashy demos. Just AI systems that work.'
+              ? 'أنظمة تعمل. ليس عروضاً.'
+              : 'Systems that work. Not demos.'
             }
           </p>
         </motion.div>
