@@ -9,16 +9,15 @@ import AppleInspiredHero from '@/components/enterprise/AppleInspiredHero';
 import AppleInspiredValueProp from '@/components/enterprise/AppleInspiredValueProp';
 import InnovationSection from '@/components/enterprise/InnovationSection';
 import WhyAI8TYSection from '@/components/enterprise/WhyAI8TYSection';
-import AppleCaseStudiesSection from '@/components/enterprise/AppleCaseStudiesSection';
-import AppleTestimonialsSection from '@/components/enterprise/AppleTestimonialsSection';
 import ApplePremiumContactSection from '@/components/enterprise/ApplePremiumContactSection';
 import AppleInspiredFooter from '@/components/enterprise/AppleInspiredFooter';
 import LeadMagnetSection from '@/components/seo/LeadMagnetSection';
 import IndustryLandingPages from '@/components/seo/IndustryLandingPages';
 import ThoughtLeadershipSection from '@/components/seo/ThoughtLeadershipSection';
-import ExecutivePositioning from '@/components/strategic/ExecutivePositioning';
 import GulfSpecificPositioning from '@/components/strategic/GulfSpecificPositioning';
 import AdvancedLeadQualification from '@/components/strategic/AdvancedLeadQualification';
+import AIMovementVision from '@/components/strategic/AIMovementVision';
+import ApproachMethodology from '@/components/strategic/ApproachMethodology';
 
 const Index = () => {
   const [initialLoadComplete, setInitialLoadComplete] = useState(false);
@@ -99,29 +98,24 @@ const Index = () => {
             <InnovationSection />
           </section>
           
-          {/* CASE STUDIES */}
-          <section id="case-studies">
-            <AppleCaseStudiesSection />
-          </section>
-          
-          {/* EXECUTIVE POSITIONING */}
-          <section id="executive-team">
-            <ExecutivePositioning />
+          {/* AI MOVEMENT & VISION */}
+          <section id="ai-vision">
+            <AIMovementVision />
           </section>
           
           {/* GULF-SPECIFIC POSITIONING */}
-          <section id="gulf-advantages">
+          <section id="gulf-capabilities">
             <GulfSpecificPositioning />
+          </section>
+          
+          {/* OUR APPROACH */}
+          <section id="approach">
+            <ApproachMethodology />
           </section>
           
           {/* WHY AI8TY */}
           <section id="why-ai8ty">
             <WhyAI8TYSection />
-          </section>
-          
-          {/* TESTIMONIALS */}
-          <section id="testimonials">
-            <AppleTestimonialsSection />
           </section>
           
           {/* INDUSTRY LANDING PAGES */}
