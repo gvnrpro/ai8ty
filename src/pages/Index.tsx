@@ -93,19 +93,9 @@ const Index = () => {
             <AppleInspiredValueProp />
           </section>
           
-          {/* INNOVATION SECTION */}
-          <section id="innovation">
-            <InnovationSection />
-          </section>
-          
           {/* AI MOVEMENT & VISION */}
           <section id="ai-vision">
             <AIMovementVision />
-          </section>
-          
-          {/* GULF-SPECIFIC POSITIONING */}
-          <section id="gulf-capabilities">
-            <GulfSpecificPositioning />
           </section>
           
           {/* OUR APPROACH */}
@@ -126,16 +116,6 @@ const Index = () => {
           {/* LEAD MAGNETS */}
           <section id="resources">
             <LeadMagnetSection />
-          </section>
-          
-          {/* ADVANCED LEAD QUALIFICATION */}
-          <section id="assessment">
-            <AdvancedLeadQualification />
-          </section>
-          
-          {/* THOUGHT LEADERSHIP */}
-          <section id="insights">
-            <ThoughtLeadershipSection />
           </section>
           
           {/* PREMIUM CONTACT */}

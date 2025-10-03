@@ -6,83 +6,83 @@ const IndustryLandingPages = () => {
   const industries = [
     {
       id: 'banking-difc',
-      title: 'AI for DIFC Banks',
+      title: 'AI for Financial Institutions',
       icon: Building2,
-      description: 'Arabic-native compliance systems for UAE financial institutions. DIFC-certified AI processing.',
+      description: 'Compliance-ready AI systems for Gulf financial institutions with Arabic processing capabilities.',
       link: '/solutions/financial-institutions',
       keywords: 'DIFC banking AI, UAE financial AI, Islamic banking compliance',
-      metrics: '3 weeks → 2 days processing',
-      clients: 'Major DIFC Banks'
+      metrics: 'Streamlined compliance workflows',
+      clients: 'Gulf Financial Sector'
     },
     {
       id: 'healthcare-uae',
-      title: 'AI for UAE Healthcare',
+      title: 'AI for Healthcare Networks',
       icon: Heart,
-      description: 'Cultural AI for patient care. Arabic processing with Gulf medical terminology understanding.',
+      description: 'Patient care AI with Arabic processing and regional medical terminology understanding.',
       link: '/solutions/healthcare-networks',
       keywords: 'UAE healthcare AI, Arabic medical AI, patient care systems',
-      metrics: '28% better outcomes',
-      clients: 'UAE Hospital Networks'
+      metrics: 'Enhanced patient care efficiency',
+      clients: 'Healthcare Networks'
     },
     {
       id: 'manufacturing-gulf',
-      title: 'AI for Gulf Manufacturing',
+      title: 'AI for Manufacturing',
       icon: Factory,
-      description: 'Supply chain intelligence for Gulf logistics. Heat-aware, Ramadan-optimized operations.',
+      description: 'Supply chain intelligence adapted for Gulf logistics and regional operational patterns.',
       link: '/solutions/manufacturing-firms',
       keywords: 'Gulf manufacturing AI, supply chain UAE, industrial AI',
-      metrics: '34% efficiency gain',
-      clients: 'Saudi Manufacturing Giants'
+      metrics: 'Operational efficiency gains',
+      clients: 'Manufacturing Sector'
     },
     {
-      id: 'aviation-emirates',
-      title: 'AI for Emirates Aviation',
+      id: 'aviation-logistics',
+      title: 'AI for Aviation & Logistics',
       icon: Plane,
-      description: 'Flight optimization and passenger experience AI built for Middle East aviation requirements.',
+      description: 'Operations optimization and intelligence systems for Middle East aviation and logistics.',
       link: '/solutions/aviation-logistics',
-      keywords: 'Emirates aviation AI, UAE airline AI, airport systems',
-      metrics: 'Real-time optimization',
-      clients: 'Gulf Airlines'
+      keywords: 'aviation AI, UAE logistics AI, operations optimization',
+      metrics: 'Optimized operations',
+      clients: 'Aviation & Logistics'
     },
     {
-      id: 'public-sector-uae',
-      title: 'AI for UAE Government',
+      id: 'public-sector',
+      title: 'AI for Public Sector',
       icon: Shield,
-      description: 'Smart city infrastructure and citizen services. Arabic-first, culturally aware government AI.',
+      description: 'Smart infrastructure and citizen services with Arabic-first, culturally aware systems.',
       link: '/solutions/public-sector',
-      keywords: 'UAE government AI, smart city Dubai, public sector AI',
-      metrics: 'Citizen satisfaction boost',
-      clients: 'UAE Government Entities'
+      keywords: 'government AI, smart city, public sector AI',
+      metrics: 'Enhanced citizen services',
+      clients: 'Public Sector'
     },
     {
-      id: 'real-estate-dubai',
-      title: 'AI for Dubai Real Estate',
+      id: 'real-estate',
+      title: 'AI for Real Estate',
       icon: Home,
-      description: 'Property valuation and market intelligence for Dubai\'s dynamic real estate landscape.',
+      description: 'Property intelligence and market analysis for Gulf real estate markets.',
       link: '/solutions/real-estate',
-      keywords: 'Dubai real estate AI, property valuation UAE, real estate intelligence',
-      metrics: 'Market prediction accuracy',
-      clients: 'Dubai Developers'
+      keywords: 'real estate AI, property valuation, market intelligence',
+      metrics: 'Market insights',
+      clients: 'Real Estate Sector'
     },
     {
-      id: 'legal-gulf',
-      title: 'AI for Gulf Law Firms',
+      id: 'legal',
+      title: 'AI for Law Firms',
       icon: Scale,
-      description: 'Legal document processing with Sharia law compliance and Arabic contract analysis.',
+      description: 'Legal document processing with regional compliance and Arabic contract analysis.',
       link: '/solutions/law-firms',
-      keywords: 'Gulf legal AI, Sharia compliance AI, Arabic legal processing',
-      metrics: 'Document processing speed',
-      clients: 'Gulf Law Firms'
+      keywords: 'legal AI, document processing, contract analysis',
+      metrics: 'Faster processing',
+      clients: 'Legal Sector'
     },
     {
       id: 'wealth-management',
-      title: 'AI for Gulf Wealth Offices',
+      title: 'AI for Wealth Management',
       icon: Briefcase,
-      description: 'Islamic finance-compliant wealth management with cultural investment preferences.',
+      description: 'Investment intelligence systems with regional financial compliance.',
       link: '/solutions/private-wealth-offices',
-      keywords: 'Islamic wealth management AI, Gulf private banking, Sharia investment AI',
-      metrics: 'Portfolio optimization',
-      clients: 'Gulf Family Offices'
+      keywords: 'wealth management AI, investment intelligence, financial AI',
+      metrics: 'Investment intelligence',
+      clients: 'Wealth Management'
     }
   ];
 
@@ -146,16 +146,16 @@ const IndustryLandingPages = () => {
             </h3>
             <div className="grid md:grid-cols-3 gap-4 text-sm text-gray-400">
               <div>
-                <strong className="text-blue-400">Financial Services:</strong> DIFC banks, Islamic banking, 
-                UAE fintech, Gulf investment firms, private wealth management
+                <strong className="text-blue-400">Financial Services:</strong> Banking, Islamic finance, 
+                fintech, investment management, wealth offices
               </div>
               <div>
-                <strong className="text-blue-400">Healthcare:</strong> UAE hospitals, Saudi medical centers, 
-                Qatar healthcare networks, Gulf medical AI, Arabic patient systems
+                <strong className="text-blue-400">Healthcare:</strong> Hospital networks, medical centers, 
+                healthcare systems, Arabic medical AI
               </div>
               <div>
-                <strong className="text-blue-400">Industrial:</strong> Saudi manufacturing, UAE logistics, 
-                Gulf supply chains, ADNOC partners, Emirates industrial AI
+                <strong className="text-blue-400">Industrial:</strong> Manufacturing, logistics, 
+                supply chain, aviation, industrial operations
               </div>
             </div>
           </div>

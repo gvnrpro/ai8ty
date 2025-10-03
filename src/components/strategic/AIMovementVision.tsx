@@ -14,7 +14,7 @@ const AIMovementVision: React.FC = () => {
       subtitle: 'The AI Transformation',
       title: 'Intelligence is reshaping how business works',
       vision: 'AI is no longer a future technology—it\'s the operating system of modern enterprise. Organizations worldwide are discovering that artificial intelligence augments human judgment, not replaces it.',
-      founder: 'AI8TY exists at this intersection—where global AI innovation meets Gulf business reality. We build systems that work, not demos that impress.',
+      founder: 'Founded by Awwab Abdul, AI8TY exists at this intersection—where global AI innovation meets Gulf business reality. We build systems that work, not demos that impress.',
       aspects: [
         {
           icon: Brain,
@@ -43,7 +43,7 @@ const AIMovementVision: React.FC = () => {
       subtitle: 'تحول الذكاء الاصطناعي',
       title: 'الذكاء يعيد تشكيل طريقة عمل الأعمال',
       vision: 'الذكاء الاصطناعي لم يعد تقنية مستقبلية—إنه نظام التشغيل للمؤسسات الحديثة. المؤسسات تكتشف أن الذكاء الاصطناعي يعزز الحكم البشري، ولا يستبدله.',
-      founder: 'تتواجد AI8TY عند هذا التقاطع—حيث يلتقي الابتكار العالمي للذكاء الاصطناعي بواقع الأعمال الخليجية. نحن نبني أنظمة تعمل، وليس عروضاً توضيحية تثير الإعجاب.',
+      founder: 'تأسست من قبل عواب عبد، AI8TY تتواجد عند هذا التقاطع—حيث يلتقي الابتكار العالمي للذكاء الاصطناعي بواقع الأعمال الخليجية. نحن نبني أنظمة تعمل، وليس عروضاً توضيحية تثير الإعجاب.',
       aspects: []
     }
   };

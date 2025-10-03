@@ -5,73 +5,37 @@ import { Button } from '@/components/ui/button';
 const ThoughtLeadershipSection = () => {
   const insights = [
     {
-      id: 'difc-ai-regulations-2025',
-      title: 'DIFC AI Regulations 2025: What Gulf Banks Need to Know',
-      excerpt: 'Breaking down the new DIFC AI compliance requirements and how financial institutions can prepare for implementation without disrupting operations.',
-      author: 'Sarah Al-Mahmoud, Ex-McKinsey Partner',
-      date: '2024-12-15',
-      readTime: '8 min read',
-      category: 'Regulatory Compliance',
-      icon: AlertCircle,
-      keywords: 'DIFC AI regulations, UAE banking compliance, financial AI 2025',
-      tags: ['DIFC', 'Banking', 'Compliance', 'Regulations']
-    },
-    {
-      id: 'arabic-ai-processing-breakthrough',
-      title: 'Why Most Arabic AI Processing Fails in Enterprise Settings',
-      excerpt: 'Technical deep-dive into the cultural and linguistic nuances that make Arabic AI challenging, and how we solved processing accuracy for UAE enterprises.',
-      author: 'Ahmed Hassan, Former ADNOC AI Lead',
-      date: '2024-12-10',
-      readTime: '12 min read',
-      category: 'Technical Innovation',
-      icon: Lightbulb,
-      keywords: 'Arabic AI processing, multilingual AI UAE, cultural AI systems',
-      tags: ['Arabic AI', 'NLP', 'Cultural Computing', 'Enterprise']
-    },
-    {
-      id: 'gulf-ai-implementation-guide',
-      title: 'The Gulf Enterprise AI Implementation Playbook',
-      excerpt: 'Lessons from deploying AI across 50+ Gulf enterprises. What works, what fails, and how to avoid the pitfalls that cost millions.',
-      author: 'Dr. Khalid Al-Rashid, AI8TY Chief Architect',
-      date: '2024-12-05',
-      readTime: '15 min read',
-      category: 'Implementation Strategy',
-      icon: TrendingUp,
-      keywords: 'Gulf AI implementation, enterprise AI strategy, Middle East AI deployment',
-      tags: ['Strategy', 'Implementation', 'Gulf Business', 'Enterprise AI']
-    },
-    {
-      id: 'ramadan-ai-optimization',
-      title: 'How to Optimize AI Systems for Ramadan Business Cycles',
-      excerpt: 'Unique operational insights for Gulf enterprises: adjusting AI predictions and workflows for cultural and religious business patterns.',
-      author: 'Fatima Al-Zahra, Operations Intelligence Lead',
-      date: '2024-11-28',
+      id: 'coming-soon-1',
+      title: 'AI Implementation in the Gulf: Lessons from the Field',
+      excerpt: 'Practical insights from implementing AI systems in Gulf enterprises. Coming soon.',
+      author: 'Awwab Abdul, Founder',
+      date: 'Coming Soon',
       readTime: '10 min read',
-      category: 'Cultural Computing',
+      category: 'Implementation',
+      icon: Lightbulb,
+      keywords: 'Gulf AI implementation, enterprise AI strategy',
+      tags: ['Strategy', 'Implementation', 'Enterprise AI']
+    },
+    {
+      id: 'coming-soon-2',
+      title: 'Cultural Considerations in Arabic AI Systems',
+      excerpt: 'Why cultural context matters when building AI for Gulf markets. Coming soon.',
+      author: 'Awwab Abdul, Founder',
+      date: 'Coming Soon',
+      readTime: '8 min read',
+      category: 'Cultural AI',
       icon: Globe,
-      keywords: 'Ramadan AI optimization, Gulf business cycles, cultural AI adaptation',
-      tags: ['Cultural AI', 'Operations', 'Seasonal Optimization', 'Gulf Markets']
+      keywords: 'Arabic AI, cultural computing, Gulf business',
+      tags: ['Cultural AI', 'Arabic Processing', 'Regional Insights']
     }
   ];
 
   const upcomingEvents = [
     {
-      title: 'Gulf AI Summit 2025 - Dubai',
-      date: 'January 15, 2025',
-      type: 'Keynote Speaker',
-      topic: 'Enterprise AI Architecture for DIFC Compliance'
-    },
-    {
-      title: 'UAE AI Office Strategic Briefing',
-      date: 'January 22, 2025',
-      type: 'Panel Discussion',
-      topic: 'Arabic AI Processing: State of the Art'
-    },
-    {
-      title: 'ADNOC Innovation Forum',
-      date: 'February 5, 2025',
-      type: 'Workshop Leader',
-      topic: 'Industrial AI for Gulf Operations'
+      title: 'Gulf AI Events',
+      date: 'TBA 2025',
+      type: 'Speaking Engagement',
+      topic: 'Enterprise AI for Gulf Markets'
     }
   ];
 
@@ -83,8 +47,7 @@ const ThoughtLeadershipSection = () => {
             Gulf AI Intelligence
           </h2>
           <p className="text-body-large text-gray-400 max-w-3xl mx-auto">
-            Strategic insights from deploying AI in the world's most regulated and culturally complex business environment. 
-            Written by the architects who build these systems.
+            Practical insights on implementing AI in Gulf enterprises. Content coming soon.
           </p>
         </div>
 

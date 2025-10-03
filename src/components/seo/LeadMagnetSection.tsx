@@ -11,36 +11,20 @@ const LeadMagnetSection = () => {
 
   const leadMagnets = [
     {
-      id: 'difc-assessment',
-      title: 'DIFC AI Compliance Readiness Assessment',
-      description: 'Exclusive 47-point audit used by DIFC banks to ensure AI systems meet regulatory requirements.',
+      id: 'ai-readiness',
+      title: 'AI Readiness Assessment',
+      description: 'Evaluate your organization\'s readiness for AI implementation. Coming soon.',
       icon: Shield,
-      downloadText: 'Get Assessment Tool',
-      keywords: 'DIFC AI compliance, UAE banking AI, financial AI assessment'
+      downloadText: 'Request Early Access',
+      keywords: 'AI readiness, enterprise assessment, AI implementation'
     },
     {
-      id: 'gulf-playbook',
-      title: 'Gulf Enterprise AI Implementation Playbook',
-      description: 'Step-by-step guide used by UAE enterprises to successfully implement AI without disrupting operations.',
+      id: 'consultation',
+      title: 'Strategic AI Consultation',
+      description: 'Book a consultation to discuss your AI needs and opportunities.',
       icon: BookOpen,
-      downloadText: 'Download Playbook',
-      keywords: 'Gulf AI implementation, UAE enterprise AI, Middle East AI strategy'
-    },
-    {
-      id: 'arabic-audit',
-      title: 'Arabic AI Processing Capability Audit',
-      description: 'Technical assessment framework for evaluating AI systems\' Arabic language and cultural processing abilities.',
-      icon: FileText,
-      downloadText: 'Get Audit Framework',
-      keywords: 'Arabic AI processing, multilingual AI UAE, cultural AI assessment'
-    },
-    {
-      id: 'roi-calculator',
-      title: 'Enterprise AI ROI Calculator',
-      description: 'Interactive tool used by Gulf CFOs to calculate exact AI implementation costs vs. operational savings.',
-      icon: Calculator,
-      downloadText: 'Access Calculator',
-      keywords: 'AI ROI calculator UAE, enterprise AI costs, AI investment calculator'
+      downloadText: 'Book Consultation',
+      keywords: 'AI consultation, strategy session, enterprise AI'
     }
   ];
 
@@ -73,11 +57,10 @@ const LeadMagnetSection = () => {
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-display text-white mb-6">
-            Exclusive Gulf AI Resources
+            Start Your AI Journey
           </h2>
           <p className="text-body-large text-gray-400 max-w-3xl mx-auto">
-            Strategic tools and frameworks used by DIFC banks, UAE hospitals, and Gulf manufacturing giants. 
-            Not available anywhere else.
+            Get started with AI implementation for your Gulf enterprise.
           </p>
         </div>
 
@@ -138,13 +121,13 @@ const LeadMagnetSection = () => {
         {/* Social Proof */}
         <div className="text-center">
           <p className="text-body text-gray-400 mb-4">
-            Trusted by executives at:
+            Serving Gulf enterprises across industries
           </p>
           <div className="flex justify-center items-center space-x-8 text-gray-600">
-            <span className="text-lg font-semibold">DIFC Banks</span>
-            <span className="text-lg font-semibold">UAE Hospitals</span>
-            <span className="text-lg font-semibold">Gulf Manufacturers</span>
-            <span className="text-lg font-semibold">ADNOC Partners</span>
+            <span className="text-lg font-semibold">Financial Services</span>
+            <span className="text-lg font-semibold">Healthcare</span>
+            <span className="text-lg font-semibold">Manufacturing</span>
+            <span className="text-lg font-semibold">More</span>
           </div>
         </div>
       </div>

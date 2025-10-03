@@ -18,12 +18,11 @@ const WhyAI8TYSection: React.FC = () => {
       title: 'Your Trusted AI Partner in the Gulf Region',
       description: 'With deep understanding of Gulf markets and proven expertise in AI implementation, we deliver solutions that drive real business value and sustainable growth.',
       benefits: [
-        'Proven track record with 50+ successful AI implementations',
-        'Deep expertise in Gulf market dynamics and requirements',
-        'End-to-end support from strategy development to deployment',
-        'Cutting-edge AI technologies tailored to your business needs',
-        'Local presence with global standards and best practices',
-        'Measurable ROI and business impact from day one'
+        'Growing portfolio of Gulf enterprise implementations',
+        'Deep expertise in Gulf market dynamics and cultural requirements',
+        'End-to-end support from strategy through deployment',
+        'Modern AI technologies adapted to regional business needs',
+        'Founded and led by Awwab Abdul, Gulf AI specialist'
       ],
       cta: 'Start Your AI Journey'
     },
@@ -32,12 +31,11 @@ const WhyAI8TYSection: React.FC = () => {
       title: 'شريكك الموثوق للذكاء الاصطناعي في منطقة الخليج',
       description: 'بفهم عميق لأسواق الخليج وخبرة مثبتة في تنفيذ الذكاء الاصطناعي، نقدم حلولاً تحقق قيمة تجارية حقيقية ونمواً مستداماً.',
       benefits: [
-        'سجل حافل بأكثر من 50 تنفيذ ناجح للذكاء الاصطناعي',
-        'خبرة عميقة في ديناميكيات ومتطلبات السوق الخليجي',
-        'دعم شامل من تطوير الاستراتيجية إلى النشر',
-        'تقنيات ذكاء اصطناعي متطورة مصممة لاحتياجات عملك',
-        'حضور محلي بمعايير وممارسات عالمية',
-        'عائد استثمار قابل للقياس وتأثير تجاري من اليوم الأول'
+        'محفظة متنامية من مشاريع المؤسسات الخليجية',
+        'خبرة عميقة في ديناميكيات السوق الخليجي والمتطلبات الثقافية',
+        'دعم شامل من الاستراتيجية حتى التنفيذ',
+        'تقنيات ذكاء اصطناعي حديثة مكيفة لاحتياجات المنطقة',
+        'تأسست وتدار من قبل عواب عبد، متخصص الذكاء الاصطناعي الخليجي'
       ],
       cta: 'ابدأ رحلة الذكاء الاصطناعي'
     }
