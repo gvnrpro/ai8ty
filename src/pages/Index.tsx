@@ -13,9 +13,8 @@ import ApplePremiumContactSection from '@/components/enterprise/ApplePremiumCont
 import AppleInspiredFooter from '@/components/enterprise/AppleInspiredFooter';
 import LeadMagnetSection from '@/components/seo/LeadMagnetSection';
 import IndustryLandingPages from '@/components/seo/IndustryLandingPages';
-import ThoughtLeadershipSection from '@/components/seo/ThoughtLeadershipSection';
-import GulfSpecificPositioning from '@/components/strategic/GulfSpecificPositioning';
-import AdvancedLeadQualification from '@/components/strategic/AdvancedLeadQualification';
+import CaseStudySection from '@/components/seo/CaseStudySection';
+import FounderStorySection from '@/components/seo/FounderStorySection';
 import AIMovementVision from '@/components/strategic/AIMovementVision';
 import ApproachMethodology from '@/components/strategic/ApproachMethodology';
 
@@ -98,9 +97,19 @@ const Index = () => {
             <AIMovementVision />
           </section>
           
+          {/* CASE STUDY */}
+          <section id="case-study">
+            <CaseStudySection />
+          </section>
+          
           {/* OUR APPROACH */}
           <section id="approach">
             <ApproachMethodology />
+          </section>
+          
+          {/* FOUNDER STORY */}
+          <section id="founder">
+            <FounderStorySection />
           </section>
           
           {/* WHY AI8TY */}
