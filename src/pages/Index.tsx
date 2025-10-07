@@ -3,11 +3,13 @@ import { Helmet } from 'react-helmet-async';
 import { useToast } from '@/hooks/use-toast';
 import { useLanguage } from '@/contexts/LanguageContext';
 
-// APPLE-INSPIRED COMPONENTS
-import AppleInspiredNavigation from '@/components/enterprise/AppleInspiredNavigation';
-import AppleInspiredHero from '@/components/enterprise/AppleInspiredHero';
+// DIGITAL BAUHAUS COMPONENTS
+import { EnhancedNavigation } from '@/components/digital-bauhaus/EnhancedNavigation';
+import { TerminalHero } from '@/components/digital-bauhaus/TerminalHero';
+import { ScrollProgress } from '@/components/digital-bauhaus/ScrollProgress';
+
+// EXISTING COMPONENTS
 import AppleInspiredValueProp from '@/components/enterprise/AppleInspiredValueProp';
-import InnovationSection from '@/components/enterprise/InnovationSection';
 import WhyAI8TYSection from '@/components/enterprise/WhyAI8TYSection';
 import ApplePremiumContactSection from '@/components/enterprise/ApplePremiumContactSection';
 import AppleInspiredFooter from '@/components/enterprise/AppleInspiredFooter';
@@ -79,12 +81,16 @@ const Index = () => {
       </Helmet>
 
       <div ref={mainRef} className="min-h-screen">
-        <AppleInspiredNavigation />
+        {/* SCROLL PROGRESS */}
+        <ScrollProgress />
+        
+        {/* ENHANCED NAVIGATION */}
+        <EnhancedNavigation />
         
         <main className="relative">
-          {/* APPLE-INSPIRED HERO */}
+          {/* DIGITAL BAUHAUS HERO */}
           <section id="hero-section">
-            <AppleInspiredHero />
+            <TerminalHero />
           </section>
           
           {/* APPLE-INSPIRED VALUE PROPOSITION */}
