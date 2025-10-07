@@ -20,146 +20,53 @@ export default {
 		},
 		extend: {
 			colors: {
-				border: 'hsl(var(--border))',
-				input: 'hsl(var(--input))',
-				ring: 'hsl(var(--ring))',
-				background: 'hsl(var(--background))',
-				foreground: 'hsl(var(--foreground))',
+				border: "hsl(var(--border))",
+				input: "hsl(var(--input))",
+				ring: "hsl(var(--ring))",
+				background: "#0A0A0A", // Deep dark background
+				foreground: "#F8F8F8", // Crisp white text
 				primary: {
-					DEFAULT: 'hsl(var(--primary))',
-					foreground: 'hsl(var(--primary-foreground))'
+					DEFAULT: "#007AFF", // Apple Blue for primary actions
+					foreground: "#F8F8F8",
 				},
 				secondary: {
-					DEFAULT: 'hsl(var(--secondary))',
-					foreground: 'hsl(var(--secondary-foreground))'
+					DEFAULT: "#2C2C2E", // Dark gray for secondary elements
+					foreground: "#F8F8F8",
 				},
 				destructive: {
-					DEFAULT: 'hsl(var(--destructive))',
-					foreground: 'hsl(var(--destructive-foreground))'
+					DEFAULT: "#FF3B30", // Apple Red for destructive actions
+					foreground: "#F8F8F8",
 				},
 				muted: {
-					DEFAULT: 'hsl(var(--muted))',
-					foreground: 'hsl(var(--muted-foreground))'
+					DEFAULT: "#1C1C1E", // Very dark gray for muted elements
+					foreground: "#8E8E93",
 				},
 				accent: {
-					DEFAULT: 'hsl(var(--accent))',
-					foreground: 'hsl(var(--accent-foreground))'
+					DEFAULT: "#30B0C7", // Apple Teal/Cyan for accents
+					foreground: "#F8F8F8",
 				},
 				popover: {
-					DEFAULT: 'hsl(var(--popover))',
-					foreground: 'hsl(var(--popover-foreground))'
+					DEFAULT: "#1A1A1A", // Slightly lighter dark for popovers
+					foreground: "#F8F8F8",
 				},
 				card: {
-					DEFAULT: 'hsl(var(--card))',
-					foreground: 'hsl(var(--card-foreground))'
+					DEFAULT: "#111111", // Darker shade for cards
+					foreground: "#F8F8F8",
 				},
-				sidebar: {
-					DEFAULT: 'hsl(var(--sidebar-background))',
-					foreground: 'hsl(var(--sidebar-foreground))',
-					primary: 'hsl(var(--sidebar-primary))',
-					'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
-					accent: 'hsl(var(--sidebar-accent))',
-					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
-					border: 'hsl(var(--sidebar-border))',
-					ring: 'hsl(var(--sidebar-ring))'
-				},
-                // Enhanced AI8TY intelligence-focused color palette
-                ai8ty: {
-                    black: '#0A0A0B',
-                    violet: '#6366F1',
-                    teal: '#06B6D4',
-                    grey: '#9CA3AF',
-                    white: '#FFFFFF',
+                // Custom colors for hacker aesthetic accents
+                hacker:
+                {
+                    blue: '#00FFFF', // Electric Blue
+                    cyan: '#00FFFF', // Cyan
+                    green: '#00FF00', // Neon Green
+                    amber: '#FFBF00', // Amber
                 },
-                // Apple-inspired grays
-                gray: {
-                    50: 'hsl(var(--gray-50))',
-                    100: 'hsl(var(--gray-100))',
-                    200: 'hsl(var(--gray-200))',
-                    300: 'hsl(var(--gray-300))',
-                    400: 'hsl(var(--gray-400))',
-                    500: 'hsl(var(--gray-500))',
-                    600: 'hsl(var(--gray-600))',
-                    700: 'hsl(var(--gray-700))',
-                    800: 'hsl(var(--gray-800))',
-                    900: 'hsl(var(--gray-900))',
-                    950: 'hsl(var(--gray-950))',
-                },
-                // Intelligence-focused color system
-                neural: {
-                    DEFAULT: '#3B82F6',
-                    light: '#60A5FA',
-                    dark: '#1D4ED8',
-                    50: '#EFF6FF',
-                    100: '#DBEAFE',
-                    200: '#BFDBFE',
-                    300: '#93C5FD',
-                    400: '#60A5FA',
-                    500: '#3B82F6',
-                    600: '#2563EB',
-                    700: '#1D4ED8',
-                    800: '#1E40AF',
-                    900: '#1E3A8A',
-                },
-                quantum: {
-                    DEFAULT: '#8B5CF6',
-                    light: '#A78BFA',
-                    dark: '#7C3AED',
-                    50: '#F5F3FF',
-                    100: '#EDE9FE',
-                    200: '#DDD6FE',
-                    300: '#C4B5FD',
-                    400: '#A78BFA',
-                    500: '#8B5CF6',
-                    600: '#7C3AED',
-                    700: '#6D28D9',
-                    800: '#5B21B6',
-                    900: '#4C1D95',
-                },
-                intelligence: {
-                    DEFAULT: '#10B981',
-                    light: '#34D399',
-                    dark: '#047857',
-                    50: '#ECFDF5',
-                    100: '#D1FAE5',
-                    200: '#A7F3D0',
-                    300: '#6EE7B7',
-                    400: '#34D399',
-                    500: '#10B981',
-                    600: '#059669',
-                    700: '#047857',
-                    800: '#065F46',
-                    900: '#064E3B',
-                },
-                sand: {
-                    DEFAULT: '#F59E0B',
-                    light: '#FCD34D',
-                    dark: '#D97706',
-                    50: '#FFFBEB',
-                    100: '#FEF3C7',
-                    200: '#FDE68A',
-                    300: '#FCD34D',
-                    400: '#FBBF24',
-                    500: '#F59E0B',
-                    600: '#D97706',
-                    700: '#B45309',
-                    800: '#92400E',
-                    900: '#78350F',
-                },
-                depth: {
-                    '1': '#111111',
-                    '2': '#1A1A1A',
-                    '3': '#262626',
-                    '4': '#404040',
-                }
+			},
 			},
 			fontFamily: {
-                sans: ['SF Pro Text', 'Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'system-ui', 'sans-serif'],
-                display: ['SF Pro Display', 'Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'system-ui', 'sans-serif'],
-                avant: ['Avant Garde', 'Inter', 'system-ui', 'sans-serif'],
-                satoshi: ['Satoshi', 'Inter', 'system-ui', 'sans-serif'],
-                syne: ['Syne', 'Inter', 'system-ui', 'sans-serif'],
-                space: ['Space Grotesk', 'Inter', 'system-ui', 'sans-serif'],
+                sans: ["Inter", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "system-ui", "sans-serif"], // Modern sans-serif
+                display: ["Space Mono", "Menlo", "Monaco", "Consolas", "monospace"], // Monospaced for hacker aesthetic
+                body: ["Inter", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "system-ui", "sans-serif"], // Legible body text
             },
 			borderRadius: {
 				lg: 'var(--radius)',
