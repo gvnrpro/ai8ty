@@ -2,10 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Apple-inspired font system */
+/* Apple-inspired font system + Digital Bauhaus monospace fonts */
 @import url('https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@100;200;300;400;500;600;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=SF+Pro+Text:wght@100;200;300;400;500;600;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap');
 
 @layer base {
   :root {
@@ -30,6 +32,18 @@
     --input: 0 0% 12%;
     --ring: 217 91% 60%;
     --radius: 12px;
+    
+    /* Digital Bauhaus - Cyber/Terminal Aesthetic Colors */
+    --cyber-blue: 180 100% 50%;      /* Electric Cyan #00FFFF */
+    --cyber-green: 120 100% 50%;     /* Terminal Green #00FF00 */
+    --cyber-amber: 45 100% 50%;      /* Amber #FFBF00 */
+    --neural-purple: 271 81% 56%;    /* Neural Purple #8B5CF6 */
+    --terminal-cyan: 189 100% 42%;   /* Terminal Cyan #00D4D4 */
+    
+    /* Hacker aesthetic shadow/glow colors */
+    --glow-cyber: 180 100% 50%;
+    --glow-neural: 271 81% 56%;
+    --glow-terminal: 120 100% 50%;
     
     /* Apple-style grays */
     --gray-50: 0 0% 97%;
@@ -596,6 +610,276 @@
     filter: blur(80px);
     opacity: 0.4;
     z-index: -1;
+  }
+
+  /* ===== DIGITAL BAUHAUS - HACKER AESTHETIC ===== */
+  
+  /* Terminal Text Styles */
+  .terminal-text {
+    font-family: 'JetBrains Mono', 'Space Mono', 'Courier New', monospace;
+    color: hsl(var(--cyber-green));
+    text-shadow: 0 0 10px hsl(var(--glow-terminal) / 0.5);
+    letter-spacing: 0.05em;
+  }
+  
+  .terminal-prompt {
+    font-family: 'JetBrains Mono', monospace;
+    color: hsl(var(--terminal-cyan));
+    font-weight: 500;
+  }
+  
+  /* Cyber Grid Background */
+  .cyber-grid {
+    background-image: 
+      linear-gradient(to right, hsl(var(--cyber-blue) / 0.1) 1px, transparent 1px),
+      linear-gradient(to bottom, hsl(var(--cyber-blue) / 0.1) 1px, transparent 1px);
+    background-size: 32px 32px;
+    position: relative;
+  }
+  
+  .cyber-grid::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, transparent 0%, hsl(var(--background)) 100%);
+    pointer-events: none;
+  }
+  
+  /* Neural Grid (Purple accent) */
+  .neural-grid {
+    background-image: 
+      linear-gradient(to right, hsl(var(--neural-purple) / 0.08) 1px, transparent 1px),
+      linear-gradient(to bottom, hsl(var(--neural-purple) / 0.08) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+  
+  /* Glitch Effect */
+  .glitch-effect {
+    position: relative;
+    animation: glitch 3s infinite;
+  }
+  
+  .glitch-effect::before,
+  .glitch-effect::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.8;
+  }
+  
+  .glitch-effect::before {
+    color: hsl(var(--cyber-blue));
+    z-index: -1;
+    animation: glitch-1 2s infinite;
+  }
+  
+  .glitch-effect::after {
+    color: hsl(var(--cyber-amber));
+    z-index: -2;
+    animation: glitch-2 2s infinite;
+  }
+  
+  @keyframes glitch {
+    0%, 100% { transform: translate(0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(-2px, -2px); }
+    60% { transform: translate(2px, 2px); }
+    80% { transform: translate(2px, -2px); }
+  }
+  
+  @keyframes glitch-1 {
+    0%, 100% { clip-path: inset(0 0 0 0); }
+    10% { clip-path: inset(20% 0 30% 0); }
+    20% { clip-path: inset(60% 0 10% 0); }
+    30% { clip-path: inset(10% 0 80% 0); }
+  }
+  
+  @keyframes glitch-2 {
+    0%, 100% { clip-path: inset(0 0 0 0); }
+    15% { clip-path: inset(40% 0 40% 0); }
+    25% { clip-path: inset(80% 0 5% 0); }
+    35% { clip-path: inset(5% 0 70% 0); }
+  }
+  
+  /* Data Stream Animation */
+  .data-stream {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .data-stream::before {
+    content: '';
+    position: absolute;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      to bottom,
+      transparent 0%,
+      hsl(var(--cyber-blue) / 0.2) 50%,
+      transparent 100%
+    );
+    animation: data-flow 2s linear infinite;
+  }
+  
+  @keyframes data-flow {
+    0% { top: -100%; }
+    100% { top: 100%; }
+  }
+  
+  /* 3D Card Effect with Cyber Border */
+  .card-3d {
+    position: relative;
+    transform-style: preserve-3d;
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    background: hsl(var(--card));
+    border: 1px solid hsl(var(--cyber-blue) / 0.2);
+    border-radius: 16px;
+    overflow: hidden;
+  }
+  
+  .card-3d::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      hsl(var(--cyber-blue) / 0.1) 0%,
+      transparent 50%,
+      hsl(var(--neural-purple) / 0.1) 100%
+    );
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+  
+  .card-3d:hover {
+    transform: translateY(-8px) rotateX(2deg) rotateY(-2deg);
+    border-color: hsl(var(--cyber-blue) / 0.4);
+    box-shadow: 
+      0 20px 60px hsl(var(--cyber-blue) / 0.15),
+      0 0 30px hsl(var(--glow-cyber) / 0.1);
+  }
+  
+  .card-3d:hover::before {
+    opacity: 1;
+  }
+  
+  /* Neural Glow Effect */
+  .neural-glow {
+    position: relative;
+    box-shadow: 0 0 20px hsl(var(--neural-purple) / 0.3);
+    transition: box-shadow 0.3s ease;
+  }
+  
+  .neural-glow:hover {
+    box-shadow: 
+      0 0 30px hsl(var(--neural-purple) / 0.5),
+      0 0 60px hsl(var(--neural-purple) / 0.2);
+  }
+  
+  .cyber-glow {
+    box-shadow: 0 0 20px hsl(var(--cyber-blue) / 0.3);
+    transition: box-shadow 0.3s ease;
+  }
+  
+  .cyber-glow:hover {
+    box-shadow: 
+      0 0 30px hsl(var(--cyber-blue) / 0.5),
+      0 0 60px hsl(var(--cyber-blue) / 0.2);
+  }
+  
+  /* Hover Depth Effect */
+  .hover-depth {
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+  }
+  
+  .hover-depth::after {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(
+      135deg,
+      hsl(var(--cyber-blue) / 0.5),
+      hsl(var(--neural-purple) / 0.5)
+    );
+    border-radius: inherit;
+    opacity: 0;
+    z-index: -1;
+    filter: blur(20px);
+    transition: opacity 0.4s ease;
+  }
+  
+  .hover-depth:hover {
+    transform: translateZ(10px);
+  }
+  
+  .hover-depth:hover::after {
+    opacity: 1;
+  }
+  
+  /* Scanning Line Animation */
+  .scan-line {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .scan-line::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(
+      to right,
+      transparent,
+      hsl(var(--cyber-blue)),
+      transparent
+    );
+    animation: scan 3s linear infinite;
+  }
+  
+  @keyframes scan {
+    0% { left: -100%; }
+    100% { left: 100%; }
+  }
+  
+  /* Code Block Styling */
+  .code-block {
+    font-family: 'JetBrains Mono', monospace;
+    background: hsl(var(--background));
+    border: 1px solid hsl(var(--cyber-green) / 0.3);
+    border-radius: 8px;
+    padding: 1rem;
+    color: hsl(var(--cyber-green));
+    box-shadow: 
+      inset 0 0 20px hsl(var(--cyber-green) / 0.05),
+      0 0 15px hsl(var(--cyber-green) / 0.1);
+  }
+  
+  /* Hacker Typography */
+  .text-mono {
+    font-family: 'Space Mono', 'JetBrains Mono', monospace;
+  }
+  
+  .text-cyber {
+    color: hsl(var(--cyber-blue));
+    text-shadow: 0 0 10px hsl(var(--glow-cyber) / 0.5);
+  }
+  
+  .text-neural {
+    color: hsl(var(--neural-purple));
+    text-shadow: 0 0 10px hsl(var(--glow-neural) / 0.5);
+  }
+  
+  .text-terminal {
+    color: hsl(var(--cyber-green));
+    text-shadow: 0 0 10px hsl(var(--glow-terminal) / 0.5);
   }
 }
 

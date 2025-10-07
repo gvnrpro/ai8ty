@@ -23,50 +23,56 @@ export default {
 				border: "hsl(var(--border))",
 				input: "hsl(var(--input))",
 				ring: "hsl(var(--ring))",
-				background: "#0A0A0A", // Deep dark background
-				foreground: "#F8F8F8", // Crisp white text
+				background: "hsl(var(--background))",
+				foreground: "hsl(var(--foreground))",
 				primary: {
-					DEFAULT: "#007AFF", // Apple Blue for primary actions
-					foreground: "#F8F8F8",
+					DEFAULT: "hsl(var(--primary))",
+					foreground: "hsl(var(--primary-foreground))",
 				},
 				secondary: {
-					DEFAULT: "#2C2C2E", // Dark gray for secondary elements
-					foreground: "#F8F8F8",
+					DEFAULT: "hsl(var(--secondary))",
+					foreground: "hsl(var(--secondary-foreground))",
 				},
 				destructive: {
-					DEFAULT: "#FF3B30", // Apple Red for destructive actions
-					foreground: "#F8F8F8",
+					DEFAULT: "hsl(var(--destructive))",
+					foreground: "hsl(var(--destructive-foreground))",
 				},
 				muted: {
-					DEFAULT: "#1C1C1E", // Very dark gray for muted elements
-					foreground: "#8E8E93",
+					DEFAULT: "hsl(var(--muted))",
+					foreground: "hsl(var(--muted-foreground))",
 				},
 				accent: {
-					DEFAULT: "#30B0C7", // Apple Teal/Cyan for accents
-					foreground: "#F8F8F8",
+					DEFAULT: "hsl(var(--accent))",
+					foreground: "hsl(var(--accent-foreground))",
 				},
 				popover: {
-					DEFAULT: "#1A1A1A", // Slightly lighter dark for popovers
-					foreground: "#F8F8F8",
+					DEFAULT: "hsl(var(--popover))",
+					foreground: "hsl(var(--popover-foreground))",
 				},
 				card: {
-					DEFAULT: "#111111", // Darker shade for cards
-					foreground: "#F8F8F8",
+					DEFAULT: "hsl(var(--card))",
+					foreground: "hsl(var(--card-foreground))",
 				},
-                // Custom colors for hacker aesthetic accents
-                hacker:
-                {
-                    blue: '#00FFFF', // Electric Blue
-                    cyan: '#00FFFF', // Cyan
-                    green: '#00FF00', // Neon Green
-                    amber: '#FFBF00', // Amber
+                // Digital Bauhaus - Cyber/Hacker Aesthetic
+                cyber: {
+                    blue: "hsl(var(--cyber-blue))",
+                    green: "hsl(var(--cyber-green))",
+                    amber: "hsl(var(--cyber-amber))",
+                    cyan: "hsl(var(--terminal-cyan))",
+                },
+                neural: {
+                    purple: "hsl(var(--neural-purple))",
+                },
+                terminal: {
+                    green: "hsl(var(--cyber-green))",
+                    cyan: "hsl(var(--terminal-cyan))",
                 },
 			},
-			},
 			fontFamily: {
-                sans: ["Inter", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "system-ui", "sans-serif"], // Modern sans-serif
-                display: ["Space Mono", "Menlo", "Monaco", "Consolas", "monospace"], // Monospaced for hacker aesthetic
-                body: ["Inter", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "system-ui", "sans-serif"], // Legible body text
+                sans: ["Inter", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "system-ui", "sans-serif"],
+                display: ["SF Pro Display", "Inter", "system-ui", "sans-serif"],
+                body: ["SF Pro Text", "Inter", "system-ui", "sans-serif"],
+                mono: ["JetBrains Mono", "Space Mono", "Menlo", "Monaco", "Courier New", "monospace"],
             },
 			borderRadius: {
 				lg: 'var(--radius)',
