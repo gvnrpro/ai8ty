@@ -4,9 +4,7 @@ import { useToast } from '@/hooks/use-toast';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 // DIGITAL BAUHAUS COMPONENTS
-import { EnhancedNavigation } from '@/components/digital-bauhaus/EnhancedNavigation';
 import { TerminalHero } from '@/components/digital-bauhaus/TerminalHero';
-import { ScrollProgress } from '@/components/digital-bauhaus/ScrollProgress';
 
 // EXISTING COMPONENTS
 import AppleInspiredValueProp from '@/components/enterprise/AppleInspiredValueProp';
@@ -81,12 +79,6 @@ const Index = () => {
       </Helmet>
 
       <div ref={mainRef} className="min-h-screen">
-        {/* SCROLL PROGRESS */}
-        <ScrollProgress />
-        
-        {/* ENHANCED NAVIGATION */}
-        <EnhancedNavigation />
-        
         <main className="relative">
           {/* DIGITAL BAUHAUS HERO */}
           <section id="hero-section">
