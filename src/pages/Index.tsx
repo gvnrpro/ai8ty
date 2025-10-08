@@ -4,6 +4,7 @@ import { useToast } from '@/hooks/use-toast';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 // DIGITAL BAUHAUS COMPONENTS
+import Header from '@/components/digital-bauhaus/Header';
 import { TerminalHero } from '@/components/digital-bauhaus/TerminalHero';
 import ValueProposition from '@/components/digital-bauhaus/ValueProposition';
 import VisionSection from '@/components/digital-bauhaus/VisionSection';
@@ -74,6 +75,8 @@ const Index = () => {
       </Helmet>
 
       <div ref={mainRef} className="min-h-screen">
+        <Header />
+        
         <main className="relative">
           {/* DIGITAL BAUHAUS HERO */}
           <section id="hero-section">
