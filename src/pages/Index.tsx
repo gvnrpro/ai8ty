@@ -5,18 +5,13 @@ import { useLanguage } from '@/contexts/LanguageContext';
 
 // DIGITAL BAUHAUS COMPONENTS
 import { TerminalHero } from '@/components/digital-bauhaus/TerminalHero';
-
-// EXISTING COMPONENTS
-import AppleInspiredValueProp from '@/components/enterprise/AppleInspiredValueProp';
-import WhyAI8TYSection from '@/components/enterprise/WhyAI8TYSection';
-import ApplePremiumContactSection from '@/components/enterprise/ApplePremiumContactSection';
-import AppleInspiredFooter from '@/components/enterprise/AppleInspiredFooter';
-import LeadMagnetSection from '@/components/seo/LeadMagnetSection';
-import IndustryLandingPages from '@/components/seo/IndustryLandingPages';
-import CaseStudySection from '@/components/seo/CaseStudySection';
-import FounderStorySection from '@/components/seo/FounderStorySection';
-import AIMovementVision from '@/components/strategic/AIMovementVision';
-import ApproachMethodology from '@/components/strategic/ApproachMethodology';
+import ValueProposition from '@/components/digital-bauhaus/ValueProposition';
+import VisionSection from '@/components/digital-bauhaus/VisionSection';
+import CaseStudyShowcase from '@/components/digital-bauhaus/CaseStudyShowcase';
+import ApproachSection from '@/components/digital-bauhaus/ApproachSection';
+import IndustriesSection from '@/components/digital-bauhaus/IndustriesSection';
+import ContactSection from '@/components/digital-bauhaus/ContactSection';
+import Footer from '@/components/digital-bauhaus/Footer';
 
 const Index = () => {
   const [initialLoadComplete, setInitialLoadComplete] = useState(false);
@@ -85,53 +80,38 @@ const Index = () => {
             <TerminalHero />
           </section>
           
-          {/* APPLE-INSPIRED VALUE PROPOSITION */}
+          {/* VALUE PROPOSITION */}
           <section id="value-proposition">
-            <AppleInspiredValueProp />
+            <ValueProposition />
           </section>
           
-          {/* AI MOVEMENT & VISION */}
-          <section id="ai-vision">
-            <AIMovementVision />
+          {/* VISION */}
+          <section id="vision">
+            <VisionSection />
           </section>
           
           {/* CASE STUDY */}
           <section id="case-study">
-            <CaseStudySection />
+            <CaseStudyShowcase />
           </section>
           
-          {/* OUR APPROACH */}
+          {/* APPROACH */}
           <section id="approach">
-            <ApproachMethodology />
+            <ApproachSection />
           </section>
           
-          {/* FOUNDER STORY */}
-          <section id="founder">
-            <FounderStorySection />
-          </section>
-          
-          {/* WHY AI8TY */}
-          <section id="why-ai8ty">
-            <WhyAI8TYSection />
-          </section>
-          
-          {/* INDUSTRY LANDING PAGES */}
+          {/* INDUSTRIES */}
           <section id="industries">
-            <IndustryLandingPages />
+            <IndustriesSection />
           </section>
           
-          {/* LEAD MAGNETS */}
-          <section id="resources">
-            <LeadMagnetSection />
-          </section>
-          
-          {/* PREMIUM CONTACT */}
+          {/* CONTACT */}
           <section id="contact">
-            <ApplePremiumContactSection />
+            <ContactSection />
           </section>
         </main>
         
-        <AppleInspiredFooter />
+        <Footer />
       </div>
     </>
   );
