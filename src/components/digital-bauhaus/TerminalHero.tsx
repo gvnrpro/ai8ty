@@ -27,23 +27,23 @@ export const TerminalHero: React.FC = () => {
   const t = content[language as keyof typeof content];
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
       {/* Subtle gradient background */}
       <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-muted/20" />
       
       {/* Subtle animated gradient orbs */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-pulse" />
-      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+      <div className="absolute top-1/4 left-1/4 w-64 md:w-96 h-64 md:h-96 bg-primary/5 rounded-full blur-3xl animate-pulse" />
+      <div className="absolute bottom-1/4 right-1/4 w-64 md:w-96 h-64 md:h-96 bg-accent/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
       
       {/* Content Container */}
-      <div className="relative z-10 max-w-5xl mx-auto px-6 py-32 text-center">
-        <div className="space-y-8">
+      <div className="relative z-10 max-w-5xl mx-auto px-4 md:px-6 py-20 md:py-32 text-center">
+        <div className="space-y-6 md:space-y-8">
           {/* Main Headline */}
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight px-2"
           >
             <span className="bg-gradient-to-r from-foreground via-foreground to-foreground/70 bg-clip-text text-transparent">
               {t.headline}
@@ -55,7 +55,7 @@ export const TerminalHero: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.8 }}
-            className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto font-light"
+            className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto font-light px-4"
           >
             {t.subheadline}
           </motion.p>
@@ -65,7 +65,7 @@ export const TerminalHero: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
-            className="text-base md:text-lg text-muted-foreground/80 max-w-2xl mx-auto"
+            className="text-sm sm:text-base md:text-lg text-muted-foreground/80 max-w-2xl mx-auto px-4"
           >
             {t.description}
           </motion.p>
@@ -75,11 +75,11 @@ export const TerminalHero: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.8 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center pt-8"
+            className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center pt-6 md:pt-8 px-4"
           >
             <button
               onClick={() => navigate('/contact')}
-              className="group px-8 py-4 bg-foreground text-background rounded-full font-medium hover:bg-foreground/90 transition-all duration-300 flex items-center justify-center gap-2"
+              className="group px-6 md:px-8 py-3 md:py-4 bg-foreground text-background rounded-full font-medium hover:bg-foreground/90 transition-all duration-300 flex items-center justify-center gap-2 text-sm md:text-base"
             >
               <span>{t.cta1}</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -87,7 +87,7 @@ export const TerminalHero: React.FC = () => {
             
             <button
               onClick={() => navigate('/services')}
-              className="px-8 py-4 border border-border text-foreground rounded-full font-medium hover:bg-muted/50 transition-all duration-300"
+              className="px-6 md:px-8 py-3 md:py-4 border border-border text-foreground rounded-full font-medium hover:bg-muted/50 transition-all duration-300 text-sm md:text-base"
             >
               {t.cta2}
             </button>

@@ -18,19 +18,15 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      setMobileMenuOpen(false);
-    }
+  const navigate = (path: string) => {
+    window.location.href = path;
+    setMobileMenuOpen(false);
   };
 
   const navItems = [
-    { label: isArabic ? 'الحلول' : 'Solutions', id: 'value-proposition' },
-    { label: isArabic ? 'القطاعات' : 'Industries', id: 'industries' },
-    { label: isArabic ? 'نهجنا' : 'Approach', id: 'approach' },
-    { label: isArabic ? 'اتصل بنا' : 'Contact', id: 'contact' }
+    { label: isArabic ? 'الحلول' : 'Solutions', path: '/solutions' },
+    { label: isArabic ? 'الخدمات' : 'Services', path: '/services' },
+    { label: isArabic ? 'اتصل بنا' : 'Contact', path: '/contact' }
   ];
 
   return (
@@ -61,11 +57,11 @@ const Header = () => {
           <nav className="hidden md:flex items-center gap-8">
             {navItems.map((item, index) => (
               <motion.button
-                key={item.id}
+                key={item.path}
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                onClick={() => scrollToSection(item.id)}
+                onClick={() => navigate(item.path)}
                 className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
               >
                 {item.label}
@@ -88,7 +84,7 @@ const Header = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.5 }}
             >
-              <Button onClick={() => scrollToSection('contact')}>
+              <Button onClick={() => navigate('/contact')}>
                 {isArabic ? 'ابدأ الآن' : 'Get Started'}
               </Button>
             </motion.div>
@@ -115,8 +111,8 @@ const Header = () => {
           <nav className="container mx-auto px-6 py-4 flex flex-col gap-4">
             {navItems.map((item) => (
               <button
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
+                key={item.path}
+                onClick={() => navigate(item.path)}
                 className="text-left text-sm font-medium text-muted-foreground hover:text-foreground transition-colors py-2"
               >
                 {item.label}
@@ -128,7 +124,7 @@ const Header = () => {
             >
               {isArabic ? 'English' : 'العربية'}
             </button>
-            <Button onClick={() => scrollToSection('contact')} className="w-full">
+            <Button onClick={() => navigate('/contact')} className="w-full">
               {isArabic ? 'ابدأ الآن' : 'Get Started'}
             </Button>
           </nav>
