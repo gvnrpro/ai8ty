@@ -1,8 +1,8 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useLanguage } from '@/contexts/LanguageContext';
-import AppleInspiredNavigation from '@/components/enterprise/AppleInspiredNavigation';
-import AppleInspiredFooter from '@/components/enterprise/AppleInspiredFooter';
+import Header from '@/components/digital-bauhaus/Header';
+import Footer from '@/components/digital-bauhaus/Footer';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, CheckCircle, TrendingUp, Users, Zap, Star } from 'lucide-react';
 
@@ -110,8 +110,8 @@ const AiConsultingUAE = () => {
         </script>
       </Helmet>
 
-      <div className="min-h-screen bg-black">
-        <AppleInspiredNavigation />
+      <div className="min-h-screen bg-background">
+        <Header />
         
         {/* Hero Section - UAE-Specific */}
         <section className="pt-24 pb-16 px-6 bg-gradient-to-b from-blue-950 to-black">
@@ -262,7 +262,7 @@ const AiConsultingUAE = () => {
           </div>
         </section>
         
-        <AppleInspiredFooter />
+        <Footer />
       </div>
     </>
   );

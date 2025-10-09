@@ -2,9 +2,9 @@
 import React, { useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion, useInView } from 'framer-motion';
-import Navigation from '@/components/Navigation';
-import ContactSection from '@/components/ContactSection';
-import StrategicFooter from '@/components/StrategicFooter';
+import Header from '@/components/digital-bauhaus/Header';
+import ContactSection from '@/components/digital-bauhaus/ContactSection';
+import Footer from '@/components/digital-bauhaus/Footer';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Megaphone, Palette, Globe, Video, Bot, Server } from 'lucide-react';
 
@@ -205,8 +205,8 @@ const Services = () => {
         <meta name="keywords" content="digital marketing services dubai, AI automation UAE, web development, branding services, workflow automation, business growth solutions" />
       </Helmet>
 
-      <div className="min-h-screen bg-ai8ty-black text-ai8ty-white overflow-x-hidden">
-        <Navigation />
+      <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
+        <Header />
         
         <main className="relative z-10">
           {/* Hero Section */}
@@ -298,7 +298,7 @@ const Services = () => {
           <ContactSection />
         </main>
         
-        <StrategicFooter />
+        <Footer />
       </div>
     </>
   );

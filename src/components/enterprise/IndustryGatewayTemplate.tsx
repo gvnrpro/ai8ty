@@ -4,8 +4,8 @@ import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { ArrowLeft, CheckCircle } from 'lucide-react';
-import EnterpriseNavigation from './EnterpriseNavigation';
-import EnterpriseFooter from './EnterpriseFooter';
+import Header from '@/components/digital-bauhaus/Header';
+import Footer from '@/components/digital-bauhaus/Footer';
 
 interface IndustryGatewayTemplateProps {
   title: string;
@@ -59,8 +59,8 @@ const IndustryGatewayTemplate: React.FC<IndustryGatewayTemplateProps> = ({
         <meta name="description" content={metaDescription} />
       </Helmet>
 
-      <div className="min-h-screen bg-slate-900">
-        <EnterpriseNavigation />
+      <div className="min-h-screen bg-background">
+        <Header />
         
         <main className="pt-32 pb-24">
           <motion.div
@@ -128,7 +128,7 @@ const IndustryGatewayTemplate: React.FC<IndustryGatewayTemplateProps> = ({
           </motion.div>
         </main>
 
-        <EnterpriseFooter />
+        <Footer />
       </div>
     </>
   );

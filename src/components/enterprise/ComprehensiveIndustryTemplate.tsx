@@ -4,8 +4,8 @@ import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { ArrowRight, CheckCircle, Calculator, Clock, Target, Zap, Star, LucideIcon } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import AppleInspiredNavigation from './AppleInspiredNavigation';
-import AppleInspiredFooter from './AppleInspiredFooter';
+import Header from '@/components/digital-bauhaus/Header';
+import Footer from '@/components/digital-bauhaus/Footer';
 import { useLanguage } from '@/contexts/LanguageContext';
 interface Challenge {
   title: string;
@@ -233,7 +233,7 @@ const ComprehensiveIndustryTemplate: React.FC<ComprehensiveIndustryTemplateProps
       </Helmet>
 
       <div className={`min-h-screen ${isArabic ? 'rtl' : ''}`}>
-        <AppleInspiredNavigation />
+        <Header />
         
         <main className="pt-24">
           {/* Hero Section */}
@@ -497,7 +497,7 @@ const ComprehensiveIndustryTemplate: React.FC<ComprehensiveIndustryTemplateProps
           </section>
         </main>
 
-        <AppleInspiredFooter />
+        <Footer />
       </div>
     </>;
 };

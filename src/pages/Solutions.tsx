@@ -6,8 +6,8 @@ import {
   Building2, Heart, Factory, ShoppingBag, Landmark, Plane, 
   Users, Home, Scale, ArrowRight, CheckCircle, Sparkles 
 } from 'lucide-react';
-import AppleInspiredNavigation from '@/components/enterprise/AppleInspiredNavigation';
-import AppleInspiredFooter from '@/components/enterprise/AppleInspiredFooter';
+import Header from '@/components/digital-bauhaus/Header';
+import Footer from '@/components/digital-bauhaus/Footer';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 const Solutions = () => {
@@ -266,8 +266,8 @@ const Solutions = () => {
         <link rel="canonical" href="https://ai8ty.com/solutions" />
       </Helmet>
 
-      <div className={`min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 ${isArabic ? 'rtl' : ''}`}>
-        <AppleInspiredNavigation />
+      <div className={`min-h-screen bg-background ${isArabic ? 'rtl' : ''}`}>
+        <Header />
         
         <main className="overflow-hidden">
           {/* Enhanced Hero Section */}
@@ -485,7 +485,7 @@ const Solutions = () => {
           </section>
         </main>
 
-        <AppleInspiredFooter />
+        <Footer />
       </div>
     </>
   );

@@ -7,8 +7,8 @@ import {
   CheckCircle, Sparkles, Calendar, Shield,
   Users, Zap, Globe, Award
 } from 'lucide-react';
-import AppleInspiredNavigation from '@/components/enterprise/AppleInspiredNavigation';
-import AppleInspiredFooter from '@/components/enterprise/AppleInspiredFooter';
+import Header from '@/components/digital-bauhaus/Header';
+import Footer from '@/components/digital-bauhaus/Footer';
 import FormField from '@/components/FormField';
 import FormSelect from '@/components/FormSelect';
 
@@ -339,8 +339,8 @@ const Contact = () => {
         <link rel="canonical" href="https://ai8ty.com/contact" />
       </Helmet>
 
-      <div className={`min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 ${isArabic ? 'rtl' : ''}`}>
-        <AppleInspiredNavigation />
+      <div className={`min-h-screen bg-background ${isArabic ? 'rtl' : ''}`}>
+        <Header />
         
         <main className="overflow-hidden">
           {/* Enhanced Hero Section */}
@@ -666,7 +666,7 @@ const Contact = () => {
           </section>
         </main>
 
-        <AppleInspiredFooter />
+        <Footer />
       </div>
     </>
   );
