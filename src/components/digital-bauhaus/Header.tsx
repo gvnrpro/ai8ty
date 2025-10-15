@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
 
@@ -9,6 +10,8 @@ const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { language, setLanguage } = useLanguage();
   const isArabic = language === 'ar';
+  const routerNavigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,10 +21,17 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navigate = (path: string) => {
-    window.location.href = path;
+  const handleNavigation = (path: string) => {
     setMobileMenuOpen(false);
+    if (path === '/') {
+      routerNavigate(path);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      routerNavigate(path);
+    }
   };
+
+  const isActive = (path: string) => location.pathname === path;
 
   const navItems = [
     { label: isArabic ? 'الحلول' : 'Solutions', path: '/solutions' },
@@ -43,7 +53,7 @@ const Header = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
             className="flex items-center gap-2 cursor-pointer"
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            onClick={() => handleNavigation('/')}
           >
             <img 
               src="/android-chrome-192x192.png" 
@@ -61,10 +71,15 @@ const Header = () => {
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                onClick={() => navigate(item.path)}
-                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+                onClick={() => handleNavigation(item.path)}
+                className={`text-sm font-medium transition-colors relative group ${
+                  isActive(item.path) ? 'text-foreground' : 'text-muted-foreground hover:text-foreground'
+                }`}
               >
                 {item.label}
+                {isActive(item.path) && (
+                  <span className="absolute bottom-0 left-0 w-full h-0.5 bg-primary" />
+                )}
               </motion.button>
             ))}
             
@@ -84,7 +99,7 @@ const Header = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.5 }}
             >
-              <Button onClick={() => navigate('/contact')}>
+              <Button onClick={() => handleNavigation('/contact')}>
                 {isArabic ? 'ابدأ الآن' : 'Get Started'}
               </Button>
             </motion.div>
@@ -112,19 +127,21 @@ const Header = () => {
             {navItems.map((item) => (
               <button
                 key={item.path}
-                onClick={() => navigate(item.path)}
-                className="text-left text-sm font-medium text-muted-foreground hover:text-foreground transition-colors py-2"
+                onClick={() => handleNavigation(item.path)}
+                className={`text-left text-sm font-medium transition-colors py-2 min-h-[44px] ${
+                  isActive(item.path) ? 'text-foreground bg-muted/50' : 'text-muted-foreground hover:text-foreground'
+                }`}
               >
                 {item.label}
               </button>
             ))}
             <button
               onClick={() => setLanguage(isArabic ? 'en' : 'ar')}
-              className="text-left text-sm font-medium text-muted-foreground hover:text-foreground transition-colors py-2"
+              className="text-left text-sm font-medium text-muted-foreground hover:text-foreground transition-colors py-2 min-h-[44px]"
             >
               {isArabic ? 'English' : 'العربية'}
             </button>
-            <Button onClick={() => navigate('/contact')} className="w-full">
+            <Button onClick={() => handleNavigation('/contact')} className="w-full min-h-[44px]">
               {isArabic ? 'ابدأ الآن' : 'Get Started'}
             </Button>
           </nav>

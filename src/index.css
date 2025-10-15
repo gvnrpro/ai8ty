@@ -33,17 +33,10 @@
     --ring: 217 91% 60%;
     --radius: 12px;
     
-    /* Digital Bauhaus - Cyber/Terminal Aesthetic Colors */
-    --cyber-blue: 180 100% 50%;      /* Electric Cyan #00FFFF */
-    --cyber-green: 120 100% 50%;     /* Terminal Green #00FF00 */
-    --cyber-amber: 45 100% 50%;      /* Amber #FFBF00 */
-    --neural-purple: 271 81% 56%;    /* Neural Purple #8B5CF6 */
-    --terminal-cyan: 189 100% 42%;   /* Terminal Cyan #00D4D4 */
-    
-    /* Hacker aesthetic shadow/glow colors */
-    --glow-cyber: 180 100% 50%;
-    --glow-neural: 271 81% 56%;
-    --glow-terminal: 120 100% 50%;
+    /* Subtle accent colors for Digital Bauhaus */
+    --accent-blue: 217 91% 60%;      /* Matches primary */
+    --accent-purple: 250 60% 65%;    /* Subtle purple accent */
+    --accent-cyan: 189 70% 55%;      /* Refined cyan */
     
     /* Apple-style grays */
     --gray-50: 0 0% 97%;
