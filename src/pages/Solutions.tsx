@@ -341,21 +341,21 @@ const Solutions = () => {
               </motion.div>
 
               <motion.h1 
-                className="text-5xl md:text-7xl lg:text-8xl font-light mb-8 bg-gradient-to-b from-white via-white to-white/70 bg-clip-text text-transparent leading-tight"
+                className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-light mb-6 md:mb-8 bg-gradient-to-b from-white via-white to-white/70 bg-clip-text text-transparent leading-tight px-4"
                 variants={heroTextVariants}
               >
                 {currentContent.title}
               </motion.h1>
               
               <motion.p 
-                className="text-xl md:text-2xl text-white/80 max-w-4xl mx-auto mb-8 leading-relaxed font-light"
+                className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/80 max-w-4xl mx-auto mb-6 md:mb-8 leading-relaxed font-light px-4"
                 variants={itemVariants}
               >
                 {currentContent.subtitle}
               </motion.p>
 
               <motion.p 
-                className="text-lg text-white/60 max-w-3xl mx-auto mb-12 leading-relaxed"
+                className="text-sm sm:text-base md:text-lg text-white/60 max-w-3xl mx-auto mb-8 md:mb-12 leading-relaxed px-4"
                 variants={itemVariants}
               >
                 {currentContent.description}
@@ -363,21 +363,21 @@ const Solutions = () => {
 
               {/* Benefits Pills */}
               <motion.div 
-                className="flex flex-wrap justify-center gap-4 mb-16"
+                className="flex flex-wrap justify-center gap-3 md:gap-4 mb-12 md:mb-16 px-4"
                 variants={containerVariants}
               >
                 {currentContent.benefits.map((benefit, index) => (
                   <motion.div
                     key={benefit}
-                    className="flex items-center gap-2 bg-white/10 backdrop-blur-md rounded-full px-6 py-3 border border-white/20"
+                    className="flex items-center gap-2 bg-white/10 backdrop-blur-md rounded-full px-4 py-2.5 md:px-6 md:py-3 border border-white/20 min-h-[44px]"
                     variants={itemVariants}
                     whileHover={{ 
-                      scale: 1.1,
+                      scale: 1.05,
                       backgroundColor: 'rgba(255,255,255,0.15)'
                     }}
                   >
-                    <CheckCircle className="w-4 h-4 text-emerald-400" />
-                    <span className="text-sm font-medium text-white">{benefit}</span>
+                    <CheckCircle className="w-4 h-4 flex-shrink-0 text-emerald-400" />
+                    <span className="text-xs sm:text-sm font-medium text-white whitespace-nowrap">{benefit}</span>
                   </motion.div>
                 ))}
               </motion.div>
@@ -396,24 +396,24 @@ const Solutions = () => {
           </section>
 
           {/* Enhanced Industries Grid */}
-          <section ref={industriesRef} className="py-32 relative">
-            <div className="container mx-auto px-6">
+          <section ref={industriesRef} className="py-16 md:py-24 lg:py-32 relative">
+            <div className="container mx-auto px-4 md:px-6">
               <motion.div
-                className="text-center mb-20"
+                className="text-center mb-12 md:mb-16 lg:mb-20"
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
                 viewport={{ once: true }}
               >
-                <h2 className="text-4xl md:text-5xl font-light mb-6 text-white">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light mb-4 md:mb-6 text-white px-4">
                   Choose Your Industry
                 </h2>
-                <p className="text-xl text-white/70 max-w-2xl mx-auto">
+                <p className="text-base sm:text-lg md:text-xl text-white/70 max-w-2xl mx-auto px-4">
                   Discover AI solutions designed specifically for your sector's unique challenges
                 </p>
               </motion.div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8 max-w-7xl mx-auto">
                 {currentContent.industries.map((industry, index) => (
                   <IndustryCard
                     key={industry.path}
@@ -431,7 +431,7 @@ const Solutions = () => {
           </section>
 
           {/* Enhanced CTA Section */}
-          <section className="py-32 relative overflow-hidden">
+          <section className="py-16 md:py-24 lg:py-32 relative overflow-hidden">
             {/* Background Elements */}
             <div className="absolute inset-0">
               <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-blue-900/20 via-purple-900/10 to-emerald-900/20" />
@@ -439,14 +439,14 @@ const Solutions = () => {
             </div>
 
             <motion.div
-              className="container mx-auto px-6 text-center relative z-10"
+              className="container mx-auto px-4 md:px-6 text-center relative z-10"
               initial={{ opacity: 0, y: 100 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
               viewport={{ once: true }}
             >
               <motion.h2 
-                className="text-4xl md:text-6xl font-light mb-8 text-white"
+                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light mb-6 md:mb-8 text-white px-4"
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, delay: 0.2 }}
@@ -456,7 +456,7 @@ const Solutions = () => {
               </motion.h2>
               
               <motion.p 
-                className="text-xl text-white/80 mb-12 max-w-3xl mx-auto leading-relaxed"
+                className="text-base sm:text-lg md:text-xl text-white/80 mb-8 md:mb-12 max-w-3xl mx-auto leading-relaxed px-4"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, delay: 0.4 }}
@@ -467,7 +467,7 @@ const Solutions = () => {
 
               <motion.button
                 onClick={handleCTAClick}
-                className="group relative px-12 py-6 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full text-white font-medium text-lg overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/25"
+                className="group relative px-8 md:px-12 py-4 md:py-6 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full text-white font-medium text-sm sm:text-base md:text-lg overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/25 min-h-[44px]"
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 whileHover={{ scale: 1.05 }}
@@ -475,9 +475,9 @@ const Solutions = () => {
                 transition={{ duration: 0.8, delay: 0.6 }}
                 viewport={{ once: true }}
               >
-                <span className="relative z-10 flex items-center gap-3">
+                <span className="relative z-10 flex items-center gap-2 md:gap-3 justify-center">
                   {currentContent.ctaButton}
-                  <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+                  <ArrowRight className="w-4 h-4 md:w-5 md:h-5 transition-transform group-hover:translate-x-1" />
                 </span>
                 <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </motion.button>

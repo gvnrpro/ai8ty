@@ -401,21 +401,21 @@ const Contact = () => {
               </motion.div>
 
               <motion.h1 
-                className="text-4xl md:text-6xl lg:text-7xl font-light mb-8 bg-gradient-to-b from-white via-white to-white/70 bg-clip-text text-transparent leading-tight"
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light mb-6 md:mb-8 bg-gradient-to-b from-white via-white to-white/70 bg-clip-text text-transparent leading-tight px-4"
                 variants={heroTextVariants}
               >
                 {currentContent.hero.title}
               </motion.h1>
               
               <motion.p 
-                className="text-xl md:text-2xl text-white/80 max-w-4xl mx-auto mb-6 leading-relaxed font-light"
+                className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/80 max-w-4xl mx-auto mb-4 md:mb-6 leading-relaxed font-light px-4"
                 variants={itemVariants}
               >
                 {currentContent.hero.subtitle}
               </motion.p>
 
               <motion.p 
-                className="text-lg text-white/60 max-w-3xl mx-auto mb-12 leading-relaxed"
+                className="text-sm sm:text-base md:text-lg text-white/60 max-w-3xl mx-auto mb-8 md:mb-12 leading-relaxed px-4"
                 variants={itemVariants}
               >
                 {currentContent.hero.description}
@@ -423,7 +423,7 @@ const Contact = () => {
 
               {/* Stats Row */}
               <motion.div 
-                className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16"
+                className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-12 md:mb-16 px-4"
                 variants={containerVariants}
               >
                 {currentContent.stats.map((stat, index) => (
@@ -432,13 +432,13 @@ const Contact = () => {
                     className="text-center"
                     variants={itemVariants}
                   >
-                    <div className="flex justify-center mb-3">
-                      <div className="w-12 h-12 bg-blue-500/10 border border-blue-500/20 rounded-xl flex items-center justify-center">
-                        <stat.icon className="w-6 h-6 text-blue-400" />
+                    <div className="flex justify-center mb-2 md:mb-3">
+                      <div className="w-10 h-10 md:w-12 md:h-12 bg-blue-500/10 border border-blue-500/20 rounded-xl flex items-center justify-center">
+                        <stat.icon className="w-5 h-5 md:w-6 md:h-6 text-blue-400" />
                       </div>
                     </div>
-                    <div className="text-2xl md:text-3xl font-light text-white mb-1">{stat.number}</div>
-                    <div className="text-sm text-white/60">{stat.label}</div>
+                    <div className="text-xl sm:text-2xl md:text-3xl font-light text-white mb-1">{stat.number}</div>
+                    <div className="text-xs sm:text-sm text-white/60">{stat.label}</div>
                   </motion.div>
                 ))}
               </motion.div>
@@ -446,9 +446,9 @@ const Contact = () => {
           </section>
 
           {/* Form and Contact Section */}
-          <section className="py-24 relative">
-            <div className="container mx-auto px-6 max-w-7xl">
-              <div className="grid lg:grid-cols-2 gap-16">
+          <section className="py-12 md:py-16 lg:py-24 relative">
+            <div className="container mx-auto px-4 md:px-6 max-w-7xl">
+              <div className="grid lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16">
                 {/* Enhanced Form */}
                 <motion.div
                   initial={{ opacity: 0, x: -50 }}
@@ -458,8 +458,8 @@ const Contact = () => {
                   className="relative"
                 >
                   {/* Form Header */}
-                  <div className="mb-12">
-                    <h2 className="text-3xl md:text-4xl font-light text-white mb-4">
+                  <div className="mb-8 md:mb-12">
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-light text-white mb-3 md:mb-4">
                       {currentContent.form.title}
                     </h2>
                     <p className="text-white/70 text-lg leading-relaxed">

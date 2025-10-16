@@ -212,19 +212,19 @@ const Services = () => {
           {/* Hero Section */}
           <section 
             ref={heroRef}
-            className="neural-section pt-32 pb-16"
+            className="neural-section pt-24 md:pt-32 pb-12 md:pb-16"
           >
             <motion.div
-              className="container mx-auto max-w-6xl px-6"
+              className="container mx-auto max-w-6xl px-4 md:px-6"
               variants={containerVariants}
               initial="hidden"
               animate={isHeroInView ? "visible" : "hidden"}
             >
               <motion.div 
-                className="text-center mb-16"
+                className="text-center mb-12 md:mb-16"
                 variants={itemVariants}
               >
-                <h1 className="strategic-title text-3xl md:text-5xl lg:text-6xl mb-8">
+                <h1 className="strategic-title text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl mb-6 md:mb-8">
                   AI8TY Services:
                   <br />
                   <span className="bg-gradient-to-r from-neural to-quantum bg-clip-text text-transparent">
@@ -232,7 +232,7 @@ const Services = () => {
                   </span>
                 </h1>
                 
-                <p className="text-xl md:text-2xl font-space text-white/90 leading-relaxed max-w-4xl mx-auto mb-12">
+                <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-space text-white/90 leading-relaxed max-w-4xl mx-auto mb-8 md:mb-12 px-2">
                   You're looking for ways to work smarter, not harder. Here's a clear breakdown of how AI8TY's 
                   services solve your specific business challenges and help you achieve your goals – without you 
                   needing to become a tech expert.
@@ -240,13 +240,13 @@ const Services = () => {
 
                 <Button 
                   onClick={scrollToContact}
-                  className="btn-primary text-lg group relative overflow-hidden px-8 py-4"
+                  className="btn-primary text-sm sm:text-base md:text-lg group relative overflow-hidden px-6 md:px-8 py-3 md:py-4 min-h-[44px]"
                   size="lg"
                 >
                   <span className="relative z-10 font-medium">
                     👉 Get Your Free Service Consultation
                   </span>
-                  <ArrowRight className="ml-3 relative z-10 transition-transform group-hover:translate-x-1" size={18} />
+                  <ArrowRight className="ml-2 md:ml-3 relative z-10 transition-transform group-hover:translate-x-1" size={18} />
                 </Button>
               </motion.div>
             </motion.div>
@@ -264,8 +264,8 @@ const Services = () => {
 
           {/* Final CTA */}
           <section className="neural-section bg-depth-1">
-            <div className="container mx-auto max-w-4xl px-6 text-center">
-              <h2 className="strategic-title text-3xl md:text-4xl lg:text-5xl mb-8">
+            <div className="container mx-auto max-w-4xl px-4 md:px-6 text-center">
+              <h2 className="strategic-title text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-6 md:mb-8">
                 Ready to Work Smarter,
                 <br />
                 <span className="bg-gradient-to-r from-neural to-quantum bg-clip-text text-transparent">
@@ -273,23 +273,23 @@ const Services = () => {
                 </span>
               </h2>
               
-              <p className="text-xl md:text-2xl font-space text-white/90 leading-relaxed mb-12 max-w-3xl mx-auto">
+              <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-space text-white/90 leading-relaxed mb-8 md:mb-12 max-w-3xl mx-auto px-2">
                 Let's discuss which services will have the biggest impact on your business. 
                 No complex proposals, just clear solutions.
               </p>
               
               <Button 
                 onClick={scrollToContact}
-                className="btn-primary text-xl group relative overflow-hidden px-12 py-6"
+                className="btn-primary text-sm sm:text-base md:text-lg lg:text-xl group relative overflow-hidden px-8 md:px-12 py-3 md:py-6 min-h-[44px]"
                 size="lg"
               >
                 <span className="relative z-10 font-medium">
                   👉 Schedule Your Strategy Call
                 </span>
-                <ArrowRight className="ml-4 relative z-10 transition-transform group-hover:translate-x-1" size={20} />
+                <ArrowRight className="ml-2 md:ml-4 relative z-10 transition-transform group-hover:translate-x-1" size={20} />
               </Button>
               
-              <p className="text-sm text-white/60 mt-6 font-space">
+              <p className="text-xs sm:text-sm text-white/60 mt-4 md:mt-6 font-space">
                 30 minutes. No pitch. Just actionable advice for your business.
               </p>
             </div>
@@ -353,19 +353,19 @@ const ServiceCategorySection: React.FC<{
           className="mb-16"
           variants={itemVariants}
         >
-          <div className="flex items-start gap-6 mb-8">
+          <div className="flex items-start gap-4 md:gap-6 mb-6 md:mb-8">
             <motion.div 
-              className={`w-20 h-20 rounded-xl flex items-center justify-center flex-shrink-0 ${getIconColorClasses(category.color)}`}
+              className={`w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 rounded-xl flex items-center justify-center flex-shrink-0 ${getIconColorClasses(category.color)}`}
               whileHover={{ scale: 1.1, rotate: 5 }}
               transition={{ duration: 0.3 }}
             >
-              <category.icon size={36} />
+              <category.icon size={28} className="md:w-8 md:h-8 lg:w-9 lg:h-9" />
             </motion.div>
-            <div className="flex-1">
-              <h2 className="strategic-title text-2xl md:text-3xl lg:text-4xl mb-4">
+            <div className="flex-1 min-w-0">
+              <h2 className="strategic-title text-xl sm:text-2xl md:text-3xl lg:text-4xl mb-3 md:mb-4">
                 {category.title}
               </h2>
-              <p className="text-lg md:text-xl font-space text-white/90 leading-relaxed">
+              <p className="text-sm sm:text-base md:text-lg lg:text-xl font-space text-white/90 leading-relaxed">
                 {category.intro}
               </p>
             </div>
@@ -379,15 +379,15 @@ const ServiceCategorySection: React.FC<{
           {category.services.map((service: any, index: number) => (
             <motion.div
               key={index}
-              className={`quantum-panel p-8 group transition-all duration-500 ${getColorClasses(category.color)}`}
+              className={`quantum-panel p-5 md:p-6 lg:p-8 group transition-all duration-500 ${getColorClasses(category.color)}`}
               variants={itemVariants}
               whileHover={{ scale: 1.01, y: -2 }}
               transition={{ duration: 0.3 }}
             >
-              <h3 className="strategic-title text-xl md:text-2xl mb-4 group-hover:text-white transition-colors">
+              <h3 className="strategic-title text-lg sm:text-xl md:text-2xl mb-3 md:mb-4 group-hover:text-white transition-colors">
                 {service.name}
               </h3>
-              <p className="font-space text-white/85 leading-relaxed text-lg">
+              <p className="font-space text-white/85 leading-relaxed text-sm sm:text-base md:text-lg">
                 {service.description}
               </p>
             </motion.div>
