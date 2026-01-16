@@ -53,19 +53,18 @@ export default {
 					DEFAULT: "hsl(var(--card))",
 					foreground: "hsl(var(--card-foreground))",
 				},
-                // Digital Bauhaus - Cyber/Hacker Aesthetic
-                cyber: {
-                    blue: "hsl(var(--cyber-blue))",
-                    green: "hsl(var(--cyber-green))",
-                    amber: "hsl(var(--cyber-amber))",
-                    cyan: "hsl(var(--terminal-cyan))",
-                },
+                // Digital Bauhaus - Service category colors
                 neural: {
-                    purple: "hsl(var(--neural-purple))",
+                    DEFAULT: "hsl(217 91% 60%)",  // Blue for AI/Tech services
                 },
-                terminal: {
-                    green: "hsl(var(--cyber-green))",
-                    cyan: "hsl(var(--terminal-cyan))",
+                quantum: {
+                    DEFAULT: "hsl(250 60% 65%)",  // Purple for branding services
+                },
+                intelligence: {
+                    DEFAULT: "hsl(160 60% 45%)",  // Green for development
+                },
+                sand: {
+                    DEFAULT: "hsl(35 60% 55%)",   // Amber for media services
                 },
 			},
 			fontFamily: {
