@@ -13,6 +13,7 @@ import ApproachSection from '@/components/digital-bauhaus/ApproachSection';
 import IndustriesSection from '@/components/digital-bauhaus/IndustriesSection';
 import ContactSection from '@/components/digital-bauhaus/ContactSection';
 import Footer from '@/components/digital-bauhaus/Footer';
+import BackToTop from '@/components/BackToTop';
 
 const Index = () => {
   const [initialLoadComplete, setInitialLoadComplete] = useState(false);
@@ -115,6 +116,7 @@ const Index = () => {
         </main>
         
         <Footer />
+        <BackToTop />
       </div>
     </>
   );

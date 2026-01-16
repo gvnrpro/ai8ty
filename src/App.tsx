@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -8,7 +7,11 @@ import { HelmetProvider } from 'react-helmet-async';
 import { LanguageProvider } from '@/contexts/LanguageContext';
 import Index from "./pages/Index";
 import Solutions from "./pages/Solutions";
+import Services from "./pages/Services";
 import Contact from "./pages/Contact";
+import Privacy from "./pages/Privacy";
+import Terms from "./pages/Terms";
+import NotFound from "./pages/NotFound";
 import AiConsultingUAE from "./pages/AiConsultingUAE";
 
 // Solution Pages
@@ -35,7 +38,10 @@ const App = () => (
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/solutions" element={<Solutions />} />
+              <Route path="/services" element={<Services />} />
               <Route path="/contact" element={<Contact />} />
+              <Route path="/privacy" element={<Privacy />} />
+              <Route path="/terms" element={<Terms />} />
               <Route path="/ai-consulting-uae" element={<AiConsultingUAE />} />
               
               {/* Solution Pages */}
@@ -48,6 +54,9 @@ const App = () => (
               <Route path="/solutions/public-sector" element={<PublicSector />} />
               <Route path="/solutions/real-estate" element={<RealEstate />} />
               <Route path="/solutions/law-firms" element={<LawFirms />} />
+              
+              {/* Catch-all 404 */}
+              <Route path="*" element={<NotFound />} />
             </Routes>
           </BrowserRouter>
         </TooltipProvider>

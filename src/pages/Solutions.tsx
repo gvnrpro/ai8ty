@@ -286,25 +286,24 @@ const Solutions = () => {
               <div className="absolute bottom-[20%] left-[20%] w-[30vw] h-[30vw] bg-emerald-500/10 rounded-full blur-[80px] animate-pulse" style={{ animationDelay: '4s' }} />
             </motion.div>
 
-            {/* Floating Particles */}
-            <div className="absolute inset-0 overflow-hidden pointer-events-none">
-              {[...Array(20)].map((_, i) => (
+            {/* Floating Particles - Reduced for performance */}
+            <div className="absolute inset-0 overflow-hidden pointer-events-none motion-reduce:hidden">
+              {[...Array(8)].map((_, i) => (
                 <motion.div
                   key={i}
                   className="absolute w-1 h-1 bg-white/30 rounded-full"
                   style={{
-                    left: `${Math.random() * 100}%`,
-                    top: `${Math.random() * 100}%`,
+                    left: `${15 + i * 10}%`,
+                    top: `${20 + (i % 4) * 20}%`,
                   }}
                   animate={{
-                    y: [0, -100, 0],
-                    opacity: [0, 1, 0],
-                    scale: [0, 1, 0]
+                    y: [0, -80, 0],
+                    opacity: [0, 0.8, 0],
                   }}
                   transition={{
-                    duration: 8 + Math.random() * 4,
+                    duration: 10 + i * 0.5,
                     repeat: Infinity,
-                    delay: Math.random() * 8,
+                    delay: i * 1.5,
                     ease: "easeInOut"
                   }}
                 />

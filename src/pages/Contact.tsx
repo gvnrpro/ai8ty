@@ -359,25 +359,24 @@ const Contact = () => {
               <div className="absolute bottom-[25%] left-[25%] w-[25vw] h-[25vw] bg-purple-500/10 rounded-full blur-[80px] animate-pulse" style={{ animationDelay: '4s' }} />
             </motion.div>
 
-            {/* Floating Elements */}
-            <div className="absolute inset-0 overflow-hidden pointer-events-none">
-              {[...Array(15)].map((_, i) => (
+            {/* Floating Elements - Reduced for performance */}
+            <div className="absolute inset-0 overflow-hidden pointer-events-none motion-reduce:hidden">
+              {[...Array(6)].map((_, i) => (
                 <motion.div
                   key={i}
                   className="absolute w-1 h-1 bg-white/20 rounded-full"
                   style={{
-                    left: `${Math.random() * 100}%`,
-                    top: `${Math.random() * 100}%`,
+                    left: `${10 + i * 15}%`,
+                    top: `${15 + (i % 3) * 25}%`,
                   }}
                   animate={{
-                    y: [0, -80, 0],
-                    opacity: [0, 1, 0],
-                    scale: [0, 1.5, 0]
+                    y: [0, -60, 0],
+                    opacity: [0, 0.7, 0],
                   }}
                   transition={{
-                    duration: 6 + Math.random() * 4,
+                    duration: 8 + i * 0.5,
                     repeat: Infinity,
-                    delay: Math.random() * 6,
+                    delay: i * 1.2,
                     ease: "easeInOut"
                   }}
                 />
