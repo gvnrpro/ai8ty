@@ -232,7 +232,7 @@ const Services = () => {
                   </span>
                 </h1>
                 
-                <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-space text-white/90 leading-relaxed max-w-4xl mx-auto mb-8 md:mb-12 px-2">
+                <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-foreground/80 leading-relaxed max-w-4xl mx-auto mb-8 md:mb-12 px-2">
                   You're looking for ways to work smarter, not harder. Here's a clear breakdown of how AI8TY's 
                   services solve your specific business challenges and help you achieve your goals – without you 
                   needing to become a tech expert.
@@ -273,7 +273,7 @@ const Services = () => {
                 </span>
               </h2>
               
-              <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-space text-white/90 leading-relaxed mb-8 md:mb-12 max-w-3xl mx-auto px-2">
+              <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-foreground/80 leading-relaxed mb-8 md:mb-12 max-w-3xl mx-auto px-2">
                 Let's discuss which services will have the biggest impact on your business. 
                 No complex proposals, just clear solutions.
               </p>
@@ -289,7 +289,7 @@ const Services = () => {
                 <ArrowRight className="ml-2 md:ml-4 relative z-10 transition-transform group-hover:translate-x-1" size={20} />
               </Button>
               
-              <p className="text-xs sm:text-sm text-white/60 mt-4 md:mt-6 font-space">
+              <p className="text-xs sm:text-sm text-muted-foreground mt-4 md:mt-6">
                 30 minutes. No pitch. Just actionable advice for your business.
               </p>
             </div>
@@ -365,7 +365,7 @@ const ServiceCategorySection: React.FC<{
               <h2 className="strategic-title text-xl sm:text-2xl md:text-3xl lg:text-4xl mb-3 md:mb-4">
                 {category.title}
               </h2>
-              <p className="text-sm sm:text-base md:text-lg lg:text-xl font-space text-white/90 leading-relaxed">
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-foreground/80 leading-relaxed">
                 {category.intro}
               </p>
             </div>
@@ -387,7 +387,7 @@ const ServiceCategorySection: React.FC<{
               <h3 className="strategic-title text-lg sm:text-xl md:text-2xl mb-3 md:mb-4 group-hover:text-white transition-colors">
                 {service.name}
               </h3>
-              <p className="font-space text-white/85 leading-relaxed text-sm sm:text-base md:text-lg">
+              <p className="text-foreground/75 leading-relaxed text-sm sm:text-base md:text-lg">
                 {service.description}
               </p>
             </motion.div>
