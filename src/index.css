@@ -615,6 +615,52 @@
     @apply bg-clip-text text-transparent;
     background-image: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent-purple)));
   }
+
+  /* Neural Section - primary section padding */
+  .neural-section {
+    @apply py-16 md:py-24 lg:py-32 px-4 md:px-6;
+  }
+
+  /* Strategic Title - bold headline styling */
+  .strategic-title {
+    @apply font-bold tracking-tight text-foreground;
+    font-family: 'SF Pro Display', 'Inter', system-ui, sans-serif;
+    line-height: 1.1;
+  }
+
+  /* Quantum Panel - card/panel styling */
+  .quantum-panel {
+    @apply bg-white/[0.03] backdrop-blur-xl border border-white/10 rounded-xl;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .quantum-panel:hover {
+    @apply bg-white/[0.06] border-white/20;
+  }
+
+  /* Primary Button */
+  .btn-primary {
+    @apply bg-primary hover:bg-primary/90 text-primary-foreground font-medium rounded-xl transition-all duration-300;
+    box-shadow: 0 4px 14px 0 rgba(59, 130, 246, 0.25);
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px 0 rgba(59, 130, 246, 0.35);
+  }
+
+  /* Background depth layer */
+  .bg-depth-1 {
+    @apply bg-gradient-to-b from-background to-muted/30;
+  }
+
+  /* Neural grid background pattern */
+  .neural-grid-bg {
+    background-image: 
+      linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
 }
 
 /* Mobile optimizations */

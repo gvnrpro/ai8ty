@@ -153,14 +153,14 @@ const Solutions = () => {
 
   const currentContent = solutionsData[isArabic ? 'ar' : 'en'];
 
-  // Enhanced animation variants
+  // Enhanced animation variants - optimized for faster initial load
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.2,
+        staggerChildren: 0.08,
+        delayChildren: 0,
         ease: [0.16, 1, 0.3, 1]
       }
     }
@@ -169,15 +169,13 @@ const Solutions = () => {
   const itemVariants = {
     hidden: { 
       opacity: 0, 
-      y: 60,
-      scale: 0.95
+      y: 30
     },
     visible: {
       opacity: 1,
       y: 0,
-      scale: 1,
       transition: {
-        duration: 1.2,
+        duration: 0.5,
         ease: [0.16, 1, 0.3, 1]
       }
     }
@@ -186,22 +184,19 @@ const Solutions = () => {
   const cardVariants = {
     hidden: { 
       opacity: 0, 
-      y: 40,
-      rotateX: 15
+      y: 20
     },
     visible: {
       opacity: 1,
       y: 0,
-      rotateX: 0,
       transition: {
-        duration: 0.8,
+        duration: 0.4,
         ease: [0.16, 1, 0.3, 1]
       }
     },
     hover: {
       y: -8,
       scale: 1.02,
-      rotateX: -2,
       transition: {
         duration: 0.3,
         ease: [0.16, 1, 0.3, 1]
@@ -212,15 +207,13 @@ const Solutions = () => {
   const heroTextVariants = {
     hidden: { 
       opacity: 0, 
-      y: 100,
-      filter: 'blur(10px)'
+      y: 30
     },
     visible: {
       opacity: 1,
       y: 0,
-      filter: 'blur(0px)',
       transition: {
-        duration: 1.5,
+        duration: 0.6,
         ease: [0.16, 1, 0.3, 1]
       }
     }

@@ -45,7 +45,7 @@ export const TerminalHero: React.FC = () => {
             transition={{ duration: 0.8 }}
             className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight px-2"
           >
-            <span className="bg-gradient-to-r from-foreground via-foreground to-foreground/70 bg-clip-text text-transparent">
+            <span className="text-foreground">
               {t.headline}
             </span>
           </motion.h1>
@@ -55,7 +55,7 @@ export const TerminalHero: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.8 }}
-            className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto font-light px-4"
+            className="text-base sm:text-lg md:text-xl lg:text-2xl text-foreground/80 max-w-3xl mx-auto font-light px-4"
           >
             {t.subheadline}
           </motion.p>
@@ -65,7 +65,7 @@ export const TerminalHero: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
-            className="text-sm sm:text-base md:text-lg text-muted-foreground/80 max-w-2xl mx-auto px-4"
+            className="text-sm sm:text-base md:text-lg text-foreground/70 max-w-2xl mx-auto px-4"
           >
             {t.description}
           </motion.p>
