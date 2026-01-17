@@ -146,7 +146,70 @@ const Solutions = () => {
           color: 'from-blue-600 to-indigo-600',
           features: ['إدارة المخاطر', 'اكتشاف الاحتيال', 'الامتثال التنظيمي']
         },
-        // ... other Arabic translations would go here
+        {
+          icon: Heart,
+          title: 'شبكات الرعاية الصحية',
+          description: 'تحسين تدفق المرضى ودعم القرارات السريرية مع الامتثال لوزارة الصحة والوقاية وتصميم يركز على الخصوصية.',
+          path: '/solutions/healthcare-networks',
+          color: 'from-emerald-600 to-teal-600',
+          features: ['تدفق المرضى', 'الدعم السريري', 'الخصوصية أولاً']
+        },
+        {
+          icon: Factory,
+          title: 'شركات التصنيع',
+          description: 'الصيانة التنبؤية وتحسين سلسلة التوريد للعمليات الصناعية في جميع أنحاء الإمارات.',
+          path: '/solutions/manufacturing-firms',
+          color: 'from-orange-600 to-red-600',
+          features: ['الصيانة التنبؤية', 'سلسلة التوريد', 'مراقبة الجودة']
+        },
+        {
+          icon: ShoppingBag,
+          title: 'مجموعات التجزئة',
+          description: 'ذكاء العملاء وتحسين المخزون للتميز في تجارة التجزئة متعددة القنوات.',
+          path: '/solutions/retail-groups',
+          color: 'from-purple-600 to-pink-600',
+          features: ['تحليلات العملاء', 'إدارة المخزون', 'متعدد القنوات']
+        },
+        {
+          icon: Landmark,
+          title: 'مكاتب الثروات الخاصة',
+          description: 'ذكاء المحافظ الاستثمارية وتحسين المكاتب العائلية لإدارة ثروات أصحاب الملاءة العالية.',
+          path: '/solutions/private-wealth-offices',
+          color: 'from-amber-600 to-yellow-600',
+          features: ['تحليل المحافظ', 'إدارة الثروات', 'المكتب العائلي']
+        },
+        {
+          icon: Plane,
+          title: 'الطيران والخدمات اللوجستية',
+          description: 'تحسين الأسطول وذكاء الشحن لعمليات النقل والخدمات اللوجستية.',
+          path: '/solutions/aviation-logistics',
+          color: 'from-cyan-600 to-blue-600',
+          features: ['إدارة الأسطول', 'تحسين المسارات', 'ذكاء الشحن']
+        },
+        {
+          icon: Users,
+          title: 'القطاع العام',
+          description: 'تحسين خدمات المواطنين وذكاء المدن الذكية للتميز الحكومي.',
+          path: '/solutions/public-sector',
+          color: 'from-teal-600 to-green-600',
+          features: ['المدن الذكية', 'خدمات المواطنين', 'الذكاء الحكومي']
+        },
+        {
+          icon: Home,
+          title: 'العقارات',
+          description: 'تحسين محفظة العقارات وذكاء السوق للتميز العقاري.',
+          path: '/solutions/real-estate',
+          color: 'from-rose-600 to-pink-600',
+          features: ['إدارة المحافظ', 'ذكاء السوق', 'تحليلات العقارات']
+        },
+        {
+          icon: Scale,
+          title: 'مكاتب المحاماة',
+          description: 'أتمتة البحث القانوني وذكاء إدارة القضايا للممارسات القانونية الحديثة.',
+          path: '/solutions/law-firms',
+          color: 'from-slate-600 to-gray-600',
+          features: ['البحث القانوني', 'إدارة القضايا', 'تحليل المستندات']
+        }
       ]
     }
   }), []);

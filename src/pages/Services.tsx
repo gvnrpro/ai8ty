@@ -7,10 +7,13 @@ import ContactSection from '@/components/digital-bauhaus/ContactSection';
 import Footer from '@/components/digital-bauhaus/Footer';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Megaphone, Palette, Globe, Video, Bot, Server } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const Services = () => {
   const heroRef = useRef(null);
   const isHeroInView = useInView(heroRef, { once: true, amount: 0.3 });
+  const { language } = useLanguage();
+  const isArabic = language === 'ar';
 
   const scrollToContact = () => {
     const contactSection = document.getElementById('contact');
@@ -42,7 +45,168 @@ const Services = () => {
     }
   };
 
-  const serviceCategories = [
+  // Content translations
+  const content = {
+    en: {
+      heroTitle: "AI8TY Services:",
+      heroSubtitle: "Smart Solutions, Handled For You",
+      heroDescription: "You're looking for ways to work smarter, not harder. Here's a clear breakdown of how AI8TY's services solve your specific business challenges and help you achieve your goals – without you needing to become a tech expert.",
+      heroCta: "👉 Get Your Free Service Consultation",
+      ctaTitle: "Ready to Work Smarter,",
+      ctaSubtitle: "Not Harder?",
+      ctaDescription: "Let's discuss which services will have the biggest impact on your business. No complex proposals, just clear solutions.",
+      ctaCta: "👉 Schedule Your Strategy Call",
+      ctaNote: "30 minutes. No pitch. Just actionable advice for your business."
+    },
+    ar: {
+      heroTitle: "خدمات AI8TY:",
+      heroSubtitle: "حلول ذكية، نتولى التنفيذ",
+      heroDescription: "أنت تبحث عن طرق للعمل بذكاء أكبر، وليس بجهد أكبر. إليك تفصيلاً واضحاً لكيفية حل خدمات AI8TY لتحدياتك التجارية المحددة ومساعدتك في تحقيق أهدافك - دون الحاجة إلى أن تصبح خبيراً تقنياً.",
+      heroCta: "👈 احصل على استشارتك المجانية",
+      ctaTitle: "هل أنت مستعد للعمل بذكاء،",
+      ctaSubtitle: "وليس بجهد أكبر؟",
+      ctaDescription: "دعنا نناقش الخدمات التي سيكون لها أكبر تأثير على عملك. لا مقترحات معقدة، فقط حلول واضحة.",
+      ctaCta: "👈 جدول مكالمتك الاستراتيجية",
+      ctaNote: "30 دقيقة. بدون عرض بيع. فقط نصائح عملية لعملك."
+    }
+  };
+
+  const t = content[isArabic ? 'ar' : 'en'];
+
+  const serviceCategories = isArabic ? [
+    {
+      icon: Megaphone,
+      title: "التسويق الرقمي والإعلان",
+      intro: "تواجه صعوبة في الظهور على الإنترنت أو تحويل النقرات إلى عملاء؟ نبني وندير حملات ذكية تحقق نمواً حقيقياً.",
+      color: "neural",
+      services: [
+        {
+          name: "تحسين محركات البحث (SEO)",
+          description: "هل تعبت من كونك غير مرئي على جوجل وأدوات البحث بالذكاء الاصطناعي مثل ChatGPT؟ نحسن وجودك للبحث التقليدي ومنصات الذكاء الاصطناعي حتى يجدك العملاء عند بحثهم عن حلول مثل حلولك. اكتشف، احصل على الزيارات، حقق النتائج."
+        },
+        {
+          name: "تحسين محركات البحث متعدد اللغات (عربي/إنجليزي)",
+          description: "تفوتك فرص العملاء المحليين في دول الخليج بسبب حواجز اللغة؟ نصمم استراتيجيات SEO تعمل بالعربية والإنجليزية، تساعدك على التواصل مع الجمهور الإقليمي والدولي. وسع نطاقك، ضاعف فرصك."
+        },
+        {
+          name: "التسويق عبر وسائل التواصل الاجتماعي",
+          description: "تنشر بانتظام لكن لا تحصل على عملاء محتملين من وسائل التواصل؟ ننشئ محتوى جذاب وحملات استراتيجية تحول المتابعين إلى عملاء. توقف عن إضاعة الوقت على الإعجابات وابدأ في تحقيق نتائج أعمال حقيقية."
+        },
+        {
+          name: "إعلانات الدفع لكل نقرة (PPC)",
+          description: "تستنزف ميزانية الإعلانات بلا نتائج؟ نصمم وندير حملات إعلانية مربحة عبر جوجل وفيسبوك ولينكد إن تحقق فعلاً عملاء ومبيعات. احصل على عائد واضح من كل درهم تنفقه."
+        }
+      ]
+    },
+    {
+      icon: Palette,
+      title: "العلامة التجارية والتصميم الإبداعي",
+      intro: "علامتك التجارية لا تتواصل أو تبرز؟ نصنع هويات علامات تجارية لا تُنسى وتصاميم تروي قصتك وتحول الزوار.",
+      color: "quantum",
+      services: [
+        {
+          name: "استراتيجية وهوية العلامة التجارية",
+          description: "تشعر أن علامتك التجارية غير مرئية أو سهلة النسيان؟ نطور موقعاً ورسائل واضحة للعلامة التجارية تجعلك تبرز في الأسواق المزدحمة. احصل على علامة تجارية يتذكرها العملاء ويختارونها على المنافسين."
+        },
+        {
+          name: "الهوية البصرية وتصميم الشعار",
+          description: "محرج من المرئيات القديمة أو غير المتسقة عبر عملك؟ ننشئ تصاميم علامة تجارية حديثة واحترافية تعمل عبر كل منصة ونقطة تواصل. ابدُ محترفاً، ابنِ الثقة، اجذب العملاء المميزين."
+        },
+        {
+          name: "سرد قصة العلامة التجارية",
+          description: "تواجه صعوبة في شرح لماذا يجب أن يهتم العملاء بعملك؟ نصنع قصص علامة تجارية مقنعة تخلق روابط عاطفية مع جمهورك. حوّل المتصفحين إلى مؤمنين، والعملاء المحتملين إلى مؤيدين."
+        },
+        {
+          name: "خدمات التصميم الإبداعي",
+          description: "تحتاج مواد تسويقية احترافية لكن ليس لديك مصمم داخلي؟ ننشئ كل شيء من الكتيبات إلى الأصول الرقمية التي تمثل علامتك التجارية بشكل جميل. أبهر العملاء المحتملين، أغلق المزيد من الصفقات."
+        },
+        {
+          name: "التصميم الجرافيكي (ويب وطباعة)",
+          description: "تعبت من التصاميم العامة المبنية على القوالب التي لا تحول؟ ننشئ رسومات وتخطيطات مخصصة مصممة خصيصاً لدفع العمل والنتائج. ابرز بصرياً، حوّل المزيد من الزوار."
+        }
+      ]
+    },
+    {
+      icon: Globe,
+      title: "تطوير المواقع والتطبيقات",
+      intro: "موقعك أو تطبيقك ضعيف الأداء أو قديم؟ نبني منتجات رقمية سريعة وموثوقة وعالية التحويل.",
+      color: "intelligence",
+      services: [
+        {
+          name: "تصميم وتطوير المواقع",
+          description: "محبط من موقع بطيء وقديم لا يجلب عملاء محتملين؟ نبني مواقع فائقة السرعة ومحسنة للجوال مصممة لتحويل الزوار إلى عملاء. احصل على موقع يعمل بجد مثلك."
+        },
+        {
+          name: "تجربة مستخدم تركز على التحويل",
+          description: "تحصل على زيارات لكن ليس مبيعات كافية من موقعك؟ نصمم تجارب مستخدم توجه الزوار نحو اتخاذ إجراء، سواء الشراء أو الاتصال أو طلب عرض أسعار. حوّل المزيد من الزيارات إلى إيرادات."
+        },
+        {
+          name: "تطوير تطبيقات الجوال",
+          description: "تحتاج للوصول للعملاء على هواتفهم لكن لا تعرف من أين تبدأ بتطوير التطبيقات؟ ننشئ تطبيقات جوال سهلة الاستخدام لـ iOS و Android تشرك جمهورك وتحقق نتائج أعمال. قابل العملاء أينما كانوا."
+        }
+      ]
+    },
+    {
+      icon: Video,
+      title: "إنتاج الوسائط والمحتوى",
+      intro: "تواجه صعوبة في إنشاء محتوى يجذب الانتباه ويدفع للعمل؟ ننتج فيديوهات ومحتوى مقنع يروي قصتك بفعالية.",
+      color: "sand",
+      services: [
+        {
+          name: "إنتاج الفيديو",
+          description: "تحتاج فيديوهات احترافية لكن قلق من التكلفة والتعقيد؟ نتولى كل شيء من المفهوم إلى التحرير النهائي، ننشئ فيديوهات علامة تجارية مقنعة وعروض منتجات وشهادات تحقق فعلاً نتائج أعمال. اروِ قصتك، ابنِ الثقة، أغلق الصفقات."
+        },
+        {
+          name: "إنشاء المحتوى",
+          description: "نفدت الأفكار للمنشورات وتواجه صعوبة في الحفاظ على محتوى متسق؟ ننشئ محتوى جذاب واستراتيجي يبني جمهورك ويدفع التفاعل. ابقَ في الأذهان، ابنِ السلطة، اجذب العملاء."
+        }
+      ]
+    },
+    {
+      icon: Bot,
+      title: "أتمتة سير العمل وخدمات الذكاء الاصطناعي",
+      intro: "غارق في المهام المتكررة والعمل اليدوي؟ نصمم أنظمة أتمتة ذكية حتى تعمل بذكاء أكبر، وتتوسع أسرع، وتركز على النمو.",
+      color: "neural",
+      services: [
+        {
+          name: "أتمتة سير العمل المخصصة",
+          description: "تقضي ساعات في المهام الإدارية وإدخال البيانات والعمل المتكرر؟ نبني أنظمة أتمتة مخصصة تتولى المهام الروتينية تلقائياً، من إدارة العملاء المحتملين إلى التقارير. استعد 10+ ساعات أسبوعياً للأنشطة عالية القيمة."
+        },
+        {
+          name: "وكلاء الذكاء الاصطناعي وأنظمة الأعمال",
+          description: "غمرتك استفسارات العملاء والجدولة واختناقات التواصل؟ ننشئ أنظمة تعمل بالذكاء الاصطناعي تتولى دعم العملاء وحجز المواعيد والاتصالات الروتينية على مدار الساعة. وسّع خدمة عملائك دون توسيع فريقك."
+        },
+        {
+          name: "أتمتة CRM ورعاية العملاء المحتملين",
+          description: "تفقد عملاء محتملين لأنك لا تستطيع المتابعة بسرعة أو بشكل متسق؟ نعد أنظمة رعاية عملاء محتملين آلية تبقي العملاء المحتملين متفاعلين حتى يكونوا مستعدين للشراء. لا تفقد عميلاً محتملاً بسبب ضعف المتابعة مرة أخرى."
+        },
+        {
+          name: "استراتيجية واستشارات الذكاء الاصطناعي",
+          description: "مرتبك حول كيف يمكن للذكاء الاصطناعي مساعدة عملك فعلاً على النمو؟ نقدم استراتيجيات ذكاء اصطناعي واضحة وقابلة للتنفيذ مصممة لصناعتك وتحدياتك المحددة. احصل على خارطة طريق لاستخدام الذكاء الاصطناعي منطقية لعملك."
+        }
+      ]
+    },
+    {
+      icon: Server,
+      title: "البنية التحتية للويب والاستضافة",
+      intro: "قلق من سرعة الموقع أو الأمان أو التوقف؟ نوفر استضافة موثوقة وعالية الأداء حتى تنعم براحة البال.",
+      color: "quantum",
+      services: [
+        {
+          name: "استضافة ويب آمنة",
+          description: "محبط من أوقات التحميل البطيئة والمخاوف الأمنية؟ نوفر استضافة سريعة وآمنة تبقي موقعك يعمل بسلاسة وتحمي بيانات عملك. ركز على النمو، لا الصداع التقني."
+        },
+        {
+          name: "حلول الاستضافة المدارة",
+          description: "لا تريد التعامل مع إدارة السيرفرات والصيانة التقنية؟ نتولى كل العمل الخلفي حتى يبقى موقعك سريعاً وآمناً ومحدثاً. احصل على استضافة بمستوى المؤسسات بدون التعقيد."
+        },
+        {
+          name: "تحسين الأداء",
+          description: "تفقد عملاء لأن موقعك بطيء جداً؟ نحسن سرعة وأداء موقعك لتحسين تجربة المستخدم وتصنيفات البحث. أبقِ الزوار متفاعلين، حسّن التحويلات."
+        }
+      ]
+    }
+  ] : [
     {
       icon: Megaphone,
       title: "Digital Marketing & Advertising",
@@ -200,12 +364,12 @@ const Services = () => {
   return (
     <>
       <Helmet>
-        <title>AI8TY Services | Smart Solutions, Handled For You - Dubai & UAE</title>
-        <meta name="description" content="Complete digital services that work smarter, not harder. From AI automation to marketing that actually works - we handle the complexity so you get results." />
-        <meta name="keywords" content="digital marketing services dubai, AI automation UAE, web development, branding services, workflow automation, business growth solutions" />
+        <title>{isArabic ? 'خدمات AI8TY | حلول ذكية، نتولى التنفيذ - دبي والإمارات' : 'AI8TY Services | Smart Solutions, Handled For You - Dubai & UAE'}</title>
+        <meta name="description" content={isArabic ? 'خدمات رقمية شاملة تعمل بذكاء أكبر. من أتمتة الذكاء الاصطناعي إلى التسويق الفعال - نتولى التعقيد حتى تحصل على النتائج.' : 'Complete digital services that work smarter, not harder. From AI automation to marketing that actually works - we handle the complexity so you get results.'} />
+        <meta name="keywords" content={isArabic ? 'خدمات التسويق الرقمي دبي, أتمتة الذكاء الاصطناعي الإمارات, تطوير المواقع, خدمات العلامة التجارية' : 'digital marketing services dubai, AI automation UAE, web development, branding services, workflow automation, business growth solutions'} />
       </Helmet>
 
-      <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
+      <div className={`min-h-screen bg-background text-foreground overflow-x-hidden ${isArabic ? 'rtl' : ''}`}>
         <Header />
         
         <main className="relative z-10">
@@ -225,17 +389,15 @@ const Services = () => {
                 variants={itemVariants}
               >
                 <h1 className="strategic-title text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl mb-6 md:mb-8">
-                  AI8TY Services:
+                  {t.heroTitle}
                   <br />
                   <span className="bg-gradient-to-r from-neural to-quantum bg-clip-text text-transparent">
-                    Smart Solutions, Handled For You
+                    {t.heroSubtitle}
                   </span>
                 </h1>
                 
                 <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-foreground/80 leading-relaxed max-w-4xl mx-auto mb-8 md:mb-12 px-2">
-                  You're looking for ways to work smarter, not harder. Here's a clear breakdown of how AI8TY's 
-                  services solve your specific business challenges and help you achieve your goals – without you 
-                  needing to become a tech expert.
+                  {t.heroDescription}
                 </p>
 
                 <Button 
@@ -244,9 +406,9 @@ const Services = () => {
                   size="lg"
                 >
                   <span className="relative z-10 font-medium">
-                    👉 Get Your Free Service Consultation
+                    {t.heroCta}
                   </span>
-                  <ArrowRight className="ml-2 md:ml-3 relative z-10 transition-transform group-hover:translate-x-1" size={18} />
+                  <ArrowRight className={`${isArabic ? 'mr-2 md:mr-3 rotate-180' : 'ml-2 md:ml-3'} relative z-10 transition-transform group-hover:translate-x-1`} size={18} />
                 </Button>
               </motion.div>
             </motion.div>
@@ -259,6 +421,7 @@ const Services = () => {
               category={category}
               getColorClasses={getColorClasses}
               getIconColorClasses={getIconColorClasses}
+              isArabic={isArabic}
             />
           ))}
 
@@ -266,16 +429,15 @@ const Services = () => {
           <section className="neural-section bg-depth-1">
             <div className="container mx-auto max-w-4xl px-4 md:px-6 text-center">
               <h2 className="strategic-title text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-6 md:mb-8">
-                Ready to Work Smarter,
+                {t.ctaTitle}
                 <br />
                 <span className="bg-gradient-to-r from-neural to-quantum bg-clip-text text-transparent">
-                  Not Harder?
+                  {t.ctaSubtitle}
                 </span>
               </h2>
               
               <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-foreground/80 leading-relaxed mb-8 md:mb-12 max-w-3xl mx-auto px-2">
-                Let's discuss which services will have the biggest impact on your business. 
-                No complex proposals, just clear solutions.
+                {t.ctaDescription}
               </p>
               
               <Button 
@@ -284,13 +446,13 @@ const Services = () => {
                 size="lg"
               >
                 <span className="relative z-10 font-medium">
-                  👉 Schedule Your Strategy Call
+                  {t.ctaCta}
                 </span>
-                <ArrowRight className="ml-2 md:ml-4 relative z-10 transition-transform group-hover:translate-x-1" size={20} />
+                <ArrowRight className={`${isArabic ? 'mr-2 md:mr-4 rotate-180' : 'ml-2 md:ml-4'} relative z-10 transition-transform group-hover:translate-x-1`} size={20} />
               </Button>
               
               <p className="text-xs sm:text-sm text-muted-foreground mt-4 md:mt-6">
-                30 minutes. No pitch. Just actionable advice for your business.
+                {t.ctaNote}
               </p>
             </div>
           </section>
@@ -309,7 +471,8 @@ const ServiceCategorySection: React.FC<{
   category: any;
   getColorClasses: (color: string) => string;
   getIconColorClasses: (color: string) => string;
-}> = ({ category, getColorClasses, getIconColorClasses }) => {
+  isArabic?: boolean;
+}> = ({ category, getColorClasses, getIconColorClasses, isArabic = false }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.2 });
 
