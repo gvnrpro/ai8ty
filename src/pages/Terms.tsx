@@ -45,6 +45,18 @@ const Terms = () => {
             : 'Terms of Service for AI8TY. Learn about the terms and conditions for using our services.'
           } 
         />
+        
+        <meta property="og:title" content={isArabic ? 'شروط الخدمة | AI8TY' : 'Terms of Service | AI8TY'} />
+        <meta property="og:description" content={isArabic ? 'شروط الخدمة لشركة AI8TY.' : 'Terms of Service for AI8TY. Learn about the terms and conditions.'} />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://ai8ty.com/terms" />
+        <meta property="og:image" content="https://ai8ty.com/og-image.png" />
+        
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content={isArabic ? 'شروط الخدمة | AI8TY' : 'Terms of Service | AI8TY'} />
+        <meta name="twitter:image" content="https://ai8ty.com/og-image.png" />
+        
+        <link rel="canonical" href="https://ai8ty.com/terms" />
       </Helmet>
 
       <div className="min-h-screen bg-background">
