@@ -367,6 +367,21 @@ const Services = () => {
         <title>{isArabic ? 'خدمات AI8TY | حلول ذكية، نتولى التنفيذ - دبي والإمارات' : 'AI8TY Services | Smart Solutions, Handled For You - Dubai & UAE'}</title>
         <meta name="description" content={isArabic ? 'خدمات رقمية شاملة تعمل بذكاء أكبر. من أتمتة الذكاء الاصطناعي إلى التسويق الفعال - نتولى التعقيد حتى تحصل على النتائج.' : 'Complete digital services that work smarter, not harder. From AI automation to marketing that actually works - we handle the complexity so you get results.'} />
         <meta name="keywords" content={isArabic ? 'خدمات التسويق الرقمي دبي, أتمتة الذكاء الاصطناعي الإمارات, تطوير المواقع, خدمات العلامة التجارية' : 'digital marketing services dubai, AI automation UAE, web development, branding services, workflow automation, business growth solutions'} />
+        
+        <meta property="og:title" content={isArabic ? 'خدمات AI8TY | حلول ذكية، نتولى التنفيذ' : 'AI8TY Services | Smart Solutions, Handled For You'} />
+        <meta property="og:description" content={isArabic ? 'خدمات رقمية شاملة تعمل بذكاء أكبر. من أتمتة الذكاء الاصطناعي إلى التسويق الفعال.' : 'Complete digital services that work smarter, not harder. From AI automation to marketing that actually works.'} />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://ai8ty.com/services" />
+        <meta property="og:image" content="https://ai8ty.com/og-services.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={isArabic ? 'خدمات AI8TY | حلول ذكية' : 'AI8TY Services | Smart Solutions'} />
+        <meta name="twitter:description" content={isArabic ? 'خدمات رقمية شاملة تعمل بذكاء أكبر.' : 'Complete digital services that work smarter, not harder.'} />
+        <meta name="twitter:image" content="https://ai8ty.com/og-services.png" />
+        
+        <link rel="canonical" href="https://ai8ty.com/services" />
       </Helmet>
 
       <div className={`min-h-screen bg-background text-foreground overflow-x-hidden ${isArabic ? 'rtl' : ''}`}>

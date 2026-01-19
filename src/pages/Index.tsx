@@ -55,24 +55,24 @@ const Index = () => {
         <meta name="description" content={getSeoDescription()} />
         <meta name="keywords" content="enterprise AI systems, GCC AI solutions, UAE AI infrastructure, operational AI, financial AI, healthcare AI, manufacturing AI, AI8TY" />
         
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover" />
-        
         <meta property="og:title" content="Operational AI Systems for GCC Business Leaders | AI8TY" />
         <meta property="og:description" content={getSeoDescription()} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://ai8ty.com" />
-        <meta property="og:image" content="https://ai8ty.com/og-image-enterprise.png" />
-        <meta property="og:site_name" content="AI8TY Enterprise Systems" />
+        <meta property="og:image" content="https://ai8ty.com/og-image.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:site_name" content="AI8TY" />
 
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Operational AI Systems for GCC Business Leaders" />
+        <meta name="twitter:site" content="@ai8ty" />
+        <meta name="twitter:title" content="Operational AI Systems for GCC Business Leaders | AI8TY" />
         <meta name="twitter:description" content={getSeoDescription()} />
-        <meta name="twitter:image" content="https://ai8ty.com/og-image-enterprise.png" />
+        <meta name="twitter:image" content="https://ai8ty.com/og-image.png" />
 
         <link rel="canonical" href="https://ai8ty.com" />
-        
         <meta name="theme-color" content="#0f172a" />
-        <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+        <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
       </Helmet>
 
       <div ref={mainRef} className="min-h-screen">

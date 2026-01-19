@@ -331,11 +331,23 @@ const Contact = () => {
   return (
     <>
       <Helmet>
-        <title>Contact AI8TY | Enterprise AI Strategic Briefing</title>
-        <meta name="description" content="Schedule a strategic briefing with AI8TY's enterprise team. Transform your operations with custom AI solutions designed for GCC industry leaders." />
+        <title>{isArabic ? 'تواصل مع AI8TY | استشارة استراتيجية للذكاء الاصطناعي' : 'Contact AI8TY | Enterprise AI Strategic Briefing'}</title>
+        <meta name="description" content={isArabic ? 'جدول استشارة استراتيجية مع فريق AI8TY. حوّل عملياتك بحلول ذكاء اصطناعي مصممة خصيصاً لقادة الصناعة في الخليج.' : 'Schedule a strategic briefing with AI8TY\'s enterprise team. Transform your operations with custom AI solutions designed for GCC industry leaders.'} />
         <meta name="keywords" content="AI consultation, enterprise AI, strategic briefing, GCC AI solutions, business transformation" />
-        <meta property="og:title" content="Contact AI8TY | Enterprise AI Strategic Briefing" />
-        <meta property="og:description" content="Schedule a strategic briefing with AI8TY's enterprise team. Transform your operations with custom AI solutions." />
+        
+        <meta property="og:title" content={isArabic ? 'تواصل مع AI8TY | استشارة استراتيجية للذكاء الاصطناعي' : 'Contact AI8TY | Enterprise AI Strategic Briefing'} />
+        <meta property="og:description" content={isArabic ? 'جدول استشارة استراتيجية مع فريق AI8TY. حوّل عملياتك بحلول ذكاء اصطناعي مصممة خصيصاً.' : 'Schedule a strategic briefing with AI8TY\'s enterprise team. Transform your operations with custom AI solutions.'} />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://ai8ty.com/contact" />
+        <meta property="og:image" content="https://ai8ty.com/og-contact.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={isArabic ? 'تواصل مع AI8TY' : 'Contact AI8TY | Enterprise AI Strategic Briefing'} />
+        <meta name="twitter:description" content={isArabic ? 'جدول استشارة استراتيجية مع فريق AI8TY.' : 'Schedule a strategic briefing with AI8TY\'s enterprise team.'} />
+        <meta name="twitter:image" content="https://ai8ty.com/og-contact.png" />
+        
         <link rel="canonical" href="https://ai8ty.com/contact" />
       </Helmet>
 

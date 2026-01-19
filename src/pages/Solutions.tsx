@@ -310,15 +310,26 @@ const Solutions = () => {
   return (
     <>
       <Helmet>
-        <title>Industry-Specific AI Solutions | AI8TY</title>
-        <meta name="description" content="Operational AI systems tailored for financial institutions, healthcare networks, manufacturing firms, retail groups, and more across the GCC region." />
+        <title>{isArabic ? 'حلول الذكاء الاصطناعي حسب الصناعة | AI8TY' : 'Industry-Specific AI Solutions | AI8TY'}</title>
+        <meta name="description" content={isArabic ? 'أنظمة ذكاء اصطناعي تشغيلية مصممة خصيصاً للمؤسسات المالية وشبكات الرعاية الصحية وشركات التصنيع ومجموعات التجزئة في منطقة الخليج.' : 'Operational AI systems tailored for financial institutions, healthcare networks, manufacturing firms, retail groups, and more across the GCC region.'} />
         <meta name="keywords" content="industry AI solutions, GCC AI systems, sector-specific AI, operational intelligence, UAE AI technology" />
         <script type="application/ld+json">
           {JSON.stringify(structuredData)}
         </script>
-        <meta property="og:title" content="Industry-Specific AI Solutions | AI8TY" />
-        <meta property="og:description" content="Operational AI systems tailored for financial institutions, healthcare networks, manufacturing firms, retail groups, and more across the GCC region." />
+        
+        <meta property="og:title" content={isArabic ? 'حلول الذكاء الاصطناعي حسب الصناعة | AI8TY' : 'Industry-Specific AI Solutions | AI8TY'} />
+        <meta property="og:description" content={isArabic ? 'أنظمة ذكاء اصطناعي تشغيلية مصممة خصيصاً للمؤسسات المالية وشبكات الرعاية الصحية وشركات التصنيع.' : 'Operational AI systems tailored for financial institutions, healthcare networks, manufacturing firms, retail groups, and more across the GCC region.'} />
         <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://ai8ty.com/solutions" />
+        <meta property="og:image" content="https://ai8ty.com/og-solutions.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={isArabic ? 'حلول الذكاء الاصطناعي حسب الصناعة | AI8TY' : 'Industry-Specific AI Solutions | AI8TY'} />
+        <meta name="twitter:description" content={isArabic ? 'أنظمة ذكاء اصطناعي تشغيلية مصممة خصيصاً للمؤسسات المالية وشبكات الرعاية الصحية.' : 'Operational AI systems tailored for financial institutions, healthcare networks, manufacturing firms, retail groups, and more across the GCC region.'} />
+        <meta name="twitter:image" content="https://ai8ty.com/og-solutions.png" />
+        
         <link rel="canonical" href="https://ai8ty.com/solutions" />
       </Helmet>
 

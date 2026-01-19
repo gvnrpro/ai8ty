@@ -45,6 +45,18 @@ const Privacy = () => {
             : 'Privacy Policy for AI8TY. Learn how we collect, use, and protect your data.'
           } 
         />
+        
+        <meta property="og:title" content={isArabic ? 'سياسة الخصوصية | AI8TY' : 'Privacy Policy | AI8TY'} />
+        <meta property="og:description" content={isArabic ? 'سياسة الخصوصية لشركة AI8TY.' : 'Privacy Policy for AI8TY. Learn how we collect, use, and protect your data.'} />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://ai8ty.com/privacy" />
+        <meta property="og:image" content="https://ai8ty.com/og-image.png" />
+        
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content={isArabic ? 'سياسة الخصوصية | AI8TY' : 'Privacy Policy | AI8TY'} />
+        <meta name="twitter:image" content="https://ai8ty.com/og-image.png" />
+        
+        <link rel="canonical" href="https://ai8ty.com/privacy" />
       </Helmet>
 
       <div className="min-h-screen bg-background">
